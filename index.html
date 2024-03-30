@@ -21,6 +21,40 @@
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
       import { XRButton } from 'three/addons/webxr/XRButton.js';
       import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+
+      let container;
+      let camera, scene, renderer;
+      let controller1, controller2;
+      let controllerGrip1, controllerGrip2;
+
+      init();
+      animate();
+
+      function init() {
+        //incomplete
+	    
+        window.addEventListener( 'resize', onWindowResize );
+
+      }
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+			function animate() {
+
+				renderer.setAnimationLoop( render );
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
 	    
     </script>
 
