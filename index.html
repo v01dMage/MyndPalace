@@ -72,13 +72,7 @@
 	renderer.xr.enabled = true;
 	container.appendChild( renderer.domElement );
 
-	document.body.appendChild( 
-		XRButton.createButton( renderer, {
-			'optionalFeatures': [ 'depth-sensing'] 
-		} ) 
-	);
-
-
+	document.body.appendChild( XRButton.createButton( renderer, { 'optionalFeatures': [ 'depth-sensing'] } ) );
 	
       }
 	    
@@ -97,8 +91,5 @@
       }
 	    
     </script>
-
-echo "This is a test"
-
   </body>
 </html>
