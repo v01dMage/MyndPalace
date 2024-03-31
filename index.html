@@ -31,34 +31,58 @@
       animate();
 
       function init() {
-        //incomplete
-	    
         window.addEventListener( 'resize', onWindowResize );
 
+        container = document.createElement( 'div' );
+	document.body.appendChild( container );
+
+	scene = new THREE.Scene();
+	scene.background = new THREE.Color( 0x44aa77 );
+
+	camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
+	camera.position.set( 0, 1.6, 3 );
+
+	controls = new OrbitControls( camera, container );
+	controls.target.set( 0, 1.6, 0 );
+	controls.update();
+
+	const floorGeometry = new THREE.PlaneGeometry( 100, 100 );
+	const floorMaterial = new THREE.ShadowMaterial( { opacity: 0.8, blending: THREE.CustomBlending, transparent: false } );
+	const floor = new THREE.Mesh( floorGeometry, floorMaterial );
+	floor.rotation.x = - Math.PI / 2;
+	floor.receiveShadow = true;
+	scene.add( floor );
+
+	scene.add( new THREE.HemisphereLight( 0xbcbcbc, 0xa5a5a5, 3 ) );
+
+	const light = new THREE.DirectionalLight( 0xffffff, 3 );
+	light.position.set( 0, 6, 0 );
+	light.castShadow = true;
+	light.shadow.camera.top = 3;
+	light.shadow.camera.bottom = - 3;
+	light.shadow.camera.right = 3;
+	light.shadow.camera.left = - 3;
+	light.shadow.mapSize.set( 4096, 4096 );
+	scene.add( light );
       }
-			function onWindowResize() {
+	    
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+      }
+	    
+      function animate() {
+        renderer.setAnimationLoop( render );
+      }
 
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
-			}
-			function animate() {
-
-				renderer.setAnimationLoop( render );
-
-			}
-
-			function render() {
-
-				renderer.render( scene, camera );
-
-			}
+      function render() {
+        renderer.render( scene, camera );
+      }
 	    
     </script>
 
-echo "hmmm..... This is a test of the Emergency live boilerplate output system"
+echo "This is a test of the Emergency xr boilerplate output system"
 
   </body>
 </html>
