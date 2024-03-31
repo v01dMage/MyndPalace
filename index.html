@@ -19,7 +19,7 @@
     <script type="module">
       import * as THREE from 'three';
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-      import { XRButton } from 'three/addons/webxr/XRButton.js';
+      import { VRButton } from 'three/addons/webxr/VRButton.js';
       import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
       let container;
@@ -72,7 +72,7 @@
 	renderer.xr.enabled = true;
 	container.appendChild( renderer.domElement );
 
-	document.body.appendChild( XRButton.createButton( renderer, { 'optionalFeatures': [ 'depth-sensing'] } ) );
+	document.body.appendChild( VRButton.createButton( renderer ) );
 	
       }
 	    
