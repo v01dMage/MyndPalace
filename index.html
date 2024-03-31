@@ -64,6 +64,22 @@
 	light.shadow.camera.left = - 3;
 	light.shadow.mapSize.set( 4096, 4096 );
 	scene.add( light );
+
+	renderer = new THREE.WebGLRenderer( { antialias: true } );
+	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.shadowMap.enabled = true;
+	renderer.xr.enabled = true;
+	container.appendChild( renderer.domElement );
+
+	document.body.appendChild( 
+		XRButton.createButton( renderer, {
+			'optionalFeatures': [ 'depth-sensing'] 
+		} ) 
+	);
+
+
+	
       }
 	    
       function onWindowResize() {
