@@ -16,21 +16,28 @@
     </script>
   </head>
   <body>
-	  <p>test</p>
+	  
     <script type="module">
       import * as THREE from 'three';
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
       import { VRButton } from 'three/addons/webxr/VRButton.js';
       import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
+      function Test(f){
+        let result= document.createElement('p');
+	result.innerHTML= f()?"<p>true</p>":"<p>false</p>";
+	document.appendChild( result );
+      }
+	    
       let container;
       let camera, scene, renderer;
       let controller1, controller2;
       let controllerGrip1, controllerGrip2;
 
-	    let test= document.createElement( 'p' ) ;
-	    test.innerHTML= "wtf";
-            document.body.appendChild( test );
+ //
+   Test(()=>{
+	   return jim;
+   });
 	    
       init();
       animate();
@@ -96,6 +103,5 @@
       }
 	    
     </script>
-    <p>∆</p>
   </body>
 </html>
