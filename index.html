@@ -26,7 +26,7 @@
       function Test(f){
         let result= document.createElement('p');
 	result.innerHTML= f()?"<p>true</p>":"<p>false</p>";
-	document.appendChild( result );
+	document.body.appendChild( result );
       }
 	    
       let container;
