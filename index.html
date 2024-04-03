@@ -23,20 +23,13 @@
       import { VRButton } from 'three/addons/webxr/VRButton.js';
       import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
-	    
-      function test(t){
-        let result= document.createElement('p');
-	result.innerHTML= t;
-	document.body.appendChild( result );
-      }
+	   
 	    
       let container;
       let camera, scene, renderer;
       let controller1, controller2;
       let controllerGrip1, controllerGrip2;
 
- 
-   test('false');
 	    
    //   init();
    //   animate();
@@ -102,5 +95,13 @@
       }
 	    
     </script>
+<script>
+function test(t){
+        let result= document.createElement('p');
+	result.innerHTML= t;
+	document.body.appendChild( result );
+      }
+test("hey");
+</script>
   </body>
 </html>
