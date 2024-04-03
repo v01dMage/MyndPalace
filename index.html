@@ -24,8 +24,11 @@
       import { VRButton } from 'three/addons/webxr/VRButton.js';
       import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
-	   
-	    
+	   let test= document.createElement('div');
+     test.innerHTML= "here?";
+     document.body.appendChild(test);
+	 /*   
+
       let container;
       let camera, scene, renderer;
       let controller1, controller2;
@@ -50,7 +53,7 @@
 	controls = new OrbitControls( camera, container );
 	controls.target.set( 0, 1.6, 0 );
 	controls.update();
-/*
+
 	const floorGeometry = new THREE.PlaneGeometry( 100, 100 );
 	const floorMaterial = new THREE.ShadowMaterial( { opacity: 0.8, blending: THREE.CustomBlending, transparent: false } );
 	const floor = new THREE.Mesh( floorGeometry, floorMaterial );
@@ -69,7 +72,7 @@
 	light.shadow.camera.left = - 3;
 	light.shadow.mapSize.set( 4096, 4096 );
 	scene.add( light );
-*/
+
 
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
 	renderer.setPixelRatio( window.devicePixelRatio );
@@ -95,15 +98,7 @@
       function render() {
         renderer.render( scene, camera );
       }
-	    
+	    */
     </script>
-<script>
-function test(t){
-        let result= document.createElement('p');
-	result.innerHTML= t;
-	document.body.appendChild( result );
-      }
-test("yarg");
-</script>
   </body>
 </html>
