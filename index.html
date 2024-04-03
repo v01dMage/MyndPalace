@@ -45,7 +45,7 @@
 
 	camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 	camera.position.set( 0, 1.6, 3 );
-
+/*
 	controls = new OrbitControls( camera, container );
 	controls.target.set( 0, 1.6, 0 );
 	controls.update();
@@ -68,6 +68,7 @@
 	light.shadow.camera.left = - 3;
 	light.shadow.mapSize.set( 4096, 4096 );
 	scene.add( light );
+*/
 
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
 	renderer.setPixelRatio( window.devicePixelRatio );
