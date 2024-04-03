@@ -24,9 +24,9 @@
       import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
 	    
-      function Test(tf){
+      function test(t){
         let result= document.createElement('p');
-	result.innerHTML= String(tf);
+	result.innerHTML= t;
 	document.body.appendChild( result );
       }
 	    
@@ -36,7 +36,7 @@
       let controllerGrip1, controllerGrip2;
 
  
-   Test(false);
+   test('false');
 	    
    //   init();
    //   animate();
