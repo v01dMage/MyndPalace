@@ -26,10 +26,10 @@
       import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
 	   let test= document.createElement('div');
-     test.innerHTML= typeof THREE+"//n"+
-        typeof OrbitControls +"//n"+
-        typeof VRButton +"//n"+
-        typeof XRButton +"//n"+
+     test.innerHTML= typeof THREE +"<br>"+
+        typeof OrbitControls +"<br>"+
+        typeof VRButton +"<br>"+
+        typeof XRButton +"<br>"+
         typeof XRControllerModelFactory;
 
      document.body.appendChild(test);
@@ -39,10 +39,10 @@
       let controller1, controller2;
       let controllerGrip1, controllerGrip2;
 
-	  /*  
+	  
      init();
      animate();
-*/
+
 
       function init() {
         window.addEventListener( 'resize', onWindowResize );
