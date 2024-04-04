@@ -10,7 +10,7 @@
     <script type="importmap">
       {
         "imports": {
-          "three": "https://github.com/v01dmage/three/build/three.module.js",
+          "three": "https://raw.githubusercontent.com/v01dMage/three.js/dev/build/three.module.js",
           "three/addons/": "https://github.com/v01dmage/three/examples/jsm/"
         }
       }
@@ -18,14 +18,14 @@
   </head>
   <body>
 	  
-    <script >
+    <script type="module">
       import * as THREE from 'three';
     //  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     //  import { VRButton } from 'three/addons/webxr/VRButton.js';
     //  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
 	   let test= document.createElement('div');
-     test.innerHTML= "here??";
+     test.innerHTML= !!THREE;
      document.body.appendChild(test);
 	 /*   
 
