@@ -8,16 +8,18 @@
     div { border: 2px solid blue; }
 		</style>
     <script type="importmap">
-     { "imports" : {
-        "three/" : "https://raw.githubusercontent.com/v01dMage/three.js/dev/build/", 
-        "three/addons/" : "https://raw.githubusercontent.com/v01dMage/three js/examples/jsm/"
-      } }
-    </script>
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/"
+    }
+  }
+</script>
   </head>
   <body>
 	  
     <script type="module">
-      import * as THREE from "three/three.module.js";
+      import * as THREE from "three";
     //  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     //  import { VRButton } from 'three/addons/webxr/VRButton.js';
     //  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
