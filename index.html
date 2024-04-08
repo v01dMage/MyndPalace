@@ -53,11 +53,11 @@
                                 );
                                 scene.add( room );
 
-				runner = new THREE.Mesh( new THREE.CapsuleGeometry( 1, 2, 10, 5).translate( 0, 2.75, 2), 
+				runner = new THREE.Mesh( new THREE.CapsuleGeometry( .1, .2, 10, 5).translate( 0, 0, -1), 
 							new THREE.MeshBasicMaterial( {color: 0x330099} ) );
 				scene.add( runner );
 
-				testLight = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1 ).translate( 2, 3, 2 ),
+				testLight = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1 ).translate( 1, .1, -1 ),
 							   new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 				scene.add( testLight );
 
