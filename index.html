@@ -65,7 +65,12 @@
 
        testText= createText( "Fail2", .3 );
         testText.rotateX(- .7 );
-        testText.translate(0, 0, -.5);   scene.add( testText );
+        try {
+  testText.translate(0, 0, -.5);  
+} catch(err){
+  testText= createText( err.msg, .3 );
+}
+ scene.add( testText );
 
                                 scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
