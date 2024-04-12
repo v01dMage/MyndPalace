@@ -64,10 +64,8 @@
 				scene.add( testLight );
 
        testText= createText( "Fail2", .3 );
-        // plane no translate???
-        //testText.translate(0, 0, -.5); 
         testText.rotateX(- .7 );
-       scene.add( testText );
+        testText.translate(0, 0, -.5);   scene.add( testText );
 
                                 scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
