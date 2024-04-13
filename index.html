@@ -62,10 +62,11 @@
             new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		  		scene.add( testLight );
 
-        testText= createText( "Fail2", .3 );
+        testText= createText( "Fail3", .3 );
         testText.rotateX(- .7 );
         try {
-          testText.position.z= -.5;  
+          testText.position.z= -.75;
+          testText.position.y= 1;
         } catch(err){
           testText= createText( err, .3 );
         }
