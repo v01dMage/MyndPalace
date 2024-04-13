@@ -227,7 +227,7 @@
           raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
           raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
 
-          const intersects = raycaster.intersectObjects( [ floor ] );
+          const intersects = raycaster.intersectObjects( [ floor, runner ] );
 
           if ( intersects.length > 0 ) {
             INTERSECTION = intersects[ 0 ].point;
