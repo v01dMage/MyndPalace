@@ -111,6 +111,11 @@
         function onSelectStart() {
           this.userData.isSelecting = true;
           // Highlight runner
+          try{
+            runner.mesh.color= '0x44aa44';
+          } catch(err){
+            testText= createText( err, .3 );
+          }
         }
 
         function onSelectEnd() {
