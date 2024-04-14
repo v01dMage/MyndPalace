@@ -110,10 +110,15 @@
 
         function onSelectStart() {
           this.userData.isSelecting = true;
+          // Highlight runner
         }
 
         function onSelectEnd() {
           this.userData.isSelecting = false;
+          if( runner.userData.isSelecting === true ){
+            // capsule purple
+            // cube red
+          }
 
           if ( INTERSECTION ) {
             const offsetPosition = { 
@@ -230,7 +235,11 @@
           const intersects = raycaster.intersectObjects( [ floor, runner ] );
 
           if ( intersects.length > 0 ) {
-            INTERSECTION = intersects[ 0 ].point;
+            if( intersects[0].object === runner ){
+              runner.userData.isSelecting= true;
+            } else {
+              INTERSECTION = intersects[ 0 ].point;
+            }
           }
         }
 
