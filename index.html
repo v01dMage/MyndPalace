@@ -183,7 +183,7 @@
         scene.add( controllerGrip2 );
 
         cFrame = new THREE.Mesh(
-            new THREE.BoxGeometry( .3, .3, .01 ).rotateX(-.7).translate(-.3,.3,.02),
+            new THREE.BoxGeometry( .3, .3, .01 ).rotateX(-.7).rotateY(1.57).translate(-.1,.1,.002),
             new THREE.MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
         controllerGrip1.add( cFrame );
 
