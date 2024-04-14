@@ -64,12 +64,8 @@
 
         testText= createText( '...', .3 );
         testText.rotateX(- .7 );
-        try {
-          testText.position.z= -.75;
-          testText.position.y= 1;
-        } catch(err){
-          testText= createText( err, .3 );
-        }
+        testText.position.z= -.75;
+        testText.position.y= 1;
         scene.add( testText );
 
                                
@@ -111,10 +107,10 @@
         function onSelectStart() {
           this.userData.isSelecting = true;
           // Highlight runner
-          try{
-            runner.material.color.setHex( 0x44aa44 );
-          } catch(err){
-            scene.add( createText( err, .3 ) );
+          if( runner.userData.isSelecting == true ) {
+           runner.material.color.setHex( 0x44aa44 );
+          } else {
+            runner.material.color.setHex( 0x4444aa );
           }
         }
 
@@ -122,8 +118,10 @@
           this.userData.isSelecting = false;
           if( runner.userData.isSelecting === true ){
             // capsule purple
+            runner.material.color.setHex( 0xcc22cc );
             // cube red
-          }
+            testLight.material.color.setHex( 0xdd5555 );
+          } 
 
           if ( INTERSECTION ) {
             const offsetPosition = { 
@@ -243,6 +241,7 @@
             if( intersects[0].object === runner ){
               runner.userData.isSelecting= true;
             } else {
+              runner.userData.isSelecting= false;
               INTERSECTION = intersects[ 0 ].point;
             }
           }
