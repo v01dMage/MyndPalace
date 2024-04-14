@@ -62,7 +62,7 @@
             new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		  		scene.add( testLight );
 
-        testText= createText( typeof runner, .3 );
+        testText= createText( runner.getKeys(), .3 );
         testText.rotateX(- .7 );
         try {
           testText.position.z= -.75;
