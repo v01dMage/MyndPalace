@@ -62,7 +62,7 @@
             new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		  		scene.add( testLight );
 
-        testText= createText( runner.material.color, .3 );
+        testText= createText( '...', .3 );
         testText.rotateX(- .7 );
         try {
           testText.position.z= -.75;
@@ -112,9 +112,9 @@
           this.userData.isSelecting = true;
           // Highlight runner
           try{
-            runner.material.color.setHex= 0x44aa44;
+            runner.material.color.setHex( 0x44aa44 );
           } catch(err){
-            testText= createText( err, .3 );
+            scene.add( createText( err, .3 ) );
           }
         }
 
