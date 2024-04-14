@@ -183,9 +183,9 @@
         scene.add( controllerGrip2 );
 
         cFrame = new THREE.Mesh(
-            new THREE.BoxGeometry( .3, .3, .01 ),
+            new THREE.BoxGeometry( .3, .3, .01 ).rotateX(-.7).translate(-.3,.3,.02),
             new THREE.MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
-        controllerGrip2.add( cFrame );
+        controllerGrip1.add( cFrame );
 
         //
         window.addEventListener( 'resize', onWindowResize, false );
