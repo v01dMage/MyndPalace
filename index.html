@@ -30,6 +30,13 @@
 
       let room, marker, floor, baseReferenceSpace;
       let runner, testLight, testText;
+      let cFrame, cScreen, cPlane;
+
+      function d(n){
+        return ()=>{
+          return Math.floor( Math.random()* n +1 );
+        };
+      const d20= d(20);
 
       let INTERSECTION;
       const tempMatrix = new THREE.Matrix4();
@@ -121,6 +128,7 @@
             runner.material.color.setHex( 0xcc22cc );
             // cube red
             testLight.material.color.setHex( 0xdd5555 );
+            cPlane.update( d20() );
           } 
 
           if ( INTERSECTION ) {
@@ -173,6 +181,10 @@
         controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
         scene.add( controllerGrip2 );
 
+        cFrame = new Mesh(
+            new BoxGeometry( .3, .3, .01 ),
+            new MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
+        controllerGrip2.add( cFrame );
 
         //
         window.addEventListener( 'resize', onWindowResize, false );
