@@ -182,9 +182,9 @@
         controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
         scene.add( controllerGrip2 );
 
-        cFrame = new Mesh(
-            new BoxGeometry( .3, .3, .01 ),
-            new MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
+        cFrame = new THREE.Mesh(
+            new THREE.BoxGeometry( .3, .3, .01 ),
+            new THREE.MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
         testLight.add( cFrame );
 
         //
