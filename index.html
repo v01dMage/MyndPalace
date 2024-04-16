@@ -185,20 +185,20 @@
 // consoleVR
 
         cFrame = new THREE.Mesh(
-            new THREE.BoxGeometry( .2, .2, .01 ),
-            new THREE.MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
+            new THREE.BoxGeometry( .1, .1, .01 ),
+            new THREE.MeshPhongMaterial( {color: 0x229933} ) );
         controllerGrip1.add( cFrame );
 
         cScreen= new THREE.Mesh(
-            new THREE.BoxGeometry( .18, .08, .01),
+            new THREE.BoxGeometry( .08, .04, .01),
             new THREE.MeshBasicMaterial( {
                 color: 0x110011,
                 wireframe: true
             })
           );
         cFrame.add( cScreen );
-        cFrame.rotateZ( -1.67 );
-        cFrame.position.x += .05
+        cFrame.rotateX( -1.67 );
+        cFrame.position.y-= .2
 
         //
         window.addEventListener( 'resize', onWindowResize, false );
