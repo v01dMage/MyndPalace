@@ -129,7 +129,10 @@
             runner.material.color.setHex( 0xcc22cc );
             // cube red
             testLight.material.color.setHex( 0xdd5555 );
-            //cPlane.update( d20() );
+            cScreen.removeChild( cPlane );
+            cPlane= createText( d20(), .1 );
+            cPlane.position.z+= .02;
+            cScreen.add( cPlane );
           } 
 
           if ( INTERSECTION ) {
