@@ -182,10 +182,21 @@
         controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
         scene.add( controllerGrip2 );
 
+// consoleVR
+
         cFrame = new THREE.Mesh(
-            new THREE.BoxGeometry( .3, .3, .01 ).rotateX(-.7).rotateY(1.57).translate(-.1,.1,.002),
+            new THREE.BoxGeometry( .2, .2, .01 ).rotateX(-.7).rotateY(1.57).translate(-.1,.1,.002),
             new THREE.MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
         controllerGrip1.add( cFrame );
+
+        cScreen= new THREE.Mesh(
+            new THREE.BoxGeometry( .18, .08, .01),
+            new THREE.MeshBasicMaterial( {
+                color: 0x110011,
+                wireframe: true
+            })
+          );
+        cFrame.add( cScreen );
 
         //
         window.addEventListener( 'resize', onWindowResize, false );
