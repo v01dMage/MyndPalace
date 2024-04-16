@@ -190,7 +190,7 @@
         controllerGrip1.add( cFrame );
 
         cScreen= new THREE.Mesh(
-            new THREE.BoxGeometry( .08, .06, .01).translate( 0, .01, .01),
+            new THREE.BoxGeometry( .08, .06, .001).translate( 0, .01, .01),
             new THREE.MeshBasicMaterial( {
                 color: 0x110011,
                 wireframe: true
@@ -200,6 +200,9 @@
         cFrame.rotateX( -1.67 );
         cFrame.position.y+= .04;
         cFrame.position.z+= .11;
+
+        cPlane= createText( d20(), .04 );
+        cScreen.add( cPlane );
 
         //
         window.addEventListener( 'resize', onWindowResize, false );
