@@ -185,7 +185,7 @@
 // consoleVR
 
         cFrame = new THREE.Mesh(
-            new THREE.BoxGeometry( .2, .2, .01 ).rotateX(-.7).rotateY(1.57).translate(-.1,.1,.002),
+            new THREE.BoxGeometry( .2, .2, .01 ),
             new THREE.MeshBasicMaterial( {color: 0x229933, wireframe: true} ) );
         controllerGrip1.add( cFrame );
 
@@ -197,7 +197,7 @@
             })
           );
         cFrame.add( cScreen );
-
+        cFrame.rotateX(-.7).rotateY(1.57).translate(-.1,.1,.002);
         //
         window.addEventListener( 'resize', onWindowResize, false );
       }
