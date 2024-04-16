@@ -130,7 +130,7 @@
             // cube red
             testLight.material.color.setHex( 0xdd5555 );
             cScreen.remove( cPlane );
-            cPlane= createText( d20(), .1 );
+            cPlane= createText( d20(), .03 );
             cPlane.position.z+= .02;
             cScreen.add( cPlane );
           } 
@@ -196,7 +196,7 @@
             new THREE.BoxGeometry( .08, .06, .001).translate( 0, .01, .01),
             new THREE.MeshBasicMaterial( {
                 color: 0x110011,
-                wireframe: true
+                wireframe: false
             })
           );
         cFrame.add( cScreen );
