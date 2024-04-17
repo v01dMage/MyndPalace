@@ -1,1 +1,1 @@
-https://v01dMage.github.io/MyndHaven 
+https://v01dMage.github.io/MyndPalace
