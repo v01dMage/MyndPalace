@@ -1,6 +1,6 @@
 //Main entry to vr lab
 
-import { init, animate } from './VRBoilerplate.js'
+import './VRBoilerplate.js'
 
 export function enter(){
   //init();
