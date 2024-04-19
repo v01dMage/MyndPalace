@@ -26,8 +26,7 @@ prompt("Hello?");
       let INTERSECTION;
       const tempMatrix = new THREE.Matrix4();
 
-      init();
-      animate();
+//init  and animate calls bumped upstream
 
       function init() {
         scene = new THREE.Scene();
