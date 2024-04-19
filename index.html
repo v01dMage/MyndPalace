@@ -10,15 +10,16 @@
     <script type="importmap"> {
       "imports": {
         "three": "https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/"
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/",
+        "vr": "./"
         }
       }
     </script>
   </head>
   <body>
     <script type="module">
-      import * from'./VRBoilerPlate.js';
-      prompt();
+      import * from'vr/VRBoilerPlate.js';
+
       init();
       animate();
       
