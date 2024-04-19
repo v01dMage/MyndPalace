@@ -3,6 +3,6 @@
 import { init, animate } from './VRBoilerPlate.js'
 
 export function enter(){
- // init();
- // animate();
+  init();
+  animate();
 }
