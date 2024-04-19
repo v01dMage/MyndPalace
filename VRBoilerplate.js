@@ -1,4 +1,11 @@
 //make and export scene
+
+
+
+ /*       "three": "https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/",
+*/
+
 import * as THREE from 'three';
 
       import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
