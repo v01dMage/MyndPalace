@@ -28,7 +28,7 @@ prompt("Hello?");
 
 //init  and animate calls bumped upstream
 
-      function init() {
+    export  function init() {
         scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x104030 );
 
@@ -228,7 +228,7 @@ prompt("Hello?");
 
       //
 
-      function animate() {
+    export  function animate() {
         renderer.setAnimationLoop( render );
       }
 
@@ -270,5 +270,3 @@ prompt("Hello?");
 
         renderer.render( scene, camera );
       }
-
-export { init, animate };
