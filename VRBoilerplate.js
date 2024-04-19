@@ -6,12 +6,12 @@
         "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/",
 */
 
-import * as THREE from 'three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js';
 
-      import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
-      import { VRButton } from 'three/addons/webxr/VRButton.js';
-      import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
-      import { createText } from 'three/addons/webxr/Text2D.js'
+      import { BoxLineGeometry } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/geometries/BoxLineGeometry.js';
+      import { VRButton } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js';
+      import { XRControllerModelFactory } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js';
+      import { createText } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js'
 
       let camera, scene, raycaster, renderer;
       let controller1, controller2;
