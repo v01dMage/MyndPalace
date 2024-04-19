@@ -18,7 +18,7 @@ let t= document.createElement('div');
 t.innerHTML= "Here.";
 document.body.appendChild( t);
 
-
+/*
       let camera, scene, raycaster, renderer;
       let controller1, controller2;
       let controllerGrip1, controllerGrip2;
@@ -281,3 +281,7 @@ document.body.appendChild( t);
 
         renderer.render( scene, camera );
       }
+*/
+
+export function init(){}
+export function animate(){}
