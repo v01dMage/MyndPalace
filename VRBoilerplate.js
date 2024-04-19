@@ -270,3 +270,5 @@ prompt("Hello?");
 
         renderer.render( scene, camera );
       }
+
+export *
