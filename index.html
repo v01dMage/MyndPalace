@@ -10,15 +10,11 @@
   </head>
   <body>
     <script type="module">
-      let result= "hmmm";
-      try {
      import { enter } from './MyndPalace.js';
-      } catch(err){
-        result= err;
-      }
+      
 
   let test= document.createElement("div");
-      test.innerHTML= result;
+      test.innerHTML= enter;
       document.body.appendChild( test );
       
  //     enter();
