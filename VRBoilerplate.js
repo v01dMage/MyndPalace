@@ -283,5 +283,3 @@ document.body.appendChild( t);
       }
 */
 
-export function init(){}
-export function animate(){}
