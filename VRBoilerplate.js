@@ -13,6 +13,12 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.
       import { XRControllerModelFactory } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js';
       import { createText } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js'
 
+
+let t= document.createElement('div');
+t.innerHTML= "Here.";
+document.body.appendChild( t);
+
+
       let camera, scene, raycaster, renderer;
       let controller1, controller2;
       let controllerGrip1, controllerGrip2;
