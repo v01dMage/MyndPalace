@@ -11,7 +11,8 @@
   {
     "imports": {
       "three": "https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/"
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/",
+      "vr/": "./"
     }
   }
 </script>
@@ -19,12 +20,13 @@
   </head>
   <body>
     <script type="module">
-     import './VRBoilerplate.js';
+     import 'vr/VRBoilerplate.js';
       import * as THREE from 'three';
+      import { enter } from 'vr/MyndPalace.js';
       
 
   let test= document.createElement("div");
-      test.innerHTML= typeof THREE;
+      test.innerHTML= typeof enter+" pink salt";
       document.body.appendChild( test );
       
     </script> 
