@@ -111,7 +111,7 @@ import * as THREE from 'three';
             // cube red
             testLight.material.color.setHex( 0xdd5555 );
             cScreen.remove( cPlane );
-            cPlane= createText( d20()+" enough text to overwrite the box + a whole bunch more like lorem ipsum habet scit. fiat fakit quid que quorum. a bit more still as I really want to what happens if i exceed the length of the room or viewport. i don't know how long that needs or if //n will do anything hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm", .03 );
+            cPlane= createText( d20()+" rigged d4", .02 );
             cPlane.position.z+= .02;
             cScreen.add( cPlane );
           } 
