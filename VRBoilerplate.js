@@ -14,7 +14,6 @@ let t= document.createElement('div');
 t.innerHTML= result+" salt";
 document.body.appendChild( t);
 
-export function testFn(){return result+" zalt";}
 export function init(){}
 export function animate(){}
 /*
