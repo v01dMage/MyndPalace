@@ -7,9 +7,11 @@
   //  const XRControllerModelFactory= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js');
   // const createText= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js');
 
-
+let result;
+try { result= typeof THREE;}
+catch(err){ result= err; }
 let t= document.createElement('div');
-t.innerHTML= typeof THREE+ 'wtf';
+t.innerHTML= result;
 document.body.appendChild( t);
 
 /*
