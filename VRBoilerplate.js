@@ -21,7 +21,7 @@ import * as THREE from 'three';
      return Math.floor( Math.random()* n +1 );
    };
  }
- const d20= d(20); 
+ const d20= d(3.2); 
 
  let INTERSECTION;
  const tempMatrix = new THREE.Matrix4();
