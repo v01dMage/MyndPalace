@@ -1,6 +1,6 @@
 //make and export scene
 
-const THREE= await import('three');
+const THREE= await import('three').catch(e=>e);
 
   // import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
  //  const VRButton= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js');
@@ -9,7 +9,7 @@ const THREE= await import('three');
 
 
 let t= document.createElement('div');
-t.innerHTML= typeof THREE;
+t.innerHTML= typeof THREE+ THREE;
 document.body.appendChild( t);
 
 /*
