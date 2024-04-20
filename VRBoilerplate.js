@@ -1,21 +1,22 @@
-//make and export scene
+//make scene and export functions 
 
 import * as THREE from 'three';
 
  import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
- //  const VRButton= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js');
-  //  const XRControllerModelFactory= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js');
-  // const createText= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js');
+ import { VRButton } from 'three/addons/webxr/VRButton.js';
+ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+ import { createText } from 'three/addons/webxr/Text2D.js';
 
 let result;
-try { result= typeof BoxLineGeometry;}
+try { result= typeof createText;}
 catch(err){ result= err; }
 let t= document.createElement('div');
 t.innerHTML= result+" salt";
 document.body.appendChild( t);
 
 export function testFn(){return result+" zalt";}
-
+export function init(){}
+export function animate(){}
 /*
       let camera, scene, raycaster, renderer;
       let controller1, controller2;
