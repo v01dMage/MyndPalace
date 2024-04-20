@@ -2,16 +2,16 @@
 
 import * as THREE from 'three';
 
-  // import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
+ import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
  //  const VRButton= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js');
   //  const XRControllerModelFactory= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js');
   // const createText= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js');
 
 let result;
-try { result= typeof THREE;}
+try { result= typeof BoxLineGeometry;}
 catch(err){ result= err; }
 let t= document.createElement('div');
-t.innerHTML= result;
+t.innerHTML= result+" salt";
 document.body.appendChild( t);
 
 /*
