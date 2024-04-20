@@ -14,6 +14,8 @@ let t= document.createElement('div');
 t.innerHTML= result+" salt";
 document.body.appendChild( t);
 
+export function testFn(){return result+" zalt";}
+
 /*
       let camera, scene, raycaster, renderer;
       let controller1, controller2;
