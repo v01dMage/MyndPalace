@@ -9,7 +9,7 @@
 
 
 let t= document.createElement('div');
-t.innerHTML= 'wtf';
+t.innerHTML= typeof THREE+ 'wtf';
 document.body.appendChild( t);
 
 /*
