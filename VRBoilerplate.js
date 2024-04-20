@@ -1,15 +1,8 @@
 //make and export scene
 
+import * as THREE from 'three';
 
-
- /*       "three": "https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/",
-
-*/ 
-
-const THREE= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js');
-
-   import { BoxLineGeometry } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/geometries/BoxLineGeometry';
+   import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry';
  //  const VRButton= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js');
   //  const XRControllerModelFactory= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js');
   // const createText= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js');
