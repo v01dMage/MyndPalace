@@ -9,7 +9,7 @@
 
 const THREE= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js');
 
-   //const BoxLineGeometry = await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/geometries/BoxLineGeometry.js');
+   const BoxLineGeometry = await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/geometries/BoxLineGeometry.js').then( M=> M.BoxLineGeometry );
  //  const VRButton= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js');
   //  const XRControllerModelFactory= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js');
   // const createText= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js');
