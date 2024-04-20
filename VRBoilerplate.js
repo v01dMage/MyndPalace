@@ -7,37 +7,26 @@ import * as THREE from 'three';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
  import { createText } from 'three/addons/webxr/Text2D.js';
 
-let result;
-try { result= typeof createText;}
-catch(err){ result= err; }
-let t= document.createElement('div');
-t.innerHTML= result+" salt";
-document.body.appendChild( t);
 
-export function init(){}
-export function animate(){}
-/*
-      let camera, scene, raycaster, renderer;
-      let controller1, controller2;
-      let controllerGrip1, controllerGrip2;
+ let camera, scene, raycaster, renderer;
+ let controller1, controller2;
+ let controllerGrip1, controllerGrip2;
 
-      let room, marker, floor, baseReferenceSpace;
-      let runner, testLight, testText;
-      let cFrame, cScreen, cPlane;
+ let room, marker, floor, baseReferenceSpace;
+ let runner, testLight, testText;
+ let cFrame, cScreen, cPlane;
 
-      function d(n){
-        return ()=>{
-          return Math.floor( Math.random()* n +1 );
-        };
-      }
-      const d20= d(20); 
+ function d(n){
+   return ()=>{
+     return Math.floor( Math.random()* n +1 );
+   };
+ }
+ const d20= d(20); 
 
-      let INTERSECTION;
-      const tempMatrix = new THREE.Matrix4();
+ let INTERSECTION;
+ const tempMatrix = new THREE.Matrix4();
 
-//init  and animate calls bumped upstream
-
-    export  function init() {
+ export function init() {
         scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x104030 );
 
@@ -237,9 +226,9 @@ export function animate(){}
 
       //
 
-    export  function animate() {
+   export function animate() {
         renderer.setAnimationLoop( render );
-      }
+   }
 
       function render() {
         INTERSECTION = undefined;
@@ -279,5 +268,3 @@ export function animate(){}
 
         renderer.render( scene, camera );
       }
-*/
-
