@@ -6,7 +6,8 @@
         "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/",
 
 */ 
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js';
+
+const THREE= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js');
 
    //   import { BoxLineGeometry } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/geometries/BoxLineGeometry.js';
    //   import { VRButton } from 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js';
