@@ -16,11 +16,12 @@
   </head>
   <body>
     <script type="module">
+      import * as THREE from 'three';
      import { enter } from './MyndPalace.js';
       
 
   let test= document.createElement("div");
-      test.innerHTML= enter;
+      test.innerHTML= typeof THREE+ enter;
       document.body.appendChild( test );
       
  //     enter();
