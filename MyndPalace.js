@@ -1,9 +1,9 @@
 //Main entry to vr lab
 
-import { testFn } from 'vr/VRBoilerplate.js';
+import { init, snimate } from 'vr/VRBoilerplate.js';
 
 let t= document.createElement('div');
-t.innerHTML= testFn()+testFn;
+t.innerHTML= init + animate;
 document.body.appendChild(t);
 
 export function enter(){
