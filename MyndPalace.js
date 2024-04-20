@@ -7,6 +7,6 @@ t.innerHTML= init + animate;
 document.body.appendChild(t);
 
 export function enter(){
-  //init();
-  //animate();
+  init();
+  animate();
 }
