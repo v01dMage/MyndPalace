@@ -2,7 +2,7 @@
 
 import * as THREE from 'three';
 
-   import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry';
+   import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
  //  const VRButton= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/VRButton.js');
   //  const XRControllerModelFactory= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/XRControllerModelFactory.js');
   // const createText= await import( 'https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/webxr/Text2D.js');
