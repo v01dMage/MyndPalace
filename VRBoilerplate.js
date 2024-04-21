@@ -13,7 +13,8 @@ import * as THREE from 'three';
  let controllerGrip1, controllerGrip2;
 
  let room, marker, floor, baseReferenceSpace;
- let runner, testLight, testText;
+// let runner, testLight,
+ let testText;
 // let cFrame, cScreen, cPlane;
 
  function d(n){
@@ -28,6 +29,7 @@ import * as THREE from 'three';
 
  export function init() {
         scene = new THREE.Scene();
+	 vr.scene= scene;
         scene.background = new THREE.Color( 0x104030 );
 
         camera = new THREE.PerspectiveCamera( 
@@ -40,7 +42,7 @@ import * as THREE from 'three';
           );
         scene.add( room );
 
-			  	runner = new THREE.Mesh( 
+/* 			  	runner = new THREE.Mesh( 
             new THREE.CapsuleGeometry( .1, .2, 3, 5).rotateZ(3.14/2).translate( -.1, 1.5, -.2),
             	new THREE.MeshBasicMaterial( {color: 0x330099, wireframe: true} ) 
           );
@@ -50,12 +52,12 @@ import * as THREE from 'three';
             new THREE.BoxGeometry( .1, .1, .1 ).translate( .3, 1.55, -.3 ),
             new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		  		scene.add( testLight );
-
+*/
         testText= createText( d20(), .3 );
         testText.rotateX(- .7 );
         testText.position.z= -.75;
         testText.position.y= 1;
-        scene.add( testText );
+        scene.add( testText ); 
 
                                
         scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
