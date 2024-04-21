@@ -238,7 +238,7 @@ self.controllerGrip2= controllerGrip2;
       //
 
    export function animate() {
-        renderer.setAnimationLoop( vr.render );
+        renderer.setAnimationLoop( self.render );
    }
 
    export   function render() {
