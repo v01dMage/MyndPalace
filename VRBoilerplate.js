@@ -29,6 +29,7 @@ import * as THREE from 'three';
 
 init();
 vr.render= render;
+vr.animate= animate;
 animate();
 
  export function init() {
