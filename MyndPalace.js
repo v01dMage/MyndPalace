@@ -6,5 +6,5 @@
 //have fun
 
 let t= document.createElement('div');
-t.innerHTML= vr;
+t.innerHTML= typeof vr;
 document.body.appendChild(t);
