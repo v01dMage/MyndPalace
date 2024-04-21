@@ -89,5 +89,6 @@ vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
 vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
   vr.addToPipeline( render );
+  vr.animate();
     }
   };
