@@ -168,7 +168,7 @@ vr.controllerGrip1= controllerGrip1;
         scene.add( controllerGrip2 );
 
 // consoleVR
-
+/*
         cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
@@ -189,7 +189,7 @@ vr.controllerGrip1= controllerGrip1;
         cPlane= createText( d20(), .1 );
         cPlane.position.z+= .02;
         cScreen.add( cPlane );
-
+*/
         //
         window.addEventListener( 'resize', onWindowResize, false );
       }
