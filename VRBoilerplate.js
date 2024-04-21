@@ -29,10 +29,9 @@ let pipeline= [render];
  const self= {};
 
 
-/*
 init();
 animate();
-*/
+
 
 function init() {
   self.scene= scene = new THREE.Scene();
