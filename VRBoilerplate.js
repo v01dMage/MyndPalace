@@ -29,9 +29,9 @@ let pipeline= [render];
  const self= {};
 //
 function init(){}
-function animate(){}
-function updatePipeline (){}
-function addToPipeline (){}
+//
+//
+//
 /*
 init();
 animate();
@@ -183,26 +183,27 @@ self.controllerGrip2= controllerGrip2;
             return new THREE.Mesh( geometry, material );
         }
       }
-
-    function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize( window.innerWidth, window.innerHeight );
-      }
-
-  
-  function addToPipeline(f){
-    pipeline.shift(f);
-  }
-  function updatePipeline(){
-     return ()=>{ pipeline.forEach( f=f(); ); };
-  }
-
-   function animate() {
-        renderer.setAnimationLoop( updatePipeline() );
-   }
 */
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize( window.innerWidth, window.innerHeight );
+}
+  
+function addToPipeline(f){
+  pipeline.unshift(f);
+}
+
+function updatePipeline(){
+  return ()=>{ pipeline.forEach( f=>f() ); };
+}
+
+function animate() {
+  renderer.setAnimationLoop( updatePipeline() );
+}
+
 function render() {
   INTERSECTION = undefined;
 
@@ -237,6 +238,6 @@ function render() {
   renderer.render( scene, camera );
 }
 
-let salt
+let saltwater 
 
-export { init, animate, updatePipeline, addToPipeline, render, self, salt };
+export { init, animate, updatePipeline, addToPipeline, render, self, saltwater };
