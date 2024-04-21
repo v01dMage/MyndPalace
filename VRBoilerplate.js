@@ -234,9 +234,9 @@ vr.controllerGrip2= controllerGrip2;
       //
 
    export function animate() {
-        renderer.setAnimationLoop( render );
+        renderer.setAnimationLoop( vr.render );
    }
-
+ vr.render = render;
       function render() {
         INTERSECTION = undefined;
 
