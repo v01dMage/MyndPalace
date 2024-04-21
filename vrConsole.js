@@ -1,15 +1,15 @@
 //separate console logic
 import * as THREE from'three';
+import { vr } from 'vr/VRBoilerplate.js';
 
-// init( c ) where c is a controller 
-  export const vrConsole={
-    init: function ( c ){ // c= controllerGrip1
+export const vrConsole={
+    init: function (){ 
       // consoleVR
         let cFrame, cScreen, cPlane;
         cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
-        c.add( cFrame );
+        vr.controllerGrip1.add( cFrame );
 
         cScreen= new THREE.Mesh(
             new THREE.BoxGeometry( .08, .06, .001).translate( 0, .01, .01),
