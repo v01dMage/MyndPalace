@@ -79,6 +79,7 @@ import * as THREE from 'three';
         scene.add( floor );
 
         raycaster = new THREE.Raycaster();
+	 vr.raycaster= raycaster;
 
         renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
