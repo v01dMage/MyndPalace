@@ -88,11 +88,6 @@ vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
 vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
 vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
-  vr.vrbRender= vr.render;
-        vr.self.render= ()=>{
-            vr.vrbRender();
-            pipeline();
-        };
-  vr.animate();
+  vr.addToAnimate( pipeline );
     }
   };
