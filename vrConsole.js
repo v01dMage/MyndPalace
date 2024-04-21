@@ -1,11 +1,10 @@
-//separate console logic
 import * as THREE from'three';
 import { createText } from 'three/addons/webxr/Text2D.js';
 import * as vr from 'vr/VRBoilerplate.js';
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
-
+vr.runner= runner; //salt
 const d20= d(3.2);
 
 init();
@@ -16,7 +15,6 @@ function d(n){
      return Math.floor( Math.random()* n +1 );
    };
  }
- 
 
 function onSelectStart(){
     // Highlight runner
@@ -37,60 +35,65 @@ function onSelectEnd(){
        cPlane= createText( d20()+" rigged d4", .02 );
        cPlane.position.z+= .02;
        cScreen.add( cPlane );
+    }
 }
 
 function render(){
-    // needs much more prep 
-/*
-    const intersects = vr.self.raycaster.intersectObjects( [ runner ] );
-    if( intersects.length > 0 ) {
-        runner.userData.isSelecting= true;
+  if ( controller2.userData.isSelecting === true ) {
+    tempMatrix.identity().extractRotation( controller2.matrixWorld );
+
+    raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
+    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+
+    const intersects= raycaster.intersectObjects( [ runner ] ); 
+
+    if ( intersects.length > 0 ) {
+       runner.userData.isSelecting= true;
     } else {
-        runner.userData.isSelecting= false;
-    } */
+       runner.userData.isSelecting= false;
+    } 
+  }
 }
 
 
-  function init(){ 
-       
-        cFrame = new THREE.Mesh(
+function init(){ 
+   cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
-        vr.self.controllerGrip1.add( cFrame );
+   vr.self.controllerGrip1.add( cFrame );
 
-        cScreen= new THREE.Mesh(
+   cScreen= new THREE.Mesh(
             new THREE.BoxGeometry( .08, .06, .001).translate( 0, .01, .01),
             new THREE.MeshBasicMaterial( {
                 color: 0x110011,
                 wireframe: false
             })
-          );
-        cFrame.add( cScreen );
-        cFrame.rotateX( -1.67 );
-        cFrame.position.y+= .04;
-        cFrame.position.z+= .11;
+   );
+   cFrame.add( cScreen );
+   cFrame.rotateX( -1.67 );
+   cFrame.position.y+= .04;
+   cFrame.position.z+= .11;
 
-        cPlane= createText( d20(), .1 );
-        cPlane.position.z+= .02;
-        cScreen.add( cPlane );
+   cPlane= createText( d20(), .1 );
+   cPlane.position.z+= .02;
+   cScreen.add( cPlane );
 
-        runner = new THREE.Mesh( 
+   runner = new THREE.Mesh( 
             new THREE.CapsuleGeometry( .1, .2, 3, 5).rotateZ(3.14/2).translate( -.1, 1.5, -.2),
             	new THREE.MeshBasicMaterial( {color: 0x330099, wireframe: true} ) 
           );
-			  	vr.self.scene.add( runner );
+		vr.self.controllerGrip1.add( runner );
 
-			  	testLight = new THREE.Mesh( 
-            new THREE.BoxGeometry( .1, .1, .1 ).translate( .3, 1.55, -.3 ),
-            new THREE.MeshBasicMaterial( {color: 0x777777} ) );
-		  		vr.self.scene.add( testLight );
+		testLight = new THREE.Mesh( 
+               new THREE.BoxGeometry( .1, .1, .1 ).translate( .3, 1.55, -.3 ),
+               new THREE.MeshBasicMaterial( {color: 0x777777} ) );
+		runner.add( testLight );
   
-      vr.self.controller1.addEventListener( 'selectstart', onSelectStart );
-vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
-vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
-vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
+   vr.self.controller1.addEventListener( 'selectstart', onSelectStart );
+   vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
+   vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
+   vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
-  vr.addToPipeline( render );
-  vr.animate();
-    }
-  };
+   vr.addToPipeline( render );
+   vr.animate();
+}
