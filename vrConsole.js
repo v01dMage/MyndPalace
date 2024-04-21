@@ -5,11 +5,6 @@ import { vr } from 'vr/VRBoilerplate.js';
 let cFrame, cScreen, cPlane;
 let runner, testLight;
 
-vr.controller1.addEventListener( 'selectstart', onSelectStart );
-vr.controller1.addEventListener( 'selectend', onSelectEnd );
-vr.controller2.addEventListener( 'selectstart', onSelectStart );
-vr.controller2.addEventListener( 'selectend', onSelectEnd );
-
 function onSelectStart(){
     // Highlight runner
     if( runner.userData.isSelecting == true ) {
@@ -80,5 +75,10 @@ export const vrConsole={
             new THREE.BoxGeometry( .1, .1, .1 ).translate( .3, 1.55, -.3 ),
             new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		  		vr.scene.add( testLight );
+  
+      vr.controller1.addEventListener( 'selectstart', onSelectStart );
+vr.controller1.addEventListener( 'selectend', onSelectEnd );
+vr.controller2.addEventListener( 'selectstart', onSelectStart );
+vr.controller2.addEventListener( 'selectend', onSelectEnd );
     }
   };
