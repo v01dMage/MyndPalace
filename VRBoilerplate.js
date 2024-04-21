@@ -132,6 +132,7 @@ import * as THREE from 'three';
         }
 
         controller1 = renderer.xr.getController( 0 );
+        vr.controller1= controller1;
         controller1.addEventListener( 'selectstart', onSelectStart );
         controller1.addEventListener( 'selectend', onSelectEnd );
         controller1.addEventListener( 'connected', function ( event ) {
@@ -143,6 +144,7 @@ import * as THREE from 'three';
         scene.add( controller1 );
 
         controller2 = renderer.xr.getController( 1 );
+        vr.controller2= controller2;
         controller2.addEventListener( 'selectstart', onSelectStart );
         controller2.addEventListener( 'selectend', onSelectEnd );
         controller2.addEventListener( 'connected', function ( event ) {
@@ -167,6 +169,7 @@ vr.controllerGrip1= controllerGrip1;
         scene.add( controllerGrip1 );
 
         controllerGrip2 = renderer.xr.getControllerGrip( 1 );
+vr.controllerGrip2= controllerGrip2;
         controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
         scene.add( controllerGrip2 );
 
