@@ -27,7 +27,7 @@ let pipeline= [render];
  const tempMatrix = new THREE.Matrix4();
 
  const self= {};
-function render(){}
+//
 function init(){}
 function animate(){}
 function updatePipeline (){}
@@ -193,7 +193,7 @@ self.controllerGrip2= controllerGrip2;
 
   
   function addToPipeline(f){
-    pipeline.push(f);
+    pipeline.shift(f);
   }
   function updatePipeline(){
      return ()=>{ pipeline.forEach( f=f(); ); };
@@ -202,42 +202,41 @@ self.controllerGrip2= controllerGrip2;
    function animate() {
         renderer.setAnimationLoop( updatePipeline() );
    }
-
-   function render() {
-        INTERSECTION = undefined;
-
-        if ( controller1.userData.isSelecting === true ) {
-          tempMatrix.identity().extractRotation( controller1.matrixWorld );
-
-          raycaster.ray.origin.setFromMatrixPosition( controller1.matrixWorld );
-          raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-
-          const intersects = raycaster.intersectObjects( [ floor ] );
-
-          if ( intersects.length > 0 ) {
-            INTERSECTION = intersects[ 0 ].point;
-          }
-        } else if ( controller2.userData.isSelecting === true ) {
-          tempMatrix.identity().extractRotation( controller2.matrixWorld );
-
-          raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
-          raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-
-          const intersects = raycaster.intersectObjects( [ floor] ); 
-
-          if ( intersects.length > 0 ) {
-              INTERSECTION = intersects[ 0 ].point;
-            }
-          }
-        }
-
-        if ( INTERSECTION ) marker.position.copy( INTERSECTION );
-
-        marker.visible = INTERSECTION !== undefined;
-
-        renderer.render( scene, camera );
-      }
-
 */
+function render() {
+  INTERSECTION = undefined;
 
-export { init, animate, updatePipeline, addToPipeline, render, self };
+  if ( controller1.userData.isSelecting === true ) {
+    tempMatrix.identity().extractRotation( controller1.matrixWorld );
+
+    raycaster.ray.origin.setFromMatrixPosition( controller1.matrixWorld );
+    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+
+    const intersects= raycaster.intersectObjects( [ floor ] );
+
+    if ( intersects.length > 0 ) {
+       INTERSECTION = intersects[ 0 ].point;
+    }
+  } else if ( controller2.userData.isSelecting === true ) {
+    tempMatrix.identity().extractRotation( controller2.matrixWorld );
+
+    raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
+    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+
+    const intersects= raycaster.intersectObjects( [ floor ] ); 
+
+    if ( intersects.length > 0 ) {
+       INTERSECTION = intersects[ 0 ].point;
+    }
+  }
+
+  if ( INTERSECTION ) marker.position.copy( INTERSECTION );
+
+  marker.visible = INTERSECTION !== undefined;
+
+  renderer.render( scene, camera );
+}
+
+let salt
+
+export { init, animate, updatePipeline, addToPipeline, render, self, salt };
