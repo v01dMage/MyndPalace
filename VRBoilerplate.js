@@ -159,6 +159,7 @@ import * as THREE from 'three';
         const controllerModelFactory = new XRControllerModelFactory();
 
         controllerGrip1 = renderer.xr.getControllerGrip( 0 );
+vr.controllerGrip1= controllerGrip1;
         controllerGrip1.add( controllerModelFactory.createControllerModel( controllerGrip1 ) );
         scene.add( controllerGrip1 );
 
