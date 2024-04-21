@@ -8,6 +8,7 @@ import * as THREE from 'three';
  import { createText } from 'three/addons/webxr/Text2D.js';
 
  let camera, scene, raycaster, renderer;
+let pipeline;
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
@@ -235,10 +236,17 @@ self.controllerGrip2= controllerGrip2;
         renderer.setSize( window.innerWidth, window.innerHeight );
       }
 
-      //
+  
+  function addToPipeline(f){
+    pipeline.push(f);
+  }
+  function updatePipeline(){
+     return ()=>{ pipeline.forEach( f=f(); ); };
+  }
 
    export function animate() {
-        renderer.setAnimationLoop( self.render );
+        
+        renderer.setAnimationLoop( updatePipeline() );
    }
 
    export   function render() {
