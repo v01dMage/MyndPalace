@@ -28,6 +28,7 @@ import * as THREE from 'three';
  const tempMatrix = new THREE.Matrix4();
 
 init();
+vr.render= render;
 animate();
 
  export function init() {
@@ -239,7 +240,7 @@ vr.controllerGrip2= controllerGrip2;
    export function animate() {
         renderer.setAnimationLoop( vr.render );
    }
- vr.render = render;
+
       function render() {
         INTERSECTION = undefined;
 
