@@ -228,6 +228,4 @@ function render() {
   renderer.render( scene, camera );
 }
 
-let pinksalt;
-
-export { init, animate, updatePipeline, addToPipeline, render, self, pinksalt };
+export { init, animate, updatePipeline, addToPipeline, render, self };
