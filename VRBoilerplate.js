@@ -27,11 +27,16 @@ let pipeline= [render];
  const tempMatrix = new THREE.Matrix4();
 
  const self= {};
+function render(){}
+function init(){}
+function animate(){}
+function updatePipeline (){}
+function addToPipeline (){}
 /*
 init();
 animate();
 */
- 
+ /*
  function init() {
         self.scene= scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x104030 );
@@ -233,5 +238,6 @@ self.controllerGrip2= controllerGrip2;
         renderer.render( scene, camera );
       }
 
+*/
 
 export { init, animate, updatePipeline, addToPipeline, render, self };
