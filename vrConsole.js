@@ -1,9 +1,22 @@
 //separate console logic
 import * as THREE from'three';
-import { vr } from 'vr/VRBoilerplate.js';
+import { createText } from 'three/addons/webxr/Text2D.js';
+import * as vr from 'vr/VRBoilerplate.js';
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
+
+const d20= d(3.2);
+
+init();
+
+
+function d(n){
+   return ()=>{
+     return Math.floor( Math.random()* n +1 );
+   };
+ }
+ 
 
 function onSelectStart(){
     // Highlight runner
@@ -35,11 +48,9 @@ function pipeline(){
     }
 }
 
-export const vrConsole={
-    init: function (){ 
-        
-      // consoleVR
-        let cFrame, cScreen, cPlane;
+
+  function init(){ 
+       
         cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
@@ -79,8 +90,8 @@ vr.controller2.addEventListener( 'selectend', onSelectEnd );
 
   vr.vrbRender= vr.render;
         vr.render= ()=>{
-            pipeline();
             vr.vrbRender();
+            pipeline();
         };
   vr.animate();
     }
