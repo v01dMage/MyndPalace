@@ -2,6 +2,29 @@
 import * as THREE from'three';
 import { vr } from 'vr/VRBoilerplate.js';
 
+function onSelectStart(){
+    // Highlight runner
+    if( runner.userData.isSelecting == true ) {
+        runner.material.color.setHex( 0x44aa44 );
+     } else {
+        runner.material.color.setHex( 0x4444aa );
+     }
+}
+
+function onSelectEnd(){
+    if( runner.userData.isSelecting === true ){
+      // capsule purple
+       runner.material.color.setHex( 0xcc22cc );
+      // cube red
+       testLight.material.color.setHex( 0xdd5555 );
+       cScreen.remove( cPlane );
+       cPlane= createText( d20()+" rigged d4", .02 );
+       cPlane.position.z+= .02;
+       cScreen.add( cPlane );
+}
+
+function pipeline(){}
+
 export const vrConsole={
     init: function (){ 
       // consoleVR
