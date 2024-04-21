@@ -7,12 +7,11 @@ import * as THREE from 'three';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
  import { createText } from 'three/addons/webxr/Text2D.js';
 
- export const vr= {};
- let camera, scene, raycaster, renderer;
- let controller1, controller2;
- let controllerGrip1, controllerGrip2;
+ export let camera, scene, raycaster, renderer;
+ export let controller1, controller2;
+ export let controllerGrip1, controllerGrip2;
 
- let room, marker, floor, baseReferenceSpace;
+ export let room, marker, floor, baseReferenceSpace;
 // let runner, testLight,
  let testText;
 // let cFrame, cScreen, cPlane;
@@ -27,14 +26,14 @@ import * as THREE from 'three';
  let INTERSECTION;
  const tempMatrix = new THREE.Matrix4();
 
+export const self= {};
+
 init();
-vr.render= render;
-vr.animate= animate;
 animate();
 
+ 
  export function init() {
-        scene = new THREE.Scene();
-	 vr.scene= scene;
+        self.scene= scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x104030 );
 
         camera = new THREE.PerspectiveCamera( 
@@ -84,7 +83,7 @@ animate();
         scene.add( floor );
 
         raycaster = new THREE.Raycaster();
-	 vr.raycaster= raycaster;
+	 self.raycaster= raycaster;
 
         renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
@@ -137,7 +136,7 @@ animate();
         }
 
         controller1 = renderer.xr.getController( 0 );
-        vr.controller1= controller1;
+        self.controller1= controller1;
         controller1.addEventListener( 'selectstart', onSelectStart );
         controller1.addEventListener( 'selectend', onSelectEnd );
         controller1.addEventListener( 'connected', function ( event ) {
@@ -149,7 +148,7 @@ animate();
         scene.add( controller1 );
 
         controller2 = renderer.xr.getController( 1 );
-        vr.controller2= controller2;
+        self.controller2= controller2;
         controller2.addEventListener( 'selectstart', onSelectStart );
         controller2.addEventListener( 'selectend', onSelectEnd );
         controller2.addEventListener( 'connected', function ( event ) {
@@ -169,12 +168,12 @@ animate();
         const controllerModelFactory = new XRControllerModelFactory();
 
         controllerGrip1 = renderer.xr.getControllerGrip( 0 );
-vr.controllerGrip1= controllerGrip1;
+self.controllerGrip1= controllerGrip1;
         controllerGrip1.add( controllerModelFactory.createControllerModel( controllerGrip1 ) );
         scene.add( controllerGrip1 );
 
         controllerGrip2 = renderer.xr.getControllerGrip( 1 );
-vr.controllerGrip2= controllerGrip2;
+self.controllerGrip2= controllerGrip2;
         controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
         scene.add( controllerGrip2 );
 
@@ -205,7 +204,7 @@ vr.controllerGrip2= controllerGrip2;
         window.addEventListener( 'resize', onWindowResize, false );
       }
 
-      function buildController( data ) {
+     function buildController( data ) {
         let geometry, material;
 
         switch ( data.targetRayMode ) {
@@ -229,7 +228,7 @@ vr.controllerGrip2= controllerGrip2;
         }
       }
 
-      function onWindowResize() {
+    export  function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
@@ -242,7 +241,7 @@ vr.controllerGrip2= controllerGrip2;
         renderer.setAnimationLoop( vr.render );
    }
 
-      function render() {
+   export   function render() {
         INTERSECTION = undefined;
 
         if ( controller1.userData.isSelecting === true ) {
