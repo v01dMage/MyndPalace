@@ -5,6 +5,6 @@ import { vrConsole } from 'vr/vrConsole.js';
 
 export function enter(){
   init();
-  vrConsole.init( vr.controllerGrip1 );
+  vrConsole.init();
   animate();
 }
