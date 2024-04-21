@@ -7,9 +7,9 @@ import * as THREE from 'three';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
  import { createText } from 'three/addons/webxr/Text2D.js';
 
- export let camera, scene, raycaster, renderer;
- export let controller1, controller2;
- export let controllerGrip1, controllerGrip2;
+ let camera, scene, raycaster, renderer;
+ let controller1, controller2;
+ let controllerGrip1, controllerGrip2;
 
  export let room, marker, floor, baseReferenceSpace;
 // let runner, testLight,
