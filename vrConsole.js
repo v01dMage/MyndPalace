@@ -4,7 +4,7 @@ import * as vr from 'vr/VRBoilerplate.js';
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
-vr.testlight= testlight; //salt
+
 const d20= d(3.2);
 
 init();
