@@ -14,7 +14,7 @@ import * as THREE from 'three';
 
  let room, marker, floor, baseReferenceSpace;
  let runner, testLight, testText;
- let cFrame, cScreen, cPlane;
+// let cFrame, cScreen, cPlane;
 
  function d(n){
    return ()=>{
