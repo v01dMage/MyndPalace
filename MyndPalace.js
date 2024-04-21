@@ -6,5 +6,5 @@ import * as vr from 'vr/VRBoilerplate.js';
 //have fun
 
 let t= document.createElement('div');
-t.innerHTML= typeof vr+' salt';
+t.innerHTML= vr;
 document.body.appendChild(t);
