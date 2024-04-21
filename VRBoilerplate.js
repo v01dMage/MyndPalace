@@ -24,7 +24,7 @@ import * as THREE from 'three';
  const d20= d(3.2); 
 
  let INTERSECTION;
- const tempMatrix = new THREE.Matrix4();
+ export const tempMatrix = new THREE.Matrix4();
 
  export const self= {};
 
