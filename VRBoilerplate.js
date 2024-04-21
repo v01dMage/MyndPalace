@@ -253,13 +253,13 @@ vr.controllerGrip1= controllerGrip1;
           raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
           raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
 
-          const intersects = raycaster.intersectObjects( [ floor, runner ] );
+          const intersects = raycaster.intersectObjects( [ floor] ); //, runner ] );
 
           if ( intersects.length > 0 ) {
-            if( intersects[0].object === runner ){
+          /*  if( intersects[0].object === runner ){
               runner.userData.isSelecting= true;
             } else {
-              runner.userData.isSelecting= false;
+              runner.userData.isSelecting= false; */
               INTERSECTION = intersects[ 0 ].point;
             }
           }
