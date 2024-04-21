@@ -25,13 +25,13 @@ let pipeline= [render];
  let INTERSECTION;
  const tempMatrix = new THREE.Matrix4();
 
-export const self= {};
+ const self= {};
 
 init();
 animate();
 
  
- export function init() {
+ function init() {
         self.scene= scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x104030 );
 
@@ -178,7 +178,7 @@ self.controllerGrip2= controllerGrip2;
         }
       }
 
-    export  function onWindowResize() {
+    function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
@@ -186,18 +186,18 @@ self.controllerGrip2= controllerGrip2;
       }
 
   
-  export function addToPipeline(f){
+  function addToPipeline(f){
     pipeline.push(f);
   }
-  export function updatePipeline(){
+  function updatePipeline(){
      return ()=>{ pipeline.forEach( f=f(); ); };
   }
 
-   export function animate() {
+   function animate() {
         renderer.setAnimationLoop( updatePipeline() );
    }
 
-   export   function render() {
+   function render() {
         INTERSECTION = undefined;
 
         if ( controller1.userData.isSelecting === true ) {
@@ -231,3 +231,5 @@ self.controllerGrip2= controllerGrip2;
 
         renderer.render( scene, camera );
       }
+
+export { init, animate, updatePipeline, addToPipeline, render, self }
