@@ -27,6 +27,9 @@ import * as THREE from 'three';
  let INTERSECTION;
  const tempMatrix = new THREE.Matrix4();
 
+init();
+animate();
+
  export function init() {
         scene = new THREE.Scene();
 	 vr.scene= scene;
