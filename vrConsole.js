@@ -40,12 +40,14 @@ function onSelectEnd(){
 }
 
 function render(){
+    // needs much more prep 
+/*
     const intersects = vr.self.raycaster.intersectObjects( [ runner ] );
     if( intersects.length > 0 ) {
         runner.userData.isSelecting= true;
     } else {
         runner.userData.isSelecting= false;
-    }
+    } */
 }
 
 
