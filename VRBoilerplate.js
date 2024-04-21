@@ -95,17 +95,17 @@ import * as THREE from 'three';
 
         function onSelectStart() {
           this.userData.isSelecting = true;
-          // Highlight runner
+     /*     // Highlight runner
           if( runner.userData.isSelecting == true ) {
            runner.material.color.setHex( 0x44aa44 );
           } else {
             runner.material.color.setHex( 0x4444aa );
-          }
+          }*/
         }
 
         function onSelectEnd() {
           this.userData.isSelecting = false;
-          if( runner.userData.isSelecting === true ){
+    /*      if( runner.userData.isSelecting === true ){
             // capsule purple
             runner.material.color.setHex( 0xcc22cc );
             // cube red
@@ -113,7 +113,7 @@ import * as THREE from 'three';
             cScreen.remove( cPlane );
             cPlane= createText( d20()+" rigged d4", .02 );
             cPlane.position.z+= .02;
-            cScreen.add( cPlane );
+            cScreen.add( cPlane ); */
           } 
 
           if ( INTERSECTION ) {
