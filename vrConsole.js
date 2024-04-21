@@ -39,7 +39,7 @@ function onSelectEnd(){
        cScreen.add( cPlane );
 }
 
-function pipeline(){
+function render(){
     const intersects = vr.self.raycaster.intersectObjects( [ runner ] );
     if( intersects.length > 0 ) {
         runner.userData.isSelecting= true;
@@ -88,6 +88,6 @@ vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
 vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
 vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
-  vr.addToAnimate( pipeline );
+  vr.addToPipeline( render );
     }
   };
