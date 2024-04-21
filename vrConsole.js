@@ -37,11 +37,7 @@ function pipeline(){
 
 export const vrConsole={
     init: function (){ 
-        vr.vrbRender= vr.render;
-        vr.render= ()=>{
-            pipeline();
-            vr.vrbRender();
-        }
+        
       // consoleVR
         let cFrame, cScreen, cPlane;
         cFrame = new THREE.Mesh(
@@ -80,5 +76,11 @@ export const vrConsole={
 vr.controller1.addEventListener( 'selectend', onSelectEnd );
 vr.controller2.addEventListener( 'selectstart', onSelectStart );
 vr.controller2.addEventListener( 'selectend', onSelectEnd );
+
+  vr.vrbRender= vr.render;
+        vr.render= ()=>{
+            pipeline();
+            vr.vrbRender();
+        }
     }
   };
