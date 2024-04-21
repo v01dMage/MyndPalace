@@ -12,10 +12,8 @@ let pipeline= [render];
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
- export let room, marker, floor, baseReferenceSpace;
-// let runner, testLight,
+ let room, marker, floor, baseReferenceSpace;
  let testText;
-// let cFrame, cScreen, cPlane;
 
  function d(n){
    return ()=>{
@@ -47,17 +45,6 @@ animate();
           );
         scene.add( room );
 
-/* 			  	runner = new THREE.Mesh( 
-            new THREE.CapsuleGeometry( .1, .2, 3, 5).rotateZ(3.14/2).translate( -.1, 1.5, -.2),
-            	new THREE.MeshBasicMaterial( {color: 0x330099, wireframe: true} ) 
-          );
-			  	scene.add( runner );
-
-			  	testLight = new THREE.Mesh( 
-            new THREE.BoxGeometry( .1, .1, .1 ).translate( .3, 1.55, -.3 ),
-            new THREE.MeshBasicMaterial( {color: 0x777777} ) );
-		  		scene.add( testLight );
-*/
         testText= createText( d20(), .3 );
         testText.rotateX(- .7 );
         testText.position.z= -.75;
@@ -103,26 +90,11 @@ animate();
 
         function onSelectStart() {
           this.userData.isSelecting = true;
-     /*     // Highlight runner
-          if( runner.userData.isSelecting == true ) {
-           runner.material.color.setHex( 0x44aa44 );
-          } else {
-            runner.material.color.setHex( 0x4444aa );
-          }*/
-        }
+        };
 
         function onSelectEnd() {
           this.userData.isSelecting = false;
-    /*      if( runner.userData.isSelecting === true ){
-            // capsule purple
-            runner.material.color.setHex( 0xcc22cc );
-            // cube red
-            testLight.material.color.setHex( 0xdd5555 );
-            cScreen.remove( cPlane );
-            cPlane= createText( d20()+" rigged d4", .02 );
-            cPlane.position.z+= .02;
-            cScreen.add( cPlane ); */
-          } 
+          };
 
           if ( INTERSECTION ) {
             const offsetPosition = { 
@@ -178,29 +150,6 @@ self.controllerGrip2= controllerGrip2;
         controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
         scene.add( controllerGrip2 );
 
-// consoleVR
-/*
-        cFrame = new THREE.Mesh(
-            new THREE.BoxGeometry( .1, .1, .01 ),
-            new THREE.MeshPhongMaterial( {color: 0x229933} ) );
-        controllerGrip1.add( cFrame );
-
-        cScreen= new THREE.Mesh(
-            new THREE.BoxGeometry( .08, .06, .001).translate( 0, .01, .01),
-            new THREE.MeshBasicMaterial( {
-                color: 0x110011,
-                wireframe: false
-            })
-          );
-        cFrame.add( cScreen );
-        cFrame.rotateX( -1.67 );
-        cFrame.position.y+= .04;
-        cFrame.position.z+= .11;
-
-        cPlane= createText( d20(), .1 );
-        cPlane.position.z+= .02;
-        cScreen.add( cPlane );
-*/
         //
         window.addEventListener( 'resize', onWindowResize, false );
       }
@@ -268,13 +217,9 @@ self.controllerGrip2= controllerGrip2;
           raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
           raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
 
-          const intersects = raycaster.intersectObjects( [ floor] ); //, runner ] );
+          const intersects = raycaster.intersectObjects( [ floor] ); 
 
           if ( intersects.length > 0 ) {
-          /*  if( intersects[0].object === runner ){
-              runner.userData.isSelecting= true;
-            } else {
-              runner.userData.isSelecting= false; */
               INTERSECTION = intersects[ 0 ].point;
             }
           }
