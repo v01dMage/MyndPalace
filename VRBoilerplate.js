@@ -7,7 +7,7 @@ import * as THREE from 'three';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
  import { createText } from 'three/addons/webxr/Text2D.js';
 
-/*
+
  let camera, scene, raycaster, renderer;
 let pipeline= [render];
  let controller1, controller2;
@@ -27,10 +27,10 @@ let pipeline= [render];
  const tempMatrix = new THREE.Matrix4();
 
  const self= {};
-
+/*
 init();
 animate();
-
+*/
  
  function init() {
         self.scene= scene = new THREE.Scene();
@@ -232,8 +232,6 @@ self.controllerGrip2= controllerGrip2;
 
         renderer.render( scene, camera );
       }
-*/
 
-let init, animate, updatePipeline, addToPipeline, render, self;
 
 export { init, animate, updatePipeline, addToPipeline, render, self };
