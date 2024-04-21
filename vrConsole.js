@@ -81,6 +81,7 @@ vr.controller2.addEventListener( 'selectend', onSelectEnd );
         vr.render= ()=>{
             pipeline();
             vr.vrbRender();
-        }
+        };
+  vr.animate();
     }
   };
