@@ -6,5 +6,5 @@ import * as vr from 'vr/VRBoilerplate.js';
 //have fun
 
 let t= document.createElement('div');
-t.innerHTML= vr;
+t.innerHTML= Object.keys(vr);
 document.body.appendChild(t);
