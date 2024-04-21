@@ -4,7 +4,7 @@ import * as vr from 'vr/VRBoilerplate.js';
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
-vr.runner= runner; //salt
+vr.testlight= testlight; //salt
 const d20= d(3.2);
 
 init();
@@ -39,11 +39,12 @@ function onSelectEnd(){
 }
 
 function render(){
-  if ( controller2.userData.isSelecting === true ) {
-    tempMatrix.identity().extractRotation( controller2.matrixWorld );
+  let raycaster= vr.self.raycaster;
+  if ( vr.self.controller2.userData.isSelecting === true ) {
+    vr.tempMatrix.identity().extractRotation( vr.self.controller2.matrixWorld );
 
-    raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
-    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+    raycaster.ray.origin.setFromMatrixPosition( vr.self.controller2.matrixWorld );
+    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( vr.tempMatrix );
 
     const intersects= raycaster.intersectObjects( [ runner ] ); 
 
