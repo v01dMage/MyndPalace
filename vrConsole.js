@@ -40,7 +40,7 @@ function onSelectEnd(){
 }
 
 function pipeline(){
-    const intersects = vr.raycaster.intersectObjects( [ runner ] );
+    const intersects = vr.self.raycaster.intersectObjects( [ runner ] );
     if( intersects.length > 0 ) {
         runner.userData.isSelecting= true;
     } else {
@@ -54,7 +54,7 @@ function pipeline(){
         cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
-        vr.controllerGrip1.add( cFrame );
+        vr.self.controllerGrip1.add( cFrame );
 
         cScreen= new THREE.Mesh(
             new THREE.BoxGeometry( .08, .06, .001).translate( 0, .01, .01),
@@ -76,20 +76,20 @@ function pipeline(){
             new THREE.CapsuleGeometry( .1, .2, 3, 5).rotateZ(3.14/2).translate( -.1, 1.5, -.2),
             	new THREE.MeshBasicMaterial( {color: 0x330099, wireframe: true} ) 
           );
-			  	vr.scene.add( runner );
+			  	vr.self.scene.add( runner );
 
 			  	testLight = new THREE.Mesh( 
             new THREE.BoxGeometry( .1, .1, .1 ).translate( .3, 1.55, -.3 ),
             new THREE.MeshBasicMaterial( {color: 0x777777} ) );
-		  		vr.scene.add( testLight );
+		  		vr.self.scene.add( testLight );
   
-      vr.controller1.addEventListener( 'selectstart', onSelectStart );
-vr.controller1.addEventListener( 'selectend', onSelectEnd );
-vr.controller2.addEventListener( 'selectstart', onSelectStart );
-vr.controller2.addEventListener( 'selectend', onSelectEnd );
+      vr.self.controller1.addEventListener( 'selectstart', onSelectStart );
+vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
+vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
+vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
   vr.vrbRender= vr.render;
-        vr.render= ()=>{
+        vr.self.render= ()=>{
             vr.vrbRender();
             pipeline();
         };
