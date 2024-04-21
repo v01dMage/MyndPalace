@@ -9,7 +9,7 @@ import * as THREE from 'three';
 
 
  let camera, scene, raycaster, renderer;
-let pipeline= [render];
+ let pipeline= [render];
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
@@ -26,14 +26,14 @@ let pipeline= [render];
  let INTERSECTION;
  const tempMatrix = new THREE.Matrix4();
 
- const self= {};
+ export const self= {};
 
 
 init();
 animate();
 
 
-function init() {
+export function init() {
   self.scene= scene = new THREE.Scene();
   scene.background = new THREE.Color( 0x104030 );
 
@@ -174,7 +174,7 @@ function buildController( data ) {
 }
 
 
-export function onWindowResize() {
+function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
@@ -182,19 +182,19 @@ export function onWindowResize() {
 }
   
 
-function addToPipeline(f){
+export function addToPipeline(f){
   pipeline.unshift(f);
 }
 
-function updatePipeline(){
+export function updatePipeline(){
   return ()=>{ pipeline.forEach( f=>f() ); };
 }
 
-function animate() {
+export function animate() {
   renderer.setAnimationLoop( updatePipeline() );
 }
 
-function render() {
+export function render() {
   INTERSECTION = undefined;
 
   if ( controller1.userData.isSelecting === true ) {
@@ -228,4 +228,3 @@ function render() {
   renderer.render( scene, camera );
 }
 
-export { init, animate, updatePipeline, addToPipeline, render, self };
