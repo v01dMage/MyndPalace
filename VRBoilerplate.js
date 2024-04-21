@@ -174,7 +174,7 @@ function buildController( data ) {
 }
 
 
-function onWindowResize() {
+export function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
