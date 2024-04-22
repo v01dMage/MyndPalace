@@ -80,13 +80,15 @@ function init(){
    cScreen.add( cPlane );
 
    runner = new THREE.Mesh( 
-            new THREE.CapsuleGeometry( .1, .2, 3, 5).rotateZ(3.14/2).translate( -.1, 1.5, -.2),
+            new THREE.CapsuleGeometry( .1, .2, 3, 5).
+              rotateX(1). rotateY(.5).
+              translate( -.1, -.05, -.25),
             	new THREE.MeshBasicMaterial( {color: 0x330099, wireframe: true} ) 
           );
 		vr.self.controllerGrip1.add( runner );
 
 		testLight = new THREE.Mesh( 
-               new THREE.BoxGeometry( .1, .1, .1 ).translate( .3, 1.55, -.3 ),
+               new THREE.BoxGeometry( .1, .1, .1 ).translate( 0,0,0 ),
                new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		runner.add( testLight );
   
