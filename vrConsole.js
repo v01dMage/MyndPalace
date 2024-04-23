@@ -81,8 +81,8 @@ function init(){
 
    runner = new THREE.Mesh( 
             new THREE.CapsuleGeometry( .1, .2, 3, 5).
-              rotateX(1). rotateY(.5).
-              translate( -.1, -.05, -.25),
+              rotateX(1). rotateY(-.5).
+              translate( -.1, .05, .25),
             	new THREE.MeshBasicMaterial( {color: 0x330099, wireframe: true} ) 
           );
 		vr.self.controllerGrip1.add( runner );
