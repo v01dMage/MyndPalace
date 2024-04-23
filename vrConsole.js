@@ -88,7 +88,7 @@ function init(){
 		vr.self.controllerGrip1.add( runner );
 
 		testLight = new THREE.Mesh( 
-               new THREE.BoxGeometry( .1, .1, .1 ).translate( 0,0,0 ),
+               new THREE.BoxGeometry( .1, .1, .1 ).translate( -.1, .05, .25 ),
                new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		runner.add( testLight );
   
