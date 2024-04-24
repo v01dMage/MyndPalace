@@ -35,7 +35,7 @@ function onSelectEnd(){
        let text= document.getElementById( 'consoleInput' );
        let out;
        try{
-          out= (async Function(text.value))();
+          out= (( Function(`return async function(){${text.value}}`))())();
        } catch(err){
           out= err;
        }
