@@ -58,6 +58,14 @@ function render(){
 
 
 function init(){ 
+
+   let ta= document.createElement('textarea');
+   ta.setAttribute( 'rows', '24' );
+   ta.setAttribute( 'cols', '80' );
+   ta.id= 'consoleInput';
+   ta.style= 'background: black; border: 2px solid green; color: #4c6';
+   document.body.appendChild( ta );
+
    cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
