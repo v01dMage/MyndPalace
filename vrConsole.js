@@ -32,14 +32,7 @@ async function onSelectEnd(){
       // cube red
        testLight.material.color.setHex( 0xdd5555 );
        cScreen.remove( cPlane );
-       let text= document.getElementById( 'consoleInput' );
-       let out;
-       try{
-          out= await (( Function(`return async function(vr){${text.value}}`))())(vr);
-       } catch(err){
-          out= err;
-       }
-
+       let out= await arun();
        cPlane= createText( out, .02 );
        cPlane.position.z+= .02;
        cScreen.add( cPlane );
@@ -64,8 +57,18 @@ function render(){
   }
 }
 
+async function arun(){
+    let text= document.getElementById( 'consoleInput' );
+       let out;
+       try{
+          out= await (( Function(`return async function(vr){${text.value}}`))())(vr);
+       } catch(err){
+          out= err;
+       }
+    return out;
+}
 
-function init(){ 
+async function init(){ 
 
    let ta= document.createElement('textarea');
    ta.setAttribute( 'rows', '24' );
@@ -73,6 +76,11 @@ function init(){
    ta.id= 'consoleInput';
    ta.style= 'background: black; border: 2px solid green; color: #4c6';
    document.body.appendChild( ta );
+
+   let runButton= document.createElement('button');
+   runButton.innerHTML= 'run';
+   runButton.addEventListener('click', arun);
+   document.body.appendChild(runButton);
 
    cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
