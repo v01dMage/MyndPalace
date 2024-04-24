@@ -6,13 +6,13 @@ import 'vr/vrConsole.js';
 //have fun
 
 let ta= document.getElementById('consoleInput');
-ta.value=`const GLTFLoader= await import( 'three/addons/loaders/GLTFLoader.js' )
+ta.value=`const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
 
 const loader = new GLTFLoader();
 
 loader.load( 'https://drive.google.com/file/d/1-uT5uDm4JnM6D366UYzCTVTmRbCDxgi5/view?usp=drivesdk', function ( gltf ) {
 
-	vr.scene.add( gltf.scene );
+	vr.self.scene.add( gltf.scene );
 
 }, undefined, function ( error ) {
 
