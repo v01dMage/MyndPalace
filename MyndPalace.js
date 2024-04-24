@@ -10,7 +10,7 @@ ta.value=`const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.j
 
 const loader = new GLTFLoader();
 
-loader.load( 'https://drive.google.com/file/d/1-uT5uDm4JnM6D366UYzCTVTmRbCDxgi5/view?usp=drivesdk', function ( gltf ) {
+loader.load( 'vr/banana_3d_scanned.glb', function ( gltf ) {
 
 	vr.self.scene.add( gltf.scene );
 
