@@ -32,7 +32,8 @@ function onSelectEnd(){
       // cube red
        testLight.material.color.setHex( 0xdd5555 );
        cScreen.remove( cPlane );
-       cPlane= createText( consoleInput.innerHTML, .02 );
+       let text= document.getElementById( 'consoleInput' );
+       cPlane= createText( text.innerHTML, .02 );
        cPlane.position.z+= .02;
        cScreen.add( cPlane );
     }
