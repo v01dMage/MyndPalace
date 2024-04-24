@@ -33,7 +33,7 @@ function onSelectEnd(){
        testLight.material.color.setHex( 0xdd5555 );
        cScreen.remove( cPlane );
        let text= document.getElementById( 'consoleInput' );
-       cPlane= createText( text.innerHTML, .02 );
+       cPlane= createText( text.value, .02 );
        cPlane.position.z+= .02;
        cScreen.add( cPlane );
     }
