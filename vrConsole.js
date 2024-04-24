@@ -33,7 +33,14 @@ function onSelectEnd(){
        testLight.material.color.setHex( 0xdd5555 );
        cScreen.remove( cPlane );
        let text= document.getElementById( 'consoleInput' );
-       cPlane= createText( text.value, .02 );
+       let out;
+       try{
+          out= (Function(test.value))();
+       } catch(err){
+          out= err;
+       }
+
+       cPlane= createText( out, .02 );
        cPlane.position.z+= .02;
        cScreen.add( cPlane );
     }
@@ -84,7 +91,7 @@ function init(){
    cFrame.position.y+= .04;
    cFrame.position.z+= .11;
 
-   cPlane= createText( d20(), .1 );
+   cPlane= createText( 'salt', .1 );
    cPlane.position.z+= .02;
    cScreen.add( cPlane );
 
