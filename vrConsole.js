@@ -32,7 +32,7 @@ function onSelectEnd(){
       // cube red
        testLight.material.color.setHex( 0xdd5555 );
        cScreen.remove( cPlane );
-       cPlane= createText( d20()+" rigged d4", .02 );
+       cPlane= createText( consoleInput.innerHTML, .02 );
        cPlane.position.z+= .02;
        cScreen.add( cPlane );
     }
