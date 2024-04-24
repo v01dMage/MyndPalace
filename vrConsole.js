@@ -25,7 +25,7 @@ function onSelectStart(){
      }
 }
 
-function onSelectEnd(){
+async function onSelectEnd(){
     if( runner.userData.isSelecting === true ){
       // capsule purple
        runner.material.color.setHex( 0xcc22cc );
