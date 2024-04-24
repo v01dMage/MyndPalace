@@ -6,7 +6,7 @@ import 'vr/vrConsole.js';
 //have fun
 
 let ta= document.getElementById('consoleInput');
-ta.value=`import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+ta.value=`const GLTFLoader= await import( 'three/addons/loaders/GLTFLoader.js' )
 
 const loader = new GLTFLoader();
 
