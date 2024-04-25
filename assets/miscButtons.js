@@ -3,7 +3,7 @@
 let button;
 button= document.createElement('button');
 button.innerHTML= 'glbBanana';
-button.addEventListener('click', function(){
+button.addEventListener('click', ()=>{
 
 let ta= document.getElementById('consoleInput');
 ta.value=`const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
