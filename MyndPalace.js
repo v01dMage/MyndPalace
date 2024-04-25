@@ -2,7 +2,7 @@
 
 import * as vr from 'vr/VRBoilerplate.js'; 
 import 'vr/vrConsole.js';
-import 'vr/assets/miscButtons';
+import 'vr/assets/miscButtons.js';
 
 //have fun
 
