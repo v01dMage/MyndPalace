@@ -83,7 +83,7 @@ async function init(){
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
-   testText= createText( await arun(), .3 );
+   testText= createText( 'Fail', .3 );
   testText.rotateX(- .7 );
   testText.position.z= -.75;
   testText.position.y= 1;
