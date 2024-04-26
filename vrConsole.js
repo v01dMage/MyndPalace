@@ -71,13 +71,6 @@ async function arun(){
 
 async function init(){ 
 
-  testText= createText( await arun(), .3 );
-  testText.rotateX(- .7 );
-  testText.position.z= -.75;
-  testText.position.y= 1;
-  vr.self.scene.add( testText );
-  vr.testText= testText;
-
    let ta= document.createElement('textarea');
    ta.setAttribute( 'rows', '24' );
    ta.setAttribute( 'cols', '80' );
@@ -89,6 +82,13 @@ async function init(){
    runButton.innerHTML= 'run';
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
+
+   testText= createText( await arun(), .3 );
+  testText.rotateX(- .7 );
+  testText.position.z= -.75;
+  testText.position.y= 1;
+  vr.self.scene.add( testText );
+  vr.testText= testText;
 
    cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
