@@ -14,7 +14,7 @@ import * as THREE from 'three';
  let controllerGrip1, controllerGrip2;
 
  let room, marker, floor, baseReferenceSpace;
- let testText;
+
 
  function d(n){
    return ()=>{
