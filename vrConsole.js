@@ -61,7 +61,7 @@ async function arun(){
     let text= document.getElementById( 'consoleInput' );
        let out;
        try{
-          out= await ( new AsyncFunction('vr',text.value) )(vr);
+          out= await (( Function(`return async function (vr){${text.value}}`) )())(vr);
        } catch(err){
           out= err;
        }
