@@ -44,14 +44,7 @@ export function init() {
            new BoxLineGeometry( 5, 5, 5, 5, 4, 3 ).translate( 0, 2.5, 0 ),
            new THREE.LineBasicMaterial( { color: 0xbc44bc } )
          );
-  scene.add( room );
-
-  testText= createText( d20(), .3 );
-  testText.rotateX(- .7 );
-  testText.position.z= -.75;
-  testText.position.y= 1;
-  scene.add( testText ); 
-
+  scene.add( room ); 
                                
   scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
