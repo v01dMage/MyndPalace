@@ -4,6 +4,7 @@ import * as vr from 'vr/VRBoilerplate.js';
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
+let testText;
 
 const d20= d(3.2);
 
@@ -69,6 +70,13 @@ async function arun(){
 }
 
 async function init(){ 
+
+  testText= createText( await arun(), .3 );
+  testText.rotateX(- .7 );
+  testText.position.z= -.75;
+  testText.position.y= 1;
+  vr.self.scene.add( testText );
+  vr.testText= testText;
 
    let ta= document.createElement('textarea');
    ta.setAttribute( 'rows', '24' );
