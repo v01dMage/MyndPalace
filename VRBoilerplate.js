@@ -25,7 +25,7 @@ init();
 animate();
 
 
-export function init() {
+function init() {
   self.scene= scene = new THREE.Scene();
   scene.background = new THREE.Color( 0x104030 );
 
