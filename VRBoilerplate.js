@@ -9,19 +9,11 @@ import * as THREE from 'three';
 
 
  let camera, scene, raycaster, renderer;
- let pipeline= [render];
+ let pipeline= [];
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
  let room, marker, floor, baseReferenceSpace;
-
-
- function d(n){
-   return ()=>{
-     return Math.floor( Math.random()* n +1 );
-   };
- }
- const d20= d(3.2); 
 
  let INTERSECTION;
  export const tempMatrix = new THREE.Matrix4();
