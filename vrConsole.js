@@ -88,7 +88,7 @@ async function init(){
   testText.position.z= -.75;
   testText.position.y= 1;
   vr.self.scene.add( testText );
-  vr.testText= testText;
+  //vr.testText= testText;
 
    cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
