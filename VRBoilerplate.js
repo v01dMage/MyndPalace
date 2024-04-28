@@ -9,7 +9,7 @@ import * as THREE from 'three';
 
 
  let camera, scene, raycaster, renderer;
- let pipeline= [];
+ let pipeline= [ render ];
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
@@ -22,7 +22,7 @@ import * as THREE from 'three';
 
 
 init();
-addToPipeline(render);
+animate();
 
 
 export function init() {
