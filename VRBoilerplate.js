@@ -30,7 +30,7 @@ import * as THREE from 'three';
 
 
 init();
-animate();
+addToPipeline(render);
 
 
 export function init() {
@@ -177,17 +177,18 @@ function onWindowResize() {
 
 export function addToPipeline(f){
   pipeline.unshift(f);
+  animate();
 }
 
-export function updatePipeline(){
+function updatePipeline(){
   return ()=>{ pipeline.forEach( f=>f() ); };
 }
 
-export function animate() {
+function animate() {
   renderer.setAnimationLoop( updatePipeline() );
 }
 
-export function render() {
+function render() {
   INTERSECTION = undefined;
 
   if ( controller1.userData.isSelecting === true ) {
