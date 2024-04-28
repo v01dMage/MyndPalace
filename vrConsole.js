@@ -130,5 +130,4 @@ async function init(){
    vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
    vr.addToPipeline( render );
-   vr.animate();
 }
