@@ -51,11 +51,16 @@ function render(){
   }
 }
 
-async function arun(){
-    let text= document.getElementById( 'consoleInput' );
+function getText(){
+  let text= document.getElementById( 'consoleInput' );
+  return text.value;
+}
+
+async function arun(text){
+       if(text == undefined) text= getText();
        let out;
        try{
-          out= await (( Function(`return async function (vr){${text.value}}`) )())(vr);
+          out= await (( Function(`return async function (vr){${text}}`) )())(vr);
        } catch(err){
           out= err;
        }
