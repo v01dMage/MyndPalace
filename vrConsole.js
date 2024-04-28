@@ -57,7 +57,7 @@ function getText(){
 }
 
 async function arun(text){
-       if(text == undefined) text= getText();
+       if(typeof text != 'string') text= getText();
        let out;
        try{
           out= await (( Function(`return async function (vr){${text}}`) )())(vr);
