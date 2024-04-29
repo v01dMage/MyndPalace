@@ -88,6 +88,13 @@ async function init(){
   testText.position.y=  .27;
   testText.position.x= -.18;
   vr.self.controllerGrip1.add( testText );
+testText= createText( 'Line #2', .05 );
+  testText.rotateX(- .7 );
+  testText.rotateY( 1.4);
+  testText.position.z= .28;
+  testText.position.y=  .33;
+  testText.position.x= -.18;
+  vr.self.controllerGrip1.add( testText );
 
    cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
