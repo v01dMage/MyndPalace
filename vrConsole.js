@@ -81,10 +81,10 @@ async function init(){
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
-   testText= createText( 'Fail', .2 );
+   testText= createText( 'Fail', .1 );
   testText.rotateX(- .7 );
-  testText.rotateY(-1.67);
-  testText.position.z= -.05;
+  testText.rotateY( 1.67);
+  testText.position.z= -.02;
   testText.position.y= -.2;
   testText.position.x= -.3;
   vr.self.controllerGrip1.add( testText );
