@@ -83,7 +83,8 @@ async function init(){
 
    testText= createText( 'Fail', .2 );
   testText.rotateX(- .7 );
-  testText.position.z= -.1;
+  testText.rotateY(-1.67);
+  testText.position.z= -.05;
   testText.position.y= -.2;
   testText.position.x= -.3;
   vr.self.controllerGrip1.add( testText );
