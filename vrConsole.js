@@ -85,7 +85,7 @@ async function init(){
   testText.rotateX(- .7 );
   testText.rotateY( 1.4);
   testText.position.z= .24;
-  testText.position.y= -.07;
+  testText.position.y=  .07;
   testText.position.x= -.13;
   vr.self.controllerGrip1.add( testText );
 
