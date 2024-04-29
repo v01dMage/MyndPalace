@@ -81,12 +81,12 @@ async function init(){
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
-   testText= createText( 'Fail', .1 );
+   testText= createText( 'Fail', .05 );
   testText.rotateX(- .7 );
-  testText.rotateY( 1.67);
+  testText.rotateY( 1.4);
   testText.position.z= -.02;
   testText.position.y= -.2;
-  testText.position.x= -.3;
+  testText.position.x= -.03;
   vr.self.controllerGrip1.add( testText );
 
    cFrame = new THREE.Mesh(
