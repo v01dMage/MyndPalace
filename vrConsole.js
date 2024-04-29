@@ -84,9 +84,9 @@ async function init(){
    testText= createText( 'Fail', .05 );
   testText.rotateX(- .7 );
   testText.rotateY( 1.4);
-  testText.position.z= .02;
-  testText.position.y= .02;
-  testText.position.x= -.03;
+  testText.position.z= .06;
+  testText.position.y= .04;
+  testText.position.x= -.05;
   vr.self.controllerGrip1.add( testText );
 
    cFrame = new THREE.Mesh(
