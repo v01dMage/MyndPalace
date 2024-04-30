@@ -69,9 +69,9 @@ async function arun(text){
 
 function makePoint( parent, x, y, z ){
     let mesh= new THREE.Mesh(
-      new THREE.SphereGeometry( 0.01 ),
+      new THREE.SphereGeometry( 0.01 ).translate( x, y, z ),
       new THREE.MeshBasicMaterial( {color: 0x6600cc} )
-    ).translate( x, y, z );
+    );
     parent.add( mesh );
 }
 
