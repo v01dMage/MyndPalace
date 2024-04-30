@@ -67,11 +67,10 @@ async function arun(text){
     return out;
 }
 
-function makePoint(parent, position){
-    let {x, y, z}= position;
+function makePoint( parent, x, y, z ){
     let mesh= new THREE.Mesh(
       new THREE.SphereGeometry( 0.01 ),
-      new THREE.MeshBasicMaterial( {color: 0x6600cc})
+      new THREE.MeshBasicMaterial( {color: 0x6600cc} )
     ).translate( x, y, z );
     parent.add( mesh );
 }
@@ -85,8 +84,8 @@ async function init(){
      {x: 0, y: .1, z: 0},
      {x: 0, y: -.1, z: 0}
    ];
-   positions.forEach( position=>{
-     makePoint( vr.self.controllerGrip2, position )
+   positions.forEach( ({x,y,z})=>{
+     makePoint( vr.self.controllerGrip2, x, y, z );
    });
 
    let ta= document.createElement('textarea');
