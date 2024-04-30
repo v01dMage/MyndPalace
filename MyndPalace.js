@@ -7,4 +7,4 @@ import 'vr/assets/miscButtons.js';
 //have fun
 
 let ta= document.getElementById('consoleInput');
-ta.value=`return 'Hi';`;
+ta.value=`return Object.keys(localStorage);`;
