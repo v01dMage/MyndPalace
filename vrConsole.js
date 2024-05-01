@@ -60,7 +60,7 @@ async function arun(text){
        if(typeof text != 'string') text= getText();
        let out;
        try{
-          out= await (( Function(`return async function (vr){${text}}`) )())(vr);
+          out= await (( Function(`return async function (vr, THREE){${text}}`) )())(vr, THREE);
        } catch(err){
           out= err;
        }
