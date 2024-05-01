@@ -5,7 +5,7 @@ import * as THREE from 'three';
  import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
  import { VRButton } from 'three/addons/webxr/VRButton.js';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
- import { createText } from 'three/addons/webxr/Text2D.js';
+ //import { createText } from 'three/addons/webxr/Text2D.js';
 
 
  let camera, scene, raycaster, renderer;
