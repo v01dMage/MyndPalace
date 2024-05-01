@@ -27,7 +27,7 @@ animate();
 
 function init() {
   self.scene= scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0x104030 );
+  scene.background = new THREE.Color( 0x66ddaa );
 
   camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
   camera.position.set( 0, 1, 3 );
@@ -51,8 +51,8 @@ function init() {
   scene.add( marker );
 
   floor = new THREE.Mesh(
-            new THREE.PlaneGeometry( 4.8, 4.8, 2, 2 ).rotateX( - Math.PI / 2 ),
-            new THREE.MeshBasicMaterial( { color: 0x2222bc, transparent: true, opacity: 0.25 } )
+            new THREE.PlaneGeometry( 94.8, 94.8, 2, 2 ).rotateX( - Math.PI / 2 ),
+            new THREE.MeshBasicMaterial( { color: 0x22bc55, transparent: true, opacity: 0.25 } )
           );
   scene.add( floor );
 
