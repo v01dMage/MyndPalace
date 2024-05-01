@@ -33,7 +33,7 @@ function init() {
   camera.position.set( 0, 1, 3 );
 
   room = new THREE.LineSegments(
-           new BoxLineGeometry( 5, 5, 5, 5, 4, 3 ).translate( 0, 2.5, 0 ),
+           new BoxLineGeometry( 50, 5, 50, 5, 4, 3 ).translate( 0, 2.5, 0 ),
            new THREE.LineBasicMaterial( { color: 0xbc44bc } )
          );
   scene.add( room ); 
