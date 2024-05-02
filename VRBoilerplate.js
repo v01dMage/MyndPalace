@@ -24,7 +24,8 @@ import * as THREE from 'three';
 
 
 init();
-animate();
+addToPipeline(notrender);
+//animate();
 
 
 function init() {
@@ -184,7 +185,7 @@ function animate() {
   renderer.setAnimationLoop( updatePipeline() );
 }
 
-function render() {
+function notrender() {
   INTERSECTION = undefined;
 
   if ( controller1.userData.isSelecting === true ) {
@@ -214,7 +215,9 @@ function render() {
   if ( INTERSECTION ) marker.position.copy( INTERSECTION );
 
   marker.visible = INTERSECTION !== undefined;
+}
 
+function render(){
   renderer.render( scene, camera );
 }
 
