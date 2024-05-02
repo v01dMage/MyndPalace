@@ -10,6 +10,8 @@ import * as THREE from 'three';
 
  let camera, scene, raycaster, renderer;
  let pipeline= [ render ];
+ let recon= [];
+ let update= [];
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
@@ -166,6 +168,8 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
   
+export function addToRecon(f){}
+export function addToUpdate(f){}
 
 export function addToPipeline(f){
   pipeline.unshift(f);
