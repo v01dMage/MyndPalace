@@ -171,11 +171,11 @@ function onWindowResize() {
 }
   
 export function addToRecon(f){
-   recon.unshift(f);
+   recon.push(f);
    animate();
 }
 export function addToUpdate(f){
-   update.unshift(f);
+   update.push(f);
    animate();
 }
 
