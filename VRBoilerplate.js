@@ -8,10 +8,11 @@ import * as THREE from 'three';
  //import { createText } from 'three/addons/webxr/Text2D.js';
 
 
- let camera, scene, raycaster, renderer;
- let pipeline= [ render ];
+ let camera, scene, renderer;
+ let raycaster;//Left, raycasterRight;
  let recon= [];
  let update= [];
+ //let pipeline= [ recon, update, render ];
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
@@ -24,8 +25,8 @@ import * as THREE from 'three';
 
 
 init();
-addToPipeline(notrender);
-//animate();
+addToRecon( basicRecon );
+addToUpdate( basicUpdate );
 
 
 function init() {
@@ -169,23 +170,29 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
   
-export function addToRecon(f){}
-export function addToUpdate(f){}
-
-export function addToPipeline(f){
-  pipeline.unshift(f);
-  animate();
+export function addToRecon(f){
+   recon.unshift(f);
+   animate();
+}
+export function addToUpdate(f){
+   update.unshift(f);
+   animate();
 }
 
 function updatePipeline(){
-  return ()=>{ pipeline.forEach( f=>f() ); };
+  return ()=>{ 
+    let o={};
+    recon.forEach( f=>f(o) ); 
+    update.forEach( f=>f(o) );
+    render();
+  };
 }
 
 function animate() {
   renderer.setAnimationLoop( updatePipeline() );
 }
 
-function notrender() {
+function basicRecon() {
   INTERSECTION = undefined;
 
   if ( controller1.userData.isSelecting === true ) {
@@ -211,7 +218,9 @@ function notrender() {
        INTERSECTION = intersects[ 0 ].point;
     }
   }
+}
 
+function basicUpdate(o){
   if ( INTERSECTION ) marker.position.copy( INTERSECTION );
 
   marker.visible = INTERSECTION !== undefined;
