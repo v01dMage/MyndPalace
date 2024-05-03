@@ -26,7 +26,9 @@ import * as THREE from 'three';
 
 init();
 addToRecon( basicRecon );
+addToRecon( teleportRecon );
 addToUpdate( basicUpdate );
+addToUpdate( teleportUpdate );
 
 
 function init() {
@@ -193,34 +195,31 @@ function animate() {
 }
 
 function basicRecon() {
-  INTERSECTION = undefined;
-
   if ( controller1.userData.isSelecting === true ) {
     tempMatrix.identity().extractRotation( controller1.matrixWorld );
 
     raycaster.ray.origin.setFromMatrixPosition( controller1.matrixWorld );
     raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+  }
+}
 
-    const intersects= raycaster.intersectObjects( [ floor ] );
+function teleportRecon(o){
+  INTERSECTION= undefined;
 
-    if ( intersects.length > 0 ) {
-       INTERSECTION = intersects[ 0 ].point;
-    }
-  } else if ( controller2.userData.isSelecting === true ) {
-    tempMatrix.identity().extractRotation( controller2.matrixWorld );
-
-    raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
-    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-
+  if( controller1.userData.isSelecting === true ){
     const intersects= raycaster.intersectObjects( [ floor ] ); 
 
-    if ( intersects.length > 0 ) {
-       INTERSECTION = intersects[ 0 ].point;
-    }
+      if ( intersects.length > 0 ) {
+         INTERSECTION = intersects[ 0 ].point;
+      }
   }
 }
 
 function basicUpdate(o){
+  //pass
+}
+
+function teleportUpdate(o){
   if ( INTERSECTION ) marker.position.copy( INTERSECTION );
 
   marker.visible = INTERSECTION !== undefined;
