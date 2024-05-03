@@ -5,7 +5,7 @@ import * as vr from 'vr/VRBoilerplate.js';
 let cFrame, cScreen, cPlane;
 let runner, testLight;
 let testText;
-
+let raycasterRight;
 
 init();
 
@@ -33,15 +33,18 @@ async function onSelectEnd(){
     }
 }
 
-function render(){
-  let raycaster= vr.self.raycaster;
-  if ( vr.self.controller2.userData.isSelecting === true ) {
+function consoleRecon(o){
+  if( vr.self.controller2.userData.isSelecting === true ){
     vr.tempMatrix.identity().extractRotation( vr.self.controller2.matrixWorld );
+    raycasterRight.ray.origin.setFromMatrixPosition( vr.self.controller2.matrixWorld );
+    raycasterRight.ray.direction.set( 0, 0, - 1 ).applyMatrix4( vr.tempMatrix );
+  }
+}
 
-    raycaster.ray.origin.setFromMatrixPosition( vr.self.controller2.matrixWorld );
-    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( vr.tempMatrix );
+function consoleUpdate(o){
+  if ( vr.self.controller2.userData.isSelecting === true ) {
 
-    const intersects= raycaster.intersectObjects( [ runner ] ); 
+    const intersects= raycasterRight.intersectObjects( [ runner ] ); 
 
     if ( intersects.length > 0 ) {
        runner.userData.isSelecting= true;
@@ -76,6 +79,8 @@ function makePoint( parent, x, y, z, color ){
 }
 
 async function init(){ 
+
+   raycasterRight= new THREE.Raycaster();
 
    let points= [
      {x: 0, y: 0, z: -.1, color: 0xaaaaff},
@@ -154,5 +159,6 @@ testText= createText( 'Line #2', .05 );
    vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
    vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
-   vr.addToPipeline( render );
+   vr.addToRecon( consoleRecon );
+   vr.addToUpdate( consoleUpdate );
 }
