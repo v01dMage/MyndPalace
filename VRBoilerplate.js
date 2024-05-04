@@ -9,10 +9,10 @@ import * as THREE from 'three';
 
 
  let camera, scene, renderer;
- let raycaster;//Left, raycasterRight;
+ let raycasterLeft, raycasterRight;
  let recon= [];
  let update= [];
- //let pipeline= [ recon, update, render ];
+
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
@@ -62,8 +62,10 @@ function init() {
           );
   scene.add( floor );
 
-  raycaster = new THREE.Raycaster();
-  self.raycaster= raycaster;
+  raycasterLeft = new THREE.Raycaster();
+  raycasterRight= new THREE.Raycaster();
+  self.raycasterLeft= raycasterLeft;
+  self.raycasterRight= raycasterRight;
 
   renderer = new THREE.WebGLRenderer( { antialias: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
@@ -198,8 +200,8 @@ function basicRecon() {
   if ( controller1.userData.isSelecting === true ) {
     tempMatrix.identity().extractRotation( controller1.matrixWorld );
 
-    raycaster.ray.origin.setFromMatrixPosition( controller1.matrixWorld );
-    raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+    raycasterLeft.ray.origin.setFromMatrixPosition( controller1.matrixWorld );
+    raycasterLeft.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
   }
 }
 
@@ -207,7 +209,7 @@ function teleportRecon(o){
   INTERSECTION= undefined;
 
   if( controller1.userData.isSelecting === true ){
-    const intersects= raycaster.intersectObjects( [ floor ] ); 
+    const intersects= raycasterLeft.intersectObjects( [ floor ] ); 
 
       if ( intersects.length > 0 ) {
          INTERSECTION = intersects[ 0 ].point;
