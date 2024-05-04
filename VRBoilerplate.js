@@ -1,6 +1,6 @@
 //make base scene and export functions 
 //load controllers
-//base Recon userData.isSelecting, baseReferenceSpace
+//base Recon userData.isSelecting
 
 import * as THREE from 'three';
 
@@ -19,7 +19,7 @@ import * as THREE from 'three';
  let controllerGrip1, controllerGrip2;
 
  //let room, marker, floor, 
- let baseReferenceSpace;
+// let baseReferenceSpace;
 
  //let INTERSECTION;
  export const tempMatrix = new THREE.Matrix4();
@@ -35,7 +35,7 @@ addToUpdate( basicUpdate );
 
 
 function init() {
-  self.baseReferenceSpace= baseReferenceSpace;
+  //self.baseReferenceSpace= baseReferenceSpace;
   self.scene= scene = new THREE.Scene();
   scene.background = new THREE.Color( 0x66ddaa );
 
@@ -72,10 +72,10 @@ function init() {
   self.renderer= renderer = new THREE.WebGLRenderer( { antialias: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
-
+/*
   renderer.xr.addEventListener( 'sessionstart', 
           () => baseReferenceSpace = renderer.xr.getReferenceSpace() 
-          );
+          );*/
   renderer.xr.enabled = true;
 
   document.body.appendChild( renderer.domElement );
