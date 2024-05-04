@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import * as vr from 'vr/VRBoilerplate.js'
 
-let marker, floor;
+let marker, floor, baseReferenceSpace;
 let INTERSECTION;
 
 init();
@@ -17,13 +17,17 @@ function onSelectEnd(){
        };
        const offsetRotation = new THREE.Quaternion();
        const transform = new XRRigidTransform( offsetPosition, offsetRotation );
-       const teleportSpaceOffset = vr.self.baseReferenceSpace.getOffsetReferenceSpace( transform );
+       const teleportSpaceOffset = baseReferenceSpace.getOffsetReferenceSpace( transform );
 
        vr.self.renderer.xr.setReferenceSpace( teleportSpaceOffset );
     }
 }
 
 function init(){
+    vr.self.renderer.xr.addEventListener( 'sessionstart', 
+          () => baseReferenceSpace = renderer.xr.getReferenceSpace() 
+          );
+
     marker= new THREE.Mesh(
             new THREE.CircleGeometry( 0.5, 8 ).rotateX( - Math.PI / 2 ),
             new THREE.MeshBasicMaterial( { color: 0xbbccff } )
