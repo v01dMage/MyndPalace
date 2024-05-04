@@ -21,10 +21,14 @@ import * as THREE from 'three';
 
  export const self= {};
 
-
+try{
 init();
 animate();
-
+} catch(err){
+  let out= document.createElement('div');
+  out.innerHTML= err;
+  document.body.appendChild(out);
+}
 
 function init() {
   scene = new THREE.Scene();
