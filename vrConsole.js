@@ -5,7 +5,6 @@ import * as vr from 'vr/VRBoilerplate.js';
 let cFrame, cScreen, cPlane;
 let runner, testLight;
 let testText;
-let raycasterRight;
 
 init();
 
@@ -36,8 +35,8 @@ async function onSelectEnd(){
 function consoleRecon(o){
   if( vr.self.controller2.userData.isSelecting === true ){
     vr.tempMatrix.identity().extractRotation( vr.self.controller2.matrixWorld );
-    raycasterRight.ray.origin.setFromMatrixPosition( vr.self.controller2.matrixWorld );
-    raycasterRight.ray.direction.set( 0, 0, - 1 ).applyMatrix4( vr.tempMatrix );
+    vr.self.raycasterRight.ray.origin.setFromMatrixPosition( vr.self.controller2.matrixWorld );
+    vr.self.raycasterRight.ray.direction.set( 0, 0, - 1 ).applyMatrix4( vr.tempMatrix );
   }
 }
 
@@ -79,8 +78,6 @@ function makePoint( parent, x, y, z, color ){
 }
 
 async function init(){ 
-
-   raycasterRight= new THREE.Raycaster();
 
    let points= [
      {x: 0, y: 0, z: -.1, color: 0xaaaaff},
