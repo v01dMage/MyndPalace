@@ -7,7 +7,6 @@ import * as THREE from 'three';
  import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
  import { VRButton } from 'three/addons/webxr/VRButton.js';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
- //import { createText } from 'three/addons/webxr/Text2D.js';
 
 
  let camera, scene, renderer;
@@ -18,10 +17,6 @@ import * as THREE from 'three';
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
- //let room, marker, floor, 
-// let baseReferenceSpace;
-
- //let INTERSECTION;
  export const tempMatrix = new THREE.Matrix4();
 
  export const self= {};
@@ -29,14 +24,12 @@ import * as THREE from 'three';
 
 init();
 addToRecon( basicRecon );
-//addToRecon( teleportRecon );
 addToUpdate( basicUpdate );
-//addToUpdate( teleportUpdate );
 
 
 function init() {
-  //self.baseReferenceSpace= baseReferenceSpace;
-  self.scene= scene = new THREE.Scene();
+  scene = new THREE.Scene();
+  self.scene= scene;
   scene.background = new THREE.Color( 0x66ddaa );
 
   camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -54,28 +47,16 @@ function init() {
   light.position.set( 1, 1, 1 ).normalize();
   scene.add( light );
 
-  /* marker = new THREE.Mesh(
-            new THREE.CircleGeometry( 0.25, 32 ).rotateX( - Math.PI / 2 ),
-            new THREE.MeshBasicMaterial( { color: 0xbcbcbc } )
-          );
-  scene.add( marker );
 
-  floor = new THREE.Mesh(
-            new THREE.PlaneGeometry( 94.8, 94.8, 2, 2 ).rotateX( - Math.PI / 2 ),
-            new THREE.MeshBasicMaterial( { color: 0x22bc55, transparent: true, opacity: 0.25 } )
-          );
-  scene.add( floor ); */
+  raycasterLeft = new THREE.Raycaster();
+  self.raycasterLeft= raycasterLeft;
+  raycasterRight= new THREE.Raycaster();
+  self.raycasterRight= raycasterRight;
 
-  self.raycasterLeft= raycasterLeft = new THREE.Raycaster();
-  self.raycasterRight= raycasterRight= new THREE.Raycaster();
-
-  self.renderer= renderer = new THREE.WebGLRenderer( { antialias: true } );
+  renderer = new THREE.WebGLRenderer( { antialias: true } );
+  self.renderer= renderer;
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
-/*
-  renderer.xr.addEventListener( 'sessionstart', 
-          () => baseReferenceSpace = renderer.xr.getReferenceSpace() 
-          );*/
   renderer.xr.enabled = true;
 
   document.body.appendChild( renderer.domElement );
@@ -90,17 +71,6 @@ function init() {
 
   function onSelectEnd() {
     this.userData.isSelecting = false;
-/*
-    if ( INTERSECTION ) {
-       const offsetPosition = { 
-          x: - INTERSECTION.x, y: - INTERSECTION.y, z: - INTERSECTION.z, w: 1 
-       };
-       const offsetRotation = new THREE.Quaternion();
-       const transform = new XRRigidTransform( offsetPosition, offsetRotation );
-       const teleportSpaceOffset = baseReferenceSpace.getOffsetReferenceSpace( transform );
-
-       renderer.xr.setReferenceSpace( teleportSpaceOffset );
-    } */
   }
 
   controller1 = renderer.xr.getController( 0 );
@@ -205,29 +175,15 @@ function basicRecon() {
     raycasterLeft.ray.origin.setFromMatrixPosition( controller1.matrixWorld );
     raycasterLeft.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
   }
-}
-/*
-function teleportRecon(o){
-  INTERSECTION= undefined;
+  if ( controller2.userData.isSelecting === true ) {
+    tempMatrix.identity().extractRotation( controller2.matrixWorld );
 
-  if( controller1.userData.isSelecting === true ){
-    const intersects= raycasterLeft.intersectObjects( [ floor ] ); 
-
-      if ( intersects.length > 0 ) {
-         INTERSECTION = intersects[ 0 ].point;
-      }
+    raycasterRight.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
+    raycasterRight.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
   }
-} */
-
-function basicUpdate(o){
-  //pass
 }
-/*
-function teleportUpdate(o){
-  if ( INTERSECTION ) marker.position.copy( INTERSECTION );
 
-  marker.visible = INTERSECTION !== undefined;
-} */
+function basicUpdate(){}
 
 function render(){
   renderer.render( scene, camera );
