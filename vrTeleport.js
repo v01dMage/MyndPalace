@@ -25,7 +25,7 @@ function onSelectEnd(){
 
 function init(){
     vr.self.renderer.xr.addEventListener( 'sessionstart', 
-          () => baseReferenceSpace = renderer.xr.getReferenceSpace() 
+          () => baseReferenceSpace = vr.self.renderer.xr.getReferenceSpace() 
           );
 
     marker= new THREE.Mesh(
