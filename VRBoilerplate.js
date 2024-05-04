@@ -24,7 +24,7 @@ import * as THREE from 'three';
  //let INTERSECTION;
  export const tempMatrix = new THREE.Matrix4();
 
- export const self= {baseReferenceSpace};
+ export const self= {};
 
 
 init();
@@ -35,6 +35,7 @@ addToUpdate( basicUpdate );
 
 
 function init() {
+  self.baseReferenceSpace= baseReferenceSpace;
   self.scene= scene = new THREE.Scene();
   scene.background = new THREE.Color( 0x66ddaa );
 
