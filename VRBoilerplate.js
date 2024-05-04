@@ -73,7 +73,7 @@ function init() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 
   renderer.xr.addEventListener( 'sessionstart', 
-          () => self.baseReferenceSpace = renderer.xr.getReferenceSpace() 
+          () => baseReferenceSpace = renderer.xr.getReferenceSpace() 
           );
   renderer.xr.enabled = true;
 
