@@ -43,7 +43,7 @@ function consoleRecon(o){
 function consoleUpdate(o){
   if ( vr.self.controller2.userData.isSelecting === true ) {
 
-    const intersects= raycasterRight.intersectObjects( [ runner ] ); 
+    const intersects= vr.self.raycasterRight.intersectObjects( [ runner ] ); 
 
     if ( intersects.length > 0 ) {
        runner.userData.isSelecting= true;
@@ -151,8 +151,8 @@ testText= createText( 'Line #2', .05 );
                new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		runner.add( testLight );
   
-   vr.self.controller1.addEventListener( 'selectstart', onSelectStart );
-   vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
+   //vr.self.controller1.addEventListener( 'selectstart', onSelectStart );
+   //vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
    vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
    vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
