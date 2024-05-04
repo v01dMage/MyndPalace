@@ -8,7 +8,7 @@ import * as THREE from 'three';
  import { VRButton } from 'three/addons/webxr/VRButton.js';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
-
+ let room;
  let camera, scene, renderer;
  let raycasterLeft, raycasterRight;
  let recon= [basicRecon];
