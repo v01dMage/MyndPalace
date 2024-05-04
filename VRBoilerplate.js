@@ -11,8 +11,8 @@ import * as THREE from 'three';
 
  let camera, scene, renderer;
  let raycasterLeft, raycasterRight;
- let recon= [];
- let update= [];
+ let recon= [basicRecon];
+ let update= [basicUpdate];
 
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
@@ -23,8 +23,7 @@ import * as THREE from 'three';
 
 
 init();
-addToRecon( basicRecon );
-addToUpdate( basicUpdate );
+animate();
 
 
 function init() {
