@@ -1,4 +1,6 @@
-//make scene and export functions 
+//make base scene and export functions 
+//load controllers
+//base Recon userData.isSelecting, baseReferenceSpace
 
 import * as THREE from 'three';
 
@@ -16,19 +18,20 @@ import * as THREE from 'three';
  let controller1, controller2;
  let controllerGrip1, controllerGrip2;
 
- let room, marker, floor, baseReferenceSpace;
+ //let room, marker, floor, 
+ let baseReferenceSpace;
 
- let INTERSECTION;
+ //let INTERSECTION;
  export const tempMatrix = new THREE.Matrix4();
 
- export const self= {};
+ export const self= {baseReferenceSpace};
 
 
 init();
 addToRecon( basicRecon );
-addToRecon( teleportRecon );
+//addToRecon( teleportRecon );
 addToUpdate( basicUpdate );
-addToUpdate( teleportUpdate );
+//addToUpdate( teleportUpdate );
 
 
 function init() {
@@ -50,7 +53,7 @@ function init() {
   light.position.set( 1, 1, 1 ).normalize();
   scene.add( light );
 
-  marker = new THREE.Mesh(
+  /* marker = new THREE.Mesh(
             new THREE.CircleGeometry( 0.25, 32 ).rotateX( - Math.PI / 2 ),
             new THREE.MeshBasicMaterial( { color: 0xbcbcbc } )
           );
@@ -60,19 +63,17 @@ function init() {
             new THREE.PlaneGeometry( 94.8, 94.8, 2, 2 ).rotateX( - Math.PI / 2 ),
             new THREE.MeshBasicMaterial( { color: 0x22bc55, transparent: true, opacity: 0.25 } )
           );
-  scene.add( floor );
+  scene.add( floor ); */
 
-  raycasterLeft = new THREE.Raycaster();
-  raycasterRight= new THREE.Raycaster();
-  self.raycasterLeft= raycasterLeft;
-  self.raycasterRight= raycasterRight;
+  self.raycasterLeft= raycasterLeft = new THREE.Raycaster();
+  self.raycasterRight= raycasterRight= new THREE.Raycaster();
 
-  renderer = new THREE.WebGLRenderer( { antialias: true } );
+  self.renderer= renderer = new THREE.WebGLRenderer( { antialias: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
 
   renderer.xr.addEventListener( 'sessionstart', 
-          () => baseReferenceSpace = renderer.xr.getReferenceSpace() 
+          () => self.baseReferenceSpace = renderer.xr.getReferenceSpace() 
           );
   renderer.xr.enabled = true;
 
@@ -88,7 +89,7 @@ function init() {
 
   function onSelectEnd() {
     this.userData.isSelecting = false;
-
+/*
     if ( INTERSECTION ) {
        const offsetPosition = { 
           x: - INTERSECTION.x, y: - INTERSECTION.y, z: - INTERSECTION.z, w: 1 
@@ -98,7 +99,7 @@ function init() {
        const teleportSpaceOffset = baseReferenceSpace.getOffsetReferenceSpace( transform );
 
        renderer.xr.setReferenceSpace( teleportSpaceOffset );
-    }
+    } */
   }
 
   controller1 = renderer.xr.getController( 0 );
@@ -204,7 +205,7 @@ function basicRecon() {
     raycasterLeft.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
   }
 }
-
+/*
 function teleportRecon(o){
   INTERSECTION= undefined;
 
@@ -215,17 +216,17 @@ function teleportRecon(o){
          INTERSECTION = intersects[ 0 ].point;
       }
   }
-}
+} */
 
 function basicUpdate(o){
   //pass
 }
-
+/*
 function teleportUpdate(o){
   if ( INTERSECTION ) marker.position.copy( INTERSECTION );
 
   marker.visible = INTERSECTION !== undefined;
-}
+} */
 
 function render(){
   renderer.render( scene, camera );
