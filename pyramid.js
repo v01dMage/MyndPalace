@@ -3,7 +3,10 @@
 import * as THREE from 'three';
 import * as vr from 'vr/VRBoilerplate.js';
 
+let orb, delta;
+
 init();
+vr.addToRecon( getDelta );
 vr.addToUpdate( orbSpin );
 
 
@@ -26,6 +29,22 @@ function init(){
    points.forEach( ({x,y,z,color})=>{
      makePoint( vr.self.controllerGrip2, x, y, z, color );
    });
+
+    orb= new THREE.Mesh(
+        new THREE.SphereGeometry( 0.03 ).translate( 0, 0, -.1 ),
+        new THREE.MeshBasicMaterial({
+           color: 0xddffbb,
+           wireframe: true
+        })
+    );
 }
 
-function orbSpin(o){}
+function orbSpin(o){
+  orb.rotateZ( .003 * o.delta )
+}
+
+function getDelta(o){
+   let now= time.getNow();
+   o.delta= now - delta;
+   delta= now;
+}
