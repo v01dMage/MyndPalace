@@ -37,6 +37,7 @@ function init(){
            wireframe: true
         })
     );
+    vr.self.controllerGrip2.add( orb );
 }
 
 function orbSpin(o){
