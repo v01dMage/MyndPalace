@@ -1,7 +1,7 @@
 //Pyramid hand ornament
 
 import * as THREE from 'three';
-import * as vr from 'vr/VRBoilerplate.js';
+import * as vr from 'vr/vr.js';
 
 let orb;
 let delta= Date.now();
