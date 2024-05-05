@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import * as vr from 'vr/VRBoilerplate.js';
 
 init();
-addToUpdate( orbSpin );
+vr.addToUpdate( orbSpin );
 
 
 function makePoint( parent, x, y, z, color ){
