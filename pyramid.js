@@ -44,7 +44,7 @@ function orbSpin(o){
 }
 
 function getDelta(o){
-   let now= time.getNow();
+   let now= Date.now();
    o.delta= now - delta;
    delta= now;
 }
