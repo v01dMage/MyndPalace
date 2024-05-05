@@ -11,7 +11,7 @@ ta.value=`const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.j
 const loader = new GLTFLoader();
 
 loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
-
+        gltf.scene.position.y= 0.3;
         vr.self.scene.add( gltf.scene );
 
 }, undefined, function ( error ) {
