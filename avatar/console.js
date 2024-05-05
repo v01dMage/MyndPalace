@@ -1,6 +1,6 @@
 import * as THREE from'three';
 import { createText } from 'three/addons/webxr/Text2D.js';
-import * as vr from 'vr/VRBoilerplate.js';
+import * as vr from 'vr/vr.js';
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
