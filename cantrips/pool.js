@@ -4,7 +4,7 @@ import * as vr from 'vr/vr.js';
 
 let water;
 
-init():
+init();
 
 function init(){
   
