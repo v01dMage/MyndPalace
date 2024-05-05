@@ -8,7 +8,7 @@ init();
 
 function init(){
   
-  waterGeometry= new THREE.PlaneGeometry( 5, 10 );
+  let waterGeometry= new THREE.PlaneGeometry( 5, 10 );
 
   water= new Water( waterGeometry, {
     color: 0xffffaa,
