@@ -2,7 +2,7 @@
 //for Teleports. export 'floor' maker.
 
 import * as THREE from 'three';
-import * as vr from 'vr/VRBoilerplate.js'
+import * as vr from 'vr/vr.js'
 
 let marker, floor, baseReferenceSpace;
 let INTERSECTION;
