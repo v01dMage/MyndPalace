@@ -3,7 +3,8 @@
 import * as THREE from 'three';
 import * as vr from 'vr/VRBoilerplate.js';
 
-let orb, delta;
+let orb;
+let delta= Date.now();
 
 init();
 vr.addToRecon( getDelta );
