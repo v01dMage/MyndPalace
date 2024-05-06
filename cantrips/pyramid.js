@@ -39,7 +39,7 @@ function init(){
         })
     );
     vr.self.controllerGrip2.add( orb );
-    vr.self.controllerGrip2.visible= false;
+    vr.self.controller2.visible= false;
 }
 
 function orbSpin(o){
