@@ -76,6 +76,7 @@ async function init(){
    ta.setAttribute( 'cols', '80' );
    ta.id= 'consoleInput';
    ta.style= 'background: black; border: 2px solid green; color: #4c6';
+   ta.value= localStorage.current;
    document.body.appendChild( ta );
 
    let runButton= document.createElement('button');
