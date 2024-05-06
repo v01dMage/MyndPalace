@@ -36,6 +36,6 @@ ta.innerHTML= \`${text}\``);
 
 function makeButtons(o){
   Object.keys(o).forEach( name=>{
-    makeButton( name, o.name );
+    makeButton( name, o[name] );
   } );
 }
