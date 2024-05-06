@@ -4,11 +4,9 @@
 
 import * as THREE from 'three';
 
- import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
  import { VRButton } from 'three/addons/webxr/VRButton.js';
  import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
- let room;
  let camera, scene, renderer;
  let raycasterLeft, raycasterRight;
  let recon= [basicRecon];
@@ -39,12 +37,6 @@ function init() {
 
   camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
   camera.position.set( 0, 1, 3 );
-
-  room = new THREE.LineSegments(
-           new BoxLineGeometry( 50, 5, 50, 5, 4, 3 ).translate( 0, 2.5, 0 ),
-           new THREE.LineBasicMaterial( { color: 0xbc44bc } )
-         );
-  scene.add( room ); 
                                
   scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
