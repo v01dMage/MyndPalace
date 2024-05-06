@@ -28,7 +28,7 @@ function init(){
      {x: 0, y: -.1, z: 0, color: 0x777700}
    ];
    points.forEach( ({x,y,z,color})=>{
-     makePoint( vr.self.controllerGrip2, x, y, z, color );
+     makePoint( vr.self.controller2, x, y, z, color );
    });
 
     orb= new THREE.Mesh(
@@ -38,7 +38,7 @@ function init(){
            wireframe: true
         })
     );
-    vr.self.controllerGrip2.add( orb );
+    vr.self.controller2.add( orb );
     vr.self.scene.remove( vr.self.controllerGrip2 );
 }
 
