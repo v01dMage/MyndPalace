@@ -16,10 +16,6 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
   document.body.appendChild( errdiv );
 
 } );`,
-  'quickSave' : `//this needs to be in console..
-let ta= document.getElementById('consoleInput');
-localStorage.current= ta.value;
-return ':)';`,
 
   };
 makeButtons(buttons);
