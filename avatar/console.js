@@ -79,6 +79,10 @@ async function init(){
    ta.value= localStorage.current;
    document.body.appendChild( ta );
 
+   let consoleOut= document.createElement('div');
+   consoleOut.id= 'consoleOut';
+   vr.self.consoleOut= consoleOut;
+
    let runButton= document.createElement('button');
    runButton.innerHTML= 'run';
    runButton.addEventListener('click', arun);
@@ -148,4 +152,5 @@ testText= createText( 'Line #2', .05 );
 
    vr.addToRecon( consoleRecon );
    vr.addToUpdate( consoleUpdate );
+   vr.self.consoleOut.innerHTML= 'test<br>output';
 }
