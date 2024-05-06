@@ -30,7 +30,7 @@ function init(){
           );
 
     marker= new THREE.Mesh(
-            new THREE.CircleGeometry( 0.5, 8 ).rotateX( - Math.PI / 2 ),
+            new THREE.CircleGeometry( 0.5, 13 ).rotateX( - Math.PI / 2 ),
             new THREE.MeshBasicMaterial( { color: 0xbbccff } )
           );
     vr.self.scene.add( marker );
