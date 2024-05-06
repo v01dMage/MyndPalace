@@ -2,9 +2,10 @@
 //for Teleports. export 'floor' maker.
 
 import * as THREE from 'three';
-import * as vr from 'vr/vr.js'
+import * as vr from 'vr/vr.js';
+import { BoxLineGeometry } from 'three/addons/geometries/BoxLineGeometry.js';
 
-let marker, floor, baseReferenceSpace;
+let grid, marker, floor, baseReferenceSpace;
 let INTERSECTION;
 
 init();
@@ -39,6 +40,12 @@ function init(){
             new THREE.MeshBasicMaterial( { color: 0x22dd55, transparent: true, opacity: 0.5 } )
           );
     vr.self.scene.add( floor );
+
+    grid = new THREE.LineSegments(
+           new BoxLineGeometry( 50, .05, 50, 50, 1, 50 ).translate( 0, -0.06, 0 ),
+           new THREE.LineBasicMaterial( { color: 0xbc44bc } )
+         );
+  vr.self.scene.add( grid ); 
 
     //vr.self.controller1.addEventListener( 'selectstart', onSelectStart );
     vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
