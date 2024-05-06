@@ -33,11 +33,11 @@ async function onSelectEnd(){
 }
 
 function consoleRecon(o){
-  if( vr.self.controller2.userData.isSelecting === true ){
+/*  if( vr.self.controller2.userData.isSelecting === true ){
     vr.tempMatrix.identity().extractRotation( vr.self.controller2.matrixWorld );
     vr.self.raycasterRight.ray.origin.setFromMatrixPosition( vr.self.controller2.matrixWorld );
     vr.self.raycasterRight.ray.direction.set( 0, 0, - 1 ).applyMatrix4( vr.tempMatrix );
-  }
+  }*/
 }
 
 function consoleUpdate(o){
