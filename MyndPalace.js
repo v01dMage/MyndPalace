@@ -8,5 +8,3 @@ import 'my/cantrips/miscButtons.js';
 
 //have fun
 
-let ta= document.getElementById('consoleInput');
-ta.value= localStorage.current;
