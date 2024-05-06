@@ -25,14 +25,13 @@ makeButtons(buttons);
 
 
 function makeButton(name, text){
-let button;
-button= document.createElement('button');
-button.innerHTML= name;
-button.addEventListener('click', ()=>{
-let ta= document.getElementById('consoleInput');
-ta.value= text;
-});
-document.body.appendChild(button);
+  let button, fun;
+  fun= Function(`let ta= document.getElementById('consoleInput');
+ta.value= /`${text}/``);
+  button= document.createElement('button');
+  button.innerHTML= name;
+  button.addEventListener('click', fun);
+  document.body.appendChild(button);
 }
 
 function makeButtons(o){
