@@ -1,12 +1,7 @@
 // misc button examples and fun
 
-let button;
-button= document.createElement('button');
-button.innerHTML= 'glbBanana';
-button.addEventListener('click', function(){
-
-let ta= document.getElementById('consoleInput');
-ta.value=`const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
+let buttons= {
+  'glbBanana' : `const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
 
 const loader = new GLTFLoader();
 
@@ -20,6 +15,25 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
   errdiv.innerHTML = error;
   document.body.appendChild( errdiv );
 
-} );`;
+} );`,
+
+  };
+makeButtons(buttons);
+
+
+function makeButton(name, text){
+let button;
+button= document.createElement('button');
+button.innerHTML= name;
+button.addEventListener('click', function(){
+let ta= document.getElementById('consoleInput');
+ta.value= text;
 });
 document.body.appendChild(button);
+}
+
+function makeButtons(o){
+  Object.keys(o).forEach( name=>{
+    makeButton( name, o.name );
+  } );
+}
