@@ -28,7 +28,7 @@ function makeButton(name, text){
 let button;
 button= document.createElement('button');
 button.innerHTML= name;
-button.addEventListener('click', function(){
+button.addEventListener('click', ()=>{
 let ta= document.getElementById('consoleInput');
 ta.value= text;
 });
