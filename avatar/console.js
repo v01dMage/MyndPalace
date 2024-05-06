@@ -32,13 +32,7 @@ async function onSelectEnd(){
     }
 }
 
-function consoleRecon(o){
-/*  if( vr.self.controller2.userData.isSelecting === true ){
-    vr.tempMatrix.identity().extractRotation( vr.self.controller2.matrixWorld );
-    vr.self.raycasterRight.ray.origin.setFromMatrixPosition( vr.self.controller2.matrixWorld );
-    vr.self.raycasterRight.ray.direction.set( 0, 0, - 1 ).applyMatrix4( vr.tempMatrix );
-  }*/
-}
+function consoleRecon(o){}
 
 function consoleUpdate(o){
   if ( vr.self.controller2.userData.isSelecting === true ) {
@@ -81,6 +75,7 @@ async function init(){
 
    let consoleOut= document.createElement('div');
    consoleOut.id= 'consoleOut';
+   document.body.appendChild( consoleOut );
    vr.self.consoleOut= consoleOut;
 
    let runButton= document.createElement('button');
