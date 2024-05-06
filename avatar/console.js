@@ -83,6 +83,14 @@ async function init(){
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
+  let quickSave= document.createElement('button');
+  quickSave.innerHTML= 'quickSave';
+  quickSave.addEventListener('click', ()=>{
+    let ta= document.getElementById('consoleInput');
+    localStorage.current= ta.value;
+  });
+  document.body.appendChild( quickSave );
+
    testText= createText( 'Fail', .05 );
   testText.rotateX(- .7 );
   testText.rotateY( 1.4);
