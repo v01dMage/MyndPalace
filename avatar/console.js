@@ -8,6 +8,9 @@ let testText;
 
 init();
 
+vr.self.console= {
+  clear, cout, getText, arun
+};
 
 function clear(){
     vr.self.consoleOut.innerHTML="";
