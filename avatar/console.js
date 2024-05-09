@@ -9,6 +9,16 @@ let testText;
 init();
 
 
+function clear(){
+    vr.self.consoleOut.innerHTML="";
+}
+
+function cout(html){
+  let div= document.createElement('div');
+  div.innerHTML= html;
+  vr.self.consoleOut.appendChild( div );
+}
+
 function onSelectStart(){
     // Highlight runner
     if( runner.userData.isSelecting == true ) {
