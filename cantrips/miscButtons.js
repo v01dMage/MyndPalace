@@ -16,7 +16,12 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
   document.body.appendChild( errdiv );
 
 } );`,
-
+  'ctrlrEvent': `let eventGrabber= function(event){
+  vr.self.console.cout(Object.keys(event).join('<br>'));
+};
+vr.self.controller2.addEventListener('selectstart', eventGrabber);
+vr.self.controller2.addEventListener('selectend', eventGrabber);
+vr.self.controller2.addEventListener('connected', eventGrabber);`,
   };
 makeButtons(buttons);
 
