@@ -17,11 +17,14 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
 
 } );`,
   'ctrlrEvent': `let eventGrabber= function(event){
-  vr.self.console.cout(Object.keys(event).join('<br>'));
+  let { t: type, data, target }= event;
+  vr.self.console.cout(Object.keys(t).join('<br>'));
+  vr.self.console.cout(Object.keys(data).join('<br>'));
+  vr.self.console.cout(Object.keys(target).join('<br>'));
 };
-vr.self.controller2.addEventListener('selectstart', eventGrabber);
+//vr.self.controller2.addEventListener('selectstart', eventGrabber);
 vr.self.controller2.addEventListener('selectend', eventGrabber);
-vr.self.controller2.addEventListener('connected', eventGrabber);`,
+//vr.self.controller2.addEventListener('connected', eventGrabber);`,
   };
 makeButtons(buttons);
 
