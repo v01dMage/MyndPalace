@@ -21,11 +21,11 @@ function makePoint( parent, x, y, z, color ){
 
 function init(){
    let points= [
-     {x: 0, y: 0, z: -.1, color: 0xaaaaff},
-     {x: .1, y: 0, z: 0, color: 0xaaaaaa},
-     {x: -.1, y: 0, z: 0, color: 0x777777},
-     {x: 0, y: .1, z: 0, color: 0xaaaa00},
-     {x: 0, y: -.1, z: 0, color: 0x777700}
+     {x: 0, y: 0, z: -.01, color: 0xaaaaff},
+     {x: .1, y: 0, z: 0.5, color: 0xaaaaaa},
+     {x: -.1, y: 0, z: 0.5, color: 0x777777},
+     {x: 0, y: .1, z: 0.5, color: 0xaaaa00},
+     {x: 0, y: -.1, z: 0.5, color: 0x777700}
    ];
    points.forEach( ({x,y,z,color})=>{
      makePoint( vr.self.controller2, x, y, z, color );
