@@ -4,7 +4,7 @@ import * as THREE from 'three';
 
 const loader = new THREE.TextureLoader();
 const texture = loader.load(
-    'my/assets/stone_pines.jpg',
+    './assets/stone_pines.jpg',
     () => {
       texture.mapping = THREE.EquirectangularReflectionMapping;
       texture.colorSpace = THREE.SRGBColorSpace;
