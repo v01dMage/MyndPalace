@@ -14,8 +14,9 @@ polling= ()=>{
     let session= xr.getSession();
     //cout( session.isSystemKeyboardSupported );
     cout( session.inputSources );
-    for( let src of session.inputSources ){
-      cout( src ); cout( src?.gamepad )
+    for( const src of session.inputSources ){
+      cout( src ); 
+      //cout( src?.gamepad );
     }
     cout( '***' )
   }
