@@ -1,7 +1,7 @@
 // Test gamepad ideas and functions
 import * as vr from 'vr/vr.js';
 
-let xr= vr self.renderer.xr;
+let xr= vr.self.renderer.xr;
 let cout= vr.self.console.cout;
 let delay= 3000;
 
