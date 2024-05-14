@@ -1,9 +1,17 @@
 // Test gamepad ideas and functions
 import * as vr from 'vr/vr.js';
 
-window.addEventListener('gamepadconnected', (e)=>{
-  vr.self.console.cout( 'connected<br>'+ e.gamepad.index );
-});
-window.addEventListener('gamepaddisconnected', (e)=>{
-  vr.self.console.cout( 'disconnected<br>' );
-});
+let xr= vr self.renderer.xr;
+let cout= vr.self.console.cout;
+let delay= 3000;
+
+function polling(){
+  if( xr.isPresenting ){
+    let session= xr.getSession();
+    cout( session.inputSources );
+    cout( '***' )
+  }
+
+  setTimeout( polling, delay );
+}
+polling();
