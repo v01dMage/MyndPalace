@@ -4,8 +4,9 @@ import * as vr from 'vr/vr.js';
 let xr= vr.self.renderer.xr;
 let cout= vr.self.console.cout;
 let delay= 3000;
+let polling;
 
-function polling(){
+polling= ()=>{
   if( xr.isPresenting ){
     let session= xr.getSession();
     cout( session.inputSources );
