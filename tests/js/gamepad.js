@@ -10,14 +10,14 @@ let count= 0;
 polling= ()=>{
   if( xr.isPresenting ){
     count++;
-    cout( count );
+    cout( 'count: '+ count );
     let session= xr.getSession();
-    cout( session.isSystemKeyboardSupported );
-    cout( session.inputSources );
+    cout( 'keys: '+ session.isSystemKeyboardSupported );
+    cout( 'inputs: '+ session.inputSources );
     session.inputSources.forEach( (src)=>{
-      cout( src.handedness ); 
+      cout('hand: '+ src.handedness ); 
       //cout( src?.gamepad );
-      cout( typeof src?.profiles );
+      cout( src?.profiles );
       cout('-');
     } );
     cout( '***' )
