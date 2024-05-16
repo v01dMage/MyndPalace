@@ -27,7 +27,7 @@ polling= ()=>{
         cout('axes: ' );
         let out="";
         let ax= src.gamepad.axes;
-        ax.forEach( axis=>axis+', ' );
+        ax.forEach( axis=>out+axis+', ' );
         cout( out );
         cout('buttons: ' );
         out= ""!
