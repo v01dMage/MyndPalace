@@ -15,10 +15,12 @@ polling= ()=>{
     cout( 'keys: '+ session.isSystemKeyboardSupported );
     cout( 'inputs: '+ session.inputSources );
     session.inputSources.forEach( (src)=>{
-      cout('hand: '+ src.handedness ); 
+      cout('hand: '+ src.hand ); 
+      cout('handedness: '+ src.handedness );
       cout( 'gamepad: '+ src?.gamepad );
       cout( 'profiles: _'+ src?.profiles +'_');
       cout( 'gripSpace: '+ src?.gripSpace );
+      cout( 'targetRayMode: '+ src.targetRayMode );
       cout('-');
     } );
     cout( '***' )
