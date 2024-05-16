@@ -4,7 +4,7 @@ import * as vr from 'vr/vr.js';
 let xr= vr.self.renderer.xr;
 let cout= vr.self.console.cout;
 
-/*
+
 let delay= 3000;
 let polling;
 let count= 0;
@@ -45,9 +45,9 @@ polling= ()=>{
 
   setTimeout( polling, delay );
 }
-//polling();
-*/
+polling();
 
+/*
 
 //add pipeline recon and update inner console 
 function gamepadRecon(o){
@@ -77,3 +77,5 @@ function showAxes(){
 }
 
 showAxes();
+
+*/
