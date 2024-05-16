@@ -30,7 +30,6 @@ polling= ()=>{
         ax.forEach( axis=>out+=axis+', ' );
         cout( out );
         cout('buttons: ' );
-        out= ""!
         let btns= src.gamepad.buttons;
         btns.forEach( btn=>{
           cout('pressed: '+ btn.pressed );
