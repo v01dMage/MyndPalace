@@ -60,7 +60,7 @@ function gamepadRecon(o){
 
 vr.addToRecon( gamepadRecon );
 
-const showDelay= 300;
+let showDelay= 300;
 function showAxes(o){
   if( showDelay-- < 0 ){
     showDelay= 300;
