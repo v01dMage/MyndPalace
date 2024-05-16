@@ -17,9 +17,10 @@ function clear(){
 }
 
 function cout(html){
-  if(typeof html == 'object'){
+  if(typeof html == undefined)
+    html= '<em>undefined</em>';
+  if(typeof html == 'object')
     html= Object.keys(html).join('<br>');
-  }
   let div= document.createElement('div');
   div.innerHTML= html;
   vr.self.consoleOut.appendChild( div );
