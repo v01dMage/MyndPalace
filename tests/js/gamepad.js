@@ -47,7 +47,7 @@ polling= ()=>{
 
 //add pipeline recon and update inner console 
 function gamepadRecon(o){
-  let ins= vr.delf.xr.getSession().inputSources;
+  let ins= vr.self.xr.getSession().inputSources;
   o.axes= [];
   ins.forEach( src=>{
     if(src.gamepad){
