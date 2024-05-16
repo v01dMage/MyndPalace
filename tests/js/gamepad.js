@@ -15,8 +15,9 @@ polling= ()=>{
     cout( session.isSystemKeyboardSupported );
     cout( session.inputSources );
     session.inputSources.forEach( (src)=>{
-      cout( src ); 
-      cout( src?.gamepad );
+      cout( src.handedness ); 
+      cout( src.gamepad );
+      cout( src.profiles );
       cout('-');
     }
     cout( '***' )
