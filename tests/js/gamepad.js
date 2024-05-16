@@ -3,6 +3,8 @@ import * as vr from 'vr/vr.js';
 
 let xr= vr.self.renderer.xr;
 let cout= vr.self.console.cout;
+
+/*
 let delay= 3000;
 let polling;
 let count= 0;
@@ -44,6 +46,8 @@ polling= ()=>{
   setTimeout( polling, delay );
 }
 //polling();
+*/
+
 
 //add pipeline recon and update inner console 
 function gamepadRecon(o){
@@ -57,14 +61,16 @@ function gamepadRecon(o){
   } );
 }
 
-vr.addToRecon( gamepadRecon );
-
-var showDelay= 300;
-let showAxes= (o)=>{
-  if( showDelay-- < 0 ){
+let showDelay= 300;
+function showAxes(o){
+  if( --showDelay < 0 ){
     showDelay= 300;
     let out= o.axes.join(', ');
-    vr.self.console.cout(`return ${out}`);
+    vr.self.console.cout(out);
 }
 
-vr.addToUpdate( showAxes );
+function init(){
+  vr.addToRecon( gamepadRecon );
+  vr.addToUpdate( showAxes );
+}
+init();
