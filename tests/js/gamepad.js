@@ -61,16 +61,19 @@ function gamepadRecon(o){
   } );
 }
 
-let showDelay= 300;
-function showAxes(o){
-  if( --showDelay < 0 ){
-    showDelay= 300;
-    let out= o.axes.join(', ');
+vr.addToRecon( gamepadRecon );
+
+vr.self.gamepad= {};
+function updateAxes(o){
+  vr.self.gamepad.axes= o.axes;
+}
+vr.addToUpdate( updateAxes );
+
+function showAxes(){
+    let out= vr.self.gamepad.axes.join(', ');
     vr.self.console.cout(out);
+
+    setTimeout( showAxes, 5000 );
 }
 
-function init(){
-  vr.addToRecon( gamepadRecon );
-  vr.addToUpdate( showAxes );
-}
-init();
+showAxes();
