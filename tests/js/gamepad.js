@@ -55,7 +55,6 @@ function gamepadRecon(o){
       o.axes.push( src.gamepad.axes[3] );
     }
   } );
-  return o;
 }
 
 vr.addToRecon( gamepadRecon );
