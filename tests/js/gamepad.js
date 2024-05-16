@@ -16,7 +16,7 @@ polling= ()=>{
     cout( 'inputs: '+ session.inputSources );
     session.inputSources.forEach( (src)=>{
       cout('hand: '+ src.handedness ); 
-      //cout( src?.gamepad );
+      cout( src?.gamepad );
       cout( src?.profiles );
       cout('-');
     } );
