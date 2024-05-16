@@ -43,4 +43,26 @@ polling= ()=>{
 
   setTimeout( polling, delay );
 }
-polling();
+//polling();
+
+//add pipeline recon and update inner console 
+function gamepadRecon(o){
+  let ins= xr.getSession().inputSources;
+  o.axes= [];
+  inputSources.forEach( src=>{
+    if(src.gamepad){
+      o.axes.push( src.gamepad.axes[2] );
+      o.axes.push( src.gamepad.axes[3] );
+    }
+  } );
+  return o;
+}
+
+vr.addToRecon( gamepadRecon );
+
+function showAxes(o){
+  let out= o.axes.join(', ');
+  vr.self.console.arun(`return ${out}`);
+}
+
+vr.addToUpdate( showAxes );
