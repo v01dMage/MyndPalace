@@ -21,8 +21,10 @@ function cout(html){
     html= typeof html;
   if(typeof html == undefined)
     html= '<em>undefined</em>';
-  if(typeof html == 'object')
+  if(typeof html == 'object'){
     html= Object.keys(html).join('<br>');
+    if(html=='') html= 'blank object';
+  }
   let div= document.createElement('div');
   div.innerHTML= html;
   vr.self.consoleOut.appendChild( div );
