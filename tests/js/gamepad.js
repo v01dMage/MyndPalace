@@ -60,9 +60,12 @@ function gamepadRecon(o){
 
 vr.addToRecon( gamepadRecon );
 
+const showDelay= 300;
 function showAxes(o){
-  let out= o.axes.join(', ');
-  vr.self.console.arun(`return ${out}`);
+  if( showDelay-- < 0 ){
+    showDelay= 300;
+    let out= o.axes.join(', ');
+    vr.self.console.cout(`return ${out}`);
 }
 
 vr.addToUpdate( showAxes );
