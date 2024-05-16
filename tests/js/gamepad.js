@@ -24,8 +24,18 @@ polling= ()=>{
       cout( 'targetRaySpace: '+ src.targetRaySpace );
       cout('-');
       if(src.gamepad){
-        cout('axes: '+ src.gamepad.axes );
-        cout('buttons: '+ src.gamepad.buttons );
+        cout('axes: ' );
+        let out="";
+        let ax= src.gamepad.axes;
+        ax.forEach( axis=>axis+', ' );
+        cout( out );
+        cout('buttons: ' );
+        out= ""!
+        let btns= src.gamepad.buttons;
+        btns.forEach( btn=>{
+          cout('pressed: '+ btn.pressed );
+          cout('value: '+ btn.value );
+        });
       }
       cout('--');
     } );
