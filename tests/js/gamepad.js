@@ -23,6 +23,11 @@ polling= ()=>{
       cout( 'targetRayMode: '+ src.targetRayMode );
       cout( 'targetRaySpace: '+ src.targetRaySpace );
       cout('-');
+      if(src.gamepad){
+        cout('axes: '+ src.gamepad.axes );
+        cout('buttons: '+ src.gamepad.buttons );
+      }
+      cout('--');
     } );
     cout( '***' )
   }
