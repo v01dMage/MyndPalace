@@ -17,6 +17,8 @@ function clear(){
 }
 
 function cout(html){
+  if(typeof html == null)
+    html= typeof html;
   if(typeof html == undefined)
     html= '<em>undefined</em>';
   if(typeof html == 'object')
