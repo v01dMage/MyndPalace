@@ -21,6 +21,7 @@ polling= ()=>{
       cout( 'profiles: _'+ src?.profiles +'_');
       cout( 'gripSpace: '+ src?.gripSpace );
       cout( 'targetRayMode: '+ src.targetRayMode );
+      cout( 'targetRaySpace: '+ src.targetRaySpace );
       cout('-');
     } );
     cout( '***' )
