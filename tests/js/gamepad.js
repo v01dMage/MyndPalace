@@ -67,10 +67,11 @@ function gamepadRecon(o){
   } );
 }
 
+/*
 function updateAxes(o){
   vr.self.gamepad.axes= o.axes;
 }
-
+*/
 
 /*
 function showAxes(){
