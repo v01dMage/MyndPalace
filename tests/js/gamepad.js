@@ -4,7 +4,7 @@ import * as vr from 'vr/vr.js';
 let xr= vr.self.renderer.xr;
 let cout= vr.self.console.cout;
 
-const gamepad= { axes: {l: {x:0,y:0}, r: {x:0,y:0}} }, buttons: {l: {t:0,g:0,x: false, y: false}, r: {t:0,g:0,a: false, b: false}} };
+const gamepad= { axes: { l: {x:0,y:0}, r: {x:0,y:0} }, buttons: {l: {t:0,g:0,x: false, y: false}, r: {t:0,g:0,a: false, b: false} } };
 vr.self.gamepad= gamepad;
 
 let delay= 3000;
@@ -42,8 +42,8 @@ polling= ()=>{
         });
       }
       cout('--');
-      cout(`${gamepad.axes.lx}x ${gamepad.axes.ly`);
-      cout(`${gamepad.axes.rx}x ${gamepad.axes.ry`);
+      cout(`${gamepad.axes.l.x}x ${gamepad.axes.l.y`);
+      cout(`${gamepad.axes.r.x}x ${gamepad.axes.r.y`);
     } );
     cout( '***' )
   }
