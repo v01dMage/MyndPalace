@@ -4,6 +4,8 @@ import * as vr from 'vr/vr.js';
 let xr= vr.self.renderer.xr;
 let cout= vr.self.console.cout;
 
+const gamepad= { axes: {l: {x:0,y:0}, r: {x:0,y:0}} }, buttons: {l: {t:0,g:0,x: false, y: false}, r: {t:0,g:0,a: false, b: false}} };
+vr.self.gamepad= gamepad;
 
 let delay= 3000;
 let polling;
@@ -31,6 +33,7 @@ polling= ()=>{
         let ax= src.gamepad.axes;
         ax.forEach( axis=>out+=axis+', ' );
         cout( out );
+        cout( src.handedness );
         cout('buttons: ' );
         let btns= src.gamepad.buttons;
         btns.forEach( btn=>{
@@ -39,6 +42,8 @@ polling= ()=>{
         });
       }
       cout('--');
+      cout(`${gamepad.axes.lx}x ${gamepad.axes.ly`);
+      cout(`${gamepad.axes.rx}x ${gamepad.axes.ry`);
     } );
     cout( '***' )
   }
@@ -46,8 +51,9 @@ polling= ()=>{
   setTimeout( polling, delay );
 }
 polling();
+//vr.addToRecon( gamepadRecon );
+//vr.addToUpdate( updateAxes );
 
-/*
 
 //add pipeline recon and update inner console 
 function gamepadRecon(o){
@@ -61,14 +67,12 @@ function gamepadRecon(o){
   } );
 }
 
-vr.addToRecon( gamepadRecon );
-
-vr.self.gamepad= {};
 function updateAxes(o){
   vr.self.gamepad.axes= o.axes;
 }
-vr.addToUpdate( updateAxes );
 
+
+/*
 function showAxes(){
     let out= vr.self.gamepad.axes.join(', ');
     vr.self.console.cout(out);
