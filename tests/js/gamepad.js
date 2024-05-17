@@ -42,8 +42,8 @@ polling= ()=>{
         });
       }
       cout('--');
-      cout(`${gamepad.axes.l.x}x ${gamepad.axes.l.y`);
-      cout(`${gamepad.axes.r.x}x ${gamepad.axes.r.y`);
+      cout(`${gamepad.axes.l.x}x ${gamepad.axes.l.y}y`);
+      cout(`${gamepad.axes.r.x}x ${gamepad.axes.r.y}y`);
     } );
     cout( '***' )
   }
@@ -67,13 +67,13 @@ function gamepadRecon(o){
   } );
 }
 
-/*
+
 function updateAxes(o){
   vr.self.gamepad.axes= o.axes;
 }
-*/
 
-/*
+
+
 function showAxes(){
     let out= vr.self.gamepad.axes.join(', ');
     vr.self.console.cout(out);
@@ -81,6 +81,5 @@ function showAxes(){
     setTimeout( showAxes, 5000 );
 }
 
-showAxes();
+//showAxes();
 
-*/
