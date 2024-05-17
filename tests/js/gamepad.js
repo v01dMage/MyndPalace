@@ -57,6 +57,7 @@ vr.addToRecon( gamepadRecon );
 
 //add pipeline recon and update inner console 
 function gamepadRecon(o){
+  if( xr.isPresenting ){
   let ins= vr.self.renderer.xr.getSession().inputSources;
   ins.forEach( src=>{
     if(src.gamepad){
@@ -64,6 +65,6 @@ function gamepadRecon(o){
       gamepad[h].x= src.gamepad.axes[2];
       gamepad[h].y= src.gamepad.axes[3];
     }
-  } );
+  } );}
 }
 
