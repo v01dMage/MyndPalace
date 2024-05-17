@@ -51,7 +51,7 @@ polling= ()=>{
   setTimeout( polling, delay );
 }
 polling();
-vr.addToRecon( gamepadRecon );
+//vr.addToRecon( gamepadRecon );
 
 
 
