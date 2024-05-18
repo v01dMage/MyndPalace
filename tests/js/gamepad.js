@@ -25,6 +25,7 @@ let polling;
 let count= 0;
 
 polling= ()=>{
+  let innerOut= '';
   if( xr.isPresenting ){
     count++;
     cout( 'count: '+ count );
@@ -49,10 +50,13 @@ polling= ()=>{
         cout( src.handedness );
         cout('buttons: ' );
         let btns= src.gamepad.buttons;
-        btns.forEach( btn=>{
+        innerOut= '*';
+        btns.reduce( (reduction, btn, index)=>{
+          if(btn.pressed) reduction+= index+', ';
           cout('pressed: '+ btn.pressed );
           cout('value: '+ btn.value );
-        });
+          return reduction;
+        }, innerOut );
       }
       cout('--');
       cout(`${gamepad.leftXaxis}x ${gamepad.leftYaxis}y`);
@@ -61,6 +65,7 @@ polling= ()=>{
     cout( '***' )
   }
 
+  vr.self.console.ccout( innerOut );
   setTimeout( polling, delay );
 }
 polling();
