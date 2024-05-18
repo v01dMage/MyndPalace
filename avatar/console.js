@@ -9,7 +9,7 @@ let testText;
 init();
 
 vr.self.console= {
-  clear, cout, getText, arun
+  clear, cout, ccout, getText, arun
 };
 
 function clear(){
