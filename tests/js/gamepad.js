@@ -62,7 +62,7 @@ let gamepadRecon= (o)=>{
   let ins= xr.getSession().inputSources;
   ins.forEach( src=>{
     if(src.gamepad){
-      let h= src.handedness == 'left'? 'l':'r';
+      let h= (src.handedness == 'left')? 'l':'r';
       gamepad[h].x= src.gamepad.axes[2];
       gamepad[h].y= src.gamepad.axes[3];
     }
