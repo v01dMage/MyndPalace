@@ -7,8 +7,10 @@ let cout= vr.self.console.cout;
 const gamepad= { 
   leftXaxis: 0,
   leftYaxis: 0,
+  leftAxisButton: false,
   rightXaxis: 0,
   rightYaxis: 0,
+  rightAxisButton: false,
   leftTrigger: 0,
   rightTrigger: 0,
   leftGrip: 0,
