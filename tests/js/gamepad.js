@@ -57,6 +57,7 @@ polling();
 
 //add pipeline recon and update inner console 
 let gamepadRecon= (o)=>{
+  try{
   if( xr.isPresenting ){
   let ins= xr.getSession().inputSources;
   ins.forEach( src=>{
@@ -66,6 +67,9 @@ let gamepadRecon= (o)=>{
       gamepad[h].y= src.gamepad.axes[3];
     }
   } );}
+  } catch(err) {
+      cout(`<b>${err}</b>`);
+  }
 }
 
 vr.addToRecon( gamepadRecon );
