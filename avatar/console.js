@@ -30,6 +30,13 @@ function cout(html){
   vr.self.consoleOut.appendChild( div );
 }
 
+function ccout(text){
+  cScreen.remove( cPlane );
+  cPlane= createText( text, .02 );
+  cPlane.position.z+= .02;
+  cScreen.add( cPlane );
+}
+
 function onSelectStart(){
     // Highlight runner
     if( runner.userData.isSelecting == true ) {
@@ -45,11 +52,9 @@ async function onSelectEnd(){
        runner.material.color.setHex( 0xcc22cc );
       // cube red
        testLight.material.color.setHex( 0xdd5555 );
-       cScreen.remove( cPlane );
+
        let out= await arun();
-       cPlane= createText( out, .02 );
-       cPlane.position.z+= .02;
-       cScreen.add( cPlane );
+       ccout( out );
     }
 }
 
