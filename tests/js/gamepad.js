@@ -50,7 +50,7 @@ polling= ()=>{
         cout( src.handedness );
         cout('buttons: ' );
         let btns= src.gamepad.buttons;
-        innerOut+= '*'+
+        innerOut+= '*'+ src.handedness+
         btns.reduce( (reduction, btn, index)=>{
           if(btn.pressed) reduction+= index+', ';
           cout('pressed: '+ btn.pressed );
