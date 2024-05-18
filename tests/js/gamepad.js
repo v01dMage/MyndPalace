@@ -4,7 +4,20 @@ import * as vr from 'vr/vr.js';
 let xr= vr.self.renderer.xr;
 let cout= vr.self.console.cout;
 
-const gamepad= { axes: { left: {x:0,y:0}, right: {x:0,y:0} }, buttons: {left: {t:0,g:0,x: false, y: false}, right: {t:0,g:0,a: false, b: false} } };
+const gamepad= { 
+  leftXaxis: 0,
+  leftYaxis: 0,
+  rightXaxis: 0,
+  rightYaxis: 0,
+  leftTrigger: 0,
+  rightTrigger: 0,
+  leftGrip: 0,
+  rightGrip: 0,
+  A: false,
+  B: false,
+  X: false,
+  Y: false,
+ };
 vr.self.gamepad= gamepad;
 
 let delay= 3000;
@@ -42,8 +55,8 @@ polling= ()=>{
         });
       }
       cout('--');
-      cout(`${gamepad.axes.left.x}x ${gamepad.axes.left.y}y`);
-      cout(`${gamepad.axes.right.x}x ${gamepad.axes.right.y}y`);
+      cout(`${gamepad.leftXaxis}x ${gamepad.leftYaxis}y`);
+      cout(`${gamepad.rightXaxis}x ${gamepad.rightYaxis}y`);
     } );
     cout( '***' )
   }
@@ -63,8 +76,8 @@ let gamepadRecon= (o)=>{
   ins.forEach( src=>{
     if(src.gamepad){
       let h= src.handedness;
-      gamepad.axes[h].x= src.gamepad.axes[2];
-      gamepad.axes[h].y= src.gamepad.axes[3];
+      gamepad[h+'Xaxis']= src.gamepad.axes[2];
+      gamepad[h+'Yaxis']= src.gamepad.axes[3];
     }
   } );}
   } catch(err) {
