@@ -51,19 +51,19 @@ polling= ()=>{
   setTimeout( polling, delay );
 }
 polling();
-//vr.addToRecon( gamepadRecon );
+vr.addToRecon( gamepadRecon );
 
 
 
 //add pipeline recon and update inner console 
 function gamepadRecon(o){
-  if( xr.isPresenting ){
+  if( vr.self.renderer.xr.isPresenting ){
   let ins= vr.self.renderer.xr.getSession().inputSources;
   ins.forEach( src=>{
     if(src.gamepad){
       let h= src.handedness == 'left'? 'l':'r';
-      gamepad[h].x= src.gamepad.axes[2];
-      gamepad[h].y= src.gamepad.axes[3];
+      vr.self.gamepad[h].x= src.gamepad.axes[2];
+      vr.self.gamepad[h].y= src.gamepad.axes[3];
     }
   } );}
 }
