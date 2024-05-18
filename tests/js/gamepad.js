@@ -63,8 +63,8 @@ let gamepadRecon= (o)=>{
   ins.forEach( src=>{
     if(src.gamepad){
       let h= src.handedness;
-      gamepad[h].x= src.gamepad.axes[2];
-      gamepad[h].y= src.gamepad.axes[3];
+      gamepad.axes[h].x= src.gamepad.axes[2];
+      gamepad.axes[h].y= src.gamepad.axes[3];
     }
   } );}
   } catch(err) {
