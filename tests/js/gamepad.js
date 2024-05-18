@@ -56,7 +56,7 @@ polling= ()=>{
           cout('pressed: '+ btn.pressed );
           cout('value: '+ btn.value );
           return reduction;
-        }, innerOut );
+        }, '' );
       }
       cout('--');
       cout(`${gamepad.leftXaxis}x ${gamepad.leftYaxis}y`);
