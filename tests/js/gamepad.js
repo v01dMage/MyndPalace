@@ -55,7 +55,7 @@ polling= ()=>{
         innerOut+= '*'+ src.handedness+
         btns.reduce( (reduction, btn, index)=>{
           if(btn.pressed || btn.value != 0) {
-    reduction+= index+ ': '+ btn.value+ ', ';
+    reduction+= index+ ': '+ btn.value.toPrecision(2)+ ', ';
           }
           cout('pressed: '+ btn.pressed );
           cout('value: '+ btn.value );
