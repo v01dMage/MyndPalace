@@ -98,8 +98,15 @@ let gamepadRecon= (o)=>{
   ins.forEach( src=>{
     if(src.gamepad){
       let h= src.handedness;
+      let l= h == 'left';
+      let btns= stc.gamepad.btns
       gamepad[h+'Xaxis']= src.gamepad.axes[2];
       gamepad[h+'Yaxis']= src.gamepad.axes[3];
+      gamepad[h+'Trigger']= btns[0].value
+      gamepad[h+'Grip']= btns[1].value 
+      gamepad[h+'AxisButton']= btns[3].pressed
+      gamepad[l?'X':'A']= btns[4].pressed
+      gamepad[l?'Y':'B']= btns[5].pressed
     }
   } );}
   } catch(err) {
