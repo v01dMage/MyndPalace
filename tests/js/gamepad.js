@@ -28,6 +28,8 @@ const gamepad= {
   B: false,
   X: false,
   Y: false,
+  haptics: { left: undefined, right: undefined},
+  pulse: pulse,
  };
 vr.self.gamepad= gamepad;
 
@@ -40,6 +42,7 @@ polling= ()=>{
   let innerOut= '';
   if( xr.isPresenting ){
     count++;
+    if( count%5 == 0) gamepad.pulse( 'right', 1, 500);
     cout( 'count: '+ count );
     let session= xr.getSession();
     cout( 'keys: '+ session.isSystemKeyboardSupported );
@@ -115,11 +118,12 @@ let gamepadRecon= (o)=>{
       let btns= src.gamepad.buttons;
       gamepad[h+'Xaxis']= src.gamepad.axes[2];
       gamepad[h+'Yaxis']= src.gamepad.axes[3];
-      gamepad[h+'Trigger']= btns[0].value
-      gamepad[h+'Grip']= btns[1].value 
-      gamepad[h+'AxisButton']= btns[3].pressed
-      gamepad[l?'X':'A']= btns[4].pressed
-      gamepad[l?'Y':'B']= btns[5].pressed
+      gamepad[h+'Trigger']= btns[0].value;
+      gamepad[h+'Grip']= btns[1].value;
+      gamepad[h+'AxisButton']= btns[3].pressed;
+      gamepad[l?'X':'A']= btns[4].pressed;
+      gamepad[l?'Y':'B']= btns[5].pressed;
+      gamepad.haptics[h]= src.gamepad.hapticActuators[0];
     }
   } );}
   } catch(err) {
@@ -128,3 +132,7 @@ let gamepadRecon= (o)=>{
 }
 
 vr.addToRecon( gamepadRecon );
+
+function pulse(hand, strength, ms){
+  let pulsed= gamepad.haptics[hand].pulse( strength, ms );
+}
