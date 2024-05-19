@@ -78,6 +78,19 @@ polling= ()=>{
       cout('--');
       cout(`${gamepad.leftXaxis}x ${gamepad.leftYaxis}y`);
       cout(`${gamepad.rightXaxis}x ${gamepad.rightYaxis}y`);
+      let g= gamepad;
+      cout(`
+   Left Trigger: ${g.leftTrigger}<br>
+   Right Trigger: ${g.rightTrigger}<br>
+   Left Grip: ${g.leftGrip}<br>
+   Right Grip: ${g.rightGrip}<br>
+   Left Axis Button: ${g.leftAxisButton}<br>
+   Right Axis Button: ${g.rightAxisButton}<br>
+   A: ${g.A}<br>
+   B: ${g.B}<br>
+   X: ${g.X}<br>
+   Y: ${g.Y}<br>
+`);
     } );
     cout( '***' )
   }
