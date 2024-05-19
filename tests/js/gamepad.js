@@ -1,4 +1,13 @@
 // Test gamepad ideas and functions
+// controller setup seems to be:
+//    0 trigger #
+//    1 grip #
+//    3 stickpress tf
+//    4 A/X tf
+//    5 B/Y tf
+//    axes2 x #
+//    axes3 y #
+
 import * as vr from 'vr/vr.js';
 
 let xr= vr.self.renderer.xr;
