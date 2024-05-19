@@ -25,6 +25,7 @@ vr.self.gamepad= gamepad;
 let delay= 3000;
 let polling;
 let count= 0;
+let didPulse;
 
 polling= ()=>{
   let innerOut= '';
@@ -61,6 +62,9 @@ polling= ()=>{
           cout('value: '+ btn.value );
           return reduction;
         }, '' );
+        if( btns[5].pressed ){
+          didPulse= src.gamepad.hapticActuators[0].pulse(0.5, 100);
+        }
       }
       cout('--');
       cout(`${gamepad.leftXaxis}x ${gamepad.leftYaxis}y`);
