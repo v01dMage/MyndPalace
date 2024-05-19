@@ -112,7 +112,7 @@ let gamepadRecon= (o)=>{
     if(src.gamepad){
       let h= src.handedness;
       let l= h == 'left';
-      let btns= src.gamepad.buttons
+      let btns= src.gamepad.buttons;
       gamepad[h+'Xaxis']= src.gamepad.axes[2];
       gamepad[h+'Yaxis']= src.gamepad.axes[3];
       gamepad[h+'Trigger']= btns[0].value
