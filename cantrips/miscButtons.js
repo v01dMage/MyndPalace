@@ -24,6 +24,10 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
 };
 
 vr.self.controller2.addEventListener('click', eventGrabber);`,
+  'buzz' : `vr.self.gamepad.pulse('left', .99, 1000);
+
+return '>°<';
+  `,
   };
 makeButtons(buttons);
 
