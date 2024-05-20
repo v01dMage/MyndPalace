@@ -3,6 +3,8 @@
 
 import * as vr from 'vr/vr.js';
 
+const xr= vr.self.renderer.xr;
+
 const gamepad= { 
   leftXaxis: 0,
   leftYaxis: 0,
