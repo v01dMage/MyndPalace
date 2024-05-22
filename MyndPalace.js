@@ -7,7 +7,7 @@ import 'vr/console.js';
 import 'my/cantrips/miscButtons.js';
 //import 'my/tests/js/gamepad.js';
 import 'vr/gamepad.js';
-import 'my/tests/js/scenes.js';
+//import 'my/tests/js/scenes.js';
 
 //have fun
 
