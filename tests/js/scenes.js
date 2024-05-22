@@ -2,6 +2,7 @@
 //with 'vr'.self.scenes[0] always being rendered
 
 import * as vr from 'vr/vr.js';
+//assumes gamepad
 import * as THREE from 'three';
 
 //add controllers and grips,
@@ -34,5 +35,5 @@ function swapRealm(o){
   }
 }
 
-//vr.addToUpdate( swapRealm );
+vr.addToUpdate( swapRealm );
 
