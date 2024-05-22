@@ -34,5 +34,5 @@ function swapRealm(o){
   }
 }
 
-vr.addToUpdate( swapRealm );
+//vr.addToUpdate( swapRealm );
 
