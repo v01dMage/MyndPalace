@@ -20,9 +20,11 @@ voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x779977, 3 ) );
 vr.self.scenes.push( voyd );
 
 let lastSwapped= Date.now();
+let gp= vr.self.gamepad;
+
 function swapRealm(o){
   if(Date.now() - lastSwapped> 2000){
-    let gp= vr.self.gamepad;
+    
     if(gp.leftGrip > 0.3 && gp.Y){
       vr.self.scenes.push(
         vr.self.scenes.unshift();
