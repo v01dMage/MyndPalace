@@ -33,6 +33,7 @@ animate();
 function init() {
   scene = new THREE.Scene();
   self.scene= scene;
+  self.scenes= [ scene ];
   scene.background = new THREE.Color( 0x66ddaa );
 
   camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -183,5 +184,5 @@ function basicRecon() {
 function basicUpdate(){}
 
 function render(){
-  renderer.render( scene, camera );
+  renderer.render( self.scenes[0], camera );
 }
