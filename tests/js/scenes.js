@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 //add controllers and grips,
 // background, lights, etc 
-
+try{
 let voyd= new THREE.Scene();
 voyd.background = new THREE.Color( 0xeeffee );
 
@@ -36,3 +36,6 @@ function swapRealm(o){
 
 //vr.addToUpdate( swapRealm );
 
+} catch(err){
+   vr.self.console.cout(err);
+}
