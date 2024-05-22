@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 //add controllers and grips,
 // background, lights, etc 
-try{
+
 let voyd= new THREE.Scene();
 voyd.background = new THREE.Color( 0xeeffee );
 
@@ -21,21 +21,18 @@ vr.self.scenes.push( voyd );
 
 let lastSwapped= Date.now();
 let gp= vr.self.gamepad;
-/*
+let scenes= vr.self.scenes;
+
 function swapRealm(o){
   if(Date.now() - lastSwapped> 2000){
     
     if(gp.leftGrip > 0.3 && gp.Y){
-      vr.self.scenes.push(
-        vr.self.scenes.unshift();
-      );
+      let temp= scenes.shift();
+      scenes.push( temp );
       lastSwapped= Date.now();
     }
   }
 }
-*/
+
 //vr.addToUpdate( swapRealm );
 
-} catch(err){
-   vr.self.console.cout(err);
-}
