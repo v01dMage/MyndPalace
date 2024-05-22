@@ -21,7 +21,7 @@ vr.self.scenes.push( voyd );
 
 let lastSwapped= Date.now();
 let gp= vr.self.gamepad;
-
+/*
 function swapRealm(o){
   if(Date.now() - lastSwapped> 2000){
     
@@ -33,7 +33,7 @@ function swapRealm(o){
     }
   }
 }
-
+*/
 //vr.addToUpdate( swapRealm );
 
 } catch(err){
