@@ -16,14 +16,21 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
   document.body.appendChild( errdiv );
 
 } );`,
-  'ctrlrEvent': `let eventGrabber= function(event){
-  let { type, data, target }= event;
-  vr.self.console.cout(type+'<br>');
-  vr.self.console.cout(Object.keys(data).join('<br>'));
-  vr.self.console.cout(Object.keys(target).join('<br>'));
-};
+  'canvas': `let canvas= document.createElement('canvas');
+canvas.width= 1024;
+canvas.height= 1024;
+let ctx= canvas.getContext("2d");
 
-vr.self.controller2.addEventListener('click', eventGrabber);`,
+
+let dataString= canvas.toDataURL();
+let link= document.createElement('a');
+link.setAttribute('download', '');
+link.setAttribute('href', dataString );
+link.innerHTML= 'download img';
+document.body.appendChild(link);
+
+vr.self.console.cout(typeof link);
+`,
   'buzz' : `vr.self.gamepad.pulse('left', .99, 1000);
 
 return '>°<';
