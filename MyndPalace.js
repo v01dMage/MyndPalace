@@ -8,6 +8,8 @@ import 'vr/gamepad.js';
 import 'vr/scenes.js'; //needs gamepad
 import 'vr/skybox.js'; //voyd scene
 
+if(localStorage.currentlyTesting)
+  import(localStorage.currentlyTesting);
 
 //have fun
 
