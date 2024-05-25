@@ -4,9 +4,9 @@ import * as THREE from 'three';
 
 const loader = new THREE.TextureLoader();
 const texture = loader.load(
-    './assets/stone_pines.jpg',
+    './assets/download.png',
     () => {
       texture.mapping = THREE.EquirectangularReflectionMapping;
       texture.colorSpace = THREE.SRGBColorSpace;
-      vr.self.scene.background = texture;
+      vr.self.scenes[1].background = texture;
     });
