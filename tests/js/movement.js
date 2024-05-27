@@ -23,7 +23,7 @@ let border= new THREE.Mesh(
   new THREE.CylinderGeometry(r,r,h, 16, 1, true ),
   new THREE.MeshBasicMaterial( {color: 0x000000} )
 );
-ve.self.scenes[0].add( border );
+vr.self.scenes[0].add( border );
 
 /*
 let disc= new THREE.Mesh(
