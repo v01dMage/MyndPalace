@@ -35,5 +35,10 @@ let disc= new THREE.Mesh(
   mat
 );
 border.add( disc ); //swap this?
+disc.add( vr.self.camera );
+let discUpdate= (o)=>{
+  disc.position.z-= 0.001;
+};
+vr.addToUpdate( discUpdate );
 
-vr.self.console.cout( 'clover loaded. now what' );
+vr.self.console.cout( 'are we moving?' );
