@@ -4,9 +4,10 @@
 import * as vr from 'vr/vr.js';
 import * as THREE from 'three';
 
-//Attach camera to a floating disc,
+//camera: no. xr space.
 //  and use the gamepad for movement 
 // WARN: incompatible with teleport?
+// or learn more from it..
 
 // 2 cylinder discs, 1 thinner and wider
 // other with clover5 jpg
@@ -35,4 +36,4 @@ let disc= new THREE.Mesh(
 );
 border.add( disc ); //swap this?
 
-vr.self.console.cout( 'clover loaded??' );
+vr.self.console.cout( 'clover loaded. now what' );
