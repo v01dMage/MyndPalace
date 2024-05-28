@@ -26,7 +26,7 @@ let border= new THREE.Mesh(
 vr.self.scenes[0].add( border );
 
 try{
-let clover= THREE.TextureLoader.load('./assets/clover5.jpg');
+let clover= new THREE.TextureLoader().load('./assets/clover5.jpg');
 } catch(err){
   vr.self.console.cout(err);
 }
