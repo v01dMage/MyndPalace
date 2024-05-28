@@ -36,6 +36,10 @@ let disc= new THREE.Mesh(
 );
 border.add( disc ); //swap this?
 disc.add( vr.self.camera );
+
+let my= vr.self;
+[ my.controller1, my.controller2, my.controllerGrip1, my.controllerGrip2 ].forEach( part=> disc.add(part)
+
 let discUpdate= (o)=>{
   disc.position.z-= 0.001;
   disc.rotateY( Math.PI / 600 );
