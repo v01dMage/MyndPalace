@@ -38,7 +38,7 @@ border.add( disc ); //swap this?
 disc.add( vr.self.camera );
 let discUpdate= (o)=>{
   disc.position.z-= 0.001;
-  disc.rotateY( Math.pi / 600 );
+  disc.rotateY( Math.PI / 600 );
 };
 vr.addToUpdate( discUpdate );
 
