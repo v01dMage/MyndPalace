@@ -25,6 +25,12 @@ let border= new THREE.Mesh(
 );
 vr.self.scenes[0].add( border );
 
+try{
+let clover= THREE.TextureLoader.load('./assets/clover5.jpg');
+} catch(err){
+  vr.self.console.cout(err);
+}
+
 /*
 let disc= new THREE.Mesh(
   new THREE.?CylinderGeometry(?),
@@ -32,4 +38,4 @@ let disc= new THREE.Mesh(
 );
 */
 
-vr.self.console.cout( 'movement loaded' );
+vr.self.console.cout( 'clover loaded?' );
