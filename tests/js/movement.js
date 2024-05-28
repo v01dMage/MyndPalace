@@ -12,6 +12,8 @@ import * as THREE from 'three';
 // 2 cylinder discs, 1 thinner and wider
 // other with clover5 jpg
 
+let addedToDisc= false;
+
 let radius= .5;
 let height= .1;
 let borderDifference= .05;
@@ -37,10 +39,15 @@ let disc= new THREE.Mesh(
 border.add( disc ); //swap this?
 disc.add( vr.self.camera );
 
-let my= vr.self;
-[ my.controller1, my.controller2, my.controllerGrip1, my.controllerGrip2 ].forEach( part=> disc.add(part)
 
 let discUpdate= (o)=>{
+  if(!addedToDisc && vr.self.renderer.xr.isPresenting ){
+    let my= vr.self;
+    [ my.controller1, my.controller2,
+      my.controllerGrip1, my.controllerGrip2 
+    ].forEach( part=> disc.add(part) );
+    addedToDisc= true;
+  }
   disc.position.z-= 0.001;
   disc.rotateY( Math.PI / 600 );
 };
