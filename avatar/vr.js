@@ -38,6 +38,7 @@ function init() {
 
   camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
   camera.position.set( 0, 1, 3 );
+  self.camera= camera;
                                
   scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
