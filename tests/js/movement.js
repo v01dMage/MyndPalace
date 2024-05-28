@@ -27,18 +27,12 @@ vr.self.scenes[0].add( border );
 
 
 let clover= new THREE.TextureLoader().load('./assets/clover5.jpg');
-let mat;
-try{
-  mat= new THREE.MeshBasicMaterial( {map: clover} );
-} catch(err){
-  vr.self.console.cout(err);
-}
+let mat= new THREE.MeshBasicMaterial( {map: clover} );
 
-/*
 let disc= new THREE.Mesh(
-  new THREE.?CylinderGeometry(?),
-  new THREE.? texture
+  new THREE.CylinderGeometry(radius,radius,height, 16 ),
+  mat
 );
-*/
+border.add( disc ); //swap this?
 
-vr.self.console.cout( 'clover loaded?' );
+vr.self.console.cout( 'clover loaded??' );
