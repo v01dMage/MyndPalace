@@ -25,8 +25,11 @@ let border= new THREE.Mesh(
 );
 vr.self.scenes[0].add( border );
 
-try{
+
 let clover= new THREE.TextureLoader().load('./assets/clover5.jpg');
+let mat;
+try{
+  mat= new THREE.MeshBasicMaterial( {map: clover} );
 } catch(err){
   vr.self.console.cout(err);
 }
