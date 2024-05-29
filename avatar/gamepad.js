@@ -1,11 +1,7 @@
 //Gamepad
 //
 
-import * as vr from 'vr/vr.js';
-
-const xr= vr.self.renderer.xr;
-
-const gamepad= { 
+export const gamepad= { 
   leftXaxis: 0,
   leftYaxis: 0,
   leftAxisButton: false,
@@ -23,11 +19,11 @@ const gamepad= {
   haptics: { left: undefined, right: undefined},
   pulse: pulse,
  };
-vr.self.gamepad= gamepad;
 
-let gamepadRecon= (o)=>{
-  if( xr.isPresenting ){
-  let ins= xr.getSession().inputSources;
+
+export function gamepadRecon(o){
+  if( o.xr.isPresenting ){
+  let ins= o.xr.getSession().inputSources;
   ins.forEach( src=>{
     if(src.gamepad){
       let h= src.handedness;
@@ -45,8 +41,6 @@ let gamepadRecon= (o)=>{
   } );}
 }
 
-vr.addToRecon( gamepadRecon );
-
-function pulse(hand, strength, ms){
+export function pulse(hand, strength, ms){
   let pulsed= gamepad.haptics[hand].pulse( strength, ms );
 }
