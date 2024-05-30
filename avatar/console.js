@@ -1,6 +1,6 @@
 import * as THREE from'three';
 import { createText } from 'three/addons/webxr/Text2D.js';
-import * as vr from 'vr/vr.js';
+import * as avatar from 'xr/cns.js';
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
@@ -8,12 +8,12 @@ let testText;
 
 init();
 
-vr.self.console= {
+avatar.self.console= {
   clear, cout, ccout, getText, arun
 };
 
 function clear(){
-    vr.self.consoleOut.innerHTML="";
+    avatar.self.consoleOut.innerHTML="";
 }
 
 function cout(html){
@@ -27,7 +27,7 @@ function cout(html){
   }
   let div= document.createElement('div');
   div.innerHTML= html;
-  vr.self.consoleOut.appendChild( div );
+  avatar.self.consoleOut.appendChild( div );
 }
 
 function ccout(text){
@@ -61,9 +61,9 @@ async function onSelectEnd(){
 function consoleRecon(o){}
 
 function consoleUpdate(o){
-  if ( vr.self.controller2.userData.isSelecting === true ) {
+  if ( avatar.self.gamepad.rightTrigger > 0 ) {
 
-    const intersects= vr.self.raycasterRight.intersectObjects( [ runner ] ); 
+    const intersects= avatar.self.raycasterRight.intersectObjects( [ runner ] ); 
 
     if ( intersects.length > 0 ) {
        runner.userData.isSelecting= true;
@@ -82,7 +82,7 @@ async function arun(text){
        if(typeof text != 'string') text= getText();
        let out;
        try{
-          out= await (( Function(`return async function (vr, THREE){${text}}`) )())(vr, THREE);
+          out= await (( Function(`return async function (avatar, THREE){${text}}`) )())(avatar, THREE);
        } catch(err){
           out= err;
        }
@@ -102,7 +102,7 @@ async function init(){
    let consoleOut= document.createElement('div');
    consoleOut.id= 'consoleOut';
    document.body.appendChild( consoleOut );
-   vr.self.consoleOut= consoleOut;
+   avatar.self.consoleOut= consoleOut;
 
    let runButton= document.createElement('button');
    runButton.innerHTML= 'run';
@@ -123,19 +123,19 @@ async function init(){
   testText.position.z= .28;
   testText.position.y=  .27;
   testText.position.x= -.18;
-  vr.self.controllerGrip1.add( testText );
+  avatar.self.controllerGrip1.add( testText );
 testText= createText( 'Line #2', .05 );
   testText.rotateX(- .7 );
   testText.rotateY( 1.4);
   testText.position.z= .28;
   testText.position.y=  .33;
   testText.position.x= -.18;
-  vr.self.controllerGrip1.add( testText );
+  avatar.self.controllerGrip1.add( testText );
 
    cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
-   vr.self.controllerGrip1.add( cFrame );
+   avatar.self.controllerGrip1.add( cFrame );
 
    cScreen= new THREE.Mesh(
             new THREE.BoxGeometry( .08, .06, .001).translate( 0, .01, .01),
@@ -159,19 +159,18 @@ testText= createText( 'Line #2', .05 );
               translate( -.1, .05, .25),
             	new THREE.MeshBasicMaterial( {color: 0x330099, wireframe: true} ) 
           );
-		vr.self.controllerGrip1.add( runner );
+		avatar.self.controllerGrip1.add( runner );
 
 		testLight = new THREE.Mesh( 
                new THREE.BoxGeometry( .1, .1, .1 ).translate( -.1, .05, .25 ),
                new THREE.MeshBasicMaterial( {color: 0x777777} ) );
 		runner.add( testLight );
   
-   //vr.self.controller1.addEventListener( 'selectstart', onSelectStart );
-   //vr.self.controller1.addEventListener( 'selectend', onSelectEnd );
-   vr.self.controller2.addEventListener( 'selectstart', onSelectStart );
-   vr.self.controller2.addEventListener( 'selectend', onSelectEnd );
+   
+   avatar.self.controller2.addEventListener( 'selectstart', onSelectStart );
+   avatar.self.controller2.addEventListener( 'selectend', onSelectEnd );
 
-   vr.addToRecon( consoleRecon );
-   vr.addToUpdate( consoleUpdate );
-   vr.self.consoleOut.innerHTML= 'test<br>output';
+   avatar.addToRecon( consoleRecon );
+   avatar.addToUpdate( consoleUpdate );
+   avatar.self.consoleOut.innerHTML= 'test<br>output';
 }
