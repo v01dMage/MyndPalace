@@ -18,10 +18,11 @@ export default const gamepad= {
   Y: false,
   haptics: { left: undefined, right: undefined},
   pulse: pulse,
+  recon: gamepadRecon
  };
 
 
-export function gamepadRecon(o){
+function gamepadRecon(o){
   if( o.xr.isPresenting ){
   let ins= o.xr.getSession().inputSources;
   ins.forEach( src=>{
@@ -41,6 +42,6 @@ export function gamepadRecon(o){
   } );}
 }
 
-export function pulse(hand, strength, ms){
+function pulse(hand, strength, ms){
   let pulsed= gamepad.haptics[hand].pulse( strength, ms );
 }
