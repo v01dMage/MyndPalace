@@ -1,21 +1,14 @@
 // using multiple scenes,
-//with 'vr'.self.scenes[0] always being rendered
+//
 
-import * as vr from 'vr/vr.js';
-//assumes gamepad
+import * as avatar from 'xr/cns.js';
 import * as THREE from 'three';
 
-//add controllers and grips,
-// background, lights, etc 
 
 let voyd= new THREE.Scene();
 voyd.background = new THREE.Color( 0x77bb88 );
 
-let my= vr.self;
-my.hands= [ 
-  my.controller1, my.controller2,
-  my.controllerGrip1, my.controllerGrip2
-];
+let my= avatar.self;
 
 voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x779977, 3 ) );
 
@@ -33,13 +26,10 @@ function swapRealm(o){
       scenes.push( temp );
       lastSwapped= Date.now();
 
-      let realm= scenes[0];
-      my.hands.forEach( hand=>{
-        realm.add( hand );
-      } );
+      scenes[0].add( avatar.disc )
     }
   }
 }
 
-vr.addToUpdate( swapRealm );
+avatar.addToUpdate( swapRealm );
 
