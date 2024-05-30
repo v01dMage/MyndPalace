@@ -24,7 +24,38 @@ init();
 animate();
 
 function init(){
+  scene = new THREE.Scene();
+  self.scene= scene;
+  self.scenes= [ scene ];
+  scene.background = new THREE.Color( 0x66ddaa );
 
+  camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
+  camera.position.set( 0, 1, 3 );
+  self.camera= camera;
+                               
+  scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
+
+  const light = new THREE.DirectionalLight( 0xffffff, 3 );
+  light.position.set( 1, 1, 1 ).normalize();
+  scene.add( light );
+
+
+  raycasterLeft = new THREE.Raycaster();
+  self.raycasterLeft= raycasterLeft;
+  raycasterRight= new THREE.Raycaster();
+  self.raycasterRight= raycasterRight;
+
+  renderer = new THREE.WebGLRenderer( { antialias: true } );
+  self.renderer= renderer;
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.xr.enabled = true;
+
+  document.body.appendChild( renderer.domElement );
+  document.body.appendChild( VRButton.createButton( renderer ) );
+
+
+  // controllers
 
 
 
