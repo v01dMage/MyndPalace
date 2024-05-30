@@ -97,9 +97,43 @@ function init(){
 
   //
   window.addEventListener( 'resize', onWindowResize, false );
+
+
+
+  let radius= .5;
+  let height= .1;
+  let borderDifference= .05;
+
+  let r= radius+ radius* borderDifference;
+  let h= height- height*borderDifference;
+
+  let border= new THREE.Mesh(
+    new THREE.CylinderGeometry(r,r,h, 16, 1, true ),
+    new THREE.MeshBasicMaterial( {color: 0x000000} )
+  );
+
+
+  let clover= new THREE.TextureLoader().load('./assets/clover5.jpg');
+  let mat= new THREE.MeshBasicMaterial( {map: clover} );
+
+  let disc= new THREE.Mesh(
+    new THREE.CylinderGeometry(radius,radius,height, 16 ),
+    mat
+  );
+
+  scene.add( disc );
+  [ border, camera, 
+    controller1, controller2,
+    controllerGrip1, controllerGrip2 
+  ].forEach( part=> disc.add(part) );
+    
+  
+
 }
 
-function basicUpdate(o){}
+function basicUpdate(o){
+  
+}
 
 function basicRecon(o) {
   o.xr= xr;
