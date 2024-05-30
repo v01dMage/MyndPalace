@@ -26,7 +26,7 @@ function swapRealm(o){
       scenes.push( temp );
       lastSwapped= Date.now();
 
-      scenes[0].add( avatar.disc )
+      scenes[0].add( avatar.self.disc )
     }
   }
 }
