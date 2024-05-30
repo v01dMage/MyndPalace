@@ -127,7 +127,7 @@ function init(){
     controllerGrip1, controllerGrip2 
   ].forEach( part=> disc.add(part) );
     
-  
+  self.disc= disc;
 
 }
 
