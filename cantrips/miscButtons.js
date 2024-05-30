@@ -7,7 +7,7 @@ const loader = new GLTFLoader();
 
 loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
         gltf.scene.position.y= 0.3;
-        vr.self.scene.add( gltf.scene );
+        avatar.self.scenes[0].add( gltf.scene );
 
 }, undefined, function ( error ) {
 
@@ -29,9 +29,9 @@ link.setAttribute('href', dataString );
 link.innerHTML= 'download img';
 document.body.appendChild(link);
 
-vr.self.console.cout(typeof link);
+avatar.self.console.cout(typeof link);
 `,
-  'buzz' : `vr.self.gamepad.pulse('left', .99, 1000);
+  'buzz' : `avatar.self.gamepad.pulse('left', .99, 1000);
 
 return '>°<';
   `,
