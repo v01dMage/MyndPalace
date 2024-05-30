@@ -1,7 +1,7 @@
 //Gamepad
 //
 
-export const gamepad= { 
+export default const gamepad= { 
   leftXaxis: 0,
   leftYaxis: 0,
   leftAxisButton: false,
