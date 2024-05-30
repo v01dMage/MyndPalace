@@ -47,9 +47,10 @@ function init(){
 
   renderer = new THREE.WebGLRenderer( { antialias: true } );
   self.renderer= renderer;
+  xr= renderer.xr;
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.xr.enabled = true;
+  xr.enabled = true;
 
   document.body.appendChild( renderer.domElement );
   document.body.appendChild( VRButton.createButton( renderer ) );
@@ -59,10 +60,9 @@ function init(){
 
 
 
-  controller1 = renderer.xr.getController( 0 );
+  controller1 = xr.getController( 0 );
   self.controller1= controller1;
-  //controller1.addEventListener( 'selectstart', onSelectStart );
-//  controller1.addEventListener( 'selectend', onSelectEnd );
+  
   controller1.addEventListener( 'connected', function ( event ) {
         this.add( buildPointer( event.data ) );
   } );
@@ -71,10 +71,9 @@ function init(){
   } );
   scene.add( controller1 );
 
-  controller2 = renderer.xr.getController( 1 );
+  controller2 = xr.getController( 1 );
   self.controller2= controller2;
-//  controller2.addEventListener( 'selectstart', onSelectStart );
- // controller2.addEventListener( 'selectend', onSelectEnd );
+
   controller2.addEventListener( 'connected', function ( event ) {
         this.add( buildPointer( event.data ) );
   } );
@@ -86,12 +85,12 @@ function init(){
 
   const controllerModelFactory = new XRControllerModelFactory();
 
-  controllerGrip1 = renderer.xr.getControllerGrip( 0 );
+  controllerGrip1 = xr.getControllerGrip( 0 );
   self.controllerGrip1= controllerGrip1;
   controllerGrip1.add( controllerModelFactory.createControllerModel( controllerGrip1 ) );
   scene.add( controllerGrip1 );
 
-  controllerGrip2 = renderer.xr.getControllerGrip( 1 );
+  controllerGrip2 = xr.getControllerGrip( 1 );
   self.controllerGrip2= controllerGrip2;
   controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
   scene.add( controllerGrip2 );
