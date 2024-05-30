@@ -20,7 +20,54 @@ let controller1, controller2;
 let controllerGrip1, controllerGrip2;
 
 
+init();
+animate();
 
+function init(){
+
+
+
+
+  controller1 = renderer.xr.getController( 0 );
+  self.controller1= controller1;
+  //controller1.addEventListener( 'selectstart', onSelectStart );
+//  controller1.addEventListener( 'selectend', onSelectEnd );
+  controller1.addEventListener( 'connected', function ( event ) {
+        this.add( buildPointer( event.data ) );
+  } );
+  controller1.addEventListener( 'disconnected', function () {
+        this.remove( this.children[ 0 ] );
+  } );
+  scene.add( controller1 );
+
+  controller2 = renderer.xr.getController( 1 );
+  self.controller2= controller2;
+//  controller2.addEventListener( 'selectstart', onSelectStart );
+ // controller2.addEventListener( 'selectend', onSelectEnd );
+  controller2.addEventListener( 'connected', function ( event ) {
+        this.add( buildPointer( event.data ) );
+  } );
+  controller2.addEventListener( 'disconnected', function () {
+        this.remove( this.children[ 0 ] );
+  } );
+  scene.add( controller2 );
+
+
+  const controllerModelFactory = new XRControllerModelFactory();
+
+  controllerGrip1 = renderer.xr.getControllerGrip( 0 );
+  self.controllerGrip1= controllerGrip1;
+  controllerGrip1.add( controllerModelFactory.createControllerModel( controllerGrip1 ) );
+  scene.add( controllerGrip1 );
+
+  controllerGrip2 = renderer.xr.getControllerGrip( 1 );
+  self.controllerGrip2= controllerGrip2;
+  controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
+  scene.add( controllerGrip2 );
+
+  //
+  window.addEventListener( 'resize', onWindowResize, false );
+}
 
 
 function basicRecon(o) {
@@ -63,4 +110,34 @@ function buildPointer( data ) {
        material = new THREE.MeshBasicMaterial( { opacity: 0.5, transparent: true } );
       return new THREE.Mesh( geometry, material );
   }
+}
+
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+export function addToRecon(f){
+   recon.push(f);
+   animate();
+}
+export function addToUpdate(f){
+   update.push(f);
+   animate();
+}
+
+function updatePipeline(){
+  return ()=>{ 
+    let o={};
+    recon.forEach( f=>f(o) ); 
+    update.forEach( f=>f(o) );
+    renderer.render( scenes[0], camera );
+  };
+}
+
+function animate() {
+  renderer.setAnimationLoop( updatePipeline() );
 }
