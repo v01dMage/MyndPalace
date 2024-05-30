@@ -100,6 +100,7 @@ function init(){
   window.addEventListener( 'resize', onWindowResize, false );
 }
 
+function basicUpdate(o){}
 
 function basicRecon(o) {
   o.xr= xr;
