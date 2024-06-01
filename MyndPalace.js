@@ -13,10 +13,7 @@ if(localStorage.currentlyTesting)
 */
 
 let t= document.createElement('div');
-t.innerHTML= 'here';
-try{
-  t.innerHTML= avatar.self.error;
-}catch(err){ t.innerHTML= err;}
+t.innerHTML= 'here again';
 document.body.appendChild(t);
 
 //have fun
