@@ -22,8 +22,12 @@ self.hands= [];
 let controller1, controller2;
 let controllerGrip1, controllerGrip2;
 
+try{
 init();
 animate();
+} catch (err){
+  self.error= err;
+}
 
 function init(){
   scene = new THREE.Scene();
