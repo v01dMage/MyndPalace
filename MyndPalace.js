@@ -13,7 +13,7 @@ if(localStorage.currentlyTesting)
 */
 
 let t= document.createElement('div');
-t.innerHTML= 'here again';
+t.innerHTML= 'here again '+ avatar.gamepad.leftYAxis;
 document.body.appendChild(t);
 
 //have fun
