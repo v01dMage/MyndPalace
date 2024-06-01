@@ -7,7 +7,7 @@ import { VRButton } from 'three/addons/webxr/VRButton.js';
 import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
 import { gamepad } from 'xr/gamepad.js';//MetaQ3
-export gamepad;
+export { gamepad } from 'xr/gamepad.js';
 
 
 let camera, scene, scenes, renderer, xr;
