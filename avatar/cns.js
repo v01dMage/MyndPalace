@@ -136,7 +136,7 @@ function init(){
 
 /*
   let pointOfReference = new THREE.Mesh(
-    new THREE.CubeGeometry(3,3,3),
+    new THREE.BoxGeometry(3,3,3),
     new THREE.MeshBasicMaterial( {color: 0xff4477 } )
   );
   //pointOfReference.translate( 0, 1, -30 );
