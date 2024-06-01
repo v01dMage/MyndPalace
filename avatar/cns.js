@@ -19,7 +19,11 @@ self.hands= [];
 let controller1, controller2;
 let controllerGrip1, controllerGrip2;
 
+let t= document.createElement('div');
+t.innerHTML= 'here';
+document.body.appendChild(t);
 
+/*
 init();
 animate();
 
@@ -206,3 +210,5 @@ function updatePipeline(){
 function animate() {
   renderer.setAnimationLoop( updatePipeline() );
 }
+
+*/
