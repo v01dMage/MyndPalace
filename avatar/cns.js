@@ -134,6 +134,13 @@ function init(){
     
   self.disc= disc;
 
+
+  let pointOfReference = new THREE.Mesh(
+    new THREE.CubeGeometry(),
+    new THREE.MeshBasicMaterial( {color: 0xff4477 } )
+  );
+  pointOfReference.position.z= -30;
+  scene.add( pointOfReference );
 }
 
 function basicUpdate(o){
