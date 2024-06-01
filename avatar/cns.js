@@ -134,13 +134,13 @@ function init(){
     
   self.disc= disc;
 
-/*
+
   let pointOfReference = new THREE.Mesh(
     new THREE.BoxGeometry(3,3,3),
     new THREE.MeshBasicMaterial( {color: 0xff4477 } )
   );
   //pointOfReference.translate( 0, 1, -30 );
-  scene.add( pointOfReference );*/
+  scene.add( pointOfReference );
 }
 
 function basicUpdate(o){
