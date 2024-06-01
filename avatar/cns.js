@@ -9,8 +9,8 @@ import { gamepad } from 'xr/gamepad.js';//MetaQ3
 
 let camera, scene, scenes, renderer, xr;
 let raycasterLeft, raycasterRight;
-//let recon= [ basicRecon, gamepad.recon ];
-//let update= [ basicUpdate ];
+let recon= [ basicRecon, gamepad.recon ];
+let update= [ basicUpdate ];
 
 export const tempMatrix = new THREE.Matrix4();
 
@@ -19,14 +19,6 @@ self.hands= [];
 let controller1, controller2;
 let controllerGrip1, controllerGrip2;
 
-let t= document.createElement('div');
-t.innerHTML= 'here';
-try{
-  t.innerHTML= gamepad.recon;
-}catch(err){ t.innerHTML= err;}
-document.body.appendChild(t);
-
-/*
 init();
 animate();
 
@@ -213,5 +205,3 @@ function updatePipeline(){
 function animate() {
   renderer.setAnimationLoop( updatePipeline() );
 }
-
-*/
