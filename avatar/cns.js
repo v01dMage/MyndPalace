@@ -145,8 +145,8 @@ function init(){
 
 function basicUpdate(o){
   if( o.xr.isPresenting ){
-    disc.position.z-= gamepad.leftYAxis/10;
-    disc.rotateY( gamepad.rightXAxis/10 );
+    self.disc.position.z-= gamepad.leftYAxis/10;
+    self.disc.rotateY( gamepad.rightXAxis/10 );
   }
 }
 
