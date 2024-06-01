@@ -22,7 +22,7 @@ let controllerGrip1, controllerGrip2;
 let t= document.createElement('div');
 t.innerHTML= 'here';
 try{
-  await import('./avatar/gamepad.js');
+  await import('xr/gamepad.js');
 }catch(err){ t.innerHTML= err;}
 document.body.appendChild(t);
 
