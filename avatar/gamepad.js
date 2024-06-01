@@ -2,11 +2,11 @@
 //
 
 export const gamepad= { 
-  leftXaxis: 0,
+  leftXaxis: 0.5,
   leftYaxis: 0,
   leftAxisButton: false,
   rightXaxis: 0,
-  rightYaxis: 0,
+  rightYaxis: 0.2,
   rightAxisButton: false,
   leftTrigger: 0,
   rightTrigger: 0,
