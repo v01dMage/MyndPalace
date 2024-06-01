@@ -113,7 +113,7 @@ function init(){
   let h= height- height*borderDifference;
 
   let border= new THREE.Mesh(
-    new THREE.CylinderGeometry(r,r,h, 16, 1, true ),
+    new THREE.CylinderGeometry(r,r,h, 16, 1, false ),
     new THREE.MeshBasicMaterial( {color: 0x000000} )
   );
 
@@ -139,7 +139,7 @@ function init(){
     new THREE.BoxGeometry(3,3,3),
     new THREE.MeshBasicMaterial( {color: 0xff4477 } )
   );
-  //pointOfReference.translate( 0, 1, -30 );
+  pointOfReference.translate( 0, 1, -30 );
   scene.add( pointOfReference );
 }
 
