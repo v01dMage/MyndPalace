@@ -137,7 +137,10 @@ function init(){
 }
 
 function basicUpdate(o){
-  
+  if( o.xr.isPresenting ){
+    disc.position.z-= gamepad.leftYAxis/10;
+    disc.rotateY( gamepad.rightXAxis/10 );
+  }
 }
 
 function basicRecon(o) {
