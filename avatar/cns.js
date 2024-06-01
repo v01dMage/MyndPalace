@@ -9,7 +9,7 @@ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFa
 
 let camera, scene, scenes, renderer, xr;
 let raycasterLeft, raycasterRight;
-let recon= [ basicRecon, gamepad.recon ];
+//let recon= [ basicRecon, gamepad.recon ];
 let update= [ basicUpdate ];
 
 export const tempMatrix = new THREE.Matrix4();
