@@ -139,7 +139,7 @@ function init(){
     new THREE.BoxGeometry(3,3,3),
     new THREE.MeshBasicMaterial( {color: 0xff4477 } )
   );
-  pointOfReference.translate( 0, 1, -30 );
+  pointOfReference.position.set(0,1,-30);
   scene.add( pointOfReference );
 }
 
