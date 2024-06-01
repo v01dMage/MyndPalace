@@ -5,7 +5,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
-//import gamepad from 'xr/gamepad.js';//MetaQ3
+import { gamepad } from 'xr/gamepad.js';//MetaQ3
 
 let camera, scene, scenes, renderer, xr;
 let raycasterLeft, raycasterRight;
@@ -22,7 +22,7 @@ let controllerGrip1, controllerGrip2;
 let t= document.createElement('div');
 t.innerHTML= 'here';
 try{
-  await import('xr/gamepad.js');
+  t.innerHTML= gamepad.recon;
 }catch(err){ t.innerHTML= err;}
 document.body.appendChild(t);
 
