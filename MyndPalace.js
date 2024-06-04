@@ -13,7 +13,7 @@ if(localStorage.currentlyTesting)
 */
 
 let t= document.createElement('div');
-t.innerHTML= 'here again '+ avatar.gamepad.leftYaxis;
+t.innerHTML= 'post sky n scenes';
 document.body.appendChild(t);
 
 //have fun
