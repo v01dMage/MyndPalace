@@ -147,14 +147,20 @@ function init(){
 function basicUpdate(o){
   let speed= .007;
   if( o.xr.isPresenting ){
+  //heading and rotate 
     heading+= gamepad.rightXaxis *speed;
+    if(heading< -Math.PI) heading+= 2*Math.PI;
+    if(heading>  Math.PI) heading-= 2*Math.PI;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
-  //forward-back
-    self.disc.position.z+= Math.sin(heading)* gamepad.leftYaxis *speed;
-    self.disc.position.x+= Math.cos(heading)* gamepad.leftYaxis *speed;
-  //side strafe
-    self.disc.position.z+= Math.cos(heading)* gamepad.leftXaxis *speed;
-    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+
+  //heading, magnitude, xz plane movement.
+    let magnitude= Math.sqrt( 
+      gamepad.leftYaxis**2 + gamepad.leftXaxis**2
+    );
+
+    self.disc.position.z+= Math.sin(heading)* magnitude *speed;
+    self.disc.position.x+= Math.cos(heading)* magnitude *speed;
+  
   // up down
     self.disc.position.y+= gamepad.leftTrigger *speed;
     self.disc.position.y-= gamepad.leftGrip *speed;
