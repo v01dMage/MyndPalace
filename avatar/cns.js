@@ -21,7 +21,7 @@ export const self= {};
 self.hands= [];
 let controller1, controller2;
 let controllerGrip1, controllerGrip2;
-let heading= 0;
+let heading= Math.PI/2;
 
 
 init();
@@ -114,7 +114,7 @@ function init(){
   let h= height- height*borderDifference;
 
   let border= new THREE.Mesh(
-    new THREE.CylinderGeometry(r,r,h, 16, 1, false ).translate(0,0,.5),
+    new THREE.CylinderGeometry(r,r,h, 16, 1, false ).translate(0,0,r),
     new THREE.MeshBasicMaterial( {color: 0x000000} )
   );
 
@@ -123,7 +123,7 @@ function init(){
   let mat= new THREE.MeshBasicMaterial( {map: clover} );
 
   let disc= new THREE.Mesh(
-    new THREE.CylinderGeometry(radius,radius,height, 16 ).translate( 0,0,.5),
+    new THREE.CylinderGeometry(radius,radius,height, 16 ).translate( 0,0,radius),
     mat
   );
   
@@ -149,8 +149,8 @@ function basicUpdate(o){
   if( o.xr.isPresenting ){
     heading+= gamepad.rightXaxis *-speed;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
-    self.disc.position.z+= Math.cos(heading)* gamepad.leftYaxis *speed;
-    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+    self.disc.position.z+= Math.sin(heading)* gamepad.leftYaxis *speed;
+    self.disc.position.x+= Math.cos(heading)* gamepad.leftXaxis *speed;
     
     
     self.disc.position.y+= gamepad.leftTrigger *speed;
