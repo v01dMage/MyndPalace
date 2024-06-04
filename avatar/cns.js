@@ -21,7 +21,7 @@ export const self= {};
 self.hands= [];
 let controller1, controller2;
 let controllerGrip1, controllerGrip2;
-let heading= Math.PI/2;
+let heading= 0;
 
 
 init();
@@ -155,10 +155,10 @@ function basicUpdate(o){
 
   // xz worldplane movement
   //forward vector 
-    self.disc.position.z-= Math.sin(heading)* gamepad.leftYaxis *speed;
+    self.disc.position.z+= Math.sin(heading)* gamepad.leftYaxis *speed;
     self.disc.position.x+= Math.cos(heading)* gamepad.leftYaxis *speed;
   //strafe vector 
-    self.disc.position.z-= Math.sin(heading- Math.PI/2)* gamepad.leftXaxis *speed;
+    self.disc.position.z+= Math.sin(heading- Math.PI/2)* gamepad.leftXaxis *speed;
     self.disc.position.x+= Math.cos(heading- Math.PI/2)* gamepad.leftXaxis *speed;
   
   // up down
