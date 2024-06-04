@@ -153,19 +153,13 @@ function basicUpdate(o){
     if(heading>  Math.PI) heading-= 2*Math.PI;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
 
-  // magnitude, direction, xz worldplane movement.
-    let magnitude= Math.sqrt( 
-      gamepad.leftYaxis**2 + gamepad.leftXaxis**2
-    );
-    let vectorX= gamepad.leftXaxis > 0? 1:-1;
-    let vectorY= gamepad.leftYaxis > 0? 1:-1;
-
+  // xz worldplane movement
   //forward vector 
     self.disc.position.z-= Math.sin(heading)* gamepad.leftYaxis *speed;
     self.disc.position.x+= Math.cos(heading)* gamepad.leftYaxis *speed;
   //strafe vector 
-    self.disc.position.z-= Math.cos(heading)* gamepad.leftXaxis *speed;
-    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+    self.disc.position.z-= Math.sin(heading- Math.PI/2)* gamepad.leftXaxis *speed;
+    self.disc.position.x+= Math.cos(heading- Math.PI/2)* gamepad.leftXaxis *speed;
   
   // up down
     self.disc.position.y+= gamepad.leftTrigger *speed;
