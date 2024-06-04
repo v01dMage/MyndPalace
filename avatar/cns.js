@@ -125,7 +125,7 @@ function init(){
     new THREE.CylinderGeometry(radius,radius,height, 16 ),
     mat
   );
-  disc.position.z= 1;
+  disc.position.z= 1.3;
   scene.add( disc );
   [ border, camera, 
     controller1, controller2,
@@ -144,11 +144,13 @@ function init(){
 }
 
 function basicUpdate(o){
-  let speed= .00075;
+  let speed= .007;
   if( o.xr.isPresenting ){
     self.disc.position.z+= gamepad.leftYaxis *speed;
     self.disc.position.x+= gamepad.leftXaxis *speed
-    self.disc.rotateY( gamepad.rightXaxis *speed);
+    self.disc.rotateY( gamepad.rightXaxis *-speed);
+    self.disc.position.y+= gamepad.X? speed : 0;
+    self.disc.position.y-= gamepad.leftGrip *speed;
   }
 }
 
