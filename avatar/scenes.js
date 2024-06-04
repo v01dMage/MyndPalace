@@ -15,7 +15,7 @@ voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x779977, 3 ) );
 my.scenes.push( voyd );
 
 let lastSwapped= Date.now();
-let gp= my.gamepad;
+let gp= avatar.gamepad;
 let scenes= my.scenes;
 
 function swapRealm(o){
