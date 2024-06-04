@@ -8,5 +8,5 @@ const texture = loader.load(
     () => {
       texture.mapping = THREE.EquirectangularReflectionMapping;
       texture.colorSpace = THREE.SRGBColorSpace;
-      avatar.self.scenes[1].background = texture;
+      avatar.self.scenes[0].background = texture;
     });
