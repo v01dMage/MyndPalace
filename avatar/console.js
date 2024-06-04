@@ -61,7 +61,7 @@ async function onSelectEnd(){
 function consoleRecon(o){}
 
 function consoleUpdate(o){
-  if ( avatar.self.gamepad.rightTrigger > 0 ) {
+  if ( avatar.gamepad.rightTrigger > 0 ) {
 
     const intersects= avatar.self.raycasterRight.intersectObjects( [ runner ] ); 
 
@@ -105,7 +105,8 @@ async function init(){
    avatar.self.consoleOut= consoleOut;
 
    let runButton= document.createElement('button');
-   runButton.innerHTML= 'run';
+   runButton.innerHTML= '<b>run</b>';
+   runButton.style.width= '12em';
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
