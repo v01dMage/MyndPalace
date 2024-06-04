@@ -147,7 +147,7 @@ function init(){
 function basicUpdate(o){
   let speed= .007;
   if( o.xr.isPresenting ){
-    heading+= gamepad.rightXaxis *-speed;
+    heading+= gamepad.rightXaxis *speed;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
     self.disc.position.z+= Math.sin(heading)* gamepad.leftYaxis *speed;
     self.disc.position.x+= Math.cos(heading)* gamepad.leftXaxis *speed;
