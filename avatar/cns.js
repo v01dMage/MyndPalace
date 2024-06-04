@@ -114,7 +114,7 @@ function init(){
   let h= height- height*borderDifference;
 
   let border= new THREE.Mesh(
-    new THREE.CylinderGeometry(r,r,h, 16, 1, false ),
+    new THREE.CylinderGeometry(r,r,h, 16, 1, false ).translate(0,0,.5),
     new THREE.MeshBasicMaterial( {color: 0x000000} )
   );
 
@@ -149,8 +149,8 @@ function basicUpdate(o){
   if( o.xr.isPresenting ){
     heading+= gamepad.rightXaxis *-speed;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
-    self.disc.position.z+= Math.cos(heading)* gamepad.leftYaxis *speed;
-    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+    //self.disc.position.z+= Math.cos(heading)* gamepad.leftYaxis *speed;
+    //self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
     
     
     self.disc.position.y+= gamepad.leftTrigger *speed;
