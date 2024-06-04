@@ -160,8 +160,12 @@ function basicUpdate(o){
     let vectorX= gamepad.leftXaxis > 0? 1:-1;
     let vectorY= gamepad.leftYaxis > 0? 1:-1;
 
-    self.disc.position.z-= Math.sin(heading)* magnitude *speed *vectorY;
-    self.disc.position.x+= Math.cos(heading)* magnitude *speed *vectorX;
+  //forward vector 
+    self.disc.position.z-= Math.sin(heading)* gamepad.leftYaxis *speed;
+    self.disc.position.x+= Math.cos(heading)* gamepad.leftYaxis *speed;
+  //strafe vector 
+    self.disc.position.z-= Math.cos(heading)* gamepad.leftXaxis *speed;
+    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
   
   // up down
     self.disc.position.y+= gamepad.leftTrigger *speed;
