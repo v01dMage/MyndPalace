@@ -114,7 +114,7 @@ function init(){
   let h= height- height*borderDifference;
 
   let border= new THREE.Mesh(
-    new THREE.CylinderGeometry(r,r,h, 16, 1, false ).translate(0,0,r),
+    new THREE.CylinderGeometry(r,r,h, 16, 1, false ).translate(0,0,.75),
     new THREE.MeshBasicMaterial( {color: 0x000000} )
   );
 
@@ -123,7 +123,7 @@ function init(){
   let mat= new THREE.MeshBasicMaterial( {map: clover} );
 
   let disc= new THREE.Mesh(
-    new THREE.CylinderGeometry(radius,radius,height, 16 ).translate( 0,0,radius),
+    new THREE.CylinderGeometry(radius,radius,height, 16 ).translate( 0,0,.75),
     mat
   );
   
