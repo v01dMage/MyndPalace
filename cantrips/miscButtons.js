@@ -31,7 +31,7 @@ document.body.appendChild(link);
 
 avatar.self.console.cout(typeof link);
 `,
-  'buzz' : `avatar.self.gamepad.pulse('left', .99, 1000);
+  'buzz' : `avatar.gamepad.pulse('left', .99, 1000);
 
 return '>°<';
   `,
