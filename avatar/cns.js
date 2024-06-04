@@ -149,10 +149,13 @@ function basicUpdate(o){
   if( o.xr.isPresenting ){
     heading+= gamepad.rightXaxis *speed;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
+  //forward-back
     self.disc.position.z+= Math.sin(heading)* gamepad.leftYaxis *speed;
-    self.disc.position.x+= Math.cos(heading)* gamepad.leftXaxis *speed;
-    
-    
+    self.disc.position.x+= Math.cos(heading)* gamepad.leftYaxis *speed;
+  //side strafe
+    self.disc.position.z+= Math.cos(heading)* gamepad.leftXaxis *speed;
+    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+  // up down
     self.disc.position.y+= gamepad.leftTrigger *speed;
     self.disc.position.y-= gamepad.leftGrip *speed;
   }
