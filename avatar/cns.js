@@ -107,7 +107,7 @@ function init(){
 
   let radius= .5;
   let height= .1;
-  let borderDifference= .05;
+  let borderDifference= .2;
 
   let r= radius+ radius* borderDifference;
   let h= height- height*borderDifference;
