@@ -108,6 +108,7 @@ function init(){
   let radius= .5;
   let height= .1;
   let borderDifference= .5;
+  let heading= 0;
 
   let r= radius+ radius* borderDifference;
   let h= height- height*borderDifference;
@@ -122,10 +123,10 @@ function init(){
   let mat= new THREE.MeshBasicMaterial( {map: clover} );
 
   let disc= new THREE.Mesh(
-    new THREE.CylinderGeometry(radius,radius,height, 16 ),
+    new THREE.CylinderGeometry(radius,radius,height, 16 ).translate( 0,0,.5),
     mat
   );
-  disc.position.z= 1.3;
+  
   scene.add( disc );
   [ border, camera, 
     controller1, controller2,
@@ -146,10 +147,13 @@ function init(){
 function basicUpdate(o){
   let speed= .007;
   if( o.xr.isPresenting ){
-    self.disc.position.z+= gamepad.leftYaxis *speed;
-    self.disc.position.x+= gamepad.leftXaxis *speed
+    heading+= gamepad.rightXaxis *-speed;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
-    self.disc.position.y+= gamepad.X? speed : 0;
+    self.disc.position.z+= Math.cos(heading)* gamepad.leftYaxis *speed;
+    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+    
+    
+    self.disc.position.y+= gamepad.leftTrigger *speed;
     self.disc.position.y-= gamepad.leftGrip *speed;
   }
 }
