@@ -21,6 +21,7 @@ export const self= {};
 self.hands= [];
 let controller1, controller2;
 let controllerGrip1, controllerGrip2;
+let heading= 0;
 
 
 init();
@@ -108,7 +109,6 @@ function init(){
   let radius= .5;
   let height= .1;
   let borderDifference= .5;
-  let heading= 0;
 
   let r= radius+ radius* borderDifference;
   let h= height- height*borderDifference;
@@ -149,8 +149,8 @@ function basicUpdate(o){
   if( o.xr.isPresenting ){
     heading+= gamepad.rightXaxis *-speed;
     self.disc.rotateY( gamepad.rightXaxis *-speed);
-    //self.disc.position.z+= Math.cos(heading)* gamepad.leftYaxis *speed;
-    //self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+    self.disc.position.z+= Math.cos(heading)* gamepad.leftYaxis *speed;
+    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
     
     
     self.disc.position.y+= gamepad.leftTrigger *speed;
