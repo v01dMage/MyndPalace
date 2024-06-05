@@ -98,6 +98,7 @@ async function init(){
    ta.style= 'background: black; border: 2px solid green; color: #4c6';
    ta.value= localStorage.current;
    document.body.appendChild( ta );
+   avatar.self.consoleInput= ta;
 
    let consoleOut= document.createElement('div');
    consoleOut.id= 'consoleOut';
