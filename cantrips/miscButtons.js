@@ -35,6 +35,9 @@ avatar.self.console.cout(typeof link);
 
 return '>°<';
   `,
+  'focus' : `avatar.self.consoleInput.focus();
+return '?';
+`,
   };
 makeButtons(buttons);
 
