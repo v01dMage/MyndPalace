@@ -140,12 +140,12 @@ function init(){
     new THREE.BoxGeometry(3,3,3),
     new THREE.MeshBasicMaterial( {color: 0xff4477 } )
   );
-  pointOfReference.position.set(0,1,-30);
+  pointOfReference.position.set(0,1,-15);
   scene.add( pointOfReference );
 }
 
 function basicUpdate(o){
-  let speed= .007;
+  let speed= .01;
   if( o.xr.isPresenting ){
   //heading and rotate 
     heading+= gamepad.rightXaxis *speed;
