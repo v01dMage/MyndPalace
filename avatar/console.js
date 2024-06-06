@@ -70,6 +70,7 @@ function consoleRecon(o){
 }
 
 function consoleUpdate(o){
+  if( avatar.gamepad.B ){ arun(); }
   if ( avatar.gamepad.rightTrigger > 0 ) {
 
     const intersects= avatar.self.raycasterRight.intersectObjects( [ runner ] ); 
