@@ -58,7 +58,12 @@ async function onSelectEnd(){
     }
 }
 
-function consoleRecon(o){}
+function consoleRecon(o){
+  //Open Keyboard to consoleInput on X
+  if ( avatar.gamepad.X ){
+    avatar.self.consoleInput.focus();
+  }
+}
 
 function consoleUpdate(o){
   if ( avatar.gamepad.rightTrigger > 0 ) {
