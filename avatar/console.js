@@ -61,6 +61,10 @@ async function onSelectEnd(){
 function consoleRecon(o){
   //Open Keyboard to consoleInput on X
   if ( avatar.gamepad.X ){
+    //If element has focus in background,
+    // vr keyboard won't show up.
+    // also, kb loads blank in vr..
+    avatar.self.consoleInput.blur();
     avatar.self.consoleInput.focus();
   }
 }
