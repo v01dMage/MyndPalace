@@ -3,7 +3,8 @@
 import * as avatar from 'xr/cns.js'; 
 
 import 'xr/console.js';
-import 'my/cantrips/miscButtons.js';
+import { cantrips } from 'my/cantrips/miscButtons.js';
+avatar.self.cantrips= cantrips;
 
 import 'xr/scenes.js'; 
 import 'xr/skybox.js'; 
