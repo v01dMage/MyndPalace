@@ -1,6 +1,6 @@
 // misc button examples and fun
 
-let buttons= {
+let cantrips= {
   'glbBanana' : `const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
 
 const loader = new GLTFLoader();
@@ -38,9 +38,17 @@ return '>°<';
   'focus' : `avatar.self.consoleInput.focus();
 return '?';
 `,
+  makeButton, makeButtons, cast
   };
-makeButtons(buttons);
+makeButtons(cantrips);
 
+function cast(c){
+  if( typeof cantrips[c] != 'string' ){
+    avatar.self.console.ccout('error: not a cantrip');
+  }else {
+    avatar.self.console.arun( cantrips[c] );
+  }
+}
 
 function makeButton(name, text){
   let button= document.createElement('button');
@@ -54,6 +62,7 @@ function makeButton(name, text){
 
 function makeButtons(o){
   Object.keys(o).forEach( name=>{
+   if(typeof o[name] == 'string')
     makeButton( name, o[name] );
   } );
 }
