@@ -1,6 +1,6 @@
 // misc button examples and fun
 
-let cantrips= {
+export let cantrips= {
   'glbBanana' : `const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
 
 const loader = new GLTFLoader();
