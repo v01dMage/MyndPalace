@@ -4,10 +4,10 @@ import * as avatar from 'xr/cns.js';
 
 import 'xr/console.js';
 import { cantrips } from 'my/cantrips/miscButtons.js';
-avatar.self.cantrips= cantrips;
-
 import 'xr/scenes.js'; 
 import 'xr/skybox.js'; 
+
+avatar.self.cantrips= cantrips;
 
 if(localStorage.autoRun){
   avatar.self.console.arun(localStorage.autoRun).then(
