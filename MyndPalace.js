@@ -7,14 +7,9 @@ import 'my/cantrips/miscButtons.js';
 
 import 'xr/scenes.js'; 
 import 'xr/skybox.js'; 
-/*
-if(localStorage.currentlyTesting)
-  import(localStorage.currentlyTesting);
-*/
 
-let t= document.createElement('div');
-t.innerHTML= 'post sky n scenes';
-document.body.appendChild(t);
+if(localStorage.autoRun)
+  avatar.self.console.arun(localStorage.autoRun);
 
 //have fun
 
