@@ -46,7 +46,9 @@ function cast(c){
   if( typeof cantrips[c] != 'string' ){
     avatar.self.console.ccout('error: not a cantrip');
   }else {
-    avatar.self.console.arun( cantrips[c] );
+    avatar.self.console.arun( cantrips[c] ).then(
+       res=>{ avatar.self.console.ccout(res); }
+    );
   }
 }
 
