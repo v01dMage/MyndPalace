@@ -2,7 +2,7 @@
 
 export let cantrips= {
   'hello' : ` avatar.self.console.cout('hello');
-avatar.self.console.ccout('hello');`,
+return 'hello';`,
   'glbBanana' : `const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
 
 const loader = new GLTFLoader();
