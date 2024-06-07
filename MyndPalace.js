@@ -12,6 +12,7 @@ import 'xr/skybox.js';
 if(localStorage.autoRun)
   avatar.self.console.arun(localStorage.autoRun);
 
+avatar.self.cantrips.cast('hello');
 //have fun
 
 
