@@ -1,4 +1,5 @@
 // misc button examples and fun
+import * as avatar from 'xr/cns.js';
 
 export let cantrips= {
   'hello' : ` avatar.self.console.cout('hello');
