@@ -14,8 +14,10 @@ if(localStorage.autoRun){
     res=>{ avatar.self.console.cout(res); }
   );
 }
+init();
 
-avatar.self.cantrips.cast('hello');
+function init(){
+avatar.self.cantrips.cast('hello');}
 //have fun
 
 
