@@ -46,10 +46,11 @@ makeButtons(cantrips);
 
 function cast(c){
 try{
-  if( typeof cantrips[c] != 'string' ){
+  if( typeof avatar.self.cantrips[c] != 'string' ){
     avatar.self.console.ccout('error: not a cantrip');
+    avatar.self.console.cout('error: not a cantrip');
   }else {
-    avatar.self.console.arun( cantrips[c] ).then(
+    avatar.self.console.arun( avatar.self.cantrips[c] ).then(
        res=>{ avatar.self.console.ccout(res); }
     );
   }
