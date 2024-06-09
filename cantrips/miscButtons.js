@@ -45,6 +45,7 @@ return '?';
 makeButtons(cantrips);
 
 function cast(c){
+try{
   if( typeof cantrips[c] != 'string' ){
     avatar.self.console.ccout('error: not a cantrip');
   }else {
@@ -52,6 +53,9 @@ function cast(c){
        res=>{ avatar.self.console.ccout(res); }
     );
   }
+}catch(err){
+  avatar.self.console.cout(err);
+}
 }
 
 function makeButton(name, text){
