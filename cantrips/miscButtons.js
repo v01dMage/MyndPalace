@@ -44,15 +44,14 @@ return '?';
   };
 makeButtons(cantrips);
 
-function cast(c){
+async function cast(c){
 try{
   if( typeof avatar.self.cantrips[c] != 'string' ){
     avatar.self.console.ccout('error: not a cantrip');
     avatar.self.console.cout('error: not a cantrip');
   }else {
-    avatar.self.console.arun( avatar.self.cantrips[c] ).then(
-       res=>{ avatar.self.console.ccout(res); }
-    );
+   let res= await avatar.self.console.arun( avatar.self.cantrips[c] );
+   avatar.self.console.ccout(res);
   }
 }catch(err){
   avatar.self.console.cout(err);
