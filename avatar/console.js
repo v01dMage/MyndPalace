@@ -120,6 +120,7 @@ async function init(){
    let runButton= document.createElement('button');
    runButton.innerHTML= '<b>run</b>';
    runButton.style.width= '12em';
+   runButton.style.height= '5em';
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
