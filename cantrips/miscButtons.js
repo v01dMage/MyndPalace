@@ -33,6 +33,7 @@ link.innerHTML= 'download img';
 document.body.appendChild(link);
 
 let bg= new THREE.Texture(canvas);
+bg.needsUpdate= true;
 bg.mapping= THREE.EquirectangularReflectionMapping;
 bg.colorSpace= THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= bg;
