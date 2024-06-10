@@ -19,7 +19,7 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
   document.body.appendChild( errdiv );
 
 } );`,
-  'canvas': `let canvas= document.createElement('canvas');
+  'bgcanvas': `let canvas= document.createElement('canvas');
 canvas.width= 1024;
 canvas.height= 1024;
 let ctx= canvas.getContext("2d");
@@ -31,6 +31,11 @@ link.setAttribute('download', '');
 link.setAttribute('href', dataString );
 link.innerHTML= 'download img';
 document.body.appendChild(link);
+
+let bg= new THREE.Texture(canvas);
+bg.mapping= THREE.EquirectangularReflectionMapping;
+bg.colorSpace= THREE.SRGBColorSpace;
+avatar.self.scenes[0].background= bg;
 
 avatar.self.console.cout(typeof link);
 `,
