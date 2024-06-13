@@ -1,5 +1,5 @@
-// using multiple scenes,
-//
+// add a scene and button combo
+//   for swapping through scenes.
 
 import * as avatar from 'xr/cns.js';
 import * as THREE from 'three';
