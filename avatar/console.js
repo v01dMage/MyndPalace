@@ -187,5 +187,5 @@ testText= createText( 'Line #2', .05 );
 
    avatar.addToRecon( consoleRecon );
    avatar.addToUpdate( consoleUpdate );
-   avatar.self.consoleOut.innerHTML= 'test<br>output';
+   
 }
