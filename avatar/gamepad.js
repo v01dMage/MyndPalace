@@ -1,5 +1,5 @@
 //Gamepad
-//
+//  built for a Meta Quest 3 controller 
 
 export const gamepad= { 
   leftXaxis: 0,
