@@ -13,6 +13,7 @@ export { gamepad } from 'xr/gamepad.js';
 let camera, scene, scenes, renderer, xr;
 let raycasterLeft, raycasterRight;
 let recon= [ basicRecon, gamepad.recon ];
+let lastDeltaTime= Date.now();
 let update= [ basicUpdate ];
 
 export const tempMatrix = new THREE.Matrix4();
@@ -170,6 +171,9 @@ function basicUpdate(o){
 
 function basicRecon(o) {
   o.xr= xr;
+  o.now= Date.now();
+  o.deltaTime= o.now- lastDeltaTime;
+  lastDeltaTime= o.now;
 
   if ( gamepad.leftTrigger > 0 ) {
     tempMatrix.identity().extractRotation( controller1.matrixWorld );
