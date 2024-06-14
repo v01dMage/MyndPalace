@@ -23,7 +23,6 @@ function swapRealm(o){
     if(gp.leftGrip > 0.3 && gp.Y){
       let temp= scenes.shift();
       scenes.push( temp );
-      lastSwapped= Date.now();
 
       scenes[0].add( avatar.self.disc )
     }
