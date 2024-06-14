@@ -14,7 +14,7 @@ let camera, scene, scenes, renderer, xr;
 let raycasterLeft, raycasterRight;
 let recon= [ basicRecon, gamepad.recon ];
 let lastDeltaTime= Date.now();
-let update= [ basicUpdate ];
+let update= [ basicUpdate, advanceScene ];
 
 export const tempMatrix = new THREE.Matrix4();
 
@@ -143,6 +143,11 @@ function init(){
   );
   pointOfReference.position.set(0,1,-15);
   scene.add( pointOfReference );
+
+  let voyd= new THREE.Scene();
+  voyd.background = new THREE.Color( 0x77bb88 );
+  voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x400040, 3 ) );
+  scenes.push( voyd );
 }
 
 function basicUpdate(o){
@@ -188,6 +193,20 @@ function basicRecon(o) {
     raycasterRight.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
   }
   
+}
+
+let lastAdvanced= Date.now();
+let gp= gamepad;
+
+function advanceScene(o){
+  if(o.now- lastAdvanced > 2000){
+    if(gp.leftGrip > 0.3 && gp.Y){
+      let temp= scenes.shift();
+      scenes.push( temp );
+      lastSwapped= o.now;
+      scenes[0].add( self.disc )
+    }
+  }
 }
 
 function buildPointer( data ) {
