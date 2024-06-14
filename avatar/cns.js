@@ -14,6 +14,7 @@ let camera, scene, scenes, renderer, xr;
 let raycasterLeft, raycasterRight;
 let recon= [ basicRecon, gamepad.recon ];
 let lastDeltaTime= Date.now();
+let lastAdvanced= lastDeltaTime;
 let update= [ basicUpdate, advanceScene ];
 
 export const tempMatrix = new THREE.Matrix4();
@@ -195,15 +196,12 @@ function basicRecon(o) {
   
 }
 
-let lastAdvanced= Date.now();
-let gp= gamepad;
-
 function advanceScene(o){
   if(o.now- lastAdvanced > 2000){
-    if(gp.leftGrip > 0.3 && gp.Y){
+    if(gamepad.leftGrip > 0.3 && gamepad.Y){
       let temp= scenes.shift();
       scenes.push( temp );
-      lastSwapped= o.now;
+      lastAdvanced= o.now;
       scenes[0].add( self.disc )
     }
   }
