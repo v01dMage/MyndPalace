@@ -19,7 +19,7 @@ let gp= avatar.gamepad;
 let scenes= my.scenes;
 
 function swapRealm(o){
-  if(Date.now() - lastSwapped> 2000){
+  if(o.deltaTime > 2000){
     
     if(gp.leftGrip > 0.3 && gp.Y){
       let temp= scenes.shift();
