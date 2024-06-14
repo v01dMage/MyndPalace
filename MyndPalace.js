@@ -3,7 +3,6 @@
 import * as avatar from 'xr/cns.js'; 
 import 'xr/console.js';
 import { cantrips } from 'my/cantrips/miscButtons.js';
-import 'xr/scenes.js'; 
 
 avatar.self.cantrips= cantrips;
 
