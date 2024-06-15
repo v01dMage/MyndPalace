@@ -1,7 +1,7 @@
 // export a function which
 //  creates a starfield representation 
 //  returning it in a htmlcanvas element 
-import * as avatar from 'avatat/cns';
+import * as avatar from 'xr/cns.js'; 
 
 const cout= avatar.self.console.cout;
 
