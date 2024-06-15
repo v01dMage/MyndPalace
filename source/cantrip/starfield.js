@@ -20,6 +20,6 @@ export function paintStarfield(w,h,n){
       ctx.fillStyle= `rgb(${r(256)},${r(256)},${r(256)})`;
       ctx.fillRect( r(w), r(h), r(13)+3, r(13)+3 );
     }
-    document.body.appendChild(canvas);
+    //document.body.appendChild(canvas);
     return canvas;
 }
