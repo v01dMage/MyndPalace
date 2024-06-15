@@ -1,9 +1,13 @@
 // export a function which
 //  creates a starfield representation 
 //  returning it in a htmlcanvas element 
+import * as avatar from 'avatat/cns';
+
+const cout= avatar.self.console.cout;
 
 export function paintStarfield(w,h,n){
     var canvas= document.createElement('canvas');
+    cout( canvas );
     canvas.width= w;
     canvas.height= h;
     let ctx= canvas.getContext("2d");
