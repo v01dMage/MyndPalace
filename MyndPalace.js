@@ -17,8 +17,8 @@ if(localStorage.autoRun){
 
 init()
 
-function init(){
-let bg= paintStarfield(2048,2048,2000, document);
+async function init(){
+let bg= await paintStarfield(2048,2048,2000, document);
 avatar.self.console.cout(bg);
 let starfield= new THREE.Texture( bg );
 starfield.needsUpdate= true;
