@@ -8,9 +8,10 @@ export default function paintStarfield(w,h,n){
     canvas.height= `${h}`;
     let ctx= canvas.getContext("2D");
     let r= (x)=>Math.floor(Math.random()*x);
-    ctx.fillStyle= `rgb(${r(256)},${r(256)},${r(256)})`;
+    
     for(let i= 0; i< n; i++){
       let [x,y]= [r(w),r(h)];
+      ctx.fillStyle= `rgb(${r(256)},${r(256)},${r(256)})`;
       ctx.fillRect( x, y, r(13)+3, r(13)+3 );
     }
     return canvas;
