@@ -3,7 +3,7 @@
 import * as avatar from 'xr/cns.js'; 
 import 'xr/console.js';
 import { cantrips } from 'my/cantrips/miscButtons.js';
-import paintStarfield from 'psi/cantrip/starfield.js';
+import { paintStarfield } from 'psi/cantrip/starfield.js';
 
 avatar.self.cantrips= cantrips;
 
