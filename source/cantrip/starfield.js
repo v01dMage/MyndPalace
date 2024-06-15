@@ -6,7 +6,7 @@ export default function paintStarfield(w,h,n){
     let canvas= document.createElement('canvas');
     canvas.width= w;
     canvas.height= h;
-    let ctx= canvas.getContext("2D");
+    let ctx= canvas.getContext("2d");
     let r= (x)=>Math.floor(Math.random()*x);
     
     for(let i= 0; i< n; i++){
