@@ -18,10 +18,8 @@ if(localStorage.autoRun){
 
 let starfield= new THREE.Texture( paintStarfield(4196,4196,2000) );
 starfield.needsUpdate= true;
-/*
 starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
-*/
 avatar.self.scenes[0].background= starfield;
 
 //have fun
