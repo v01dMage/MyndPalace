@@ -15,6 +15,9 @@ if(localStorage.autoRun){
   avatar.self.cantrips.cast('hello');
 }
 
+init()
+
+function init(){
 let bg= paintStarfield(2048,2048,2000);
 avatar.self.console.cout(bg);
 let starfield= new THREE.Texture( bg );
@@ -22,7 +25,7 @@ starfield.needsUpdate= true;
 starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
-
+}
 //have fun
 
 
