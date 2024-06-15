@@ -7,7 +7,7 @@ const cout= avatar.self.console.cout;
 
 export function paintStarfield(w,h,n){
     var canvas= document.createElement('canvas');
-    cout( canvas );
+    //cout( canvas );
     canvas.width= w;
     canvas.height= h;
     let ctx= canvas.getContext("2d");
