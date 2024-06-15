@@ -15,6 +15,7 @@ if(localStorage.autoRun){
   avatar.self.cantrips.cast('hello');
 }
 
+avatar.self.console.cout( paintStarfield);
 
 let starfield= new THREE.Texture( paintStarfield(4196,4196,2000) );
 starfield.needsUpdate= true;
