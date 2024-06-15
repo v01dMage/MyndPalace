@@ -15,9 +15,9 @@ if(localStorage.autoRun){
   avatar.self.cantrips.cast('hello');
 }
 
-avatar.self.console.cout( paintStarfield);
-
-let starfield= new THREE.Texture( paintStarfield(4196,4196,2000) );
+let bg= paintStarfield(2048,2048,2000);
+avatar.self.console.cout(bg);
+let starfield= new THREE.Texture( bg );
 starfield.needsUpdate= true;
 starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
