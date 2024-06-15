@@ -2,8 +2,8 @@
 //  creates a starfield representation 
 //  returning it in a htmlcanvas element 
 
-export async function paintStarfield(w,h,n){
-    let canvas= document.createElement('canvas');
+export function paintStarfield(w,h,n){
+    var canvas= document.createElement('canvas');
     canvas.width= w;
     canvas.height= h;
     let ctx= canvas.getContext("2d");
