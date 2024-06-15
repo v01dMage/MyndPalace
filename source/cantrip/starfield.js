@@ -2,7 +2,7 @@
 //  creates a starfield representation 
 //  returning it in a htmlcanvas element 
 
-export function paintStarfield(w,h,n){
+export function paintStarfield(w,h,n,document){
     let canvas= document.createElement('canvas');
     canvas.width= w;
     canvas.height= h;
