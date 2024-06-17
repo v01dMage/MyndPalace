@@ -29,7 +29,7 @@ export function conjurePaper(
   ctx.fillStyle= textColor;
   ctx.font= '32px Arial';
   //const tp= thickness* ppc;
-  ctx.fillText(text);
+  ctx.fillText(text, 0,0);
   //ctx.strokeText
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
