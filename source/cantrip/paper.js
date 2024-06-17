@@ -27,7 +27,7 @@ export function conjurePaper(
   ctx.fillStyle= color;
   ctx.fillRect(0,0,canvas.width, canvas.height);
   ctx.fillStyle= textColor;
-  ctx.font= '64px arial';
+  ctx.font= '32px Arial';
   //const tp= thickness* ppc;
   ctx.fillText(text);
   //ctx.strokeText
