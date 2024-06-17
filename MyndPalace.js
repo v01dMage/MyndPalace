@@ -31,7 +31,7 @@ avatar.self.scenes[0].background= starfield;
 const testPaper= conjurePaper();
 testPaper.position.y= .7 ;
 function rotatePaper(i){
-  paper.rotateY(i.deltaTime/100);
+  testPaper.rotateY(i.deltaTime/100);
 }
 avatar.addToUpdate( rotatePaper );
 //have fun
