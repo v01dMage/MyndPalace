@@ -30,7 +30,7 @@ dolor sit`
   //ctx.strokeText
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
-  //map.colorSpace= THREE.SRGBColorSpace;
+  map.colorSpace= THREE.SRGBColorSpace;
 
   const mat= new THREE.MeshBasicMaterial( {color: 0xdddddd, map: map} );
   const mesh= new THREE.Mesh( geo, mat );
