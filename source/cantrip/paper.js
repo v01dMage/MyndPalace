@@ -32,7 +32,7 @@ dolor sit`
   map.needsUpdate= true;
   map.colorSpace= THREE.SRGBColorSpace;
 
-  const mat= new THREE.MeshBasicMaterial( {color: 0xdddddd, map: map} );
+  const mat= new THREE.MeshBasicMaterial( {map} );
   const mesh= new THREE.Mesh( geo, mat );
   avatar.self.scenes[0].add( mesh );
   return mesh;
