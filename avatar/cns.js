@@ -117,7 +117,7 @@ function init(){
 
   let border= new THREE.Mesh(
     new THREE.CylinderGeometry(r,r,h, 16, 1, false ).translate(0,0,.3),
-    new THREE.MeshBasicMaterial( {color: 0x000000, transparent: true, opacity: 0.25} )
+    new THREE.MeshBasicMaterial( {color: 0x000000, transparent: true, opacity: 0.75} )
   );
 
 
