@@ -7,12 +7,30 @@ import * as avatar from 'xr/cns.js'
 
 export function conjurePaper( 
   width= .2, height= .25, thickness= .01,
-  color= 0xeeeeaa, text= `lorem ipsum
+  color= "#eeeeaa", textColor= "#aaeeee", text= `lorem ipsum
 dolor sit`
   ){
   const geo= new THREE.BoxGeometry( width, height, thickness );
-  //ToDo make a canvas, ctx, text, and texture for map
-  const mat= new THREE.MeshBasicMaterial( {color} );
+  
+  const canvas= document.createElement('canvas');
+  const ppc= 10; //pixels per centimeter
+  //wrap all 6 edges
+  const canvasWidth= 2* width* ppc+ 2* thickness* ppc;
+  const canvasHeight= 2* thickness* ppc + height* ppc;
+  canvas.width= canvasWidth;
+  canvas.height= canvasHeight;
+  const ctx= canvas.getContext('2d');
+
+  ctx.fillStyle= color;
+  ctx.fillRect(0,0,canvasWidth, canvasHeight);
+  ctx.fillStyle= textColor;
+  //ctx.font
+  const tp= thickness* ppc;
+  ctx.fillText(text, tp+10,tp+10);
+  //ctx.strokeText
+  const map= new THREE.Texture( canvas );
+
+  const mat= new THREE.MeshBasicMaterial( {color: 0xdddddd, map: map} );
   const mesh= new THREE.Mesh( geo, mat );
   avatar.self.scenes[0].add( mesh );
   return mesh;
