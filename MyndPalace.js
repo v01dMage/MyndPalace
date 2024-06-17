@@ -31,8 +31,8 @@ avatar.self.scenes[0].background= starfield;
 const testPaper= conjurePaper();
 testPaper.position.y= .7 ;
 function rotatePaper(i){
-  testPaper.rotateY(i.deltaTime/1000);
-  testPaper.rotateX(i.deltaTime/100000);
+  //testPaper.rotateY(i.deltaTime/1000);
+  testPaper.rotateX(i.deltaTime/10000);
 }
 avatar.addToUpdate( rotatePaper );
 //have fun
