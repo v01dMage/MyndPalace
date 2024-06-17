@@ -33,7 +33,7 @@ export function conjurePaper(
   //ctx.strokeText
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
-  map.mapping= THREE.EquirectangularReflectionMapping;
+  //map.mapping= THREE.EquirectangularReflectionMapping;
   map.colorSpace= THREE.SRGBColorSpace;
 
   const mat= new THREE.MeshBasicMaterial( {map} );
