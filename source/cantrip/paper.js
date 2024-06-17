@@ -7,7 +7,7 @@ import * as avatar from 'xr/cns.js'
 
 export function conjurePaper( 
   width= .2, height= .25, thickness= .01,
-  color= "#00eeaa", textColor= "#0000ee", text= "lorem ipsum"
+  color= "#ffaa00", textColor= "#0000ee", text= "lorem ipsum"
   ){
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
@@ -28,8 +28,8 @@ export function conjurePaper(
   ctx.fillRect(0,0,canvasWidth, canvasHeight);
   ctx.fillStyle= textColor;
   //ctx.font
-  const tp= thickness* ppc;
-  ctx.fillText(text, tp+10,tp+10);
+  //const tp= thickness* ppc;
+  ctx.fillText(text, 5,5);
   //ctx.strokeText
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
