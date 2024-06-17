@@ -28,8 +28,12 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-conjurePaper().position.y= .7 ;
-
+const testPaper= conjurePaper();
+testPaper.position.y= .7 ;
+function rotatePaper(i){
+  paper.rotateY(i.deltaTime/100);
+}
+avatar.addToUpdate( rotatePaper );
 //have fun
 
 
