@@ -5,6 +5,7 @@ import 'xr/console.js';
 import { cantrips } from 'my/cantrips/miscButtons.js';
 import { paintStarfield } from 'psi/cantrip/starfield.js';
 import * as THREE from 'three';
+import { conjurePaper } from 'psi/cantrip/paper.js'
 
 avatar.self.cantrips= cantrips;
 
@@ -26,6 +27,8 @@ starfield.needsUpdate= true;
 starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
+
+conjurePaper().position.y= .7 ;
 
 //have fun
 
