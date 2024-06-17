@@ -27,9 +27,9 @@ export function conjurePaper(
   ctx.fillStyle= color;
   ctx.fillRect(0,0,canvas.width, canvas.height);
   ctx.fillStyle= textColor;
-  //ctx.font= '18px arial';
+  ctx.font= '64px arial';
   //const tp= thickness* ppc;
-  ctx.fillText(text, 5,5);
+  ctx.fillText(text);
   //ctx.strokeText
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
