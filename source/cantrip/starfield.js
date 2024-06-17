@@ -1,9 +1,12 @@
 // export a function which
 //  creates a starfield representation 
 //  returning it in a htmlcanvas element 
-import * as avatar from 'xr/cns.js'; 
 
-const cout= avatar.self.console.cout;
+// todo: paint a star, copy, scale
+//       maybe track and animate 
+//import * as avatar from 'xr/cns.js'; 
+
+//const cout= avatar.self.console.cout;
 
 export function paintStarfield(w,h,n){
     var canvas= document.createElement('canvas');
