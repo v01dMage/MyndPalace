@@ -28,9 +28,10 @@ dolor sit`
   const tp= thickness* ppc;
   ctx.fillText(text, tp+10,tp+10);
   //ctx.strokeText
-  const map= new THREE.TextureLoader.load( canvas );
-  //map.needsUpdate= true;
-  //map.colorSpace= THREE.SRGBColorSpace;
+  const map= new THREE.Texture( canvas );
+  map.needsUpdate= true;
+  map.mapping= THREE.EquirectangularReflectionMapping;
+  map.colorSpace= THREE.SRGBColorSpace;
 
   const mat= new THREE.MeshBasicMaterial( {map} );
   const mesh= new THREE.Mesh( geo, mat );
