@@ -117,12 +117,12 @@ function init(){
 
   let border= new THREE.Mesh(
     new THREE.CylinderGeometry(r,r,h, 16, 1, false ).translate(0,0,.3),
-    new THREE.MeshBasicMaterial( {color: 0x000000} )
+    new THREE.MeshBasicMaterial( {color: 0x000000, transparent: true, opacity: 0.25} )
   );
 
 
   let clover= new THREE.TextureLoader().load('./assets/clover5.jpg');
-  let mat= new THREE.MeshBasicMaterial( {map: clover} );
+  let mat= new THREE.MeshBasicMaterial( {map: clover, transparent: true, opacity: 0.5} );
 
   let disc= new THREE.Mesh(
     new THREE.CylinderGeometry(radius,radius,height, 16 ).translate( 0,0,.4),
