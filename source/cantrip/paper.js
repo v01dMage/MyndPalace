@@ -12,12 +12,16 @@ export function conjurePaper(
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
   const canvas= document.createElement('canvas');
+/*
   const ppc= 10; //pixels per centimeter
   //wrap all 6 edges
   const canvasWidth= 2* width* ppc+ 2* thickness* ppc;
   const canvasHeight= 2* thickness* ppc + height* ppc;
   canvas.width= canvasWidth;
   canvas.height= canvasHeight;
+*/
+  canvas.width= 400;
+  canvas.height= 800;
   const ctx= canvas.getContext('2d');
 
   ctx.fillStyle= color;
