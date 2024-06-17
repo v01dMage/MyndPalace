@@ -29,6 +29,8 @@ dolor sit`
   ctx.fillText(text, tp+10,tp+10);
   //ctx.strokeText
   const map= new THREE.Texture( canvas );
+  map.needsUpdate= true;
+  //map.colorSpace= THREE.SRGBcolorSpace;
 
   const mat= new THREE.MeshBasicMaterial( {color: 0xdddddd, map: map} );
   const mesh= new THREE.Mesh( geo, mat );
