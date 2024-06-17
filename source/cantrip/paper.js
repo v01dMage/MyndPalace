@@ -25,7 +25,7 @@ export function conjurePaper(
   const ctx= canvas.getContext('2d');
 
   ctx.fillStyle= color;
-  ctx.fillRect(0,0,canvasWidth, canvasHeight);
+  ctx.fillRect(0,0,canvas.width, canvas.height);
   ctx.fillStyle= textColor;
   //ctx.font
   //const tp= thickness* ppc;
