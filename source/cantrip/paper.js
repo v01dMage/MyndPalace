@@ -5,45 +5,42 @@
 import * as THREE from 'three';
 import * as avatar from 'xr/cns.js'
 
-export function conjurePaper( 
-  width= .2, height= .25, thickness= .01,
-  color= "#ffaa00", textColor= "#0000ee", text= "lorem ipsum"
-  ){
+export function conjurePaper( text= "lorem ipsum", specs ){
+  let template= {
+    width : 0.2, height : 0.25,
+    thickness : 0.01, color : "#fa3",
+    font : "bold 30px Arial", fontColor : "#333"
+  };
+  if( typeof specs == "object" ){
+   Object.keys(template).forEach( detail=>{
+    if( typeof specs[detail] != undefined){
+      template[detail]= specs[detail];
+    }
+  });}
+  let { width, height, thickness, color, font, fontColor }= template;
+// proceed with function..
+
+  
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
   const canvas= document.createElement('canvas');
-/*
-  const ppc= 10; //pixels per centimeter
-  //wrap all 6 edges
-  const canvasWidth= 2* width* ppc+ 2* thickness* ppc;
-  const canvasHeight= 2* thickness* ppc + height* ppc;
-  canvas.width= canvasWidth;
-  canvas.height= canvasHeight;
-*/
-  canvas.width= 400;
-  canvas.height= 800;
+  const scalar= 1000;
+  const aspect= width/height;
+  canvas.width= Math.floor(aspect* height* scalar);
+  canvas.height= Math.floor(aspect* width* scalar);
   const ctx= canvas.getContext('2d');
 
-  let hw= Math.floor( canvas.width/2 );
-  let hh= Math.floor( canvas.height/2 );
   ctx.fillStyle= color;
   ctx.fillRect(0,0,canvas.width, canvas.height);
-  //ctx.fillStyle= "#f00";
- // ctx.fillRect( 30, 70, hw, hw );
- // ctx.fillStyle= "rgb(130,0,200)";
- // ctx.fillRect( hw,hh, hw*.8, hh*.8 );
-  ctx.fillStyle= textColor;
-  //ctx.font= '14px Arial';
-  //const tp= thickness* ppc;
-  //ctx.fillText(text, 0,0);
-  //ctx.strokeText
-  //ctx.fillStyle= "#007";
-  ctx.font = "bold 32px Arial";
-ctx.fillText(text,50,100, 300);
+
+  ctx.fillStyle= fontColor;
+  ctx.font = font;
+  //Break text into printable lines, and do so
+  
+  ctx.fillText(text,50,100, 300);
 
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
-  //map.mapping= THREE.EquirectangularReflectionMapping;
   map.colorSpace= THREE.SRGBColorSpace;
 
   const mat= new THREE.MeshBasicMaterial( {map} );
