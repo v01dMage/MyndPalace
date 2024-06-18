@@ -9,7 +9,8 @@ export function conjurePaper( text= "lorem ipsum", specs ){
   let template= {
     width : 0.2, height : 0.25,
     thickness : 0.01, color : "#fa3",
-    font : "bold 30px Arial", fontColor : "#333"
+    font : "bold 30px Arial", fontColor : "#333",
+    scalar : 4196, 
   };
   if( typeof specs == "object" ){
    Object.keys(template).forEach( detail=>{
@@ -20,7 +21,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
       );*/
     }
   });}
-  let { width, height, thickness, color, font, fontColor }= template;
+  let { width, height, thickness, color, font, fontColor, scalar }= template;
 // proceed with function..
   
   let lineHeight= font.split(" ").reduce(
@@ -34,7 +35,6 @@ export function conjurePaper( text= "lorem ipsum", specs ){
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
   const canvas= document.createElement('canvas');
-  const scalar= 6144;
   canvas.width= Math.floor(width* scalar);
   canvas.height= Math.floor(height* scalar);
   const ctx= canvas.getContext('2d');
