@@ -33,11 +33,14 @@ export function conjurePaper(
   ctx.fillStyle= "rgb(130,0,200)";
   ctx.fillRect( hw,hh, hw*.8, hh*.8 );
   ctx.fillStyle= textColor;
-  ctx.font= '14px Arial';
+  //ctx.font= '14px Arial';
   //const tp= thickness* ppc;
-  ctx.fillText(text, 0,0);
-  ctx.stroke();
+  //ctx.fillText(text, 0,0);
   //ctx.strokeText
+  ctx.fillStyle= "#007";
+  ctx.font = "bold italic 50px Arial";
+ctx.strokeText("Hello World",10,80);
+
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
   //map.mapping= THREE.EquirectangularReflectionMapping;
