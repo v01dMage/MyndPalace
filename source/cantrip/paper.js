@@ -34,7 +34,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
   const canvas= document.createElement('canvas');
-  const scalar= 3072;
+  const scalar= 6144;
   canvas.width= Math.floor(width* scalar);
   canvas.height= Math.floor(height* scalar);
   const ctx= canvas.getContext('2d');
