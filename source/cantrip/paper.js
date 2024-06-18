@@ -24,10 +24,10 @@ export function conjurePaper( text= "lorem ipsum", specs ){
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
   const canvas= document.createElement('canvas');
-  const scalar= 1000;
+  const scalar= 5000;
   const aspect= width/height;
-  canvas.width= Math.floor(aspect* height* scalar);
-  canvas.height= Math.floor(aspect* width* scalar);
+  canvas.width= Math.floor(height/aspect* scalar);
+  canvas.height= Math.floor(width/aspect* scalar);
   const ctx= canvas.getContext('2d');
 
   ctx.fillStyle= color;
@@ -37,7 +37,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
   ctx.font = font;
   //Break text into printable lines, and do so
   
-  ctx.fillText(text,50,100, 300);
+  ctx.fillText(text,30,90);
 
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
