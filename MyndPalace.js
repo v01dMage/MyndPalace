@@ -28,7 +28,7 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-const testPaper= conjurePaper();
+const testPaper= conjurePaper(.2,.25,.5);
 testPaper.position.y= .7 ;
 function rotatePaper(i){
   //testPaper.rotateY(i.deltaTime/1000);
