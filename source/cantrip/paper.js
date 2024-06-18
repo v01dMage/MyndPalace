@@ -37,9 +37,9 @@ export function conjurePaper(
   //const tp= thickness* ppc;
   //ctx.fillText(text, 0,0);
   //ctx.strokeText
-  ctx.fillStyle= "#007";
+  //ctx.fillStyle= "#007";
   ctx.font = "bold italic 50px Arial";
-ctx.fillText("Hello World",10,80);
+ctx.fillText(text,50,100, 300);
 
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
