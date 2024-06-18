@@ -31,7 +31,8 @@ avatar.self.scenes[0].background= starfield;
 const specs= {
   thickness : 0.003, height : .4, width : 0.3,
   color : "#afa", fontColor : "#113",
-  font : "bold italic 80px Arial"
+  font : "bold italic 80px Arial",
+  scalar : 6144,
 };
 const testPaper= conjurePaper(`Ok,
    Testing Testing
