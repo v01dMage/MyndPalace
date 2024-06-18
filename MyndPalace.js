@@ -28,7 +28,10 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-const testPaper= conjurePaper(.2,.25,.003, "#030", "#fb0", "ok, rose isn't a color. but that was not enough to test word wrap. unless that caused the blankout");
+const testPaper= conjurePaper(.2,.25,.003, "#030", "#fb0", `It seemed to squish 
+everything onto one line
+despite 50px font. 
+so let's try a template string. ${0x0000ff}. `);
 testPaper.position.y= .7 ;
 /*
 function rotatePaper(i){
