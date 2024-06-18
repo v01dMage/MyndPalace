@@ -22,6 +22,13 @@ export function conjurePaper( text= "lorem ipsum", specs ){
   });}
   let { width, height, thickness, color, font, fontColor }= template;
 // proceed with function..
+  
+  let lineHeight= font.split(" ").reduce(
+    ( res, txt )=>{
+        if(res) return res;
+        return parseInt(txt);
+    }, NaN 
+  ); //Should return NaN or first parseable int
 
   
   const geo= new THREE.BoxGeometry( width, height, thickness );
@@ -39,11 +46,9 @@ export function conjurePaper( text= "lorem ipsum", specs ){
   ctx.fillStyle= fontColor;
   ctx.font = font;
   //Break text into printable lines, and fill
-
+  let lh= lineHeight || 14;
   text.split("\n").forEach( (line, index)=>{
-    ctx.fillText( line, 30, 90+ index* 35 );
-    // gonna have issues if i dont parse an
-    // actual height of font...
+    ctx.fillText( line, lh, 3*lh+ index* 1.3*lh );
   } );
 
   const map= new THREE.Texture( canvas );
