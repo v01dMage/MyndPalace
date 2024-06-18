@@ -28,17 +28,17 @@ export function conjurePaper(
   let hh= Math.floor( canvas.height/2 );
   ctx.fillStyle= color;
   ctx.fillRect(0,0,canvas.width, canvas.height);
-  ctx.fillStyle= "#f00";
-  ctx.fillRect( 30, 70, hw, hw );
-  ctx.fillStyle= "rgb(130,0,200)";
-  ctx.fillRect( hw,hh, hw*.8, hh*.8 );
+  //ctx.fillStyle= "#f00";
+ // ctx.fillRect( 30, 70, hw, hw );
+ // ctx.fillStyle= "rgb(130,0,200)";
+ // ctx.fillRect( hw,hh, hw*.8, hh*.8 );
   ctx.fillStyle= textColor;
   //ctx.font= '14px Arial';
   //const tp= thickness* ppc;
   //ctx.fillText(text, 0,0);
   //ctx.strokeText
   //ctx.fillStyle= "#007";
-  ctx.font = "bold italic 50px Arial";
+  ctx.font = "bold 32px Arial";
 ctx.fillText(text,50,100, 300);
 
   const map= new THREE.Texture( canvas );
