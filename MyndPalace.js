@@ -30,7 +30,7 @@ avatar.self.scenes[0].background= starfield;
 
 const specs= {
   thickness : 0.003,
-  color : "#595", fontColor : "#113"
+  color : "#afa", fontColor : "#113"
 };
 const testPaper= conjurePaper(`It seemed to squish 
 everything onto one line
