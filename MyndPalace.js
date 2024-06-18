@@ -30,13 +30,22 @@ avatar.self.scenes[0].background= starfield;
 
 const specs= {
   thickness : 0.003,
-  color : "#afa", fontColor : "#113"
+  color : "#afa", fontColor : "#113",
+  font : "bold italic 80px Arial"
 };
-const testPaper= conjurePaper(`It seemed to squish 
-everything onto one line
-despite 50px font. 
-line splitting is
-the answer. `, specs );
+const testPaper= conjurePaper(`Ok,
+   Testing Testing
+  1
+      2
+           3
+   How many lines are
+     filling up the C! 
+  Better not B A letter D
+  cause D is for dork,
+  like this poetryy
+
+two bits
+🦄`, specs );
 testPaper.position.y= .7 ;
 
 function rotatePaper(i){
