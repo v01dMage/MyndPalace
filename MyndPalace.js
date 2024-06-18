@@ -28,18 +28,23 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-const testPaper= conjurePaper(.2,.25,.003, "#030", "#fb0", `It seemed to squish 
+const specs= {
+  thickness : 0.003,
+  color : "#595", fontColor : "#113"
+};
+const testPaper= conjurePaper(`It seemed to squish 
 everything onto one line
 despite 50px font. 
-so let's try a template string. ${0x0000ff}. `);
+line splitting is
+the answer. `, specs );
 testPaper.position.y= .7 ;
-/*
+
 function rotatePaper(i){
   testPaper.rotateY(i.deltaTime/5000);
   //testPaper.rotateX(i.deltaTime/5000);
 }
 avatar.addToUpdate( rotatePaper );
-*/
+
 //have fun
 
 
