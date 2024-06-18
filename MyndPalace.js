@@ -28,7 +28,7 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-const testPaper= conjurePaper(.2,.25,.003, "#330", "#dd33ff", "maybe rose isn't a color?");
+const testPaper= conjurePaper(.2,.25,.003, "#030", "#fb0", "ok, rose isn't a color. but that was not enough to test word wrap. unless that caused the blankout");
 testPaper.position.y= .7 ;
 /*
 function rotatePaper(i){
