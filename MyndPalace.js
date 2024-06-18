@@ -29,7 +29,7 @@ starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
 const specs= {
-  thickness : 0.003, height .4,
+  thickness : 0.003, height : .4,
   color : "#afa", fontColor : "#113",
   font : "bold italic 80px Arial"
 };
