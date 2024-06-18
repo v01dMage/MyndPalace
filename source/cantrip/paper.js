@@ -38,9 +38,13 @@ export function conjurePaper( text= "lorem ipsum", specs ){
 
   ctx.fillStyle= fontColor;
   ctx.font = font;
-  //Break text into printable lines, and do so
-  
-  ctx.fillText(text,30,90);
+  //Break text into printable lines, and fill
+
+  text.split("\n").forEach( (line, index)=>{
+    ctx.fillText( line, 30, 90+ index* 35 );
+    // gonna have issues if i dont parse an
+    // actual height of font...
+  } );
 
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
