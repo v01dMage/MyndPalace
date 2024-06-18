@@ -39,7 +39,7 @@ export function conjurePaper(
   //ctx.strokeText
   ctx.fillStyle= "#007";
   ctx.font = "bold italic 50px Arial";
-ctx.strokeText("Hello World",10,80);
+ctx.fillText("Hello World",10,80);
 
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
