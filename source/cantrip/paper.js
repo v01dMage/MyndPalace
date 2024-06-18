@@ -24,12 +24,19 @@ export function conjurePaper(
   canvas.height= 800;
   const ctx= canvas.getContext('2d');
 
+  let hw= Math.floor( canvas.width/2 );
+  let hh= Math.floor( canvas.height/2 );
   ctx.fillStyle= color;
   ctx.fillRect(0,0,canvas.width, canvas.height);
+  ctx.fillStyle= "#f00";
+  ctx.fillRect( 30, 70, hw, hw );
+  ctx.fillStyle= "rgb(130,0,200)";
+  ctx.fillRect( hw,hh, hw*.8, hh*.8 );
   ctx.fillStyle= textColor;
   ctx.font= '14px Arial';
   //const tp= thickness* ppc;
   ctx.fillText(text, 0,0);
+  ctx.stroke();
   //ctx.strokeText
   const map= new THREE.Texture( canvas );
   map.needsUpdate= true;
