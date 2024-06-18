@@ -28,7 +28,7 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-const testPaper= conjurePaper(.2,.25,.003, "#444", "rose", "first, I want to test if this will auto-wrap.");
+const testPaper= conjurePaper(.2,.25,.003, "#330", "#dd33ff", "maybe rose isn't a color?");
 testPaper.position.y= .7 ;
 /*
 function rotatePaper(i){
