@@ -26,11 +26,10 @@ starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
 
-let src;
 fetch(import.meta.url).then( res=>{
-  src= res.text();
-  avatar.self.console.cout( src );
-  const p2= conjurePaper( src );
+  res.text().then( txt=>{} );
+  avatar.self.console.cout( txt );
+  const p2= conjurePaper( txt );
   p2.position.x= .5;
   p2.position.y= 1;
 });
