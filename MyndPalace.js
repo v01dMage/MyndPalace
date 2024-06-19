@@ -28,7 +28,7 @@ avatar.self.scenes[0].background= starfield;
 
 let src;
 fetch(import.meta.url).then( res=>{
-  src= res.toString();
+  src= res.text();
   avatar.self.console.cout( src );
   const p2= conjurePaper( src );
   p2.position.x= 1;
