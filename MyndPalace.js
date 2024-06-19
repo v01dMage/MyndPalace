@@ -31,7 +31,7 @@ fetch(import.meta.url).then( res=>{
   src= res.text();
   avatar.self.console.cout( src );
   const p2= conjurePaper( src );
-  p2.position.x= 1;
+  p2.position.x= .5;
   p2.position.y= 1;
 });
 
