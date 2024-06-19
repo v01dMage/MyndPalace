@@ -3,7 +3,7 @@
 
 import { conjurePaper } from 'psi/cantrip/paper.js'
 
-const src= document.body.outerHTML;
+const src= document.body.parent.outerHTML;
 
 let page= conjurePaper( src );
 page.position.y= 1;
