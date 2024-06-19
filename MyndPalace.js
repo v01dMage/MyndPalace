@@ -26,6 +26,15 @@ starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
 
+let src;
+fetch(import.meta.url).then( res=>{
+  src= res.toString();
+  avatar.self.console.cout( src );
+  const p2= conjurePaper( src );
+  p2.position.x= 1;
+  p2.position.y= 1;
+});
+
 //have fun
 
 
