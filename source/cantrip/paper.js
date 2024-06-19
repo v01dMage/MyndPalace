@@ -7,7 +7,7 @@ import * as avatar from 'xr/cns.js'
 
 export function conjurePaper( text= "lorem ipsum", specs ){
   let template= {
-    width : 0.2, height : 0.25,
+    width : 0.3, height : 0.5,
     thickness : 0.01, color : "#fa3",
     font : "bold 30px Arial", fontColor : "#333",
     scalar : 4196, 
