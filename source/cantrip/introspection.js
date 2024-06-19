@@ -6,4 +6,5 @@ import { conjurePaper } from 'psi/cantrip/paper.js'
 const src= document.body.outerHTML;
 
 let page= conjurePaper( src );
-page.rotateX( -Math.PI/8 )
+page.position.y= 1;
+page.rotateX( -Math.PI/8 );
