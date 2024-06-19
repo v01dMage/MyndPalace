@@ -6,6 +6,7 @@ import { cantrips } from 'my/cantrips/miscButtons.js';
 import { paintStarfield } from 'psi/cantrip/starfield.js';
 import * as THREE from 'three';
 import { conjurePaper } from 'psi/cantrip/paper.js'
+import 'psi/cantrip/introspection.js'
 
 avatar.self.cantrips= cantrips;
 
@@ -17,43 +18,13 @@ if(localStorage.autoRun){
   avatar.self.cantrips.cast('hello');
 }
 
-
-
 let bg= paintStarfield(2048,2048,2000);
-//avatar.self.console.cout( bg );
 let starfield= new THREE.Texture( bg );
-//avatar.self.console.cout( starfield );
 starfield.needsUpdate= true;
 starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-const specs= {
-  thickness : 0.003, height : .4, width : 0.3,
-  color : "#afa", fontColor : "#113",
-  font : "bold italic 80px Arial",
-  scalar : 6144,
-};
-const testPaper= conjurePaper(`Ok,
-   Testing Testing
-  1
-      2
-           3
-   How many lines are
-     filling up the C! 
-  Better not B A letter D
-  cause D is for dork,
-  like this poetryy
-
-two bits
-🦄`, specs );
-testPaper.position.y= .7 ;
-
-function rotatePaper(i){
-  testPaper.rotateY(i.deltaTime/5000);
-  //testPaper.rotateX(i.deltaTime/5000);
-}
-avatar.addToUpdate( rotatePaper );
 
 //have fun
 
