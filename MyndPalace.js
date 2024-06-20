@@ -29,8 +29,11 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-avatar.self.console.cout(
-  typeof avatar.self.dna
+for( let gene in avatar.self.dna ){
+  avatar.self.console.cout(
+    avatar.self.dna[gene][0]+'<br>-----<br>'+
+    avatar.self.dna[gene][1].substring(0,10)+
+    '<br>.....<br>
 );
 //have fun
 
