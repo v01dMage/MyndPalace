@@ -4,6 +4,6 @@ import * as avatar from 'xr/cns.js';
 import { conjurePaper } from 'psi/cantrip/paper.js'
 avatar.self.dnaStore(import.meta.url);
 
-let page= conjurePaper( avatar.self.dna.length );
+let page= conjurePaper( Object.keys(avatar.self.dna).join("\n") );
 page.position.y= 1;
 page.rotateX( -Math.PI/4 );
