@@ -27,7 +27,7 @@ function store(url){
   })
 }
 store(import.meta.url);
-store('./gamepad.js');
+store('./avatar/gamepad.js');
 
 self.hands= [];
 let controller1, controller2;
