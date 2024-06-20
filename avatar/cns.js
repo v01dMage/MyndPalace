@@ -19,10 +19,10 @@ let update= [ basicUpdate, advanceScene ];
 
 export const tempMatrix = new THREE.Matrix4();
 
-export const self= {dna: [ document.documentElement.outerHTML ], dnaStore : store };
+export const self= {dna: { index : document.documentElement.outerHTML }, dnaStore : store };
 function store(url){
   fetch(url).then( res=>res.text() ).then( txt=>{
-    self.dna.push(text);
+    self.dna[url]= txt;
   })
 }
 store(import.meta.url);
