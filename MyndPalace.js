@@ -30,7 +30,7 @@ starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
 avatar.self.console.cout(
-  avatar.self.dna.length
+  typeof avatar.self.dna
 );
 //have fun
 
