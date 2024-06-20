@@ -19,7 +19,13 @@ let update= [ basicUpdate, advanceScene ];
 
 export const tempMatrix = new THREE.Matrix4();
 
-export const self= {dna: document.documentElement.outerHTML };
+export const self= {dna: [ document.documentElement.outerHTML ], dnaStore : store };
+function store(url){
+  fetch(url).then( res=>res.text() ).then( txt=>{
+    self.dna.push(text);
+  })
+}
+
 self.hands= [];
 let controller1, controller2;
 let controllerGrip1, controllerGrip2;
