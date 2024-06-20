@@ -2,9 +2,8 @@
 //  the source code
 import * as avatar from 'xr/cns.js';
 import { conjurePaper } from 'psi/cantrip/paper.js'
+avatar.self.dnaStore(import.meta.url);
 
-//const src= document.documentElement.outerHTML;
-
-let page= conjurePaper( avatar.self.dna );
+let page= conjurePaper( avatar.self.dna.length );
 page.position.y= 1;
 page.rotateX( -Math.PI/4 );
