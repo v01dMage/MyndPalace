@@ -1,6 +1,7 @@
 import * as THREE from'three';
 import { createText } from 'three/addons/webxr/Text2D.js';
 import * as avatar from 'xr/cns.js';
+avatar.self.dnaStore(import.meta.url);
 
 let cFrame, cScreen, cPlane;
 let runner, testLight;
