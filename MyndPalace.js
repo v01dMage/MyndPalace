@@ -28,7 +28,7 @@ starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
 function dnaout(){
-avatar.self.console.cout( avatar.self.dna.length );
+avatar.self.console.cout( "#keys: "+ Object.keys( avatar.self.dna ).length );
 for( let gene in avatar.self.dna ){
  if( gene != 'index' ){
   avatar.self.console.cout(
