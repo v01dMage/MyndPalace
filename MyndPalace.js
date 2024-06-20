@@ -33,8 +33,9 @@ for( let gene in avatar.self.dna ){
   avatar.self.console.cout(
     avatar.self.dna[gene][0]+'<br>-----<br>'+
     avatar.self.dna[gene][1].substring(0,10)+
-    '<br>.....<br>
-);
+    '<br>.....<br>'
+  );
+}
 //have fun
 
 
