@@ -9,6 +9,8 @@ import { conjurePaper } from 'psi/cantrip/paper.js'
 import 'psi/cantrip/introspection.js'
 
 avatar.self.dnaStore(import.meta.url);
+avatar.self.dnaStore('my/README.MD');
+avatar.self.dnaStore('my/LICENSE');
 
 avatar.self.cantrips= cantrips;
 
