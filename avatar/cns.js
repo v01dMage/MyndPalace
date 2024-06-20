@@ -26,6 +26,8 @@ function store(url){
     self.dna['gc'+geneCount++]= [url,txt];
   })
 }
+store('./LICENSE');
+store('./README.MD');
 store(import.meta.url);
 store('./avatar/gamepad.js');
 
