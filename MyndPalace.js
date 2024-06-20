@@ -5,12 +5,10 @@ import 'xr/console.js';
 import { cantrips } from 'my/cantrips/miscButtons.js';
 import { paintStarfield } from 'psi/cantrip/starfield.js';
 import * as THREE from 'three';
-import { conjurePaper } from 'psi/cantrip/paper.js'
-import 'psi/cantrip/introspection.js'
-
+import { conjurePaper } from 'psi/cantrip/paper.js';
+import 'psi/cantrip/introspection.js';
 avatar.self.dnaStore(import.meta.url);
-avatar.self.dnaStore('./README.MD');
-avatar.self.dnaStore('./LICENSE');
+
 
 avatar.self.cantrips= cantrips;
 
@@ -30,6 +28,7 @@ starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
 function dnaout(){
+avatar.self.console.cout( avatar.self.dna.length );
 for( let gene in avatar.self.dna ){
  if( gene != 'index' ){
   avatar.self.console.cout(
