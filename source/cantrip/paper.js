@@ -4,6 +4,7 @@
 
 import * as THREE from 'three';
 import * as avatar from 'xr/cns.js'
+avatar.self.dnaStore(import.meta.url);
 
 export function conjurePaper( text= "lorem ipsum", specs ){
   let template= {
