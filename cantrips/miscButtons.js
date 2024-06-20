@@ -1,5 +1,6 @@
 // misc button examples and fun
 import * as avatar from 'xr/cns.js';
+avatar.self.dnaStore(import.meta.url);
 
 export let cantrips= {
   'hello' : ` avatar.self.console.cout('hello');
