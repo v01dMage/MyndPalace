@@ -25,6 +25,7 @@ function store(url){
     self.dna.push(text);
   })
 }
+store(import.meta.url);
 
 self.hands= [];
 let controller1, controller2;
