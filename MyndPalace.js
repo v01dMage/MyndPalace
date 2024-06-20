@@ -8,6 +8,8 @@ import * as THREE from 'three';
 import { conjurePaper } from 'psi/cantrip/paper.js'
 import 'psi/cantrip/introspection.js'
 
+avatar.self.dnaStore(import.meta.url);
+
 avatar.self.cantrips= cantrips;
 
 if(localStorage.autoRun){
@@ -25,16 +27,9 @@ starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= starfield;
 
-
-fetch(import.meta.url).then( res=>{
-  res.text().then( txt=>{
-    avatar.self.console.cout( txt );
-    const p2= conjurePaper( txt );
-    p2.position.x= .5;
-    p2.position.y= 1;
-  });
-});
-
+avatar.self.console.cout(
+  avatar.self.dna.length
+);
 //have fun
 
 
