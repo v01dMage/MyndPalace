@@ -11,6 +11,7 @@ export { gamepad } from 'xr/gamepad.js';
 
 
 let camera, scene, scenes, renderer, xr;
+export let voyd;
 let raycasterLeft, raycasterRight;
 let recon= [ basicRecon, gamepad.recon ];
 let lastDeltaTime= Date.now();
@@ -156,7 +157,7 @@ function init(){
   pointOfReference.position.set(0,1,-15);
   scene.add( pointOfReference );
 
-  let voyd= new THREE.Scene();
+  voyd= new THREE.Scene();
   voyd.background = new THREE.Color( 0x77bb88 );
   voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x400040, 3 ) );
   scenes.push( voyd );
