@@ -77,7 +77,7 @@ function init(){
   //Three has pretty tight control on this.
   // but hopefully contrast will help in lieu of 
   // the canvas element. and other styling around.
-  document.body.style.backgroundColor= "#af9";
+  document.body.style.backgroundColor= "#413";
   document.body.appendChild( vrbtn );
 
 
