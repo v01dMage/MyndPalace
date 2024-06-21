@@ -72,7 +72,7 @@ function init(){
   renderer.setSize( window.innerWidth, window.innerHeight );
   xr.enabled = true;
 
-  document.body.appendChild( renderer.domElement );
+ // document.body.appendChild( renderer.domElement );
   document.body.appendChild( VRButton.createButton( renderer ) );
 
 
