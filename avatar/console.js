@@ -27,6 +27,7 @@ function cout(html){
     if(html=='') html= 'blank object';
   }
   let div= document.createElement('div');
+  div.style.display= 'inline';
   div.innerHTML= html;
   avatar.self.consoleOut.appendChild( div );
 }
@@ -115,7 +116,7 @@ async function init(){
 
    let consoleOut= document.createElement('div');
    consoleOut.id= 'consoleOut';
-   consoleOut.style= 'border: 4px solid orange; display : inline; ';
+   consoleOut.style= 'border: 4px solid orange; display : inline; overflow: scroll; width: 50%; height: 60%;';
    document.body.appendChild( consoleOut );
    avatar.self.consoleOut= consoleOut;
 
