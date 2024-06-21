@@ -74,9 +74,10 @@ function init(){
   
   //document.body.appendChild( renderer.domElement );
   let vrbtn= VRButton.createButton( renderer );
-  vrbtn.style.position= "absolute";
-  vrbtn.style.top= "10px";
-  vrbtn.style.right= "10px";
+  //Three has pretty tight control on this.
+  // but hopefully contrast will help in lieu of 
+  // the canvas element. and other styling around.
+  document.body.backgroundColor= "#aaff99";
   document.body.appendChild( vrbtn );
 
 
