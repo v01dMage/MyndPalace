@@ -121,7 +121,7 @@ async function init(){
 
    let runButton= document.createElement('button');
    runButton.innerHTML= '<b>run</b>';
-   runButton.style= 'width: 12em; height= 5em; background: red; color: #fa0;';
+   runButton.style= 'width: 12em; height: 5em; background: red; color: #fa0;';
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
