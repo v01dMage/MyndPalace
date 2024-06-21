@@ -11,7 +11,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
     width : 0.3, height : 0.5,
     thickness : 0.01, color : "#fa3",
     font : "bold 30px Arial", fontColor : "#333",
-    scalar : 4196, 
+    scalar : 4196, scene : avatar.self.scenes[0],
   };
   if( typeof specs == "object" ){
    Object.keys(template).forEach( detail=>{
@@ -22,7 +22,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
       );*/
     }
   });}
-  let { width, height, thickness, color, font, fontColor, scalar }= template;
+  let { width, height, thickness, color, font, fontColor, scalar, scene }= template;
 // proceed with function..
   
   let lineHeight= font.split(" ").reduce(
@@ -57,6 +57,6 @@ export function conjurePaper( text= "lorem ipsum", specs ){
 
   const mat= new THREE.MeshBasicMaterial( {map} );
   const mesh= new THREE.Mesh( geo, mat );
-  avatar.self.scenes[0].add( mesh );
+  scene.add( mesh );
   return mesh;
 }
