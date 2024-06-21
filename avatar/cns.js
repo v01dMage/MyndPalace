@@ -74,7 +74,9 @@ function init(){
   
   //document.body.appendChild( renderer.domElement );
   let vrbtn= VRButton.createButton( renderer );
-  vrbtn.style.opacity= "100%";
+  vrbtn.style.position= "absolute";
+  vrbtn.style.top= "10px";
+  vrbtn.style.right= "10px";
   document.body.appendChild( vrbtn );
 
 
