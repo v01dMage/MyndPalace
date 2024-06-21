@@ -105,23 +105,23 @@ async function arun(text){
 async function init(){ 
 
    let ta= document.createElement('textarea');
-   ta.setAttribute( 'rows', '24' );
-   ta.setAttribute( 'cols', '80' );
+   ta.setAttribute( 'rows', '18' );
+   ta.setAttribute( 'cols', '60' );
    ta.id= 'consoleInput';
-   ta.style= 'background: black; border: 2px solid green; color: #4c6';
+   ta.style= 'background: black; border: 4px solid blue; color: #4c6; ';
    ta.value= localStorage.current;
    document.body.appendChild( ta );
    avatar.self.consoleInput= ta;
 
    let consoleOut= document.createElement('div');
    consoleOut.id= 'consoleOut';
+   consoleOut.style= 'border: 4px solid orange; display : inline; ';
    document.body.appendChild( consoleOut );
    avatar.self.consoleOut= consoleOut;
 
    let runButton= document.createElement('button');
    runButton.innerHTML= '<b>run</b>';
-   runButton.style.width= '12em';
-   runButton.style.height= '5em';
+   runButton.style= 'width: 12em; height= 5em; background: red; color: #fa0;';
    runButton.addEventListener('click', arun);
    document.body.appendChild(runButton);
 
