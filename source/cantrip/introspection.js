@@ -9,7 +9,7 @@ let list="";
 for( let gene in avatar.self.dna ){
   list+= avatar.self.dna[gene][0]+'\n';
 }
-let page= conjurePaper( list, avatar.self.scenes[1] );
+let page= conjurePaper( list, { scene :  avatar.self.scenes[1] });
 page.position.y= 1;
 page.rotateX( -Math.PI/4 );
 
