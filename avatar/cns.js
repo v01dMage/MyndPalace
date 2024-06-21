@@ -71,7 +71,7 @@ function init(){
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
   xr.enabled = true;
-  renderer.domElement.sryle.overflow= "hidden";
+  renderer.domElement.style.overflow= "hidden";
   renderer.domElement.style.maxWidth= "15%";
   renderer.domElement.style.maxHeight= "15%";
   renderer.domElement.style.minHeight= "10%";
