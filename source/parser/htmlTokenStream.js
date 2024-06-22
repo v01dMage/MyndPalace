@@ -7,14 +7,14 @@
 //
 
 export function htmlTokenStream( html ){
-  let letters= html.split('');
-  let chars= [];
+  let chars= html.split('');
+  let letters= [];
   let text= [];
   let tag= [];
   let endTag= [];
   let result= [];
   let state= 0;
-  for( let index= 0; index < letters.length; index++ ){
+  for( let index= 0; index < chars.length; index++ ){
     switch( state ){
       case 0: 
         break;
