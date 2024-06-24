@@ -2,7 +2,7 @@
 
 import * as avatar from 'xr/cns.js'; 
 import 'xr/console.js';
-import { cantrips } from 'my/cantrips/miscButtons.js';
+import { cantrips } from 'xr/consoleButtons.js';
 import { paintStarfield } from 'psi/cantrip/starfield.js';
 import * as THREE from 'three';
 import { conjurePaper } from 'psi/cantrip/paper.js';
