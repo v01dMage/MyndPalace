@@ -1,10 +1,9 @@
 // Takes a string, splits it,
-//    and returns a list of
-//    (index, type, text) tokens
-//     index: string start of tag or txt
-//     type: 1)tag 2)end-tag 3)text
+//    and returns an indexed array of
+//    (type, text) tokens
+//     type: 1)tag 2)endTag 3)text
 //     text: tag name or raw text
-//
+// WARNING: edge cases unaccounted for
 
 export function htmlTokenStream( html ){
   let chars= html.split('');
