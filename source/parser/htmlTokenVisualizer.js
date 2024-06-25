@@ -95,4 +95,5 @@ export function visualizeHtml( tsa, specs ){
       result.add( brick );
     } );
   } );
+  return result;
 }
