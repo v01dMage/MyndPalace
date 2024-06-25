@@ -5,6 +5,8 @@
 //     text: tag name or raw text
 // WARNING: edge cases unaccounted for
 
+export const location= import.meta.url;
+
 export function htmlTokenStream( html ){
   let chars= html.split('');
   let letters= [];
