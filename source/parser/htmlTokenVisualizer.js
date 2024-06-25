@@ -59,7 +59,7 @@ export function visualizeHtml( tsa, specs ){
 
   let template= {
     width : 1, height : 0.2,
-    thickness : 0.2, color : "#fa3",
+    thickness : 0.2, colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
     font : "bold 30px Arial", fontColor : "#333",
     scalar : 4196, scene : undefined,
   };
@@ -72,14 +72,16 @@ export function visualizeHtml( tsa, specs ){
       );*/
     }
   });}
-  let { width, height, thickness, color, font, fontColor, scalar, scene }= template;
+  let { width, height, thickness, colors, font, fontColor, scalar, scene }= template;
 // proceed with function..
 
   layers.forEach( layer=>{
     layer.forEach( block=>{
       // Different types, different rules
+      let color= colors[block.type];
       switch( block.type ){
        case "tag":
+        
         break;
        case "endTag":
         break;
