@@ -75,8 +75,8 @@ export function visualizeHtml( tsa, specs ){
   // Find longest layer, calculate 
   // baseWidth
 
-  layers.forEach( layer=>{
-    layer.forEach( block=>{
+  layers.forEach( (layer, li)=>{
+    layer.forEach( (block, bi)=>{
       // Different types, different rules
       let color= colors[block.type];
       let brick;
