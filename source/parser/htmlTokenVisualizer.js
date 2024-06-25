@@ -74,4 +74,18 @@ export function visualizeHtml( tsa, specs ){
   });}
   let { width, height, thickness, color, font, fontColor, scalar, scene }= template;
 // proceed with function..
+
+  layers.forEach( layer=>{
+    layer.forEach( block=>{
+      // Different types, different rules
+      switch( block.type ){
+       case "tag":
+        break;
+       case "endTag":
+        break;
+       case "text":
+        break;
+      }
+    } );
+  } );
 }
