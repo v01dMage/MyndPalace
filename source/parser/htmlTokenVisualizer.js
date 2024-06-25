@@ -6,6 +6,7 @@
 //   dimensions, according to specs,
 //   returning a Group of meshes.
 
+export const location= import.meta.url;
 import * as THREE from 'three';
 
 export function visualizeHtml( tsa, specs ){
