@@ -58,7 +58,7 @@ export function visualizeHtml( tsa, specs ){
   //   measurements and specs can be made
 
   let template= {
-    width : 1, height : 0.2,
+    fullWidth : 1, height : 0.2,
     thickness : 0.2, colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
     font : "bold 30px Arial", fontColor : "#333",
     scalar : 4196, scene : undefined,
@@ -67,27 +67,32 @@ export function visualizeHtml( tsa, specs ){
    Object.keys(template).forEach( detail=>{
     if( typeof specs[detail] != "undefined"){
       template[detail]= specs[detail];
-    /*  avatar.self.console.cout(
-        detail+' '+template[detail]+' : '+specs[detail]
-      );*/
     }
   });}
-  let { width, height, thickness, colors, font, fontColor, scalar, scene }= template;
+  let { fullWidth, height, thickness, colors, font, fontColor, scalar, scene }= template;
 // proceed with function..
+  let result= new THREE.Group();
+  // Find longest layer, calculate 
+  // baseWidth
 
   layers.forEach( layer=>{
     layer.forEach( block=>{
       // Different types, different rules
       let color= colors[block.type];
-      switch( block.type ){
-       case "tag":
-        
-        break;
-       case "endTag":
-        break;
-       case "text":
-        break;
-      }
+      let brick;
+      let paint; //make a material from canvas
+      let width; //calculate if endtag or min
+      let x,y,z;
+      let lastCorner; //track for endTag
+
+      //
+
+      //Build the brick
+      brick= new THREE.Mesh(
+        new THREE.BoxGeometry(width, height, thickness ).translate( x, y, z ),
+          paint
+        );
+      result.add( brick );
     } );
   } );
 }
