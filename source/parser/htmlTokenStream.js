@@ -9,10 +9,8 @@
 export function htmlTokenStream( html ){
   let chars= html.split('');
   let letters= [];
-  let text= [];
-  let tag= [];
-  let endTag= [];
-  let result;
+  let word;
+  let result= [];
   let state= 0;
   for( let index= 0; index < chars.length; index++ ){
     let char= chars(index)
@@ -28,26 +26,30 @@ export function htmlTokenStream( html ){
         } else if( (/\s/).test(char) ){
           state= 2;
         } else if( ">" == char ){
-          tag.push( letters.join('') );
+          word= letters.join('');
           letters= [];
+          result.push( {type:'tag',text:word} );
           state= 3;
         }
         break;
       case 2: 
         if( ">" == char ){
-          tag.push( letters.join('') );
+          word= letters.join('');
           letters= [];
+          result.push( {type:'tag', text:word} );
           state= 3;
         }
         break;
       case 3:
         if( (/\s/).test(char) ){
-          text.push( letters.join('') );
+          word= letters.join('');
           letters= [];
+          result.push( {type:'text', text:word} );
           state= 4;
         } else if( "<" == char ){
-          text.push( letters.join('') );
+          word= letters.join('');
           letters= [];
+          result.push( {type:'text', text:word} );
           state= 5;
         } else {
           letters.push( char );
@@ -55,8 +57,9 @@ export function htmlTokenStream( html ){
         break;
       case 4:
         if( "<" == char ){
-          text.push( letters.join('') );
+          word= letters.join('');
           letters= [];
+          result.push( {type:'text', text:word} );
           state= 5;
         } else if( !(/\s/).test(char) ){
           letters.push( char );
@@ -73,15 +76,17 @@ export function htmlTokenStream( html ){
         if( (/\w/).test(char) ){
           letters.push( char );
         } else if( ">" == char ){
-          endTag.push( letters.join('') );
+          word= letters.join('');
           letters= [];
+          result.push( {type:'endTag', text:word} );
           state= 3;
         } else { state= 7; }
         break;
       case 7:
         if( ">" == char ){
-          endTag.push( letters.join('') );
+          word= letters.join('');
           letters= [];
+          result.push( {type:'endTag', text:word} );
           state= 3;
         }
         break;
@@ -89,6 +94,5 @@ export function htmlTokenStream( html ){
         throw 'errorr';
     }
   }
-  result= [ tag, endTag, text ];
   return result;
 }
