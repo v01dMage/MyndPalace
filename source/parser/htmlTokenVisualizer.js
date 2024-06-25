@@ -57,5 +57,21 @@ export function visualizeHtml( tsa, specs ){
   // Now, with layers arranged
   //   measurements and specs can be made
 
-
+  let template= {
+    width : 1, height : 0.2,
+    thickness : 0.2, color : "#fa3",
+    font : "bold 30px Arial", fontColor : "#333",
+    scalar : 4196, scene : undefined,
+  };
+  if( typeof specs == "object" ){
+   Object.keys(template).forEach( detail=>{
+    if( typeof specs[detail] != "undefined"){
+      template[detail]= specs[detail];
+    /*  avatar.self.console.cout(
+        detail+' '+template[detail]+' : '+specs[detail]
+      );*/
+    }
+  });}
+  let { width, height, thickness, color, font, fontColor, scalar, scene }= template;
+// proceed with function..
 }
