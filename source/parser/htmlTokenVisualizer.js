@@ -73,8 +73,9 @@ export function visualizeHtml( tsa, specs ){
   let { fullWidth, height, thickness, colors, font, fontColor, scalar, scene }= template;
 // proceed with function..
   let result= new THREE.Group();
-  // Find longest layer, calculate 
-  // baseWidth
+  //  calculate baseWidth
+  const baseWidth= ((tsa.length*1.2)-.2-layers.length/2)/fullWidth;
+  
 
   layers.forEach( (layer, li)=>{
     layer.forEach( (block, bi)=>{
@@ -84,8 +85,16 @@ export function visualizeHtml( tsa, specs ){
       let paint; //make a material from canvas
       let width; //calculate if endtag or min
       let x,y,z;
-      let lastCorner; //track for endTag
-
+      let lastCorner= 0; //track for endTag
+      if( block.type == "endTag" ){
+        width= bi- lastCorner;
+        lastCorner= bi+ 0.05*baseWidth; //...
+      } else { 
+        width= baseWidth; 
+        lastCorner= bi+baseWidth;
+      }
+      z= li*.2;
+      y= li*-.2;
       //
 
       //Build the brick
