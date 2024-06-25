@@ -18,6 +18,12 @@ export function visualizeHtml( tsa, specs ){
       layers[i]= [];
     }
     if( token.type == "text" ){
+      temp= layers[i].pop();
+      if( temp?.type == "text" ){
+        token.text+= temp.text+' '
+      } else {
+        layers[i].push( temp );
+      }
       layers[i].push( token )
     } else if( token.type == "tag" ){
       layers[i++].push( token );
