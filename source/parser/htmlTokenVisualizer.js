@@ -11,12 +11,12 @@ import * as THREE from 'three';
 export function visualizeHtml( tsa, specs ){
   let layers= [];
   let i= 0; //index
-  if( layers[i] == undefined ){
-    layers[i]= [];
-  }
   let temp;
 
   tsa.forEach( token=>{
+    if( layers[i] == undefined ){
+      layers[i]= [];
+    }
     if( token.type == "text" ){
       layers[i].push( token )
     } else if( token.type == "tag" ){
