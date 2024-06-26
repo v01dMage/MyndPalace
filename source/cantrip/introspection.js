@@ -21,13 +21,18 @@ import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js'
 const vso= { scene :  avatar.self.scenes[0] }
 setTimeout(  ()=>{
   conjurePaper( avatar.self.dna.index[1], vso ).position.y= 1.5;
+  let result;
+  try{
   let ts= htmlTokenStream( avatar.self.dna.index[1] );
   let tss= ts.reduce( (out, ta)=>{
     out+= ta.join(', ')+ '\n';
     return out;
   }, "" );
   conjurePaper( typeof ts, vso).position.y= 2;
+}catch(err){
+  avatar.self.console.cout(err);
+}
 
   avatar.voyd.add( visualizeHtml( ts ) );
-} , 30000);
+} , 15000);
 
