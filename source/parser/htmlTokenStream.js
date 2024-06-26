@@ -14,7 +14,7 @@ export function htmlTokenStream( html ){
   let result= [];
   let state= 0;
   for( let index= 0; index < chars.length; index++ ){
-    let char= chars(index)
+    let char= chars[index];
     switch( state ){
       case 0: 
         if( char == "<" ){
