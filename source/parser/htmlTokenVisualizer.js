@@ -89,9 +89,11 @@ export function visualizeHtml( tsa, specs ){
       
       if( block.type == "endTag" ){
         width= bi- lastCorner;
-        lastCorner= bi+ 0.05*baseWidth; //...
+        x= lastCorner;
+        lastCorner= bi;
       } else { 
         width= baseWidth; 
+        x= bi;
         lastCorner= bi+baseWidth;
       }
       z= li*.2;
