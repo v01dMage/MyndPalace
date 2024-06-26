@@ -61,7 +61,7 @@ export function visualizeHtml( tsa, specs ){
   let template= {
     fullWidth : 1, height : 0.2,
     thickness : 0.2, colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
-    font : "bold 30px Arial", fontColor : "#333",
+    font : "bold 60px Arial", fontColor : "#333",
     scalar : 4196, scene : undefined,
   };
   if( typeof specs == "object" ){
@@ -114,5 +114,22 @@ export function visualizeHtml( tsa, specs ){
 
 function makeMat( text, color ){
   let canvas= document.createElement('canvas');
+  canvas.width= 100;
+  canvas.height= 100;
+  const ctx= canvas.getContext('2d');
+
+  ctx.fillStyle= color;
+  ctx.fillRect(0,0,canvas.width, canvas.height);
+
+  ctx.fillStyle= fontColor;
+  ctx.font = font;
+  ctx.fillText( text 10, 20 );
   
+
+  let map= new THREE.Texture( canvas );
+  map.needsUpdate= true;
+  map.colorSpace= THREE.SRGBColorSpace;
+
+  const mat= new THREE.MeshBasicMaterial( {map} );
+  return mat;
 }
