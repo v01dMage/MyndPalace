@@ -14,3 +14,10 @@ page.position.y= 1;
 page.rotateX( -Math.PI/4 );
 
 }, 13000 );
+
+import { htmlTokenStream } from 'psi/parser/htmlTokenStream.js'
+import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js'
+
+setTimeout(  ()=>{
+  avatar.voyd.add( visualizeHtml( avatar.self.dna.index ) );
+} , 30000);
