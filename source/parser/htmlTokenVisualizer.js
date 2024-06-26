@@ -10,8 +10,6 @@ export const location= import.meta.url;
 import * as THREE from 'three';
 
 export function visualizeHtml( tsa, specs ){
-}
-/*
   let layers= [];
   let i= 0; //index
   let temp;
@@ -113,7 +111,7 @@ export function visualizeHtml( tsa, specs ){
   } );
   return result;
 }
-*/
+
 function makeMat( text, color ){
   let canvas= document.createElement('canvas');
   canvas.width= 100;
