@@ -21,12 +21,12 @@ export function visualizeHtml( tsa, specs ){
     if( token.type == "text" ){
       temp= layers[i].pop();
       if( temp && temp.type == "text" ){
-        if(temp.text != ' ')
-          token.text= temp.text+' '+token.text;
+        token.text= temp.text+' '+token.text;
       } else {
         layers[i].push( temp );
       }
-      layers[i].push( token );
+      if( token.text != ' ' )
+        layers[i].push( token );
     } else if( token.type == "tag" ){
       layers[i].push( token ); i++;
     } else { //type == endTag
