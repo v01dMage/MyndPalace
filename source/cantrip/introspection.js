@@ -34,6 +34,6 @@ setTimeout(  ()=>{
   avatar.self.console.cout(err.toString());
 }
 
-  //avatar.voyd.add( visualizeHtml( ts ) );
+  avatar.self.scenes[0].add( visualizeHtml( ts ) );
 } , 15000);
 
