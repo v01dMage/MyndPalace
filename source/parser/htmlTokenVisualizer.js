@@ -59,7 +59,7 @@ export function visualizeHtml( tsa, specs ){
   } );
   // Now, with layers arranged
   //   measurements and specs can be made
-/*
+
   let template= {
     fullWidth : 1, height : 0.2,
     thickness : 0.2, colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
@@ -112,7 +112,6 @@ export function visualizeHtml( tsa, specs ){
     } );
   } );
   return result;
-*/
 }
 
 function makeMat( text, color ){
