@@ -17,8 +17,9 @@ page.rotateX( -Math.PI/4 );
 
 import { htmlTokenStream } from 'psi/parser/htmlTokenStream.js'
 import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js'
-
+/*
 setTimeout(  ()=>{
   avatar.voyd.add( visualizeHtml( htmlTokenStream( avatar.self.dna.index[1] ) ) );
 } , 30000);
 
+*/
