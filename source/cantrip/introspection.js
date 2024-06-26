@@ -33,6 +33,6 @@ setTimeout(  ()=>{
   avatar.self.console.cout(err);
 }
 
-  avatar.voyd.add( visualizeHtml( ts ) );
+  //avatar.voyd.add( visualizeHtml( ts ) );
 } , 15000);
 
