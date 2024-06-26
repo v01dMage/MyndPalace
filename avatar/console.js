@@ -116,7 +116,7 @@ async function init(){
 
    let consoleOut= document.createElement('div');
    consoleOut.id= 'consoleOut';
-   consoleOut.style= 'border: 4px solid orange; display : inline; overflow: scroll; width: 50%; height: 60%; min-width: 50%; min-height: 60%; max-height: 60%;';
+   consoleOut.style= 'border: 4px solid orange; color: #fff; display : inline; overflow: scroll; width: 50%; height: 60%; min-width: 50%; min-height: 60%; max-height: 60%;';
    document.body.appendChild( consoleOut );
    avatar.self.consoleOut= consoleOut;
 
