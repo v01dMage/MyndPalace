@@ -26,8 +26,8 @@ setTimeout(  ()=>{
     out+= ta.join(', ')+ '\n';
     return out;
   }, "" );
-  conjurePaper( tss, vso).position.y= 2;
+  conjurePaper( typeof ts, vso).position.y= 2;
 
-  avatar.voyd.add( visualizeHtml( ts ) );
+  avatar.scenes[0].add( visualizeHtml( ts ) );
 } , 30000);
 
