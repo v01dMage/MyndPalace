@@ -24,7 +24,6 @@ setTimeout(  ()=>{
     avatar.self.console.cout('heya');
   try{
   let ts= htmlTokenStream( avatar.self.dna.index[1] );
-  avatar.self.console.cout(ts);
   let tss= ts.reduce( (out, to)=>{
     out+= to.type+', '+ to.text+ '\n';
     return out;
