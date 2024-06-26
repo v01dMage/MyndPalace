@@ -125,7 +125,7 @@ function makeMat( text, color ){
 
   ctx.fillStyle= fontColor;
   ctx.font = font;
-  ctx.fillText( text 10, 20 );
+  ctx.fillText( text, 10, 20 );
   
 
   let map= new THREE.Texture( canvas );
