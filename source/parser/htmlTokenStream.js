@@ -44,7 +44,7 @@ export function htmlTokenStream( html ){
         }
         break;
       case 3:
-        if( (/\s/).test(char) ){
+        if( (/[\s\n\r]/).test(char) ){
           word= letters.join('');
           letters= [];
           result.push( {type:'text', text:word} );
