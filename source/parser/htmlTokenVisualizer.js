@@ -83,7 +83,8 @@ export function visualizeHtml( tsa, specs ){
       // Different types, different rules
       let color= colors[block.type];
       let brick;
-      let paint; //make a material from canvas
+      let paint= makeMat( block.text, color );
+      
       let width; //calculate if endtag or min
       let x,y,z;
       
@@ -109,4 +110,9 @@ export function visualizeHtml( tsa, specs ){
     } );
   } );
   return result;
+}
+
+function makeMat( text, color ){
+  let canvas= document.createElement('canvas');
+  
 }
