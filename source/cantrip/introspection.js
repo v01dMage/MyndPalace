@@ -29,7 +29,8 @@ setTimeout(  ()=>{
     out+= ta.join(', ')+ '\n';
     return out;
   }, "" );
-  conjurePaper( typeof ts, vso).position.y= 2;
+  avatar.self.console.cout(tss);
+  conjurePaper( "🦄💨", vso).position.y= 2;
 }catch(err){
   avatar.self.console.cout(err.toString());
 }
