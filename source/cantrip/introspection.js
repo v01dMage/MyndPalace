@@ -18,7 +18,7 @@ page.rotateX( -Math.PI/4 );
 import { htmlTokenStream } from 'psi/parser/htmlTokenStream.js'
 import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js'
 
-const vso= { scene :  avatar.voyd }
+const vso= { scene :  avatar.self.scenes[0] }
 setTimeout(  ()=>{
   conjurePaper( avatar.self.dna.index[1], vso ).position.y= 1.5;
   let ts= htmlTokenStream( avatar.self.dna.index[1] );
@@ -28,6 +28,6 @@ setTimeout(  ()=>{
   }, "" );
   conjurePaper( typeof ts, vso).position.y= 2;
 
-  avatar.scenes[0].add( visualizeHtml( ts ) );
+  avatar.voyd.add( visualizeHtml( ts ) );
 } , 30000);
 
