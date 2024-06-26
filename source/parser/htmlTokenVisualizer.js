@@ -29,9 +29,8 @@ export function visualizeHtml( tsa, specs ){
     } else if( token.type == "tag" ){
       layers[i].push( token ); i++;
     } else { //type == endTag
-      let unplaced= true; /*
-      do {
-       up:
+      let unplaced= true; 
+      placing: do {
         i--;
         if( i < 0 ){ //shouldn't get here..
           i= 0;
@@ -39,11 +38,11 @@ export function visualizeHtml( tsa, specs ){
           unplaced= false;
           break;
         } else {
-        popping:
+      popping: while( unplaced ){
           temp= layers[i].pop();
           if( temp == undefined ){
             layers.splice(i,1);
-            continue up;
+            continue placing;
           }
           if( temp.text == token.text ){
             layers[i].push( temp );
@@ -54,8 +53,8 @@ export function visualizeHtml( tsa, specs ){
             layers[i+1].shift( temp );
             continue popping;
           }
-        }
-      } while (unplaced);*/
+        }}
+      } while (unplaced);
     }
   } );
   // Now, with layers arranged
