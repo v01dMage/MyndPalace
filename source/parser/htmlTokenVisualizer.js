@@ -21,7 +21,8 @@ export function visualizeHtml( tsa, specs ){
     if( token.type == "text" ){
       temp= layers[i].pop();
       if( temp && temp.type == "text" ){
-        token.text= temp.text+' '+token.text;
+        if(temp.text != ' ')
+          token.text= temp.text+' '+token.text;
       } else {
         layers[i].push( temp );
       }
