@@ -20,21 +20,23 @@ export function visualizeHtml( tsa, specs ){
     }
     if( token.type == "text" ){
       temp= layers[i].pop();
-      if( temp?.type == "text" ){
-        token.text+= temp.text+' '
+      if( temp && temp.type == "text" ){
+        token.text= temp.text+' '+token.text;
       } else {
         layers[i].push( temp );
       }
-      layers[i].push( token )
+      layers[i].push( token );
     } else if( token.type == "tag" ){
-      layers[i++].push( token );
+      layers[i].push( token ); i++;
     } else { //type == endTag
+      let unplaced= true;
       do {
-        up:
+       up:
         i--;
         if( i < 0 ){ //shouldn't get here..
           i= 0;
           layers[i].push( token );
+          unplaced= false;
           break;
         } else {
         popping:
@@ -46,13 +48,14 @@ export function visualizeHtml( tsa, specs ){
           if( temp.text == token.text ){
             layers[i].push( temp );
             layers[i].push( token );
+            unplaced= false;
             break;
           } else {
             layers[i+1].shift( temp );
             continue popping;
           }
         }
-      } while (true);
+      } while (unplaced);
     }
   } );
   // Now, with layers arranged
