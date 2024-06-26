@@ -19,5 +19,5 @@ import { htmlTokenStream } from 'psi/parser/htmlTokenStream.js'
 import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js'
 
 setTimeout(  ()=>{
-  avatar.voyd.add( visualizeHtml( avatar.self.dna.index ) );
+  avatar.voyd.add( visualizeHtml( htmlTokenStream( avatar.self.dna.index ) ) );
 } , 30000);
