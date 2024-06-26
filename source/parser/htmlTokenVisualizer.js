@@ -76,8 +76,9 @@ export function visualizeHtml( tsa, specs ){
   //  calculate baseWidth
   const baseWidth= ((tsa.length*1.2)-.2-layers.length/2)/fullWidth;
   
-
+  let lastCorner; //track for endTag
   layers.forEach( (layer, li)=>{
+    lastCorner= 0;
     layer.forEach( (block, bi)=>{
       // Different types, different rules
       let color= colors[block.type];
@@ -85,7 +86,7 @@ export function visualizeHtml( tsa, specs ){
       let paint; //make a material from canvas
       let width; //calculate if endtag or min
       let x,y,z;
-      let lastCorner= 0; //track for endTag
+      
       if( block.type == "endTag" ){
         width= bi- lastCorner;
         lastCorner= bi+ 0.05*baseWidth; //...
