@@ -29,7 +29,7 @@ export function visualizeHtml( tsa, specs ){
     } else if( token.type == "tag" ){
       layers[i].push( token ); i++;
     } else { //type == endTag
-      let unplaced= true;
+      let unplaced= true; /*
       do {
        up:
         i--;
@@ -55,7 +55,7 @@ export function visualizeHtml( tsa, specs ){
             continue popping;
           }
         }
-      } while (unplaced);
+      } while (unplaced);*/
     }
   } );
   // Now, with layers arranged
