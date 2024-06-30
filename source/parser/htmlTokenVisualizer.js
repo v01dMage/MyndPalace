@@ -15,6 +15,7 @@ export function visualizeHtml( tsa, specs ){
   let temp;
 
   tsa.forEach( token=>{
+    if( !token ) continue;
     if( layers[i] == undefined ){
       layers[i]= [];
     }
