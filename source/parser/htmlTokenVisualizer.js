@@ -32,7 +32,7 @@ export function visualizeHtml( tsa, specs ){
   let halfWidth= baseWidth/2;
   let result= new THREE.Group();
 
-  tsa.forEach( (token, index)=>{
+  tsa.forEach( (token, index, arr)=>{
     if( token.type == "text" ){
       token.y= y;
       token.x= x;
@@ -49,25 +49,25 @@ export function visualizeHtml( tsa, specs ){
       z+= thickness;
       token.width= baseWidth;
     } else { //type == endTag
-      for( let j= index- 1; j> 0; j--){
-        const prior= tsa[j];
+      for( let j= index- 1; j >= 0; j--){
+        const prior= arr[j];
         if( prior.text == token.text ){
           token.y= prior.y;
           y= prior.y;
           token.z= prior.z;
           z= prior.z;
-          token.x= prior.x+ baseWidth;
           x+= halfWidth+ space;
-          token.width= x- space- token.x;
+          token.width= x- space- (prior.x+ baseWidth);
+          token.x= token.width/2+ prior.x+ baseWidth;
           j= 0;
         }
-        if( token.width == undefined ){
-          token.y= y;
-          token.x= x;
-          x+= baseWidth+ space;
-          token.z= z;
-          token.width= baseWidth;
-        }
+      }
+      if( token.width == undefined ){
+        token.y= y;
+        token.x= x;
+        x+= baseWidth+ space;
+        token.z= z;
+        token.width= baseWidth;
       }
     }
 
