@@ -63,7 +63,7 @@ export function visualizeHtml( tsa, specs ){
   //   measurements and specs can be made
 
   let template= {
-    fullWidth : 3, height : 0.2,
+    fullWidth : 10, height : 0.2,
     thickness : 0.2, colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
     font : "bold 30px Arial", fontColor : "#333",
     scalar : 4196, scene : undefined,
