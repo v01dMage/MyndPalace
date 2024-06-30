@@ -58,7 +58,7 @@ export function visualizeHtml( tsa, specs ){
           z= tsa[j].z;
           token.x= tsa[j].x+0.2;
           x+= 0.115;
-          token.width= x- .1- token.x;
+          token.width= x- .01- token.x;
           j= 0;
         }
       }
