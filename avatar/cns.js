@@ -169,7 +169,7 @@ function init(){
 }
 
 function basicUpdate(o){
-  let speed= .01;
+  let speed= .04;
   if( o.xr.isPresenting ){
   //heading and rotate 
     heading+= gamepad.rightXaxis *speed;
