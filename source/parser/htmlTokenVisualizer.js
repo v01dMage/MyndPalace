@@ -78,8 +78,8 @@ export function visualizeHtml( tsa, specs ){
 // proceed with function..
   let result= new THREE.Group();
   //  calculate baseWidth
-  const baseWidth= ((tsa.length*1.2)-.2-layers.length/2)/fullWidth;
-  const ir= baseWidth/fullWidth;
+  const baseWidth= fullWidth/( ( tsa.length* 1.2 )- .2- layers.length/ 2 );
+  const ir= baseWidth; //index ratio
   
   let lastCorner; //track for endTag
   layers.forEach( (layer, li)=>{
