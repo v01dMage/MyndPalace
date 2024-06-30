@@ -98,7 +98,7 @@ export function visualizeHtml( tsa, specs ){
         lastCorner= bi*ir+li*.5*ir;
       } else { 
         width= baseWidth; 
-        x= bi*ir;
+        x= bi*ir+ li*.5*ir;
         lastCorner= bi*ir+ baseWidth;
       }
       z= li* thickness;
