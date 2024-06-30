@@ -87,7 +87,7 @@ export function visualizeHtml( tsa, specs ){
       // Different types, different rules
       let color= colors[block.type];
       let brick;
-      let paint= makeMat( block.text, color );
+      let paint= makeMat( block.text, { color, font, fontColor } );
       
       let width; //calculate if endtag or min
       let x,y,z;
@@ -116,17 +116,17 @@ export function visualizeHtml( tsa, specs ){
   return result;
 }
 
-function makeMat( text, color ){
+function makeMat( text, style ){
   let canvas= document.createElement('canvas');
   canvas.width= 100;
   canvas.height= 100;
   const ctx= canvas.getContext('2d');
 
-  ctx.fillStyle= color;
+  ctx.fillStyle= style.color;
   ctx.fillRect(0,0,canvas.width, canvas.height);
 
-  ctx.fillStyle= fontColor;
-  ctx.font = font;
+  ctx.fillStyle= style.fontColor;
+  ctx.font = style.font;
   ctx.fillText( text, 10, 20 );
   
 
