@@ -23,7 +23,12 @@ page.rotateX( -Math.PI/4 );
 }, 13000 );
 
 import { htmlTokenStream } from 'psi/parser/htmlTokenStream.js'
-import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js'
+//import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js'
+try{
+  import('psi/parser/htmlTokenVisualizer.js').then( mod=>{} );
+}catch(err){ 
+  avatar.self.console.cout(err.toString()); 
+}
 
 const vso= { scene :  avatar.self.scenes[0] }
 setTimeout(  ()=>{
