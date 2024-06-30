@@ -11,7 +11,7 @@ import * as THREE from 'three';
 
 export function visualizeHtml( tsa, specs ){
   let template= {
-    fullWidth : 10, height : 0.2, thickness : 0.2,
+    baseWidth : 0.2, height : 0.2, thickness : 0.2, space : 0.01;
     colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
     font : "bold 30px Arial", fontColor : "#333",
     scalar : 4196, scene : undefined,
@@ -22,7 +22,7 @@ export function visualizeHtml( tsa, specs ){
       template[detail]= specs[detail];
     }
   });}
-  let { fullWidth, height, thickness, colors, font, fontColor, scalar, scene }= template;
+  let { baseWidth, height, thickness, space, colors, font, fontColor, scalar, scene }= template;
 // proceed with function..
 
   let i= 0;
@@ -30,6 +30,7 @@ export function visualizeHtml( tsa, specs ){
   let x= 0;
   let y= 0;
   let z= 0;
+  let width;
 
   tsa.forEach( token=>{
     token.index= i++;
@@ -38,6 +39,7 @@ export function visualizeHtml( tsa, specs ){
       token.x= x;
       x+= 0.21;
       token.z= z;
+      token.width= baseWidth;
     } else if( token.type == "tag" ){
       token.x= x;
       x+= 0.21;
@@ -46,80 +48,39 @@ export function visualizeHtml( tsa, specs ){
       x-= 0.105;
       token.z= z;
       z+= 0.2;
+      token.width= baseWidth;
     } else { //type == endTag
-
-
-      let unplaced= true; 
-      placing: do {
-        i--;
-        if( i < 0 ){ //shouldn't get here..
-          i= 0;
-          layers[i].push( token );
-          unplaced= false;
+      for( let j= i- 2; j> 0; j--){
+        if( tsa[j].text == token.text ){
+          token.y= tsa[j].y;
+          y= tsa[j].y;
+          token.z= tsa[j].z;
+          z= tsa[j].z;
+          token.x= tsa[j].x+0.2;
+          x+= 0.115;
+          token.width= x- .1- token.x;
           break;
-        } else {
-      popping: while( unplaced ){
-          temp= layers[i].pop();
-          if( temp == undefined ){
-            layers.splice(i,1);
-            continue placing;
-          }
-          if( temp.text == token.text ){
-            layers[i].push( temp );
-            layers[i].push( token );
-            unplaced= false;
-            break;
-          } else {
-            layers[i+1].shift( temp );
-            continue popping;
-          }
-        }}
-      } while (unplaced);
+        }
+      }
     }
-  } );
-  // Now, with layers arranged
-  //   measurements and specs can be made
+  });
 
   
   let result= new THREE.Group();
-  //  calculate baseWidth
-  const baseWidth= fullWidth/( ( tsa.length* 1.2 )- .2- layers.length/ 2 );
-  const ir= baseWidth; //index ratio
   
-  let lastCorner; //track for endTag
-  layers.forEach( (layer, li)=>{
-    lastCorner= 0;
-    layer.forEach( (block, bi)=>{
-      if( block == undefined) return;
-      // Different types, different rules
-      let color= colors[block.type];
-      let brick;
-      let paint= makeMat( block.text, { color, font, fontColor } );
-      
-      let width; //calculate if endtag or min
-      let x,y,z;
-      
-      if( block.type == "endTag" ){
-        width= bi*ir- lastCorner;
-        x= lastCorner;
-        lastCorner= bi*ir+li*.5*ir;
-      } else { 
-        width= baseWidth; 
-        x= bi*ir+ li*.5*ir;
-        lastCorner= bi*ir+ baseWidth;
-      }
-      z= li* thickness;
-      y= li* -height;
-      //
+  tsa.forEach( token=>{
+    let color= colors[token.type];
+    let brick;
+    let paint= makeMat( token.text, { color, font, fontColor } );
 
-      //Build the brick
-      brick= new THREE.Mesh(
-        new THREE.BoxGeometry(width, height, thickness ).translate( x, y, z ),
-          paint
-        );
-      result.add( brick );
-    } );
+    //Build the brick
+    brick= new THREE.Mesh(
+      new THREE.BoxGeometry( token.width, height, thickness ).translate( token.x, token.y, token.z ),
+      paint
+    );
+    result.add( brick );
   } );
+
   return result;
 }
 
