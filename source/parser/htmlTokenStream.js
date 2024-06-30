@@ -91,11 +91,9 @@ export function htmlTokenStream( html ){
   }
   result= result.reduce( (out, token)=>{
     if( token == undefined ) return out;
-    if( token.type != "text" ){
-      out.push( token );
-    } else if( out[out.length- 1].type == "text" ){
+    if( token.type == "text" && out[out.length- 1].type == "text" ){
       out[out.length- 1].text+= ' '+token.text;
-    }
+    } else { out.push( token ); }
     return out;
   }, [] );
   return result;
