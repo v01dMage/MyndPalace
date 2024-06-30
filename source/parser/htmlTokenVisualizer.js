@@ -25,16 +25,14 @@ export function visualizeHtml( tsa, specs ){
   let { baseWidth, height, thickness, space, colors, font, fontColor, scalar, scene }= template;
 // proceed with function..
 
-  let i= 0;
-  let temp;
   let x= 0;
   let y= 0;
   let z= 0;
   let width;
   let halfWidth= baseWidth/2;
+  let result= new THREE.Group();
 
-  tsa.forEach( token=>{
-    token.index= i++;
+  tsa.forEach( (token, index)=>{
     if( token.type == "text" ){
       token.y= y;
       token.x= x;
@@ -51,13 +49,14 @@ export function visualizeHtml( tsa, specs ){
       z+= thickness;
       token.width= baseWidth;
     } else { //type == endTag
-      for( let j= i- 2; j> 0; j--){
-        if( tsa[j].text == token.text ){
-          token.y= tsa[j].y;
-          y= tsa[j].y;
-          token.z= tsa[j].z;
-          z= tsa[j].z;
-          token.x= tsa[j].x+ baseWidth;
+      for( let j= index- 1; j> 0; j--){
+        const prior= tsa[j];
+        if( prior.text == token.text ){
+          token.y= prior.y;
+          y= prior.y;
+          token.z= prior.z;
+          z= prior.z;
+          token.x= prior.x+ baseWidth;
           x+= halfWidth+ space;
           token.width= x- space- token.x;
           j= 0;
@@ -66,8 +65,6 @@ export function visualizeHtml( tsa, specs ){
     }
   });
 
-  
-  let result= new THREE.Group();
   
   tsa.forEach( token=>{
     let color= colors[token.type];
