@@ -97,5 +97,6 @@ export function htmlTokenStream( html ){
         throw 'errorr';
     }
   }
-  return result.filter( token=> token != undefined );
+  result.filter( token=> token != undefined );
+  return result;
 }
