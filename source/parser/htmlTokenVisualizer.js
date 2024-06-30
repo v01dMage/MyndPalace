@@ -61,18 +61,19 @@ export function visualizeHtml( tsa, specs ){
           token.width= x- space- token.x;
           j= 0;
         }
+        if( token.width == undefined ){
+          token.y= y;
+          token.x= x;
+          x+= baseWidth+ space;
+          token.z= z;
+          token.width= baseWidth;
+        }
       }
     }
-  });
 
-  
-  tsa.forEach( token=>{
     let color= colors[token.type];
-    let brick;
     let paint= makeMat( token.text, { color, font, fontColor } );
-
-    //Build the brick
-    brick= new THREE.Mesh(
+    let brick= new THREE.Mesh(
       new THREE.BoxGeometry( token.width, height, thickness ).translate( token.x, token.y, token.z ),
       paint
     );
