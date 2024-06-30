@@ -31,23 +31,24 @@ export function visualizeHtml( tsa, specs ){
   let y= 0;
   let z= 0;
   let width;
+  let halfWidth= baseWidth/2;
 
   tsa.forEach( token=>{
     token.index= i++;
     if( token.type == "text" ){
       token.y= y;
       token.x= x;
-      x+= 0.21;
+      x+= baseWidth+ space;
       token.z= z;
       token.width= baseWidth;
     } else if( token.type == "tag" ){
       token.x= x;
-      x+= 0.21;
+      x+= baseWidth+ space;
       token.y= y;
-      y+= -.2;
-      x-= 0.105;
+      y+= -height;
+      x-= halfWidth;
       token.z= z;
-      z+= 0.2;
+      z+= thickness;
       token.width= baseWidth;
     } else { //type == endTag
       for( let j= i- 2; j> 0; j--){
@@ -56,9 +57,9 @@ export function visualizeHtml( tsa, specs ){
           y= tsa[j].y;
           token.z= tsa[j].z;
           z= tsa[j].z;
-          token.x= tsa[j].x+0.2;
-          x+= 0.115;
-          token.width= x- .01- token.x;
+          token.x= tsa[j].x+ baseWidth;
+          x+= halfWidth+ space;
+          token.width= x- space- token.x;
           j= 0;
         }
       }
