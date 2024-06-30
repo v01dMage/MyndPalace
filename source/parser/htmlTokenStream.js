@@ -9,7 +9,7 @@ export const location= import.meta.url;
 
 export function htmlTokenStream( html ){
   let chars= html.split('').filter(
-    c => c != '\n'
+    /[^\n\r]/
   );
   let letters= [];
   let word;
