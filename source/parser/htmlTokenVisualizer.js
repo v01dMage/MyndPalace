@@ -78,6 +78,7 @@ export function visualizeHtml( tsa, specs ){
   let result= new THREE.Group();
   //  calculate baseWidth
   const baseWidth= ((tsa.length*1.2)-.2-layers.length/2)/fullWidth;
+  const ir= baseWidth/fullWidth;
   
   let lastCorner; //track for endTag
   layers.forEach( (layer, li)=>{
@@ -92,16 +93,16 @@ export function visualizeHtml( tsa, specs ){
       let x,y,z;
       
       if( block.type == "endTag" ){
-        width= bi- lastCorner;
+        width= bi*ir- lastCorner;
         x= lastCorner;
-        lastCorner= bi;
+        lastCorner= bi*ir+li*.5*ir;
       } else { 
         width= baseWidth; 
-        x= bi;
-        lastCorner= bi+baseWidth;
+        x= bi*ir;
+        lastCorner= bi*ir+ baseWidth;
       }
-      z= li*.2;
-      y= li*-.2;
+      z= li* thickness;
+      y= li* -height;
       //
 
       //Build the brick
