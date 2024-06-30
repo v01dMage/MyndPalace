@@ -15,7 +15,7 @@ export function visualizeHtml( tsa, specs ){
   let temp;
 
   tsa.forEach( token=>{
-    if( token == undefined ){ continue; }
+    if( token == undefined ){ return; }
     if( layers[i] == undefined ){
       layers[i]= [];
     }
@@ -85,6 +85,7 @@ export function visualizeHtml( tsa, specs ){
   layers.forEach( (layer, li)=>{
     lastCorner= 0;
     layer.forEach( (block, bi)=>{
+      if( block == undefined) return;
       // Different types, different rules
       let color= colors[block.type];
       let brick;
