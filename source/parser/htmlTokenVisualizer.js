@@ -10,27 +10,45 @@ export const location= import.meta.url;
 import * as THREE from 'three';
 
 export function visualizeHtml( tsa, specs ){
-  let layers= [];
-  let i= 0; //index
+  let template= {
+    fullWidth : 10, height : 0.2, thickness : 0.2,
+    colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
+    font : "bold 30px Arial", fontColor : "#333",
+    scalar : 4196, scene : undefined,
+  };
+  if( typeof specs == "object" ){
+   Object.keys(template).forEach( detail=>{
+    if( typeof specs[detail] != "undefined"){
+      template[detail]= specs[detail];
+    }
+  });}
+  let { fullWidth, height, thickness, colors, font, fontColor, scalar, scene }= template;
+// proceed with function..
+
+  let i= 0;
   let temp;
+  let x= 0;
+  let y= 0;
+  let z= 0;
 
   tsa.forEach( token=>{
-    if( token == undefined ){ return; }
-    if( layers[i] == undefined ){
-      layers[i]= [];
-    }
+    token.index= i++;
     if( token.type == "text" ){
-      temp= layers[i].pop();
-      if( temp && temp.type == "text" ){
-        token.text= temp.text+' '+token.text;
-      } else {
-        layers[i].push( temp );
-      }
-      if( token.text != ' ' )
-        layers[i].push( token );
+      token.y= y;
+      token.x= x;
+      x+= 0.21;
+      token.z= z;
     } else if( token.type == "tag" ){
-      layers[i].push( token ); i++;
+      token.x= x;
+      x+= 0.21;
+      token.y= y;
+      y+= -.2;
+      x-= 0.105;
+      token.z= z;
+      z+= 0.2;
     } else { //type == endTag
+
+
       let unplaced= true; 
       placing: do {
         i--;
@@ -62,20 +80,7 @@ export function visualizeHtml( tsa, specs ){
   // Now, with layers arranged
   //   measurements and specs can be made
 
-  let template= {
-    fullWidth : 10, height : 0.2,
-    thickness : 0.2, colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
-    font : "bold 30px Arial", fontColor : "#333",
-    scalar : 4196, scene : undefined,
-  };
-  if( typeof specs == "object" ){
-   Object.keys(template).forEach( detail=>{
-    if( typeof specs[detail] != "undefined"){
-      template[detail]= specs[detail];
-    }
-  });}
-  let { fullWidth, height, thickness, colors, font, fontColor, scalar, scene }= template;
-// proceed with function..
+  
   let result= new THREE.Group();
   //  calculate baseWidth
   const baseWidth= fullWidth/( ( tsa.length* 1.2 )- .2- layers.length/ 2 );
