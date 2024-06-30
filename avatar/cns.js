@@ -168,14 +168,15 @@ function init(){
   scenes.push( voyd );
 }
 
+
+const speed= function (range){
+  if(range > .7){
+    return (range- .7)*.06+ .04;
+  } else {
+    return range* 0.04;
+  }
+};
 function basicUpdate(o){
-  const speed= range=>{
-    if(range > .7){
-      return (range- .7)*.06+ .04;
-    } else {
-      return range* 0.04;
-    }
-  };
   if( o.xr.isPresenting ){
   //heading and rotate 
     heading+= speed( gamepad.rightXaxis );
