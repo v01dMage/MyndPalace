@@ -11,7 +11,7 @@ import * as THREE from 'three';
 
 export function visualizeHtml( tsa, specs ){
   let template= {
-    baseWidth : 0.2, height : 0.2, thickness : 0.2, space : 0.01;
+    baseWidth : 0.2, height : 0.2, thickness : 0.2, space : 0.01,
     colors : {tag: "#f94", endTag: "#44f", text: "#4f4" },
     font : "bold 30px Arial", fontColor : "#333",
     scalar : 4196, scene : undefined,
