@@ -39,6 +39,8 @@ setTimeout(  ()=>{
   conjurePaper( "🦄💨", vso).position.y= 2;
 
   const vizgrp= visualizeHtml( ts );
+  vizgrp.position.y= 1;
+  vizgrp.position.z= -3;
   avatar.self.console.cout( vizgrp );
   avatar.self.scenes[0].add( vizgrp );
 } catch(err){
