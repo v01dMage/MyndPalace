@@ -6,10 +6,17 @@ avatar.self.dnaStore(import.meta.url);
 
 setTimeout( ()=>{
 let list="";
+let page;
+let xi= 1;
+let vs= { scene : avatar.voyd };
 for( let gene in avatar.self.dna ){
   list+= avatar.self.dna[gene][0]+'\n\n';
+  page= conjurePaper( avatar.self.dna[gene][1], vs );
+  page.position.y= 1;
+  page.position.x= xi* .51;
+  page.rotateX( -0.785 );
 }
-let page= conjurePaper( list, { scene :  avatar.voyd });
+page= conjurePaper( list, vs );
 page.position.y= 1;
 page.rotateX( -Math.PI/4 );
 
