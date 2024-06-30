@@ -169,26 +169,32 @@ function init(){
 }
 
 function basicUpdate(o){
-  let speed= .04;
+  const speed= range=>{
+    if(range > .7){
+      return (range- .7)*.06+ .04;
+    } else {
+      return range* 0.04;
+    }
+  };
   if( o.xr.isPresenting ){
   //heading and rotate 
-    heading+= gamepad.rightXaxis *speed;
+    heading+= speed( gamepad.rightXaxis );
     if(heading< -Math.PI) heading+= 2*Math.PI;
     if(heading>  Math.PI) heading-= 2*Math.PI;
-    self.disc.rotateY( gamepad.rightXaxis *-speed);
+    self.disc.rotateY( -speed(gamepad.rightXaxis) );
 
   // xz worldplane movement
   //forward vector 
-    self.disc.position.z+= Math.sin(heading)* gamepad.leftYaxis *speed;
-    self.disc.position.x+= Math.cos(heading)* gamepad.leftYaxis *speed;
+    self.disc.position.z+= Math.sin(heading)* speed( gamepad.leftYaxis );
+    self.disc.position.x+= Math.cos(heading)* speed( gamepad.leftYaxis );
   //strafe vector 
-    self.disc.position.z-= Math.cos(heading)* gamepad.leftXaxis *speed;
-    self.disc.position.x+= Math.sin(heading)* gamepad.leftXaxis *speed;
+    self.disc.position.z-= Math.cos(heading)* speed( gamepad.leftXaxis );
+    self.disc.position.x+= Math.sin(heading)* speed( gamepad.leftXaxis );
     //
   
   // up down
-    self.disc.position.y+= gamepad.leftTrigger *speed;
-    self.disc.position.y-= gamepad.leftGrip *speed;
+    self.disc.position.y+= speed( gamepad.leftTrigger );
+    self.disc.position.y-= speed( gamepad.leftGrip );
   }
 }
 
