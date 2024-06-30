@@ -40,7 +40,8 @@ setTimeout(  ()=>{
 }catch(err){
   avatar.self.console.cout(err.toString());
 }
-
-  avatar.self.scenes[0].add( visualizeHtml( ts ) );
+  const vizgrp= visualizeHtml( ts );
+  avatar.self.console.cout( vizgrp );
+  avatar.self.scenes[0].add( vizgrp );
 } , 15000);
 
