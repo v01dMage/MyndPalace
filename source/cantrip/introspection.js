@@ -13,7 +13,7 @@ for( let gene in avatar.self.dna ){
   list+= avatar.self.dna[gene][0]+'\n\n';
   page= conjurePaper( avatar.self.dna[gene][1], vs );
   page.position.y= 1;
-  page.position.x= xi* .51;
+  page.position.x= xi++* .51;
   page.rotateX( -0.785 );
 }
 page= conjurePaper( list, vs );
