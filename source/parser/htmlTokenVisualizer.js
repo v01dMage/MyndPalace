@@ -57,8 +57,8 @@ export function visualizeHtml( tsa, specs ){
           token.z= prior.z;
           z= prior.z;
           x+= halfWidth+ space;
-          token.width= x- space- (prior.x+ baseWidth);
-          token.x= token.width/2+ prior.x;
+          token.width= x- space- prior.x;
+          token.x= token.width/2+ prior.x+ baseWidth;
           j= 0;
         }
       }
