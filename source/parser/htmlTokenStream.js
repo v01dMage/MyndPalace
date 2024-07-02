@@ -24,7 +24,7 @@ export function htmlTokenStream( html ){
     word= letters.join('');
     letters= [];
     if( t == "tag" ){
-      if( t in loneTags ){
+      if( loneTags.reduce( (out,lex)=> out || lex == word , false ) ){
         t= "loneTag";
       } else {
         t= "startTag";
