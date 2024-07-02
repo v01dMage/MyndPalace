@@ -8,7 +8,7 @@ setTimeout( ()=>{
 let list="";
 let page;
 let xi= 1;
-let vs= { scene : avatar.voyd };
+let vs= { scene : avatar.voyd, height: 1 };
 for( let gene in avatar.self.dna ){
   list+= avatar.self.dna[gene][0]+'\n\n';
   page= conjurePaper( avatar.self.dna[gene][1], vs );
