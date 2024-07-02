@@ -8,7 +8,7 @@
 export const location= import.meta.url;
 
 export const loneTags= [
-  'meta', 
+  'meta', 'img', 'br', 'hr', 'input', 'link',
 ];
 
 export function htmlTokenStream( html ){
