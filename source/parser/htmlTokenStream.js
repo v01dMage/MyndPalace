@@ -7,6 +7,10 @@
 
 export const location= import.meta.url;
 
+export const loneTags= [
+  'meta', 
+];
+
 export function htmlTokenStream( html ){
   let chars= html.split('').filter( c=>
     /[^\n\r]/.test(c)
