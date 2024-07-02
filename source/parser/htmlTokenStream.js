@@ -21,10 +21,12 @@ export function htmlTokenStream( html ){
   let state= 0;
   const checkAndPush= (t="text")=>{
     if( letters.length == 0 ) return;
-    word= letters.join('');
+    word= letters.join('').trim();
     letters= [];
     if( t == "tag" ){
-      if( loneTags.reduce( (out,lex)=> out || lex == word , false ) ){
+      if( loneTags.reduce( (out,lex)=>{ 
+        return out || lex == word;
+      } , false ) ){
         t= "loneTag";
       } else {
         t= "startTag";
