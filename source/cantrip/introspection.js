@@ -26,7 +26,7 @@ import { htmlTokenStream } from 'psi/parser/htmlTokenStream.js';
 import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js';
 
 
-const vso= { scene :  avatar.self.scenes[0] }
+const vso= { scene :  avatar.voyd }
 setTimeout(  ()=>{
   conjurePaper( avatar.self.dna.index[1], vso ).position.y= 1.5;
     avatar.self.console.cout('heya');
