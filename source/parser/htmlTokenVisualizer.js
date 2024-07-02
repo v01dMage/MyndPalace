@@ -42,9 +42,9 @@ export function visualizeHtml( tsa, specs ){
     } else if( token.type == "text" ){
       token.y= y;
       token.x= x;
-      x+= baseWidth+ space;
+      x+= 1.5*baseWidth+ space;
       token.z= z;
-      token.width= baseWidth;
+      token.width= 2*baseWidth;
     } else if( token.type == "startTag" ){
       token.x= x;
       x+= baseWidth+ space;
