@@ -19,6 +19,13 @@ export function htmlTokenStream( html ){
     if( letters.length == 0 ) return;
     word= letters.join('');
     letters= [];
+    if( t == "tag" ){
+      if( t in loneTags ){
+        t= "loneTag";
+      } else {
+        t= "startTag";
+      }
+    }
     result.push( {type: t, text: word} );
   };
   for( let index= 0; index < chars.length; index++ ){
