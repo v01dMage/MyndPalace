@@ -33,13 +33,19 @@ export function visualizeHtml( tsa, specs ){
   let result= new THREE.Group();
 
   tsa.forEach( (token, index, arr)=>{
-    if( token.type == "text" ){
+    if( token.type == "loneTag" ){
       token.y= y;
       token.x= x;
       x+= baseWidth+ space;
       token.z= z;
       token.width= baseWidth;
-    } else if( token.type == "tag" ){
+    } else if( token.type == "text" ){
+      token.y= y;
+      token.x= x;
+      x+= baseWidth+ space;
+      token.z= z;
+      token.width= baseWidth;
+    } else if( token.type == "startTag" ){
       token.x= x;
       x+= baseWidth+ space;
       token.y= y;
