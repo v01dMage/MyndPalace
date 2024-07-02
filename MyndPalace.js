@@ -20,7 +20,7 @@ if(localStorage.autoRun){
   avatar.self.cantrips.cast('hello');
 }
 
-let bg= paintStarfield(8192,4096,2000);
+let bg= paintStarfield(8192,4096,4096);
 let starfield= new THREE.Texture( bg );
 starfield.needsUpdate= true;
 starfield.mapping = THREE.EquirectangularReflectionMapping;
