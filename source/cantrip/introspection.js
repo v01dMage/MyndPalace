@@ -43,7 +43,7 @@ setTimeout(  ()=>{
   vizgrp.position.y= 1;
   vizgrp.position.z= -3;
   avatar.self.console.cout( vizgrp );
-  avatar.self.scenes[0].add( vizgrp );
+  vso.scene.add( vizgrp );
 } catch(err){
   avatar.self.console.cout( err.toString() );
 }
