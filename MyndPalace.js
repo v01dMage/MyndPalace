@@ -3,10 +3,10 @@
 import * as avatar from 'xr/cns.js'; 
 import 'xr/console.js';
 import { cantrips } from 'xr/consoleButtons.js';
-import { paintStarfield } from 'psi/cantrip/starfield.js';
+import { paintStarfield } from 'psi/starfield.js';
 import * as THREE from 'three';
-import { conjurePaper } from 'psi/cantrip/paper.js';
-import 'psi/cantrip/introspection.js';
+import { conjurePaper } from 'psi/paper.js';
+import 'psi/introspection.js';
 avatar.self.dnaStore(import.meta.url);
 
 
