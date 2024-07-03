@@ -25,21 +25,8 @@ let starfield= new THREE.Texture( bg );
 starfield.needsUpdate= true;
 starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
-avatar.self.scenes[0].background= starfield;
+avatar.self.scene.background= starfield;
 
-function dnaout(){
-avatar.self.console.cout( "#keys: "+ Object.keys( avatar.self.dna ).length );
-for( let gene in avatar.self.dna ){
- if( gene != 'index' ){
-  avatar.self.console.cout(
-    avatar.self.dna[gene][0]+'<br>-----<br>'+
-    avatar.self.dna[gene][1].substring(0,10)+
-    '<br>.....<br>'
-  );
- }
-}}
-dnaout();
-setTimeout( dnaout, 10000 );
 
 //have fun
 
