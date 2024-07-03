@@ -1,7 +1,7 @@
 //Create a visual representation of
 //  the source code
 import * as avatar from 'xr/cns.js';
-import { conjurePaper } from 'psi/cantrip/paper.js'
+import { conjurePaper } from 'psi/paper.js'
 avatar.self.dnaStore(import.meta.url);
 
 setTimeout( ()=>{
@@ -22,8 +22,8 @@ page.rotateX( -Math.PI/4 );
 
 }, 13000 );
 
-import { htmlTokenStream } from 'psi/parser/htmlTokenStream.js';
-import { visualizeHtml } from 'psi/parser/htmlTokenVisualizer.js';
+import { htmlTokenStream } from 'parser/htmlTokenStream.js';
+import { visualizeHtml } from 'parser/htmlTokenVisualizer.js';
 
 
 const vso= { scene :  avatar.voyd }
