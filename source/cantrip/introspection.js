@@ -44,8 +44,9 @@ setTimeout(  ()=>{
   vizgrp.position.z= -3;
   avatar.self.console.cout( vizgrp );
   avatar.voyd.add( vizgrp );
-  const live= visualizeHtml(htmlTokenStream( document.body.outerHTML ));
-  avatar.self.scene.add( live );
+  avatar.self.console.cout( document.body.outerHTML );
+ /* const live= visualizeHtml(htmlTokenStream( document.body.outerHTML ));
+  avatar.self.scene.add( live ); */
 } catch(err){
   avatar.self.console.cout( err.toString() );
 }
