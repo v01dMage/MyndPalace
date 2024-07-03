@@ -170,10 +170,10 @@ function init(){
 
 
 const speed= function (range){
-  if(range > .7){
-    return (range- .7)*.06+ .04;
+  if(range > .9){
+    return (range- .9)*.02+ .02;
   } else {
-    return range* 0.04;
+    return range* 0.02;
   }
 };
 function basicUpdate(o){
