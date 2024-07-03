@@ -21,7 +21,7 @@ export function paintStarfield(w,h,n){
     
     for(let i= 0; i< n; i++){
       ctx.fillStyle= `rgb(${r(256)},${r(256)},${r(256)})`;
-      ctx.fillRect( r(w), r(h), r(3)+3, r(3)+3 );
+      ctx.fillRect( r(w), r(h), r(3)+1, r(3)+1 );
     }
     //document.body.appendChild(canvas);
     return canvas;
