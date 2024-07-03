@@ -9,7 +9,6 @@ import { conjurePaper } from 'psi/paper.js';
 import 'psi/introspection.js';
 avatar.self.dnaStore(import.meta.url);
 
-
 avatar.self.cantrips= cantrips;
 
 if(localStorage.autoRun){
@@ -20,13 +19,12 @@ if(localStorage.autoRun){
   avatar.self.cantrips.cast('hello');
 }
 
-let bg= paintStarfield(8192,4096,4096);
+let bg= paintStarfield(16384,8192,32768);
 let starfield= new THREE.Texture( bg );
 starfield.needsUpdate= true;
 starfield.mapping = THREE.EquirectangularReflectionMapping;
 starfield.colorSpace = THREE.SRGBColorSpace;
 avatar.self.scene.background= starfield;
-
 
 //have fun
 
