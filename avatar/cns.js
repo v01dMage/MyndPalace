@@ -170,8 +170,9 @@ function init(){
 
 
 const speed= function (range){
-  if(range > .9){
-    return (range- .9)*.2+ .02;
+  if(Math.abs(range) > .9){
+    let sign= range > 0? +1 : -1;
+    return sign*((Math.abs(range)- .9)*.2+ .02);
   } else {
     return range* 0.02;
   }
