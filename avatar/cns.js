@@ -171,7 +171,7 @@ function init(){
 
 const speed= function (range){
   if(range > .9){
-    return (range- .9)*.02+ .02;
+    return (range- .9)*.2+ .02;
   } else {
     return range* 0.02;
   }
