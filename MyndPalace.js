@@ -19,12 +19,19 @@ if(localStorage.autoRun){
   avatar.self.cantrips.cast('hello');
 }
 
-let bg= paintStarfield(8000,4000,3000);
-let starfield= new THREE.Texture( bg );
-starfield.needsUpdate= true;
-starfield.mapping = THREE.EquirectangularReflectionMapping;
-starfield.colorSpace = THREE.SRGBColorSpace;
-avatar.self.scene.background= starfield;
+let repaint= ()=>{
+  let bg= paintStarfield(8000,4000,3000);
+  let starfield= new THREE.Texture( bg );
+  starfield.needsUpdate= true;
+  starfield.mapping = THREE.EquirectangularReflectionMapping;
+  starfield.colorSpace = THREE.SRGBColorSpace;
+  avatar.self.scene.background= starfield;
+}
+let cycle= ()=>{
+  setTimeout( repaint, 30000 );
+  setTimeout( cycle, 30000 );
+}
+cycle();
 
 //have fun
 
