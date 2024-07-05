@@ -27,11 +27,7 @@ let repaint= ()=>{
   starfield.colorSpace = THREE.SRGBColorSpace;
   avatar.self.scene.background= starfield;
 }
-let cycle= ()=>{
-  setTimeout( repaint, 30000 );
-  setTimeout( cycle, 30000 );
-}
-cycle();
+repaint();
 
 //have fun
 
