@@ -11,7 +11,8 @@
       "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.164.0/examples/jsm/",
       "xr/": "./avatar/",
       "psi/": "./source/cantrip/",
-      "parser/": "./source/parser/"
+      "parser/": "./source/parser/",
+      "bci": "./bci/basicConsoleInterface.js"
     }
   }
     </script>
@@ -21,6 +22,7 @@
     <textarea id="webText" rows="18" cols="60"></textarea>
     <div id="webOutput"></div>
     <script type="module">
+      import 'bci'
       import './MyndPalace.js';
     </script> 
   </body>
