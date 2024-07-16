@@ -1,15 +1,11 @@
 body { 
   margin: 0; 
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   flex-wrap: wrap;
-}
-
-@media (max-width: 1000 ){
-  body { flex-direction: column; }
 }
 
 div { 
   border: 1px dashed yellow; 
-  flex: 0 0 400px;
+  flex: 45%;
 }
