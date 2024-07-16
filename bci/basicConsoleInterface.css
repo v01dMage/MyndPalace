@@ -14,4 +14,14 @@ div {
   background: #aaa;
   color: #000;
   border: 4px solid white;
+  flex: 50%;
 }
+
+#webButtons {
+  display: flex;
+  flex-direction: row;
+  flex: 30%;
+  flex-wrap: wrap;
+}
+
+#webOutput {}
