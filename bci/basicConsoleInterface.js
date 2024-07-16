@@ -11,7 +11,7 @@ function clear(){
     webOutput.innerHTML="";
 }
 
-function cout(html){
+function pout(html){
   if(typeof html == null)
     html= typeof html;
   if(typeof html == undefined)
@@ -20,10 +20,10 @@ function cout(html){
     html= Object.keys(html).join('<br>');
     if(html=='') html= 'blank object';
   }
-  let div= document.createElement('div');
-  div.style= 'display: inline; border: none;';
-  div.innerHTML= html;
-  webOutput.appendChild( div );
+  let p= document.createElement('p');
+  p.className= 'pout';
+  p.innerHTML= html;
+  webOutput.appendChild( p );
 }
 
 function makeLoadableButton(name, text){
