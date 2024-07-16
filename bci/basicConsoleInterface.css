@@ -5,7 +5,7 @@ body {
   flex-wrap: wrap;
 }
 
-@media (max-width: 800){
+@media (max-width: 1000 ){
   body { flex-direction: column; }
 }
 
