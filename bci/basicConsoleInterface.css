@@ -2,9 +2,10 @@ body {
   margin: 0; 
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 1200){
+@media (max-width: 800){
   body { flex-direction: column; }
 }
 
