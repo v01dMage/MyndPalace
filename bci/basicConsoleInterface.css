@@ -9,3 +9,9 @@ div {
   border: 1px dashed yellow; 
   flex: 45%;
 }
+
+#webText {
+  background: #aaa;
+  color: #000;
+  border: 4px solid white;
+}
