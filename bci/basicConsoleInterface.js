@@ -59,3 +59,6 @@ async function basicConsoleRun(){
   }
   if(out) pout(out);
 }
+
+makeRunnableButton( '<i>Run</i>', basicConsoleRun );
+makeRunnableButton( 'clear', clear );
