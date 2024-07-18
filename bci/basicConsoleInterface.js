@@ -45,3 +45,14 @@ function makeButtons(o){
     makeLoadableButton( name, o[name] );
   } );
 }
+
+async function basicConsoleRun(){
+  let f= getText();
+  let out;
+  try{ 
+    out= (Function(f))();
+  }catch(err){ 
+    out= err;
+  }
+  if(out) pout(out);
+}
