@@ -49,10 +49,10 @@ function makeButtons(o){
 async function basicConsoleRun(){
   let f= getText();
   let out;
-  try{ 
-    out= (Function(f))();
-  }catch(err){ 
-    out= err;
+  try{
+    out= await (( Function(`return async function (){${f}}`) )())();
+  } catch(err){
+     out= err;
   }
   if(out) pout(out);
 }
