@@ -45,8 +45,9 @@ function makeRunnableButton(name, fn){
 
 function makeButtons(o){
   Object.keys(o).forEach( name=>{
-   if(typeof o[name] == 'string')
-    makeLoadableButton( name, o[name] );
+    if(typeof o[name] == 'string')
+      makeLoadableButton( name, o[name] );
+    else makeRunnableButton( name, o[name] );
   } );
 }
 
@@ -61,15 +62,13 @@ async function basicConsoleRun(){
   if(out) pout(out);
 }
 
+const basicLoadables= {
+  '<i>Run</i>': basicConsoleRun,
+  'hello': 'return "hello";',
+  'clear': clear,
+};
 
 function init(){
-  makeRunnableButton( '<i>Run</i>', basicConsoleRun );
-  makeRunnableButton( 'clear', clear );
-
-  const basicLoadables= {
-    'hello': 'return "hello";',
-  };
-
   makeButtons( basicLoadables );
 }
 init();
