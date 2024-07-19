@@ -24,6 +24,12 @@ div {
   flex-wrap: wrap;
 }
 
+#webButtons button {
+  flex: 10%;
+  height: 4em;
+  padding: 1em;
+}
+
 #webOutput {
   border: 10px solid blue;
   border-radius: 5%;
