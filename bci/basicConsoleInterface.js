@@ -61,5 +61,15 @@ async function basicConsoleRun(){
   if(out) pout(out);
 }
 
-makeRunnableButton( '<i>Run</i>', basicConsoleRun );
-makeRunnableButton( 'clear', clear );
+
+function init(){
+  makeRunnableButton( '<i>Run</i>', basicConsoleRun );
+  makeRunnableButton( 'clear', clear );
+
+  const basicLoadables= {
+    'hello': 'return "hello";',
+  };
+
+  makeButtons( basicLoadables );
+}
+init();
