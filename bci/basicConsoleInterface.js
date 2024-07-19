@@ -38,6 +38,7 @@ function makeLoadableButton(name, text){
 function makeRunnableButton(name, fn){
   let button= document.createElement('button');
   button.innerHTML= name;
+  button.className= "runnable";
   button.addEventListener('click', fn );
   webButtons.appendChild(button);
 }
