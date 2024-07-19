@@ -28,6 +28,13 @@ div {
   flex: 10%;
   height: 4em;
   padding: 1em;
+  background: blue;
+  color: #ddd;
+}
+
+#webButtons .runnable {
+  background: red;
+  color: white;
 }
 
 #webOutput {
