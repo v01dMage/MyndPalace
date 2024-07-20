@@ -71,7 +71,7 @@ function restoreQuickSave(){
 }
 
 function importXR(){
-  import('./MyndPalace.js');
+  import('../MyndPalace.js');
   return 'Loading...';
 }
 
