@@ -62,11 +62,15 @@ async function basicConsoleRun(){
   if(out) pout(out);
 }
 
-const quickSave= ()={ localStorage.quickSave= getText(); };
+function quickSave(){
+  localStorage.quickSave= getText(); 
+}
 
-const restoreQuickSave= ()={ webText.innerText= localStorage.quickSave; };
+function restoreQuickSave(){
+  webText.innerText= localStorage.quickSave; 
+}
 
-const basicLoadables= {
+const basicButtons= {
   '<i>Run</i>': basicConsoleRun,
   'hello': 'return "hello";',
   'clear': clear,
@@ -75,6 +79,6 @@ const basicLoadables= {
 };
 
 function init(){
-  makeButtons( basicLoadables );
+  makeButtons( basicButtons );
 }
 init();
