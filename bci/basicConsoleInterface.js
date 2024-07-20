@@ -70,12 +70,18 @@ function restoreQuickSave(){
   webText.innerText= localStorage.quickSave; 
 }
 
+function importXR(){
+  import('./MyndPalace.js');
+  return 'Loading...';
+}
+
 const basicButtons= {
   '<i>Run</i>': basicConsoleRun,
   'hello': 'return "hello";',
   'clear': clear,
   'quickSave': quickSave,
   'restore': restoreQuickSave,
+  'XR': importXR,
 };
 
 function init(){
