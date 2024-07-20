@@ -66,6 +66,9 @@ const basicLoadables= {
   '<i>Run</i>': basicConsoleRun,
   'hello': 'return "hello";',
   'clear': clear,
+  'quickSave': ()={ localStorage.quickSave= getText(); },
+  'restore': ()={ webText.innerText= localStorage.quickSave; },
+  
 };
 
 function init(){
