@@ -43,7 +43,7 @@ div {
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  flex: 90%;
+  flex: 60%;
 }
 
 .pout {
