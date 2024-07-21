@@ -5,11 +5,6 @@ body {
   flex-wrap: wrap;
 }
 
-div { 
-  border: 1px dashed yellow; 
-  flex: 45%;
-}
-
 #webText {
   background: #aaa;
   color: #000;
@@ -43,7 +38,7 @@ div {
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  height: 60%;
+  height: 800px;
 }
 
 .pout {
