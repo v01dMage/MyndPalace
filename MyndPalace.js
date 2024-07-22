@@ -20,7 +20,7 @@ if(localStorage.autoRun){
 }
 
 let repaint= ()=>{
-  let bg= paintStarfield(8000,4000,3000);
+  let bg= paintStarfield(800,400,3000);
   let starfield= new THREE.Texture( bg );
   starfield.needsUpdate= true;
   starfield.mapping = THREE.EquirectangularReflectionMapping;
