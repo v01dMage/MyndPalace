@@ -64,15 +64,17 @@ async function basicConsoleRun(){
 
 function quickSave(){
   localStorage.quickSave= getText(); 
+  pout('save run');
 }
 
 function restoreQuickSave(){
   webText.innerText= localStorage.quickSave; 
+  pout('restore run');
 }
 
 function importXR(){
   import('../MyndPalace.js');
-  return 'Loading...';
+  pout('Loading...');
 }
 
 const basicButtons= {
