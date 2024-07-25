@@ -74,16 +74,10 @@ function init(){
   
   //document.body.appendChild( renderer.domElement );
   let vrbtn= VRButton.createButton( renderer );
-  //Three has pretty tight control on this.
-  // but hopefully contrast will help in lieu of 
-  // the canvas element. and other styling around.
-  document.body.style.backgroundColor= "#413";
   document.body.appendChild( vrbtn );
 
 
   // controllers
-
-
 
   controller1 = xr.getController( 0 );
   self.controller1= controller1;
