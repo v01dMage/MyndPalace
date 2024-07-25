@@ -1,4 +1,5 @@
 body { 
+  background: #315;
   margin: 0; 
   display: flex;
   flex-direction: column-reverse;
