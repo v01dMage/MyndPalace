@@ -62,17 +62,17 @@ async function basicConsoleRun(){
   if(out) pout(out);
 }
 
-function quickSave(){
+async function quickSave(){
   localStorage.quickSave= getText(); 
   pout('save run');
 }
 
-function restoreQuickSave(){
+async function restoreQuickSave(){
   webText.innerText= localStorage.quickSave; 
   pout('restore run');
 }
 
-function importXR(){
+async function importXR(){
   import('../MyndPalace.js');
   pout('Loading...');
 }
