@@ -1,10 +1,10 @@
 //basic console interface 
 const webOutput= document.getElementById('webOutput');
-const webText= document.getElementById('webText');
+const webText= ()=>document.getElementById('webText');
 const webButtons= document.getElementById('webButtons');
 
 function getText(){
-  return webText.value;
+  return webText().value;
 }
 
 function clear(){
@@ -68,7 +68,7 @@ async function quickSave(){
 }
 
 async function restoreQuickSave(){
-  webText.innerText= localStorage.quickSave; 
+  webText().innerText= localStorage.quickSave; 
   pout('restore run');
 }
 
