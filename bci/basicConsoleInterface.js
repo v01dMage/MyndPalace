@@ -30,7 +30,7 @@ function makeLoadableButton(name, text){
   let button= document.createElement('button');
   button.innerHTML= name;
   button.addEventListener('click', ()=>{
-    webText.value= text;
+    webText().value= text;
   });
   webButtons.appendChild(button);
 }
@@ -68,7 +68,7 @@ async function quickSave(){
 }
 
 async function restoreQuickSave(){
-  webText().innerText= localStorage.quickSave; 
+  webText().value= localStorage.quickSave; 
   pout('restore run');
 }
 
