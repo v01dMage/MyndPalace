@@ -10,27 +10,9 @@ let testText;
 init();
 
 avatar.self.console= {
-  clear, cout, ccout, getText, arun
+  ccout, getText, arun
 };
 
-function clear(){
-    avatar.self.consoleOut.innerHTML="";
-}
-
-function cout(html){
-  if(typeof html == null)
-    html= typeof html;
-  if(typeof html == undefined)
-    html= '<em>undefined</em>';
-  if(typeof html == 'object'){
-    html= Object.keys(html).join('<br>');
-    if(html=='') html= 'blank object';
-  }
-  let div= document.createElement('div');
-  div.style= 'display: inline; border: none;';
-  div.innerHTML= html;
-  avatar.self.consoleOut.appendChild( div );
-}
 
 function ccout(text){
   cScreen.remove( cPlane );
@@ -88,7 +70,7 @@ function consoleUpdate(o){
 }
 
 function getText(){
-  let text= document.getElementById( 'consoleInput' );
+  let text= document.getElementById( 'webText' );
   return text.value;
 }
 
@@ -104,51 +86,6 @@ async function arun(text){
 }
 
 async function init(){ 
-
-   let ta= document.createElement('textarea');
-   ta.setAttribute( 'rows', '18' );
-   ta.setAttribute( 'cols', '60' );
-   ta.id= 'consoleInput';
-   ta.style= 'background: black; border: 4px solid blue; color: #4c6; ';
-   ta.value= localStorage.current;
-   document.body.appendChild( ta );
-   avatar.self.consoleInput= ta;
-
-   let consoleOut= document.createElement('div');
-   consoleOut.id= 'consoleOut';
-   consoleOut.style= 'border: 4px solid orange; color: #fff; display : inline; overflow: scroll; width: 50%; height: 60%; min-width: 50%; min-height: 60%; max-height: 60%;';
-   document.body.appendChild( consoleOut );
-   avatar.self.consoleOut= consoleOut;
-
-   let runButton= document.createElement('button');
-   runButton.innerHTML= '<b>run</b>';
-   runButton.style= 'width: 12em; height: 5em; background: red; color: #fa0;';
-   runButton.addEventListener('click', arun);
-   document.body.appendChild(runButton);
-
-  let quickSave= document.createElement('button');
-  quickSave.innerHTML= 'quickSave';
-  quickSave.addEventListener('click', ()=>{
-    let ta= document.getElementById('consoleInput');
-    localStorage.current= ta.value;
-  });
-  document.body.appendChild( quickSave );
-
-   testText= createText( 'Fail', .05 );
-  testText.rotateX(- .7 );
-  testText.rotateY( 1.4);
-  testText.position.z= .28;
-  testText.position.y=  .27;
-  testText.position.x= -.18;
-  avatar.self.controllerGrip1.add( testText );
-testText= createText( 'Line #2', .05 );
-  testText.rotateX(- .7 );
-  testText.rotateY( 1.4);
-  testText.position.z= .28;
-  testText.position.y=  .33;
-  testText.position.x= -.18;
-  avatar.self.controllerGrip1.add( testText );
-
    cFrame = new THREE.Mesh(
             new THREE.BoxGeometry( .1, .1, .01 ),
             new THREE.MeshPhongMaterial( {color: 0x229933} ) );
