@@ -13,10 +13,10 @@ avatar.self.cantrips= cantrips;
 
 if(localStorage.autoRun){
   avatar.self.console.arun(localStorage.autoRun).then(
-    res=>{ avatar.self.console.cout(res); }
+    res=>{ avatar.self.console.ccout(res); }
   );
 } else {
-  avatar.self.cantrips.cast('hello');
+  avatar.self.cantrips.cast('hello, autorun?');
 }
 
 let repaint= (canvas)=>{
