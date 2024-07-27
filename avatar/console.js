@@ -4,8 +4,9 @@ import * as avatar from 'xr/cns.js';
 avatar.self.dnaStore(import.meta.url);
 
 let cFrame, cScreen, cPlane;
+let spellbook, leftPage, rightPage;
+let binder, slot1, slot2, slot3, slot4, slot5;
 let runner, testLight;
-let testText;
 
 init();
 
@@ -43,13 +44,10 @@ async function onSelectEnd(){
 }
 
 function consoleRecon(o){
-  //Open Keyboard to consoleInput on X
+  //Open SpellBook on X
   if ( avatar.gamepad.X ){
-    //If element has focus in background,
-    // vr keyboard won't show up.
-    // also, kb loads blank in vr..
-    avatar.self.consoleInput.blur();
-    avatar.self.consoleInput.focus();
+    // toggle spellbook
+    
   }
 }
 
@@ -107,6 +105,10 @@ async function init(){
    cPlane.position.z+= .02;
    cScreen.add( cPlane );
 
+  //group spellbook
+   
+ 
+//keep for example until spellbook is clickable 
    runner = new THREE.Mesh( 
             new THREE.CapsuleGeometry( .1, .2, 3, 5).
               rotateX(1). rotateY(-.5).
