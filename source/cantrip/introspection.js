@@ -29,26 +29,15 @@ import { visualizeHtml } from 'parser/htmlTokenVisualizer.js';
 const vso= { scene :  avatar.voyd }
 setTimeout(  ()=>{
   conjurePaper( avatar.self.dna.index[1], vso ).position.y= 1.5;
-    avatar.self.console.cout('heya');
-  try{
-  let ts= htmlTokenStream( avatar.self.dna.index[1] );
-  /*let tss= ts.reduce( (out, to)=>{
-    out+= to.type+', '+ to.text+ '<br>';
-    return out;
-  }, "" );
-  avatar.self.console.cout(tss); */
-  //conjurePaper( "🦄💨", vso).position.y= 2;
+  avatar.self.console.ccout('heya');
 
+  let ts= htmlTokenStream( avatar.self.dna.index[1] );
   const vizgrp= visualizeHtml( ts );
   vizgrp.position.y= 1;
   vizgrp.position.z= -3;
-  //avatar.self.console.cout( vizgrp );
   avatar.voyd.add( vizgrp );
- // avatar.self.console.cout( document.body.outerText );
+
   const live= visualizeHtml(htmlTokenStream( document.body.outerHTML ));
   avatar.self.scene.add( live ); 
-} catch(err){
-  avatar.self.console.cout( err.toString() );
-}
 } , 15000);
 
