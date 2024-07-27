@@ -17,9 +17,6 @@ export function conjurePaper( text= "lorem ipsum", specs ){
    Object.keys(template).forEach( detail=>{
     if( typeof specs[detail] != "undefined"){
       template[detail]= specs[detail];
-    /*  avatar.self.console.cout(
-        detail+' '+template[detail]+' : '+specs[detail]
-      );*/
     }
   });}
   let { width, height, thickness, color, font, fontColor, scalar, scene }= template;
