@@ -16,7 +16,7 @@ if(localStorage.autoRun){
     res=>{ avatar.self.console.ccout(res); }
   );
 } else {
-  avatar.self.cantrips.cast('hello, autorun?');
+  avatar.self.cantrips.cast('hello');
 }
 
 let repaint= (canvas)=>{
