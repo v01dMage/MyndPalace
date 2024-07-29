@@ -8,7 +8,8 @@ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFa
 
 import { gamepad } from 'xr/gamepad.js';//MetaQ3
 export { gamepad } from 'xr/gamepad.js';
-
+import { speech } from 'xr/speech.js';
+export { speech } from 'xr/speech.js';
 
 let camera, scene, scenes, renderer, xr;
 export let voyd;
