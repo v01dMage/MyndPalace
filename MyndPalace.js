@@ -17,6 +17,7 @@ if(localStorage.autoRun){
   );
 } else {
   avatar.self.cantrips.cast('hello');
+  avatar.speech.speak('hello');
 }
 
 let repaint= (canvas)=>{
