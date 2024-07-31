@@ -2,14 +2,10 @@
 
 import * as avatar from 'xr/cns.js'; 
 import * as xrConsole from 'xr/console.js';
-//import { cantrips } from 'xr/consoleButtons.js';
 import { paintStarfield } from 'psi/starfield.js';
-//import * as THREE from 'three';
-//import { conjurePaper } from 'psi/paper.js';
 import 'psi/introspection.js';
 avatar.self.dnaStore(import.meta.url);
 
-//avatar.self.cantrips= cantrips;
 
 if(localStorage.autoRun){
   xrConsole.arun(localStorage.autoRun).then(
@@ -17,7 +13,6 @@ if(localStorage.autoRun){
   );
 } else {
   xrConsole.cantrips.cast('hello');
-  avatar.speech.speak('hello');
 }
 
 let repaint= (canvas)=>{
