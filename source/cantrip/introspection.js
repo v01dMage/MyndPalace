@@ -1,6 +1,7 @@
 //Create a visual representation of
 //  the source code
 import * as avatar from 'xr/cns.js';
+import * as xrConsole from 'xr/console.js';
 import { conjurePaper } from 'psi/paper.js'
 avatar.self.dnaStore(import.meta.url);
 
@@ -29,7 +30,7 @@ import { visualizeHtml } from 'parser/htmlTokenVisualizer.js';
 const vso= { scene :  avatar.voyd }
 setTimeout(  ()=>{
   conjurePaper( avatar.self.dna.index[1], vso ).position.y= 1.5;
-  avatar.self.console.ccout('heya');
+  xrConsole.ccout('heya');
 
   let ts= htmlTokenStream( avatar.self.dna.index[1] );
   const vizgrp= visualizeHtml( ts );
