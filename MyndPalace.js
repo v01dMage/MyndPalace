@@ -21,6 +21,7 @@ if(localStorage.autoRun){
 }
 
 let repaint= (canvas)=>{
+  let THREE= avatar.js3;
   let bg= new THREE.Texture( canvas );
   bg.needsUpdate= true;
   bg.mapping = THREE.EquirectangularReflectionMapping;
