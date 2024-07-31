@@ -1,6 +1,8 @@
 import * as THREE from'three';
 import { createText } from 'three/addons/webxr/Text2D.js';
 import * as avatar from 'xr/cns.js';
+import { cantrips } from 'xr/consoleButtons.js';
+export { cantrips } from 'xr/consoleButtons.js';
 avatar.self.dnaStore(import.meta.url);
 
 let cFrame, cScreen, cPlane;
@@ -10,12 +12,7 @@ let runner, testLight;
 
 init();
 
-avatar.self.console= {
-  ccout, getText, arun
-};
-
-
-function ccout(text){
+export function ccout(text){
   cScreen.remove( cPlane );
   cPlane= createText( text, .02 );
   cPlane.position.z+= .02;
@@ -67,16 +64,16 @@ function consoleUpdate(o){
   }
 }
 
-function getText(){
+export function getText(){
   let text= document.getElementById( 'webText' );
   return text.value;
 }
 
-async function arun(text){
+export async function arun(text){
        if(typeof text != 'string') text= getText();
        let out;
        try{
-          out= await (( Function(`return async function (avatar, THREE){${text}}`) )())(avatar, THREE);
+          out= await (( Function(`return async function (avatar){${text}}`) )())(avatar);
        } catch(err){
           out= err;
        }
