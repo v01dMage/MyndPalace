@@ -16,7 +16,7 @@ if(localStorage.autoRun){
     res=>{ xrConsole.ccout(res); }
   );
 } else {
-  xrConsole.cast('hello');
+  xrConsole.cantrips.cast('hello');
   avatar.speech.speak('hello');
 }
 
