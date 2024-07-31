@@ -4,7 +4,7 @@ import * as avatar from 'xr/cns.js';
 avatar.self.dnaStore(import.meta.url);
 
 export let cantrips= {
-  'hello' : ` avatar.self.console.ccout('hello');
+  'hello' : `xrConsole.ccout('hello');
 return 'hello';`,
   'glbBanana' : `const { GLTFLoader }= await import( 'three/addons/loaders/GLTFLoader.js' )
 
@@ -15,7 +15,7 @@ loader.load( './assets/banana_3d_scanned.glb', function ( gltf ) {
         avatar.self.scenes[0].add( gltf.scene );
 
 }, undefined, function ( error ) {
-  avatar.self.console.ccout( error );
+  xrConsole.ccout( error );
 } );`,
   'bgcanvas': `let canvas= document.createElement('canvas');
 canvas.width= 1024;
@@ -38,13 +38,14 @@ bg.mapping= THREE.EquirectangularReflectionMapping;
 bg.colorSpace= THREE.SRGBColorSpace;
 avatar.self.scenes[0].background= bg;
 
-avatar.self.console.ccout(typeof link);
+xrConsole.ccout(typeof link);
 `,
   'buzz' : `avatar.gamepad.pulse('left', .99, 1000);
 
 return '>°<';
   `,
-  'skybox' : `const loader = new THREE.TextureLoader();
+  'skybox' : `let THREE= avatar.js3;
+const loader = new THREE.TextureLoader();
 const texture = loader.load(
     './assets/download.png',
     () => {
@@ -60,13 +61,14 @@ makeButtons(cantrips);
 async function cast(c){
 try{
   if( typeof avatar.self.cantrips[c] != 'string' ){
-    avatar.self.console.ccout('error: not a cantrip');
+    xrConsole.ccout('error: not a cantrip');
   }else {
-   let res= await avatar.self.console.arun( avatar.self.cantrips[c] );
-   avatar.self.console.ccout(res);
+   let res= await xrConsole.arun( avatar.self.cantrips[c] );
+   xrConsole.ccout(res);
   }
 }catch(err){
-  avatar.self.console.ccout(err);
+  xrConsole.ccout(err);
+  avatar.speech.speak( err );
 }
 }
 
