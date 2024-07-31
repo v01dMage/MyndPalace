@@ -69,11 +69,13 @@ export function getText(){
   return text.value;
 }
 
+
+const xrConsole= { arun, getText, ccout };
 export async function arun(text){
        if(typeof text != 'string') text= getText();
        let out;
        try{
-          out= await (( Function(`return async function (avatar){${text}}`) )())(avatar);
+          out= await (( Function(`return async function (avatar,xrConsole){${text}}`) )())(avatar, xrConsole);
        } catch(err){
           out= err;
        }
