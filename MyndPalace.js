@@ -16,9 +16,8 @@ if(localStorage.autoRun){
     res=>{ xrConsole.ccout(res); }
   );
 } else {
-  avatar.speech.speak(
-    xrConsole.cantrips.cast('hello')
-  );
+  xrConsole.cantrips.cast('hello');
+  avatar.speech.speak('hello');
 }
 
 let repaint= (canvas)=>{
