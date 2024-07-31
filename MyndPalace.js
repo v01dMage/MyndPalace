@@ -1,22 +1,22 @@
 //Main entry to vr lab
 
 import * as avatar from 'xr/cns.js'; 
-import 'xr/console.js';
-import { cantrips } from 'xr/consoleButtons.js';
+import * as xrConsole from 'xr/console.js';
+//import { cantrips } from 'xr/consoleButtons.js';
 import { paintStarfield } from 'psi/starfield.js';
-import * as THREE from 'three';
-import { conjurePaper } from 'psi/paper.js';
+//import * as THREE from 'three';
+//import { conjurePaper } from 'psi/paper.js';
 import 'psi/introspection.js';
 avatar.self.dnaStore(import.meta.url);
 
-avatar.self.cantrips= cantrips;
+//avatar.self.cantrips= cantrips;
 
 if(localStorage.autoRun){
-  avatar.self.console.arun(localStorage.autoRun).then(
-    res=>{ avatar.self.console.ccout(res); }
+  xrConsole.arun(localStorage.autoRun).then(
+    res=>{ xrConsole.ccout(res); }
   );
 } else {
-  avatar.self.cantrips.cast('hello');
+  xrConsole.cast('hello');
   avatar.speech.speak('hello');
 }
 
