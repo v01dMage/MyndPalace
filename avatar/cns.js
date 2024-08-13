@@ -219,7 +219,7 @@ function basicRecon(o) {
 
 function advanceScene(o){
   if(o.now- lastAdvanced > 2000){
-    if(gamepad.leftGrip > 0.3 && gamepad.Y){
+    if( gamepad.Y ){
       let temp= scenes.shift();
       scenes.push( temp );
       lastAdvanced= o.now;
