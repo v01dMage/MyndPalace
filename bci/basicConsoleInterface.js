@@ -53,6 +53,7 @@ function makeButtons(o){
 
 let bci= { makeLoadableButton,
   makeRunnableButton,
+  getText, pout, clear,
   brun: basicConsoleRun, 
 };
 async function basicConsoleRun(){
