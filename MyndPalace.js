@@ -27,5 +27,5 @@ repaint( paintStarfield(800,400,3000) );
 
 //have fun
 
-export avatar;
+export { avatar };
 
