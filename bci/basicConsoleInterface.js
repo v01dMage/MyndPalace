@@ -78,8 +78,10 @@ async function restoreQuickSave(){
 }
 
 async function importXR(){
-  import('../MyndPalace.js');
-  pout('Loading...');
+  import('../MyndPalace.js').then(
+    mod=>{ bci.avatar= mod.avatar }
+  );
+  pout('Loading bci.avatar...');
 }
 
 const basicButtons= {
