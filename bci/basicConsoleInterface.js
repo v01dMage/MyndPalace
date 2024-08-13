@@ -51,11 +51,15 @@ function makeButtons(o){
   } );
 }
 
+let bci= { makeLoadableButton,
+  makeRunnableButton,
+  brun: basicConsoleRun, 
+};
 async function basicConsoleRun(){
   let f= getText();
   let out;
   try{
-    out= await (( Function(`return async function (){${f}}`) )())();
+    out= await (( Function(`return async function (bci){${f}}`) )())(bci);
   } catch(err){
      out= err;
   }
