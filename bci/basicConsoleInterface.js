@@ -89,6 +89,12 @@ const basicButtons= {
   'quickSave': quickSave,
   'restore': restoreQuickSave,
   'XR': importXR,
+  'bci': `let list= Object.keys(bci);
+list.forEach( piece=>{
+  bci.pout(typeof bci[piece]+' : ');
+  bci.pout( piece );
+  bci.pout( bci[piece] );
+});`,
 };
 
 function init(){
