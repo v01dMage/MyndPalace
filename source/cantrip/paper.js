@@ -8,7 +8,7 @@ avatar.self.dnaStore(import.meta.url);
 
 export function conjurePaper( text= "lorem ipsum", specs ){
   let template= {
-    width : 0.3, height : 0.5,
+    width : 0.3, height : "auto",
     thickness : 0.01, color : "#fa3",
     font : "bold 30px Arial", fontColor : "#333",
     scalar : 4196, scene : avatar.self.scenes[0],
@@ -28,7 +28,12 @@ export function conjurePaper( text= "lorem ipsum", specs ){
         return parseInt(txt);
     }, NaN 
   ); //Should return NaN or first parseable int
+  let lh= lineHeight || 14;
 
+  if( height= "auto" ){
+    const numLines= text.split("\n").length;
+    height= Math.max( 3*lh+ numLines* 1.3*lh, 0.5);
+  }
   
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
@@ -42,8 +47,8 @@ export function conjurePaper( text= "lorem ipsum", specs ){
 
   ctx.fillStyle= fontColor;
   ctx.font = font;
+
   //Break text into printable lines, and fill
-  let lh= lineHeight || 14;
   text.split("\n").forEach( (line, index)=>{
     ctx.fillText( line, lh, 3*lh+ index* 1.3*lh );
   } );
