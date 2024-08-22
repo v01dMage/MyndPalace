@@ -3,7 +3,8 @@
 //  color, and text
 
 import * as THREE from 'three';
-import * as avatar from 'xr/cns.js'
+import * as avatar from 'xr/cns.js';
+import * as xrConsole from 'xr/console.js';
 avatar.self.dnaStore(import.meta.url);
 
 export function conjurePaper( text= "lorem ipsum", specs ){
@@ -34,7 +35,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
     const numLines= text.split("\n").length;
     height= Math.max( (3*lh+ numLines* 1.3*lh)/ppm, 0.2);
   }
-  avatar.self.console.ccout(height);
+  xrConsole.ccout(height);
   
   const geo= new THREE.BoxGeometry( width, height, thickness );
   
