@@ -28,7 +28,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
         return parseInt(txt);
     }, NaN 
   ); //Should return NaN or first parseable int
-  let lh= lineHeight || 14;
+  const lh= lineHeight || 14;
   let ppm= 1400;
   if( height= "auto" ){
     const numLines= text.split("\n").length;
