@@ -30,7 +30,7 @@ export function conjurePaper( text= "lorem ipsum", specs ){
     }, NaN 
   ); //Should return NaN or first parseable int
   const lh= lineHeight || 14;
-  let ppm= 3200;
+  let ppm= 4200;
   if( height= "auto" ){
     const numLines= text.split("\n").length;
     height= Math.max( (3*lh+ numLines* 1.3*lh)/ppm, 0.2);
