@@ -29,10 +29,10 @@ export function conjurePaper( text= "lorem ipsum", specs ){
     }, NaN 
   ); //Should return NaN or first parseable int
   let lh= lineHeight || 14;
-
+  let mpp=™metersPerPixel= 0.001;
   if( height= "auto" ){
     const numLines= text.split("\n").length;
-    height= Math.max( 3*lh+ numLines* 1.3*lh, 0.5);
+    height= Math.max( mpp* (3*lh+ numLines* 1.3*lh), 0.2);
   }
   
   const geo= new THREE.BoxGeometry( width, height, thickness );
