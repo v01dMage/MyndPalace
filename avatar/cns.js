@@ -218,13 +218,11 @@ function basicRecon(o) {
 }
 
 function advanceScene(o){
-  if(o.now- lastAdvanced > 2000){
-    if( gamepad.Y ){
-      let temp= scenes.shift();
-      scenes.push( temp );
-      lastAdvanced= o.now;
-      scenes[0].add( self.disc )
-    }
+  if( gamepad.Y && o.now- lastAdvanced > 2000){
+    let temp= scenes.shift();
+    scenes.push( temp );
+    lastAdvanced= o.now;
+    scenes[0].add( self.disc );
   }
 }
 
