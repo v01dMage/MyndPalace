@@ -2,7 +2,7 @@
 
 import * as avatar from 'xr/cns.js'; 
 import * as xrConsole from 'xr/console.js';
-import * as psiRun from 'psi/transpile.js';
+import psiRun from 'psi/transpile.js';
 avatar.psi= psiRun;
 import { paintStarfield } from 'psi/starfield.js';
 import 'psi/introspection.js';
