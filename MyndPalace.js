@@ -3,7 +3,7 @@
 import * as avatar from 'xr/cns.js'; 
 import * as xrConsole from 'xr/console.js';
 import psiRun from 'psi/transpile.js';
-avatar.psi= psiRun;
+avatar.self.psi= psiRun;
 import { paintStarfield } from 'psi/starfield.js';
 import 'psi/introspection.js';
 avatar.self.dnaStore(import.meta.url);
