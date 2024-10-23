@@ -2,7 +2,8 @@
 
 export function psiRun(text){
   //first line comment transpile options 
-  let opts= text;
+  let re= /^(.*)[\r\n|\r|\n]/;
+  let opts= text.match( re );
 
   return opts;
 }
