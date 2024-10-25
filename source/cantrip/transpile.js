@@ -14,6 +14,6 @@ export function psiRun(text){
   }
   let re= /^\/\/(.*)$/;
   let opts= line.match( re );
-  if( opts ) opts= opts[0]
+  //if( opts ) opts= opts[0]
   return opts;
 }
