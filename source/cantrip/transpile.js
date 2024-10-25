@@ -2,8 +2,6 @@
 //export base transpile switch
 
 export function psiRun(text){
-let opts;
-try{
   //first line comment transpile options 
   let line= text.split('\n');
   if( typeof line != 'object' ){
@@ -15,8 +13,7 @@ try{
     }
   }
   let re= /^\/\/(.*)$/;
-  opts= line.match( re );
-} catch(e){ opts= e;}
-
+  let opts= line.match( re );
+  if( opts ) opts= opts[0]
   return opts;
 }
