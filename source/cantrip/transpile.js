@@ -15,6 +15,7 @@ export function psiRun(text){
   let re= /^\/\/(.*)$/;
   let opts= line.match( re );
   opts= opts[0].split(' ');
+  let base= opts.shift();
 
-  return opts;
+  return {base,opts};
 }
