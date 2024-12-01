@@ -5,8 +5,10 @@
 
 import { inspectHtml } from 'psi/inspect.js';
 
+import * as xrConsole from 'xr/console.js';
+
 inspectHtml( 'https://arretoken.com' );
 
 import * as avatar from 'xr/cns.js';
 
-avatar.self.console.ccout('👀');
+xrConsole.ccout('👀');
