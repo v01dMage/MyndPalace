@@ -63,6 +63,7 @@ async function basicConsoleRun(){
     out= await (( Function(`return async function (bci){${f}}`) )())(bci);
   } catch(err){
      out= err;
+     if(err.message){ out= err.message; }
   }
   if(out) pout(out);
 }
