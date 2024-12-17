@@ -7,7 +7,7 @@ import { inspectHtml } from 'psi/inspect.js';
 
 import * as xrConsole from 'xr/console.js';
 
-inspectHtml( 'https://arretoken.com' );
+inspectHtml( './inspect.test.js' );
 
 import * as avatar from 'xr/cns.js';
 
