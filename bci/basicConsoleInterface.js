@@ -83,7 +83,12 @@ async function importXR(){
     mod=>{ bci.avatar= mod.avatar }
   );
   pout('Loading bci.avatar...');
-  makeRunnableButton('psi', bci.avatar.self.psi );
+  makeRunnableButton('psi', ()=>{ 
+    let text= webText().value;
+    let out= bci.avatar.self.psi(text);
+    pout(out);
+    return out;
+  } );
 }
 
 const basicButtons= {
