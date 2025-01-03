@@ -16,6 +16,9 @@ export function psiRun(text){
   let opts= line.match( re );
   opts= opts[0].split(' ');
   let base= opts.shift();
+  let out= `run ${base}
+  with options:
+     ${ opts.join(', ') }`;
 
-  return {base,opts};
+  return out;
 }
