@@ -83,7 +83,7 @@ async function importXR(){
     mod=>{ bci.avatar= mod.avatar }
   );
   pout('Loading bci.avatar...');
-  makeRunnableButton('psi', bci.avatar.self.psirun );
+  makeRunnableButton('psi', bci.avatar.self.psi );
 }
 
 const basicButtons= {
