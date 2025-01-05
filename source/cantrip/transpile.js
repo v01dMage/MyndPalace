@@ -15,7 +15,7 @@ export function psiRun(text){
   let re= /^\/\/(.*)$/;
   let opts= line.match( re );
   opts= opts[0].split(' ');
-  let base= opts.shift();
+  let base= opts.shift().substring(2);
   let out= `run ${base}
   with options:
      ${ opts.join(', ') }`;
