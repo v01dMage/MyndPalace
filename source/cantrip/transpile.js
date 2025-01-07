@@ -1,7 +1,7 @@
 //js test-option
 //export base transpile switch
 
-export function psiRun(text){
+export async function psiRun(text){
   //first line comment transpile options 
   let line= text.split('\n');
   if( typeof line != 'object' ){
