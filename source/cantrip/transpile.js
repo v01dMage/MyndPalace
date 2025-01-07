@@ -18,6 +18,7 @@ export function psiRun(text){
   let base= opts.shift().substring(2);
 
   if(base == "Logo"){
+    // parser/${base}/pointer.txt
     base= 'logopointer';
   } else {
    //default js
