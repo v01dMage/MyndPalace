@@ -79,7 +79,7 @@ async function restoreQuickSave(){
 }
 
 async function importXR(){
-  import('../MyndPalace.js').then(
+  import('../bci/MyndPalace.js').then(
     mod=>{ bci.avatar= mod.avatar }
   );
   pout('Loading bci.avatar...');
