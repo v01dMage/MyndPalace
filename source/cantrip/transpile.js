@@ -16,6 +16,14 @@ export function psiRun(text){
   let opts= line.match( re );
   opts= opts[0].split(' ');
   let base= opts.shift().substring(2);
+
+  if(base == "Logo"){
+    base= 'logopointer';
+  } else {
+   //default js
+    base= 'base';
+  }
+
   let out= `run ${base}
   with options:
      ${ opts.join(', ') }`;
