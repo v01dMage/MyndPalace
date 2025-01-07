@@ -19,7 +19,8 @@ export function psiRun(text){
 
   if(base == "Logo"){
     // parser/${base}/pointer.txt
-    base= 'logopointer';
+    let p= await fetch(`parser/${base}/pointer.txt`).then(res=>res.text());
+    base= 'logopointer: '+p;
   } else {
    //default js
     base= 'base';
