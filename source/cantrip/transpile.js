@@ -22,10 +22,10 @@ export async function psiRun(text){
     try {
     let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
     base= 'logopointer: '+p;
+    } catch(err){ base= err; }
   } else {
    //default js
     base= 'base';
-    } catch(err){ base= err; }
   }
 
   let out= `run ${base}
