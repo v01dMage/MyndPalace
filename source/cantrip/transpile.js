@@ -18,12 +18,14 @@ export async function psiRun(text){
   let base= opts.shift().substring(2);
 
   if(base == "Logo"){
-    // parser/${base}/pointer.txt
+    // source/parser/${base}/pointer.txt
+    try {
     let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
     base= 'logopointer: '+p;
   } else {
    //default js
     base= 'base';
+    } catch(err){ base= err; }
   }
 
   let out= `run ${base}
