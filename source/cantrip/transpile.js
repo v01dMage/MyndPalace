@@ -19,7 +19,7 @@ export async function psiRun(text){
 
   if(base == "Logo"){
     // parser/${base}/pointer.txt
-    let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text()).catch(err=>err.message);
+    let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
     base= 'logopointer: '+p;
   } else {
    //default js
