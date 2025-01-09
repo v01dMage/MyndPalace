@@ -1,6 +1,9 @@
 //js test-option
 //export base transpile switch
 
+import { pout } from 'bci';
+
+/*
 const webOutput= document.getElementById('webOutput');
 const webText= ()=>document.getElementById('webText');
 const webButtons= document.getElementById('webButtons');
@@ -34,6 +37,7 @@ async function pout(html){
   p.innerHTML= html;
   webOutput.appendChild( p );
 }
+*/
 
 export async function psiRun(text){
   //first line comment transpile options 
