@@ -1,7 +1,7 @@
 //js test-option
 //export base transpile switch
 
-import 'bci';
+import bci from 'bci';
 
 export async function psiRun(text){
   //first line comment transpile options 
