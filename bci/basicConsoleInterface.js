@@ -58,7 +58,7 @@ function makeButtons(o){
   } );
 }
 
-let bci= { makeLoadableButton,
+export const bci= { makeLoadableButton,
   makeRunnableButton,
   getText, pout, clear,
   brun: basicConsoleRun, 
