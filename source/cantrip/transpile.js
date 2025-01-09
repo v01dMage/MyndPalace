@@ -1,8 +1,6 @@
 //js test-option
 //export base transpile switch
 
-import bci from 'bci';
-
 export async function psiRun(text){
   //first line comment transpile options 
   let line= text.split('\n');
@@ -19,12 +17,10 @@ export async function psiRun(text){
   opts= opts[0].split(' ');
   let base= opts.shift().substring(2);
 
-  await bci.pout('b4');
-
   if(base == "Logo"){
     // source/parser/${base}/pointer.txt
     let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
-    p= `source/parser/${base}/${p}`;
+    p= `../source/parser/${base}/${p}`;
     base= 'logopointer: '+p;
   } else {
    //default js
@@ -34,8 +30,6 @@ export async function psiRun(text){
   let out= `run ${base}
   with options:
      ${ opts.join(', ') }`;
-
-  await bci.pout('aft3r');
 
   return out;
 }
