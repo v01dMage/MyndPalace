@@ -17,8 +17,10 @@ function pout(html){
   if(typeof html == undefined)
     html= '<em>undefined</em>';
   if(typeof html == 'object'){
-    html= Object.keys(html).join('<br>');
-    if(html=='') html= 'blank object';
+    let l= html.length;
+    let k= Object.keys(html).join('<br>');
+    let s= html.toString();
+    html= k+'<br>'+s+'<br>length: '+l;
   }
   let p= document.createElement('p');
   p.className= 'pout';
