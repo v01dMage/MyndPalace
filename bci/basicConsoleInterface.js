@@ -11,7 +11,7 @@ function clear(){
     webOutput.innerHTML="";
 }
 
-async function pout(html){
+export async function pout(html){
   if(typeof html == null)
     html= typeof html;
   if(typeof html == undefined)
