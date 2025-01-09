@@ -19,7 +19,7 @@ export async function psiRun(text){
   opts= opts[0].split(' ');
   let base= opts.shift().substring(2);
 
-  bci.pout('b4');
+  await bci.pout('b4');
 
   if(base == "Logo"){
     // source/parser/${base}/pointer.txt
@@ -35,7 +35,7 @@ export async function psiRun(text){
   with options:
      ${ opts.join(', ') }`;
 
-  bci.pout('aft3r');
+  await bci.pout('aft3r');
 
   return out;
 }
