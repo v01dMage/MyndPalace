@@ -1,6 +1,40 @@
 //js test-option
 //export base transpile switch
 
+const webOutput= document.getElementById('webOutput');
+const webText= ()=>document.getElementById('webText');
+const webButtons= document.getElementById('webButtons');
+
+function getText(){
+  return webText().value;
+}
+
+function clear(){
+    webOutput.innerHTML="";
+}
+
+async function pout(html){
+  if(typeof html == null)
+    html= typeof html;
+  if(typeof html == undefined)
+    html= '<em>undefined</em>';
+  if(typeof html == 'object'){
+    let s= html.toString();
+    if( s==="[object Promise]" ){
+      html= await html;
+      s= html.toString();
+    }
+    let l= html.length;
+    let k= Object.keys(html).join('<br>');
+
+    html= k+'<br>'+s+'<br>length: '+l;
+  }
+  let p= document.createElement('p');
+  p.className= 'pout';
+  p.innerHTML= html;
+  webOutput.appendChild( p );
+}
+
 export async function psiRun(text){
   //first line comment transpile options 
   let line= text.split('\n');
@@ -30,6 +64,8 @@ export async function psiRun(text){
   let out= `run ${base}
   with options:
      ${ opts.join(', ') }`;
+
+  pout( '* '+ out );
 
   return out;
 }
