@@ -30,7 +30,7 @@ export async function psiRun(text){
     base= 'base';
   }
 try{
-  const { test }= await import('../source/parser/Logo/logo3d.js');
+  const { test }= await import('parser/Logo/logo3d.js');
   pout( test );
 } catch(err) { pout( err ); }
   let out= `run ${base}
