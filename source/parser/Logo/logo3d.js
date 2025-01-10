@@ -12,4 +12,4 @@
 //     xt, yt, zt +/-° (rt === yt)
 //    
 
-
+export const test= 'test success';
