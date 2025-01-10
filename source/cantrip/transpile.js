@@ -24,7 +24,7 @@ export async function psiRun(text){
     let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
     p= `../source/parser/${base}/${p}`;
     base= 'logopointer: '+p +'<br>';
-    base+= import(p).then( mod=> mod.test );
+    base+= await import(p).then( mod=> mod.test );
   } else {
    //default js
     base= 'base';
