@@ -29,8 +29,10 @@ export async function psiRun(text){
    //default js
     base= 'base';
   }
-  const { test }= await import(base);
+try{
+  const { test }= await import('../source/parser/Logo/logo3d.js');
   pout( test );
+} catch(err) { pout( err ); }
   let out= `run ${base}
   <br>with options:<br>
      ${ opts.join(', ') }`;
