@@ -31,7 +31,7 @@ export async function psiRun(text){
   }
 
   let out= `run ${base}
-  with options:
+  <br>with options:<br>
      ${ opts.join(', ') }`;
 
   pout( '* '+ out );
