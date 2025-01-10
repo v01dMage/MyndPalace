@@ -29,8 +29,8 @@ export async function psiRun(text){
    //default js
     base= 'base';
   }
-  await import(base).then( mod=>{ pout(mod.test); } );
-
+  const test= await import(base);
+  pout( test );
   let out= `run ${base}
   <br>with options:<br>
      ${ opts.join(', ') }`;
