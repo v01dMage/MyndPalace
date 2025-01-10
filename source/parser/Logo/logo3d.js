@@ -15,5 +15,5 @@
 export const test= 'test success';
 
 export async function run( t ){
-  return { test, run }
+  return { test, run, t }
 }
