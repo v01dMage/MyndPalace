@@ -24,17 +24,17 @@ export async function psiRun(text){
     // source/parser/${base}/pointer.txt
     let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
     p= `parser/${base}/${p}`;
-    base= 'pointer: '+p +'<br>';
+    /)base= 'pointer: '+p +'<br>';
     const { run }= await import(p);
     let ran= await run( rest );
-    base+= ran.test +'<br>';
-    base+= ran.run +'<br>';
-    base+= ran.t +'<br>';
+    //base+= ran.test +'<br>';
+    //base+= ran.run +'<br>';
+    //base+= ran.t +'<br>';
   } catch(err){
-    base= err;
+    pout( err );
   }
 
-  pout( '* '+ base );
+  //pout( '* '+ base );
 
-  return true;
+  //return true;
 }
