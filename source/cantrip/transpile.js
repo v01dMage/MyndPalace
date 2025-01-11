@@ -20,26 +20,21 @@ export async function psiRun(text){
   opts= opts[0].split(' ');
   let base= opts.shift().substring(2);
 
-  if(base == "Logo"){
+  try{
     // source/parser/${base}/pointer.txt
     let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
     p= `parser/${base}/${p}`;
-    base= 'logopointer: '+p +'<br>';
+    base= 'pointer: '+p +'<br>';
     const { run }= await import(p);
     let ran= await run( rest );
     base+= ran.test +'<br>';
     base+= ran.run +'<br>';
     base+= ran.t +'<br>';
-  } else {
-   //default js
-    base= 'base';
+  } catch(err){
+    base= err;
   }
-
-  let out= `run ${base}
-  <br>with options:<br>
-     ${ opts.join(', ') }`;
 
   pout( '* '+ out );
 
-  return out;
+  return true;
 }
