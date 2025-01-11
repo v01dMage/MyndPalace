@@ -34,7 +34,7 @@ export async function psiRun(text){
     base= err;
   }
 
-  pout( '* '+ out );
+  pout( '* '+ base );
 
   return true;
 }
