@@ -5,11 +5,12 @@ import { pout } from 'bci';
 
 export async function psiRun(text){
   //first line comment transpile options 
+  let rest;
   let line= text.split('\n');
   if( typeof line != 'object' ){
     line= '//split failed to make object ';
   }else{
-    line= line[0];
+    { line, rest }= line[0, ...];
     if( typeof line != 'string' ){
       line= '//line failed string check';
     }
