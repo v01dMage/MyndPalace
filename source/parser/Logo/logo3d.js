@@ -12,8 +12,11 @@
 //     xt, yt, zt +/-° (rt === yt)
 //    
 
+import { pout } from 'bci';
+
 export const test= 'test success';
 
 export async function run( t ){
-  return { test, run, t }
+  pout( t );
+  //return { test, run, t }
 }
