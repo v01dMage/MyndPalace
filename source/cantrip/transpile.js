@@ -10,7 +10,7 @@ export async function psiRun(text){
   if( typeof line != 'object' ){
     line= '//split failed to make object ';
   }else{
-    { line, rest }= line[0, ...];
+    [ line, ...rest ]= line;
     if( typeof line != 'string' ){
       line= '//line failed string check';
     }
@@ -26,7 +26,7 @@ export async function psiRun(text){
     p= `parser/${base}/${p}`;
     base= 'logopointer: '+p +'<br>';
     const { run }= await import(p);
-    let ran= await run( line.length );
+    let ran= await run( rest );
     base+= ran.test +'<br>';
     base+= ran.run +'<br>';
     base+= ran.t +'<br>';
