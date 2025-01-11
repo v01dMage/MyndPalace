@@ -25,7 +25,7 @@ export async function psiRun(text){
     p= `parser/${base}/${p}`;
     base= 'logopointer: '+p +'<br>';
     const { run }= await import(p);
-    let ran= run( line.length );
+    let ran= await run( line.length );
     base+= ran.test +'<br>';
     base+= ran.run +'<br>';
     base+= ran.t +'<br>';
