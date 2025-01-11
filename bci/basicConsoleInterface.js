@@ -17,15 +17,7 @@ export async function pout(html){
   if(typeof html == undefined)
     html= '<em>undefined</em>';
   if(typeof html == 'object'){
-    let s= html.toString();
-    if( s==="[object Promise]" ){
-      html= await html;
-      s= html.toString();
-    }
-    let l= html.length;
-    let k= Object.keys(html).join('<br>');
-    
-    html= k+'<br>'+s+'<br>length: '+l;
+    html= '{}'+html.toString();
   }
   let p= document.createElement('p');
   p.className= 'pout';
