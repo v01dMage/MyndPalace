@@ -24,7 +24,7 @@ export async function psiRun(text){
     // source/parser/${base}/pointer.txt
     let p= await fetch(`source/parser/${base}/pointer.txt`).then(res=>res.text());
     p= `parser/${base}/${p}`;
-    /)base= 'pointer: '+p +'<br>';
+    //base= 'pointer: '+p +'<br>';
     const { run }= await import(p);
     let ran= await run( rest );
     //base+= ran.test +'<br>';
