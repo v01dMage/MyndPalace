@@ -83,10 +83,7 @@ async function importXR(){
   );
   pout('Loading bci.avatar...');
   makeRunnableButton('psi', ()=>{ 
-    let text= webText().value;
-    let out= bci.avatar.self.psi(text);
-    pout(out);
-    return out;
+    bci.avatar.self.psi( webText().value );
   } );
 }
 
