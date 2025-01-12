@@ -35,7 +35,7 @@ class Xyz {
 var position= new Xyz();
 var rotation= new Xyz( position );
 
-export var logo= { run, mv, pd, fd };
+export var logo= { run, mv, pd, pu, fd };
 
 export async function run( t ){
   t.forEach( expression=>{ 
@@ -58,7 +58,22 @@ function pd(){
     isDown= true;
     pout( "isDown: "+ isDown );
     //make sphere at position 
-    pout( avatar.self.scene );
+    avatar.self.scene.add(
+      new THREE.Mesh(
+        new THREE.SphereGeometry(),
+        new THREE.MeshBasicMaterial(
+          {color: 0x55cc77}
+        );
+      );
+    );
+  }
+}
+
+function pu(){
+  //pen up
+  if( isDown ){
+    isDown= false;
+    pout( "isDown: "+ isDown );
   }
 }
 
