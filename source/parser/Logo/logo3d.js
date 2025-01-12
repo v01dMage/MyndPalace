@@ -13,7 +13,7 @@
 //    
 
 import { pout } from 'bci';
-import { avatar } from '../bci/MyndPalace.js';
+import { avatar } from 'mp';
 const THREE= avatar.js3;
 
 export const test= 'test success';
