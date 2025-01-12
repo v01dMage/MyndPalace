@@ -45,8 +45,12 @@ export async function run( t ){
 
 function pd(){
   //pen down
-  isDown= true;
-  pout( "isDown: "+ isDown );
+  if( !isDown ){
+    isDown= true;
+    pout( "isDown: "+ isDown );
+    //make sphere at position 
+    
+  }
 }
 
 function fd( d ){
