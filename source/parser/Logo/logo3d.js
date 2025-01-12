@@ -35,7 +35,7 @@ class Xyz {
 var position= new Xyz();
 var rotation= new Xyz( position );
 
-export var logo= { run, pd, fd };
+export var logo= { run, mv, pd, fd };
 
 export async function run( t ){
   t.forEach( expression=>{ 
@@ -43,6 +43,12 @@ export async function run( t ){
     let cmd= parts.shift();
     logo[cmd]( parts );
   });
+}
+
+function mv( x, y, z ){
+  position.x= x;
+  position.y= y;
+  position.z= z;
 }
 
 function pd(){
