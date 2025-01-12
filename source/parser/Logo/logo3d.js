@@ -18,13 +18,15 @@ export const test= 'test success';
 
 var isDown= false;
 
-class Xyz( o ){
-  x : o.x || 0,
-  y : o.y || 0,
-  z : o.z || 0,
-  toString(){
-    return `x:${x}, y:${y}, z:${z}`;
-  }
+class Xyz {
+  constructor( o={x:0,y:0,z:0} ){
+    this.x = o.x;
+    this.y = o.y;
+    this.z = o.z;
+  
+    toString() {
+      return `x:${this.x}, y:${this.y}, z:${this.z}`;
+    }
 }
 
 var position= new Xyz();
