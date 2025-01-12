@@ -45,7 +45,8 @@ export async function run( t ){
   });
 }
 
-function mv( x, y, z ){
+function mv( arr ){
+  let [x,y,z]= arr;
   position.x= x;
   position.y= y;
   position.z= z;
