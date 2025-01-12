@@ -63,8 +63,8 @@ function pd(){
         new THREE.SphereGeometry(),
         new THREE.MeshBasicMaterial(
           {color: 0x55cc77}
-        );
-      );
+        )
+      )
     );
   }
 }
