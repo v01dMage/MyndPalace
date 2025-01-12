@@ -17,8 +17,18 @@ import { pout } from 'bci';
 export const test= 'test success';
 
 var isDown= false;
-var position= {x:0, y:0, z:0 };
-var rotation= {x:0, y:0, z:0 };
+
+class Xyz( o ){
+  x : o.x || 0,
+  y : o.y || 0,
+  z : o.z || 0,
+  toString(){
+    return `x:${x}, y:${y}, z:${z}`;
+  }
+}
+
+var position= new Xyz();
+var rotation= new Xyz( position );
 
 export var logo= { run, pd, fd };
 
@@ -42,7 +52,7 @@ function fd( d ){
   //    rotation and distance 
   // create capsule geometry between 
 
-  let old= Object.assign( {}, position );
-  pout( "pos: "+ old.toString() );
-  pout( "distance: "+ d )
+  let old= new Xyz( position );
+  pout( "pos: "+ old );
+  pout( "distance: "+ d );
 }
