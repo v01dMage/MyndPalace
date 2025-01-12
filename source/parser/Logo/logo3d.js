@@ -23,10 +23,11 @@ class Xyz {
     this.x = o.x;
     this.y = o.y;
     this.z = o.z;
+  }
   
-    toString() {
-      return `x:${this.x}, y:${this.y}, z:${this.z}`;
-    }
+  toString() {
+    return `x:${this.x}, y:${this.y}, z:${this.z}`;
+  }
 }
 
 var position= new Xyz();
