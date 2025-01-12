@@ -20,7 +20,7 @@ var isDown= false;
 var position= {x:0, y:0, z:0 };
 var rotation= {x:0, y:0, z:0 };
 
-export var logo{ run, pd, fd };
+export var logo= { run, pd, fd };
 
 export async function run( t ){
   t.forEach( expression=>{ 
