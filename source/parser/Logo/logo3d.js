@@ -58,14 +58,15 @@ function pd(){
     isDown= true;
     pout( "isDown: "+ isDown );
     //make sphere at position 
-    avatar.self.scene.add(
-      new THREE.Mesh(
-        new THREE.SphereGeometry(),
-        new THREE.MeshBasicMaterial(
-          {color: 0x55cc77}
-        )
+    let sphere= new THREE.Mesh(
+      new THREE.SphereGeometry(),
+      new THREE.MeshBasicMaterial(
+        {color: 0x55cc77}
       )
     );
+    let p= position;
+    sphere.position.set( p.x, p.y, p.z );
+    avatar.self.scene.add( sphere );
   }
 }
 
