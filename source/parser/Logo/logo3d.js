@@ -16,7 +16,15 @@ import { pout } from 'bci';
 import { avatar } from 'mp';
 const THREE= avatar.js3;
 
-export const test= 'test success';
+class Turtle {
+  const pen= { isDown: false, color: 0x33aa55 };
+  constructor(){
+    this.position= new Xyz();
+    this.rotation= new Xyz();
+    this.shapes= ['Sphere','Cylinder'];
+  }
+  
+}
 
 var isDown= false;
 
