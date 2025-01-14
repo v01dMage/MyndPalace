@@ -23,7 +23,25 @@ class Turtle {
     this.shapes= ['Sphere','Cylinder'];
     this.pen= { isDown: false, color: 0x33aa55 };
   }
-  
+
+  mv( arr ){
+    let [x,y,z]= arr;
+    this.position.x= x;
+    this.position.y= y;
+    this.position.z= z;
+    if( this.pen.isDown ){
+      let sphere= new THREE.Mesh(
+        new THREE.SphereGeometry(.1),
+        new THREE.MeshBasicMaterial(
+          {color: this.pen.color }
+        )
+      );
+      let p= this.position;
+      sphere.position.set( p.x, p.y, p.z );
+      avatar.self.scene.add( sphere );
+    }
+  }
+
 }
 
 var isDown= false;
