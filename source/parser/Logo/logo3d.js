@@ -53,17 +53,18 @@ class Turtle {
 
   animate( arr ){
     let method= arr.shift();
-    let upfn= this.latest[ method ](arr);
+    let upfn= this[ method ](arr);
     avatar.addToUpdate( upfn );
   }
 
   y_wave( arr ){
     let [top,bottom]= arr;
     let d= top- bottom;
+    let obj= this.latest;
     return (o)=>{
-      let {x,y,z}= this.position;
+      let {x,y,z}= obj.position;
       y= (1+Math.sin( o.now ))/2*d+ bottom;
-      this.position.set( x, y, z );
+      obj.position.set( x, y, z );
     };
   }
 
