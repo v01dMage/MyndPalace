@@ -22,6 +22,7 @@ class Turtle {
     this.rotation= new Xyz();
     this.shapes= ['Sphere','Cylinder'];
     this.pen= { isDown: false, color: 0x33aa55 };
+    this.latest= {};
   }
 
   mv( arr ){
@@ -39,6 +40,7 @@ class Turtle {
       let p= this.position;
       sphere.position.set( p.x, p.y, p.z );
       avatar.self.scene.add( sphere );
+      this.latest= sphere;
     }
   }
 
@@ -47,6 +49,22 @@ class Turtle {
   }
   pu(){
     this.pen.isDown= false;
+  }
+
+  animate( arr ){
+    let method= arr.shift();
+    let upfn= this.latest[ method ](arr);
+    avatar.addToUpdate( upfn );
+  }
+
+  y_wave( arr ){
+    let [top,bottom]= arr;
+    let d= top- bottom;
+    return function(o){
+      let {x,y,z}= this.position;
+      y= (1+Math.sin( o.now ))/2*d+ bottom;
+      this.position.set( x, y, z );
+    }
   }
 
 }
