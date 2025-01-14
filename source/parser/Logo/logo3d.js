@@ -58,12 +58,12 @@ class Turtle {
   }
 
   y_wave( arr ){
-    let [top,bottom]= arr;
+    let [top,bottom,ms]= arr;
     let d= top- bottom;
     let obj= this.latest;
     return (o)=>{
       let {x,y,z}= obj.position;
-      y= (1+Math.sin( o.now ))/2*d+ bottom;
+      y= (1+Math.sin( o.now/ms ))/2*d+ bottom;
       obj.position.set( x, y, z );
     };
   }
