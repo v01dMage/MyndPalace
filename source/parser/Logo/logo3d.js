@@ -71,6 +71,7 @@ var rotation= new Xyz( position );
 export var logo= { run, mv, pd, pu, fd };
 
 export async function run( t ){
+  let logo= new Turtle();
   t.forEach( expression=>{ 
     let parts= expression.split(' ');
     let cmd= parts.shift();
