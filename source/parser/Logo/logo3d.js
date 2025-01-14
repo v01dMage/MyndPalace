@@ -51,7 +51,7 @@ class Turtle {
 
 }
 
-var isDown= false;
+//var isDown= false;
 
 class Xyz {
   constructor( o={x:0,y:0,z:0} ){
@@ -65,10 +65,10 @@ class Xyz {
   }
 }
 
-var position= new Xyz();
-var rotation= new Xyz( position );
+//var position= new Xyz();
+//var rotation= new Xyz( position );
 
-export var logo= { run, mv, pd, pu, fd };
+//export var logo= { run, mv, pd, pu, fd };
 
 export async function run( t ){
   let logo= new Turtle();
@@ -78,7 +78,7 @@ export async function run( t ){
     logo[cmd]( parts );
   });
 }
-
+/*
 function mv( arr ){
   let [x,y,z]= arr;
   position.x= x;
@@ -121,4 +121,4 @@ function fd( d ){
   let old= new Xyz( position );
   pout( "pos: "+ old );
   pout( "distance: "+ d );
-}
+}*/
