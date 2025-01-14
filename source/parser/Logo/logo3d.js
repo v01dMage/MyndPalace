@@ -60,11 +60,11 @@ class Turtle {
   y_wave( arr ){
     let [top,bottom]= arr;
     let d= top- bottom;
-    return function(o){
+    return (o)=>{
       let {x,y,z}= this.position;
       y= (1+Math.sin( o.now ))/2*d+ bottom;
       this.position.set( x, y, z );
-    }
+    };
   }
 
 }
