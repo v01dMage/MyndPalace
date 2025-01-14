@@ -46,7 +46,7 @@ class Turtle {
     this.pen.isDown= true;
   }
   pu(){
-    this pen.isDown= false;
+    this.pen.isDown= false;
   }
 
 }
