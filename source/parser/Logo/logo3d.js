@@ -42,6 +42,13 @@ class Turtle {
     }
   }
 
+  pd(){ 
+    this.pen.isDown= true;
+  }
+  pu(){
+    this pen.isDown= false;
+  }
+
 }
 
 var isDown= false;
