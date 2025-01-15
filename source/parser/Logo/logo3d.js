@@ -26,7 +26,7 @@ class Turtle {
   }
 
   color( arr ){
-    this.pen.color= arr;
+    this.pen.color= Number.parseInt( arr[0], 16 );
   }
 
   mv( arr ){
