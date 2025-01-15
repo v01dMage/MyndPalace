@@ -85,6 +85,15 @@ async function importXR(){
   makeRunnableButton('psi', ()=>{ 
     bci.avatar.self.psi( webText().value );
   } );
+  makeLoadableButton( 'logoTest', `//Logo noopts
+color 0x335577
+pd
+mv 0 1 -1
+mv 0 1 -2
+animate y_wave 1.5 0.5
+mv -1 1 -3
+mv 1 1 -3
+`);
 }
 
 const basicButtons= {
