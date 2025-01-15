@@ -90,7 +90,7 @@ color 0x335577
 pd
 mv 0 1 -1
 mv 0 1 -2
-animate y_wave 1.5 0.5
+animate y_wave 3 0 1800
 mv -1 1 -3
 mv 1 1 -3
 `);
