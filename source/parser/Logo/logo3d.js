@@ -25,6 +25,10 @@ class Turtle {
     this.latest= {};
   }
 
+  color( arr ){
+    this.pen.color= arr;
+  }
+
   mv( arr ){
     let [x,y,z]= arr;
     this.position.x= x;
