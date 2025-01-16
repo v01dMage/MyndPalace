@@ -31,9 +31,9 @@ class Turtle {
 
   mv( arr ){
     let [x,y,z]= arr;
-    this.position.x= x;
-    this.position.y= y;
-    this.position.z= z;
+    this.position.x= Number.parseFloat(x);
+    this.position.y= Number.parseFloat(y);
+    this.position.z= Number.parseFloat(z);
     if( this.pen.isDown ){
       let sphere= new THREE.Mesh(
         new THREE.SphereGeometry(.1),
@@ -62,7 +62,7 @@ class Turtle {
   }
 
   y_wave( arr ){
-    let [top,bottom,ms]= arr;
+    let [top,bottom,ms]= arr.map( Number.parseFloat );
     let d= top- bottom;
     let obj= this.latest;
     return (o)=>{
