@@ -30,10 +30,10 @@ class Turtle {
   }
 
   mv( arr ){
-    let [x,y,z]= arr;
-    this.position.x= Number.parseFloat(x);
-    this.position.y= Number.parseFloat(y);
-    this.position.z= Number.parseFloat(z);
+    let [x,y,z]= arr.map( Number.parseFloat );
+    this.position.x= x;
+    this.position.y= y;
+    this.position.z= z;
     if( this.pen.isDown ){
       let sphere= new THREE.Mesh(
         new THREE.SphereGeometry(.1),
