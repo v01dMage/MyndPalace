@@ -44,4 +44,6 @@ body {
 
 .pout {
   border: 2px solid gold;
+  margin: 3px;
+  border-radius: 3%;
 }
