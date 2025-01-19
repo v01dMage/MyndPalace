@@ -1,6 +1,6 @@
 body { 
-  background: #315;
-  color: #cea;
+  background: #000;
+  color: #afa;
   display: flex;
   flex-direction: column-reverse;
   flex-wrap: wrap;
@@ -24,12 +24,12 @@ body {
   flex: 10%;
   height: 4em;
   padding: 1em;
-  background: blue;
-  color: #ddd;
+  background: #00f;
+  color: #fff;
 }
 
 #webButtons .runnable {
-  background: red;
+  background: green;
   color: white;
 }
 
@@ -39,11 +39,12 @@ body {
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  height: 800px;
+  height: 640px;
 }
 
 .pout {
-  border: 2px solid gold;
-  margin-left: 10px;
+  border: 5px solid gold;
+  margin: 1em;
+  padding: 1em;
   border-radius: 10%;
 }
