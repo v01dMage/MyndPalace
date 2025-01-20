@@ -25,7 +25,7 @@ let repaint= (canvas)=>{
   bg.colorSpace = THREE.SRGBColorSpace;
   avatar.self.scene.background= bg;
 }
-repaint( paintStarfield(800,400,3000) );
+repaint( paintStarfield(2000,2000,1000) );
 
 //have fun
 
