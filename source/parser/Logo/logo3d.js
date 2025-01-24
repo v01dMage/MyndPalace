@@ -28,7 +28,7 @@ class Turtle {
   }
 
   construct( arr ){
-    let name= arr.join'_';
+    let name= arr.join('_');
     this.building= name;
     let project= [];
     this.book[name]= project;
