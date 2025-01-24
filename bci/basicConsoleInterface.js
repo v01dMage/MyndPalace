@@ -12,21 +12,27 @@ function clear(){
 }
 
 export async function pout(html){
+  let [b4, fin]= ['',''];
   if(typeof html == null)
     html= typeof html;
   if(typeof html == undefined)
-    html= '<em>undefined</em>';
+    html= 'undefined';
+    [b4, fin]= ['<em>','</em>'];
   if(typeof html == 'object'){
     html= '{}'+html.toString();
   }
+  if(typeof html == 'function'){
+    [b4, fin]= ['<code>','</code>'];
+  }
   let p= document.createElement('p');
   p.className= 'pout';
-  p.innerHTML= html.toString()
+  let formatted= html.toString()
     .replace(/&/g, '&amp')
     .replace(/</g, '&lt')
     .replace(/>/g, '&gt')
     .replace(/\n/g,'<br>')
     .replace(/\s\s/g, '&nbsp&nbsp');
+  p.innerHTML= b4+ formatted +fin;
   webOutput.appendChild( p );
 }
 
@@ -122,8 +128,7 @@ const basicButtons= {
   'bci': `let list= Object.keys(bci);
 list.forEach( piece=>{
   bci.pout(typeof bci[piece]+' : '+ piece);
-  let [b4, fin]= ( "function" == typeof bci[piece] )? ['<code>','</code>'] : ['',''] ;
-  bci.pout( b4+ bci[piece] +fin );
+  bci.pout( bci[piece] );
 });`,
 };
 
