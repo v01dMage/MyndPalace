@@ -18,11 +18,20 @@ const THREE= avatar.js3;
 
 class Turtle {
   constructor(){
+    this.book= {};
+    this.building= false;
     this.position= new Xyz();
     this.rotation= new Xyz();
     this.shapes= ['Sphere','Cylinder'];
     this.pen= { isDown: false, color: 0x33aa55 };
     this.latest= {};
+  }
+
+  construct( arr ){
+    let name= arr.join'_';
+    this.building= name;
+    let project= [];
+    this.book[name]= project;
   }
 
   color( arr ){
@@ -89,9 +98,23 @@ class Xyz {
 export async function run( t ){
   let logo= new Turtle();
   t.forEach( expression=>{ 
-    let parts= expression.split(' ');
-    let cmd= parts.shift();
-    logo[cmd]( parts );
+    if( !logo.building ){
+      let parts= expression.split(' ');
+      let cmd= parts.shift();
+      logo[cmd]( parts );
+    } else {
+      if( !expression ){
+        let name= logo.building;
+        logo[ name ]= ()={
+          run( logo.book[ name ] );
+        };
+        logo.building= false;
+      } else {
+        logo.book[ logo.building ].push(
+          expression 
+        );
+      }
+    }
   });
 }
 
