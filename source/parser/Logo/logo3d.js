@@ -111,7 +111,7 @@ export async function run( t ){
       let cmd= parts.shift();
       logo[cmd]( parts );
     } else {
-      if( expression == 'end' ) logo.end;
+      if( expression == 'end' ) logo.end();
       else logo.book[ logo.building ].push( expression );
     }
   });
