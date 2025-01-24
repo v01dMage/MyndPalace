@@ -105,7 +105,7 @@ export async function run( t ){
     } else {
       if( !expression ){
         let name= logo.building;
-        logo[ name ]= ()={
+        logo[ name ]= ()=>{
           run( logo.book[ name ] );
         };
         logo.building= false;
