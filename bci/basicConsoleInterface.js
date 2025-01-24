@@ -23,7 +23,7 @@ export async function pout(html){
   p.className= 'pout';
   p.innerHTML= html.toString()
     .replace('\n','<br>')
-    .replaceAll(/\s\s/, '&nbsp&nbsp');
+    .replace(/\s\s/, '&nbsp&nbsp');
   webOutput.appendChild( p );
 }
 
