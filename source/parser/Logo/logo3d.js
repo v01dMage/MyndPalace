@@ -32,6 +32,7 @@ class Turtle {
     this.building= name;
     let project= [];
     this.book[name]= project;
+    pout( name );
   }
 
   end( arr ){
@@ -40,6 +41,7 @@ class Turtle {
       run( this.book[ name ] );
     };
     this.building= false;
+    pout( this.book );
   }
 
   color( arr ){
@@ -113,6 +115,7 @@ export async function run( t ){
     } else {
       if( expression == 'end' ) logo.end();
       else logo.book[ logo.building ].push( expression );
+      pout( '+' );
     }
   });
 }
