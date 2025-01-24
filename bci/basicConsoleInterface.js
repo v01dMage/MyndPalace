@@ -86,13 +86,24 @@ async function importXR(){
     bci.avatar.self.psi( webText().value );
   } );
   makeLoadableButton( 'logoTest', `//Logo noopts
-color 0x335577
+color 0x3355ff
+construct a b
 pd
 mv 0 1 -.1
 mv 0 1 -.3
 animate y_wave 1.5 0.5 1800
 mv -.2 1 -.5
 mv .2 1 -.5
+end
+color 0xffcc55
+a_b
+color 0xcc33dd
+pd
+mv 1 1 -.1
+mv 1 1 -.3
+animate y_wave 1.5 0.5 300
+mv .8 1 -.5
+mv 1.2 1 -.5
 `);
 }
 
