@@ -23,7 +23,9 @@ export async function pout(html){
   p.className= 'pout';
   p.innerHTML= html.toString()
     .replace(/\n/g,'<br>')
-    .replace(/\s\s/g, '&nbsp&nbsp');
+    .replace(/\s\s/g, '&nbsp&nbsp')
+    .replace(/</g, '&lt')
+    .replace(/>/g, '&gt');
   webOutput.appendChild( p );
 }
 
