@@ -109,10 +109,9 @@ export async function run( t ){
     if( !logo.building ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
-      if( logo.book[cmd] ) logo.book[cmd]( parts );
-      else logo[cmd]( parts );
+      logo[cmd]( parts );
     } else {
-      if( expression.trim() == 'end' ) logo.end;
+      if( expression == 'end' ) logo.end;
       else logo.book[ logo.building ].push( expression );
     }
   });
