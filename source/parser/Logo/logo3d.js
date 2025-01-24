@@ -36,7 +36,7 @@ class Turtle {
   }
 
   end( arr ){
-    let name= logo.building;
+    let name= this.building;
     this[ name ]= ()=>{
       run( this.book[ name ] );
     };
