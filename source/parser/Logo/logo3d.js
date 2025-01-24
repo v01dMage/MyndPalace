@@ -34,6 +34,14 @@ class Turtle {
     this.book[name]= project;
   }
 
+  end( arr ){
+    let name= logo.building;
+    this[ name ]= ()=>{
+      run( this.book[ name ] );
+    };
+    this.building= false;
+  }
+
   color( arr ){
     this.pen.color= Number.parseInt( arr[0], 16 );
   }
@@ -103,17 +111,8 @@ export async function run( t ){
       let cmd= parts.shift();
       logo[cmd]( parts );
     } else {
-      if( !expression ){
-        let name= logo.building;
-        logo[ name ]= ()=>{
-          run( logo.book[ name ] );
-        };
-        logo.building= false;
-      } else {
-        logo.book[ logo.building ].push(
-          expression 
-        );
-      }
+      if( expression== 'end' ) logo.end;
+      else logo.book[ logo.building ].push( expression );
     }
   });
 }
