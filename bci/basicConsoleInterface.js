@@ -116,9 +116,9 @@ const basicButtons= {
   'XR': importXR,
   'bci': `let list= Object.keys(bci);
 list.forEach( piece=>{
-  bci.pout(typeof bci[piece]+' : ');
-  bci.pout( piece );
-  bci.pout( bci[piece] );
+  bci.pout(typeof bci[piece]+' : '+ piece);
+  let [b4, fin]= ( "function" == typeof bci[piece] )? ['<code>','</code>'] : ['',''] ;
+  bci.pout( b4+ bci[piece] +fin );
 });`,
 };
 
