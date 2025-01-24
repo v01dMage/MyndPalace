@@ -22,11 +22,11 @@ export async function pout(html){
   let p= document.createElement('p');
   p.className= 'pout';
   p.innerHTML= html.toString()
-    .replace(/\n/g,'<br>')
-    .replace(/\s\s/g, '&nbsp&nbsp')
+    .replace(/&/g, '&amp')
     .replace(/</g, '&lt')
     .replace(/>/g, '&gt')
-    .replace(/&/g, '&amp');
+    .replace(/\n/g,'<br>')
+    .replace(/\s\s/g, '&nbsp&nbsp');
   webOutput.appendChild( p );
 }
 
