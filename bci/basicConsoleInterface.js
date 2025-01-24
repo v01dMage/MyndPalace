@@ -22,7 +22,7 @@ export async function pout(html){
   let p= document.createElement('p');
   p.className= 'pout';
   p.innerHTML= html.toString()
-    .replace('\n','<br>')
+    .replace(/\n/g,'<br>')
     .replace(/\s\s/g, '&nbsp&nbsp');
   webOutput.appendChild( p );
 }
