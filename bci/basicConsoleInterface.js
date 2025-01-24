@@ -25,7 +25,8 @@ export async function pout(html){
     .replace(/\n/g,'<br>')
     .replace(/\s\s/g, '&nbsp&nbsp')
     .replace(/</g, '&lt')
-    .replace(/>/g, '&gt');
+    .replace(/>/g, '&gt')
+    .replace(/&/g, '&amp');
   webOutput.appendChild( p );
 }
 
