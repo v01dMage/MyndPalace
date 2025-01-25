@@ -43,6 +43,7 @@ body {
   height: 80%;
   min-height: 600px;
   min-width: 400px;
+  max-height: 75%;
 }
 
 .pout {
