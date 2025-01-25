@@ -1,6 +1,8 @@
 body { 
   background: #000;
   background-image: url(https://v01dmage.github.io/MyndPalace/assets/Screenshot_20220701-173124.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #afa;
   display: flex;
   flex-direction: column-reverse;
