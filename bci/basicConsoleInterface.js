@@ -125,6 +125,7 @@ const basicButtons= {
   'clear': clear,
   'quickSave': quickSave,
   'restore': restoreQuickSave,
+  'wipe': ()=>webText().value='',
   'XR': importXR,
   'bci': `let list= Object.keys(bci);
 list.forEach( piece=>{
