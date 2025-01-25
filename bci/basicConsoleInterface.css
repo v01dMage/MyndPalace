@@ -41,6 +41,7 @@ body {
   flex-direction: column;
   overflow: scroll;
   flex: 80%;
+  min-height: 50%;
 }
 
 .pout {
