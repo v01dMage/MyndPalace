@@ -22,6 +22,7 @@ class Turtle {
     this.building= false;
     this.position= new Xyz();
     this.rotation= new Xyz();
+    this.heading= new vec3(0,0,-1,.01);
     this.shapes= ['Sphere','Cylinder'];
     this.pen= { isDown: false, color: 0x33aa55 };
     this.latest= {};
@@ -102,6 +103,15 @@ class Xyz {
   
   toString() {
     return `x:${this.x}, y:${this.y}, z:${this.z}`;
+  }
+}
+
+class vec3 {
+  constructor( x= 0, y= 0, z=0, m=0 ){
+    this.x= x;
+    this.y= y;
+    this.z= z;
+    this.m= m;
   }
 }
 
