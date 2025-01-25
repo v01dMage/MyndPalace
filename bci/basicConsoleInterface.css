@@ -1,5 +1,6 @@
 body { 
   background: #000;
+  background-image: ./assets/Screenshot_20220701-173124.png;
   color: #afa;
   display: flex;
   flex-direction: column-reverse;
