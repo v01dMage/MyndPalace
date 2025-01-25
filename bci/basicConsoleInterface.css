@@ -1,6 +1,6 @@
 body { 
   background: #000;
-  background-image: url("assets/Screenshot_20220701-173124.png");
+  background-image: url("./assets/Screenshot_20220701-173124.png");
   color: #afa;
   display: flex;
   flex-direction: column-reverse;
