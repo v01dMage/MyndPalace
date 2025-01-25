@@ -19,7 +19,8 @@ export async function pout(html){
     html= 'undefined';
     [b4, fin]= ['<em>','</em>'];
   if(typeof html == 'object'){
-    html= '{}'+html.toString();
+    html= html.toString();
+    [b4, fin]= ['<b>{ ',' }</b>'];
   }
   if(typeof html == 'function'){
     [b4, fin]= ['<code>','</code>'];
