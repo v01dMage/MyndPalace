@@ -39,12 +39,12 @@ body {
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  height: 640px;
+  flex: 80%;
 }
 
 .pout {
   border: 5px solid gold;
-  margin: 1em;
+  margin: 2em;
   padding: 1em;
   border-radius: 5px;
 }
