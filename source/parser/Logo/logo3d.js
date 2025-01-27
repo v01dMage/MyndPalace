@@ -72,7 +72,7 @@ class Turtle {
     this.position.y= y;
     this.position.z= z;
     if( this.pen.isDown ){
-      sphere();
+      this.sphere();
     }
   }
 
@@ -88,7 +88,7 @@ class Turtle {
     this.position.x+= this.heading.x *d;
     this.position.y+= this.heading.y *d;
     this.position.z+= this.heading.z *d;
-    sphere(); //enum 1 after testing 
+    this.sphere(); //enum 1 after testing 
   }
   bk( arr ){
     fd( arr.map( n=>-1*n ) );
