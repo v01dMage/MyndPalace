@@ -23,7 +23,10 @@ function deg2rad( d ){
 function rad2coords( r ){
   return [ Math.sin(r), Math.cos(r) ];
 }
+
 const rc= 2*Math.PI;
+
+//function Sphere( pos ){}
 
 class Turtle {
   constructor(){
