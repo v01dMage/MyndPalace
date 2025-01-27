@@ -97,6 +97,37 @@ async function importXR(){
   makeRunnableButton('psi', ()=>{ 
     bci.avatar.self.psi( webText().value );
   } );
+  makeLoadableButton( 'logo circle', `//Logo noopts
+color 0xddb00b 
+pd
+mv 0 1 -.5
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+fd 10
+rt 30
+`);
   makeLoadableButton( 'logoTest', `//Logo noopts
 color 0x3355ff
 construct a b
