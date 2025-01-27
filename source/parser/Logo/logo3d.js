@@ -20,13 +20,18 @@ function deg2rad( d ){
   return d/360*(2*Math.PI);
 }
 
+function rad2coords( r ){
+  return [ Math.sin(r), Math.cos(r) ];
+}
+const rc= 2*Math.PI;
+
 class Turtle {
   constructor(){
     this.book= {};
     this.building= false;
     this.position= new Xyz();
     this.rotation= new Xyz();
-    this.heading= new vec3(0,0,-1,.01);
+    this.heading= new Heading( -Math.PI/2, 0, .1);
     this.shapes= ['Sphere','Cylinder'];
     this.pen= { isDown: false, color: 0x33aa55 };
     this.latest= {};
@@ -85,24 +90,19 @@ class Turtle {
   fd( arr ){
     let d= arr.map( Number.parseFloat ).shift();
     d*= this.heading.m;
-    this.position.x+= this.heading.x *d;
-    this.position.y+= this.heading.y *d;
-    this.position.z+= this.heading.z *d;
+    let [z,x]= rad2coords( this.heading.xz );
+    pout('z,x: '+z+', '+x);
+    this.position.x+= x *d;
+    this.position.z+= z *d;
+    //this.position.y+= this.heading.y *d;
     this.sphere(); //enum 1 after testing 
   }
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
   }
   yt( arr ){
-    let rc= 2*Math.PI;
-    pout('radian circle size:' + rc);
     let d= arr.map(Number.parseFloat).shift();
-    pout('d: '+d);
-    this.heading.y+= deg2rad( d );
-    if(this.heading.y > rc)
-      this.heading.y-= rc;
-    if(this.heading.y < -1*rc)
-      this.heading.y+= rc;
+    this.heading.xz+= deg2rad( d );
   }
   rt( arr ){
     this.yt( arr );
@@ -142,11 +142,10 @@ class Xyz {
   }
 }
 
-class vec3 {
-  constructor( x= 0, y= 0, z=0, m=0 ){
-    this.x= x;
-    this.y= y;
-    this.z= z;
+class Heading { //rad rad mag
+  constructor( xz= 0, yd= 0,  m=0 ){
+    this.xz= xz;
+    this.yd= yd;
     this.m= m;
   }
 }
