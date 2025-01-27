@@ -91,7 +91,7 @@ class Turtle {
     this.sphere(); //enum 1 after testing 
   }
   bk( arr ){
-    fd( arr.map( n=>-1*n ) );
+    this.fd( arr.map( n=>-1*n ) );
   }
   yt( arr ){
     let rc= 2*Math.PI;
@@ -105,10 +105,10 @@ class Turtle {
       this.heading.y+= rc;
   }
   rt( arr ){
-    yt( arr );
+    this.yt( arr );
   }
   lt( arr ){
-    yt( arr.map( n=>-1*n ) );
+    this.yt( arr.map( n=>-1*n ) );
   }
 
   animate( arr ){
