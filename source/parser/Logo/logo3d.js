@@ -16,6 +16,10 @@ import { pout } from 'bci';
 import { avatar } from 'mp';
 const THREE= avatar.js3;
 
+function deg2rad( d ){
+  return d/360*(2*Math.PI);
+}
+
 class Turtle {
   constructor(){
     this.book= {};
@@ -49,22 +53,26 @@ class Turtle {
     this.pen.color= Number.parseInt( arr[0], 16 );
   }
 
-  mv( arr ){
-    let [x,y,z]= arr.map( Number.parseFloat );
-    this.position.x= x;
-    this.position.y= y;
-    this.position.z= z;
-    if( this.pen.isDown ){
-      let sphere= new THREE.Mesh(
+  sphere( arr ){
+    let o= new THREE.Mesh(
         new THREE.SphereGeometry(.1),
         new THREE.MeshBasicMaterial(
           {color: this.pen.color }
         )
       );
       let p= this.position;
-      sphere.position.set( p.x, p.y, p.z );
-      avatar.self.scene.add( sphere );
-      this.latest= sphere;
+      o.position.set( p.x, p.y, p.z );
+      avatar.self.scene.add( o );
+      this.latest= o;
+  }
+
+  mv( arr ){
+    let [x,y,z]= arr.map( Number.parseFloat );
+    this.position.x= x;
+    this.position.y= y;
+    this.position.z= z;
+    if( this.pen.isDown ){
+      sphere();
     }
   }
 
@@ -73,6 +81,34 @@ class Turtle {
   }
   pu(){
     this.pen.isDown= false;
+  }
+  fd( arr ){
+    let d= arr.map( Number.parseFloat ).shift();
+    d*= this.heading.m;
+    this.position.x+= this.heading.x *d;
+    this.position.y+= this.heading.y *d;
+    this.position.z+= this.heading.z *d;
+    sphere(); //enum 1 after testing 
+  }
+  bk( arr ){
+    fd( arr.map( n=>-1*n ) );
+  }
+  yt( arr ){
+    let rc= 2*Math.PI;
+    pout('radian circle size:' + rc);
+    let d= arr.map(Number.parseFloat).shift();
+    pout('d: '+d);
+    this.heading.y+= deg2rad( d );
+    if(this.heading.y > rc)
+      this.heading.y-= rc;
+    if(this.heading.y < -1*rc)
+      this.heading.y+= rc;
+  }
+  rt( arr ){
+    yt( arr );
+  }
+  lt( arr ){
+    yt( arr.map( n=>-1*n ) );
   }
 
   animate( arr ){
