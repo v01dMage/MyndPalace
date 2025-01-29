@@ -127,6 +127,26 @@ fd 10
 rt 30
 fd 10
 rt 30
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
+xt 30
+fd 10
 `);
   makeLoadableButton( 'logoTest', `//Logo noopts
 color 0x3355ff
