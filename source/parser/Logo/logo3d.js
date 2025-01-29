@@ -95,8 +95,8 @@ class Turtle {
     let d= arr.map( Number.parseFloat ).shift();
     d*= this.heading.m;
     let [z,x]= rad2coords( this.heading.xz );
-    let y= Math.sin( yd );
-    let yp= Math.cos( yd );
+    let y= Math.sin( this.heading.yd );
+    let yp= Math.cos( this.heading.yd );
     z*= yp; x*= yp;
     this.position.x+= x *d;
     this.position.z+= z *d;
