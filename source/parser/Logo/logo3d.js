@@ -26,7 +26,18 @@ function rad2coords( r ){
 
 const rc= 2*Math.PI;
 
-//function Sphere( pos ){}
+function Sphere( pos, size, c ){
+  let o= new THREE.Mesh(
+          new THREE.SphereGeometry( size ),
+          new THREE.MeshBasicMaterial(
+            {color: c }
+        )
+      );
+      let p= this.position;
+      o.position.set( p.x, p.y, p.z );
+      avatar.self.scene.add( o );
+      return o;
+}
 
 class Turtle {
   constructor(){
@@ -36,7 +47,7 @@ class Turtle {
     this.rotation= new Xyz();
     this.heading= new Heading( -Math.PI/2, 0, .1);
     this.shapes= ['Sphere','Cylinder'];
-    this.pen= { isDown: false, color: 0x33aa55 };
+    this.pen= { isDown: false, color: 0x33aa55, size: 0.05};
     this.latest= {};
   }
 
@@ -62,16 +73,7 @@ class Turtle {
   }
 
   sphere( arr ){
-    let o= new THREE.Mesh(
-        new THREE.SphereGeometry(.1),
-        new THREE.MeshBasicMaterial(
-          {color: this.pen.color }
-        )
-      );
-      let p= this.position;
-      o.position.set( p.x, p.y, p.z );
-      avatar.self.scene.add( o );
-      this.latest= o;
+    this.latest= Sphere( this.position, this.pen.size, this.pen.color );
   }
 
   mv( arr ){
