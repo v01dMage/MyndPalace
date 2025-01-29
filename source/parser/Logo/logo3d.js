@@ -33,8 +33,7 @@ function Sphere( pos, size, c ){
             {color: c }
         )
       );
-      let p= this.position;
-      o.position.set( p.x, p.y, p.z );
+      o.position.set( pos.x, pos.y, pos.z );
       avatar.self.scene.add( o );
       return o;
 }
