@@ -106,6 +106,10 @@ class Turtle {
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
   }
+  xt( arr ){
+    let d= arr.map(Number.parseFloat).shift();
+    this.heading.yd+= deg2rad( d );
+  }
   yt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.xz+= deg2rad( d );
