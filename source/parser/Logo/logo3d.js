@@ -59,8 +59,16 @@ class Turtle {
   }
 
   repeat( arr ){
-    let times= arr.map( Number.parseFloat ).shift();
-    pout( 'test' );
+    this.building.unshift('loop');
+    this.loops.unshift([]);
+  }
+  loop( s ){
+    let [,n,...q]= s.split(' ');
+    n= Number.parseInt( n );
+    let code= this.loops.shift().join('\n')+'\n';
+    code= code.repeat( n );
+    this.building.shift();
+    run( code );
   }
 
   end( arr ){
@@ -170,13 +178,15 @@ export async function run( t ){
       let cmd= parts.shift();
       logo[cmd]( parts );
     } else {
-      if( expression == 'end' ) logo.end();
-      else if( expression == 'loop' ){
-        //loop
+      let first= expression.split(' ')[0];
+      if( first == 'end' ){ logo.end();
+      } else if( first == 'loop' ){
+        logo.loop( expression );
       } else {
         let project= logo.building[0];
         if( project == 'loop' ) project= logo.loops[0];
-        logo.book[ project ].push( expression );
+        else project= logo.book[ project ];
+        project.push( expression );
       }
     }
   });
