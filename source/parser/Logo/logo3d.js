@@ -52,7 +52,7 @@ class Turtle {
   }
 
   async run( t ){
-   t.forEach( expression=>{ 
+   t.forEach( async expression=>{ 
     if( this.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
