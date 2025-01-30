@@ -51,8 +51,25 @@ class Turtle {
     this.latest= {};
   }
 
-  run( s ){
-    
+  run( t ){
+   t.forEach( expression=>{ 
+    if( this.building.length == 0 ){
+      let parts= expression.split(' ');
+      let cmd= parts.shift();
+      this[cmd]( parts );
+    } else {
+      let first= expression.split(' ')[0];
+      if( first == 'end' ){ this.end();
+      } else if( first == 'loop' ){
+        this.loop( expression );
+      } else {
+        let project= this.building[0];
+        if( project == 'loop' ) project= this.loops[0];
+        else project= this.book[ project ];
+        project.push( expression );
+      }
+    }
+   });
   }
 
   construct( arr ){
@@ -73,7 +90,7 @@ class Turtle {
     let code= this.loops.shift().join('\n')+'\n';
     code= code.repeat( n );
     this.building.shift();
-    run( code.split('\n') );
+    this.run( code.split('\n') );
   }
 
   end( arr ){
@@ -177,24 +194,7 @@ class Heading { //rad rad mag
 
 export async function run( t ){
   let logo= new Turtle();
-  t.forEach( expression=>{ 
-    if( logo.building.length == 0 ){
-      let parts= expression.split(' ');
-      let cmd= parts.shift();
-      logo[cmd]( parts );
-    } else {
-      let first= expression.split(' ')[0];
-      if( first == 'end' ){ logo.end();
-      } else if( first == 'loop' ){
-        logo.loop( expression );
-      } else {
-        let project= logo.building[0];
-        if( project == 'loop' ) project= logo.loops[0];
-        else project= logo.book[ project ];
-        project.push( expression );
-      }
-    }
-  });
+  logo.run( t );
 }
 
 
