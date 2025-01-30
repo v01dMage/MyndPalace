@@ -41,7 +41,7 @@ function Sphere( pos, size, c ){
 class Turtle {
   constructor(){
     this.book= {};
-    this.building= false;
+    this.building= [];
     this.position= new Xyz();
     this.rotation= new Xyz();
     this.heading= new Heading( -Math.PI/2, 0, .1);
@@ -52,19 +52,22 @@ class Turtle {
 
   construct( arr ){
     let name= arr.join('_');
-    this.building= name;
+    this.building.unshift( name );
     let project= [];
     this.book[name]= project;
     pout( name );
   }
 
+  repeat( arr ){
+    let times= arr.map( Number.parseFloat ).shift();
+    pout( 'test' );
+  }
+
   end( arr ){
-    let name= this.building;
+    let name= this.building.shift();
     this[ name ]= ()=>{
       run( this.book[ name ] );
     };
-    this.building= false;
-    pout( this.book );
   }
 
   color( arr ){
