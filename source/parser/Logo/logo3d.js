@@ -171,8 +171,13 @@ export async function run( t ){
       logo[cmd]( parts );
     } else {
       if( expression == 'end' ) logo.end();
-      else logo.book[ logo.building[0] ].push( expression );
-      pout( '+' );
+      else if( expression == 'loop' ){
+        //loop
+      } else {
+        let project= logo.building[0];
+        if( project == 'loop' ) project= logo.loops[0];
+        logo.book[ project ].push( expression );
+      }
     }
   });
 }
