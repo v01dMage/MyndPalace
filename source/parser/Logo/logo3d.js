@@ -51,6 +51,10 @@ class Turtle {
     this.latest= {};
   }
 
+  run( s ){
+    
+  }
+
   construct( arr ){
     let name= arr.join('_');
     this.building.unshift( name );
@@ -69,7 +73,7 @@ class Turtle {
     let code= this.loops.shift().join('\n')+'\n';
     code= code.repeat( n );
     this.building.shift();
-    run( code );
+    run( code.split('\n') );
   }
 
   end( arr ){
