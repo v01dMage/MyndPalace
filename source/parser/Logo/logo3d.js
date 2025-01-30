@@ -166,7 +166,7 @@ class Heading { //rad rad mag
 export async function run( t ){
   let logo= new Turtle();
   t.forEach( expression=>{ 
-    if( !logo.building ){
+    if( logo.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
       logo[cmd]( parts );
