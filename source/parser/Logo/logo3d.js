@@ -171,7 +171,7 @@ export async function run( t ){
       logo[cmd]( parts );
     } else {
       if( expression == 'end' ) logo.end();
-      else logo.book[ logo.building ].push( expression );
+      else logo.book[ logo.building[0] ].push( expression );
       pout( '+' );
     }
   });
