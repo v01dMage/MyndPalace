@@ -51,12 +51,12 @@ class Turtle {
     this.latest= {};
   }
 
-  run( t ){
+  async run( t ){
    t.forEach( expression=>{ 
     if( this.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
-      this[cmd]( parts );
+      await this[cmd]( parts );
     } else {
       let first= expression.split(' ')[0];
       if( first == 'end' ){ this.end();
