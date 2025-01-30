@@ -98,55 +98,20 @@ async function importXR(){
     bci.avatar.self.psi( webText().value );
   } );
   makeLoadableButton( 'logo circle', `//Logo noopts
-color 0xddb00b 
+color 0xddbb00
 pd
 mv 0 1 -.5
+repeat
 fd 10
 rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
-fd 10
-rt 30
+loop 12
+repeat
 xt 30
 fd 10
-xt 30
-fd 10
-xt 30
-fd 10
-xt 30
-fd 10
-xt 30
-fd 10
-xt 30
-fd 10
-xt 30
-fd 10
-xt 30
-fd 10
-xt 30
-fd 10
-xt 30
-fd 10
+loop 7
+color 0xff0000
+fd 1
+fd 1
 `);
   makeLoadableButton( 'logoTest', `//Logo noopts
 color 0x3355ff
