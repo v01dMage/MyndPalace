@@ -42,6 +42,7 @@ class Turtle {
   constructor(){
     this.book= {};
     this.building= [];
+    this.loops= [];
     this.position= new Xyz();
     this.rotation= new Xyz();
     this.heading= new Heading( -Math.PI/2, 0, .1);
