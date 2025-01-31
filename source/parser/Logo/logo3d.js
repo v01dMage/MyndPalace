@@ -103,7 +103,7 @@ class Turtle {
   color( arr ){
     if( arr[0] == 'random' ){
       let opts= "0123456789abcdef";
-      let r= ()={
+      let r= ()=>{
         return Math.floor(Math.random()*16)
       };
       let color= '0x';
