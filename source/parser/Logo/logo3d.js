@@ -101,8 +101,21 @@ class Turtle {
   }
 
   color( arr ){
+    if( arr[0] == 'random' ){
+      let opts= "0123456789abcdef";
+      let r= ()={
+        return Math.floor(Math.random()*16)
+      };
+      let color= '0x';
+      while( color.length != 8 ){
+        color+= opts[r()];
+      }
+      pout( color );
+      arr[0]= color;
+    }
     this.pen.color= Number.parseInt( arr[0], 16 );
   }
+  
 
   sphere( arr ){
     this.latest= Sphere( this.position, this.pen.size, this.pen.color );
