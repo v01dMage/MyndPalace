@@ -57,6 +57,11 @@ class Turtle {
     this.shapes= base.shapes;
     this.pen= base.pen;
     this.latest= {};
+    Object.keys(this.book).forEach( c=>{
+      this[c]= ()=>{
+        this.run( this.book[ c ] );
+      };
+    });
   }
 
   nu( arr ){
