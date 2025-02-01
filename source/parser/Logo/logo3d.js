@@ -60,9 +60,9 @@ class Turtle {
   }
 
   nu( arr ){
-    let t= new Turtle(this);
-    t[arr[0]]();
-    pout('...');
+    let cmd= arr[0];
+    pout('..'+cmd);
+    run([cmd], this);
   }
   
   async run( t ){
@@ -219,8 +219,8 @@ class Heading { //rad rad mag
   }
 }
 
-export async function run( t ){
-  let logo= new Turtle();
+export async function run( t, o ){
+  let logo= new Turtle(o);
   logo.run( t );
 }
 
