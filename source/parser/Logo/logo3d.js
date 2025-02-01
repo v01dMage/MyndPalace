@@ -51,6 +51,8 @@ class Turtle {
     this.latest= {};
   }
 
+  nu( t ){}
+  
   async run( t ){
    t.forEach( async expression=>{ 
     if( this.building.length == 0 ){
