@@ -60,7 +60,11 @@ class Turtle {
   }
 
   nu( arr ){
-    new Turtle(this).run([arr[0]]);
+    pout('.');
+    let t= new Turtle(this);
+    pout('..');
+    t.run([arr[0]]);
+    pout('...');
   }
   
   async run( t ){
