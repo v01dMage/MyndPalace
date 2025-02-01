@@ -62,7 +62,7 @@ class Turtle {
   async nu( arr ){
     let cmd= arr[0];
     pout('..'+cmd);
-    run([cmd], this);
+    await run([cmd], this);
   }
   
   async run( t ){
