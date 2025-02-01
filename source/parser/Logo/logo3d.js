@@ -96,7 +96,7 @@ class Turtle {
   end( arr ){
     let name= this.building.shift();
     this[ name ]= ()=>{
-      run( this.book[ name ] );
+      this.run( this.book[ name ] );
     };
   }
 
