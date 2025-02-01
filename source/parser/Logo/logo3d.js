@@ -59,10 +59,9 @@ class Turtle {
     this.latest= {};
   }
 
-  async nu( arr ){
+  nu( arr ){
     let cmd= arr[0];
-    pout('..'+cmd);
-    await run([cmd], this);
+    run( this.book[cmd], this);
   }
   
   async run( t ){
