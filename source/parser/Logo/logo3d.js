@@ -39,19 +39,29 @@ function Sphere( pos, size, c ){
 }
 
 class Turtle {
-  constructor(){
-    this.book= {};
+  constructor(t){
+    let base= t? t:{
+      book: {},
+      position: new Xyz(),
+      rotation: new Xyz(),
+      heading: new Heading( -Math.PI/2, 0, .1),
+      shapes: ['Sphere','Cylinder'],
+      pen: { isDown: false, color: 0x33aa55, size: 0.05},
+    };
+    this.book= base.book;
     this.building= [];
     this.loops= [];
-    this.position= new Xyz();
-    this.rotation= new Xyz();
-    this.heading= new Heading( -Math.PI/2, 0, .1);
-    this.shapes= ['Sphere','Cylinder'];
-    this.pen= { isDown: false, color: 0x33aa55, size: 0.05};
+    this.position= base.position;
+    this.rotation= base.rotation;
+    this.heading= base.heading;
+    this.shapes= base.shapes;
+    this.pen= base.pen;
     this.latest= {};
   }
 
-  nu( t ){}
+  nu( arr ){
+    new Turtle(this).run([arr[0]]);
+  }
   
   async run( t ){
    t.forEach( async expression=>{ 
