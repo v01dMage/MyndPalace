@@ -59,7 +59,7 @@ class Turtle {
     this.latest= {};
   }
 
-  nu( arr ){
+  async nu( arr ){
     let cmd= arr[0];
     pout('..'+cmd);
     run([cmd], this);
