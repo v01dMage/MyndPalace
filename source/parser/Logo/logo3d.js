@@ -66,7 +66,7 @@ class Turtle {
 
   nu( arr ){
     let cmd= arr[0];
-    run( this.book[cmd], this);
+    run( [cmd], this);
   }
   
   async run( t ){
