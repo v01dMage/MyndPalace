@@ -47,7 +47,7 @@ function wait(ms){
 class Turtle {
   constructor(t){
     let base= t? t:{
-      timestep: 200,
+      timestep: 50,
       book: {},
       position: new Xyz(),
       rotation: new Xyz(),
@@ -71,6 +71,10 @@ class Turtle {
         this.run( this.book[ c ] );
       };
     });
+  }
+
+  ts( arr ){
+    this.timestep= Number.parseInt( arr[0] );
   }
 
   nu( arr ){ run( [arr[0]], this); }
