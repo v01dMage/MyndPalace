@@ -47,7 +47,7 @@ function wait(ms){
 class Turtle {
   constructor(t){
     let base= t? t:{
-      timestep: 700,
+      timestep: 200,
       book: {},
       position: new Xyz(),
       rotation: new Xyz(),
