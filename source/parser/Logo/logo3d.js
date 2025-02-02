@@ -48,14 +48,15 @@ class Turtle {
       shapes: ['Sphere','Cylinder'],
       pen: { isDown: false, color: 0x33aa55, size: 0.05},
     };
-    this.book= base.book;
+    this.book= Object.assign({}, base.book);
     this.building= [];
     this.loops= [];
-    this.position= base.position;
-    this.rotation= base.rotation;
-    this.heading= base.heading;
+    this.position= new Xyz(base.position);
+    this.rotation= new Xyz(base.rotation);
+    let bh= base.heading;
+    this.heading= new Heading( bh.xz, bh.yd, bh.m );
     this.shapes= base.shapes;
-    this.pen= base.pen;
+    this.pen= Object.assign({}, base.pen);
     this.latest= {};
     Object.keys(this.book).forEach( c=>{
       this[c]= ()=>{
@@ -64,10 +65,7 @@ class Turtle {
     });
   }
 
-  nu( arr ){
-    let cmd= arr[0];
-    run( [cmd], this);
-  }
+  nu( arr ){ run( [arr[0]], this); }
   
   async run( t ){
    t.forEach( async expression=>{ 
