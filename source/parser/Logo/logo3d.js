@@ -41,6 +41,7 @@ function Sphere( pos, size, c ){
 class Turtle {
   constructor(t){
     let base= t? t:{
+      timestep: 200,
       book: {},
       position: new Xyz(),
       rotation: new Xyz(),
@@ -72,6 +73,9 @@ class Turtle {
     if( this.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
+      await new Promise( (resolve)=>{
+        setTimeout( ()=>resolve(), this.timestep );
+      });
       await this[cmd]( parts );
     } else {
       let first= expression.split(' ')[0];
