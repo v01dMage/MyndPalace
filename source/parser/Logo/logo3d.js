@@ -49,6 +49,7 @@ class Turtle {
       shapes: ['Sphere','Cylinder'],
       pen: { isDown: false, color: 0x33aa55, size: 0.05},
     };
+    this.timestep= base.timestep;
     this.book= Object.assign({}, base.book);
     this.building= [];
     this.loops= [];
