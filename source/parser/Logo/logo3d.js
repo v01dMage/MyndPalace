@@ -75,7 +75,7 @@ class Turtle {
       let parts= expression.split(' ');
       let cmd= parts.shift();
       await new Promise( (resolve)=>{
-        setTimeout( ()=>resolve(), this.timestep );
+        setTimeout( ()=>{resolve();}, this.timestep );
       });
       await this[cmd]( parts );
     } else {
