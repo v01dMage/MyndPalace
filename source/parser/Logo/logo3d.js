@@ -76,13 +76,14 @@ class Turtle {
   nu( arr ){ run( [arr[0]], this); }
   
   async run( t ){
-   t.forEach( async expression=>{ 
-    if( this.building.length == 0 ){
+    let expression;
+    while( expression= t.shift() ){
+     if( this.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
       await wait( this.timestep );
-      await this[cmd]( parts );
-    } else {
+      this[cmd]( parts );
+     } else {
       let first= expression.split(' ')[0];
       if( first == 'end' ){ this.end();
       } else if( first == 'loop' ){
@@ -93,8 +94,8 @@ class Turtle {
         else project= this.book[ project ];
         project.push( expression );
       }
+     }
     }
-   });
   }
 
   construct( arr ){
