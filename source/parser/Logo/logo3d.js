@@ -38,6 +38,12 @@ function Sphere( pos, size, c ){
       return o;
 }
 
+function wait(ms){
+  return new Promise( (resolve)=>{
+    setTimeout( resolve, ms );
+  });
+}
+
 class Turtle {
   constructor(t){
     let base= t? t:{
@@ -74,9 +80,7 @@ class Turtle {
     if( this.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
-      await new Promise( (resolve)=>{
-        setTimeout( ()=>{resolve();}, this.timestep );
-      });
+      await wait( this.timestep );
       await this[cmd]( parts );
     } else {
       let first= expression.split(' ')[0];
