@@ -78,10 +78,15 @@ class Turtle {
   }
 
   nu( arr ){ run( [arr[0]], this); }
+
+  isAlreadyRunning(){
+    return this.queue?.length > 0;
+  }
   
   async run( t ){
     let expression;
-    while( expression= t.shift() ){
+    this.queue= this.isAlreadyRunning() ? [...t, ...this.queue] : t;
+    while( expression= this.queue.shift() ){
      if( this.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
@@ -128,6 +133,7 @@ class Turtle {
     this[ name ]= ()=>{
       this.run( this.book[ name ] );
     };
+    pout( name + 'constructed' );
   }
 
   color( arr ){
