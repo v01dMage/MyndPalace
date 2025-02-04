@@ -97,21 +97,30 @@ async function importXR(){
   makeRunnableButton('psi', ()=>{ 
     bci.avatar.self.psi( webText().value );
   } );
-  makeLoadableButton( 'logo circle', `//Logo noopts
-color 0xddbb00
+  makeLoadableButton( 'logo grass', `//Logo noopts
 pd
-mv 0 1 -.5
+color random 
+ts 300
+construct grass
+color random
+pd
+xt 83
+fd 2
+ts 200
 repeat
-fd 10
-rt 30
-loop 12
+fd 1
+loop 5
+end
+color random 
+fd 1
+animate y_wave 1.5 0.5 300
+color random 
 repeat
-xt 30
-fd 10
-loop 7
-color 0xff0000
-fd 1
-fd 1
+fd 2
+nu grass
+rt 10
+nu grass
+loop 34
 `);
   makeLoadableButton( 'logoTest', `//Logo noopts
 color 0x3355ff
