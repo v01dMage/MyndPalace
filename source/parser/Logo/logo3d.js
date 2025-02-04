@@ -46,6 +46,7 @@ function wait(ms){
 
 class Turtle {
   constructor(t){
+    pout('new turtle started');
     let base= t? t:{
       timestep: 50,
       book: {},
@@ -67,6 +68,7 @@ class Turtle {
     this.pen= Object.assign({}, base.pen);
     this.latest= {};
     Object.keys(this.book).forEach( c=>{
+      pout('importing '+c);
       this[c]= ()=>{
         this.irun( this.book[ c ] );
       };
@@ -122,6 +124,7 @@ class Turtle {
   }
 
   repeat( arr ){
+    pout('repeat starting');
     this.building.unshift('loop');
     this.loops.unshift([]);
   }
@@ -130,6 +133,7 @@ class Turtle {
     n= Number.parseInt( n );
     let code= this.loops.shift().join('\n')+'\n';
     code= code.repeat( n );
+    pout('loop '+n+'\n'+code);
     this.building.shift();
     this.irun( code.split('\n') );
   }
