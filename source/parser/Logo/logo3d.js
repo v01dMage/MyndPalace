@@ -86,6 +86,7 @@ class Turtle {
   }
   
   async irun( t ){
+    pout('**'+t);
     let expression;
     this.queue= this.isAlreadyRunning() ? [...t, ...this.queue] : t;
     while( expression= this.queue.shift() ){
@@ -252,6 +253,7 @@ class Heading { //rad rad mag
 }
 
 export async function run( t, o ){
+  pout('*'+t);
   let logo= new Turtle(o);
   logo.irun( t );
 }
