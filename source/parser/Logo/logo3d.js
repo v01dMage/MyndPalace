@@ -70,7 +70,7 @@ class Turtle {
     Object.keys(this.book).forEach( c=>{
       pout('importing '+c);
       this[c]= ()=>{
-        this.irun( this.book[ c ] );
+        this.irun( [...this.book[ c ] ]);
       };
     });
   }
@@ -142,7 +142,7 @@ class Turtle {
   end( arr ){
     let name= this.building.shift();
     this[ name ]= ()=>{
-      this.run( this.book[ name ] );
+      this.run( [...this.book[ name ] ]);
     };
     pout( name + 'constructed' );
   }
