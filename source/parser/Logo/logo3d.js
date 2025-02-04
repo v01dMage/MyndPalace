@@ -68,7 +68,7 @@ class Turtle {
     this.latest= {};
     Object.keys(this.book).forEach( c=>{
       this[c]= ()=>{
-        this.run( this.book[ c ] );
+        this.irun( this.book[ c ] );
       };
     });
   }
@@ -83,7 +83,7 @@ class Turtle {
     return this.queue?.length > 0;
   }
   
-  async run( t ){
+  async irun( t ){
     let expression;
     this.queue= this.isAlreadyRunning() ? [...t, ...this.queue] : t;
     while( expression= this.queue.shift() ){
@@ -131,7 +131,7 @@ class Turtle {
     let code= this.loops.shift().join('\n')+'\n';
     code= code.repeat( n );
     this.building.shift();
-    this.run( code.split('\n') );
+    this.irun( code.split('\n') );
   }
 
   end( arr ){
@@ -249,7 +249,7 @@ class Heading { //rad rad mag
 
 export async function run( t, o ){
   let logo= new Turtle(o);
-  logo.run( t );
+  logo.irun( t );
 }
 
 
