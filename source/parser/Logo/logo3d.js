@@ -93,16 +93,20 @@ class Turtle {
       await wait( this.timestep );
       this[cmd]( parts );
      } else {
-      let first= expression.split(' ')[0];
-      if( first == 'end' ){ this.end();
-      } else if( first == 'loop' ){
-        this.loop( expression );
-      } else {
-        let project= this.building[0];
-        if( project == 'loop' ) project= this.loops[0];
-        else project= this.book[ project ];
-        project.push( expression );
-      }
+       let project= this.building[0];
+       let first= expression.split(' ')[0];
+       if( project == 'loop' ){
+         if( first == 'loop' ){
+           this.loop( expression );
+         } else {
+           this.loops[0].push( expression );
+         }
+       } else {
+         if( first == 'end' ){ this.end();}
+         else {
+           this.book[ project ].push( expression );
+         }
+       }
      }
     }
   }
