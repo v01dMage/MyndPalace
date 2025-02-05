@@ -106,9 +106,7 @@ class Turtle {
          }
        } else {
          if( first == 'end' ){ this.end();}
-         else if( first == 'repeat'){
-           this.repeat();
-         } else {
+         else {
            this.book[ project ].push( expression );
          }
        }
