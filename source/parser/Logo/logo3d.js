@@ -86,9 +86,9 @@ class Turtle {
   }
   
   async irun( t ){
-    pout('**'+t);
     let expression;
     this.queue= this.isAlreadyRunning() ? [...t, ...this.queue] : t;
+    pout('** '+this.queue);
     while( expression= this.queue.shift() ){
      if( this.building.length == 0 ){
       let parts= expression.split(' ');
