@@ -99,7 +99,9 @@ class Turtle {
        let project= this.building[0];
        let first= expression.split(' ')[0];
        if( project == 'loop' ){
-         if( first == 'loop' ){
+         if( first == 'repeat' ){
+           this.repeat();
+         } else if( first == 'loop' ){
            this.loop( expression );
          } else {
            this.loops[0].push( expression );
@@ -123,9 +125,9 @@ class Turtle {
   }
 
   repeat( arr ){
-    pout('repeat starting');
     this.building.unshift('loop');
     this.loops.unshift([]);
+    pout('repeat:layer '+this.loops.length);
   }
   loop( s ){
     let [,n,...q]= s.split(' ');
