@@ -54,12 +54,13 @@ class Turtle {
       rotation: new Xyz(),
       heading: new Heading( -Math.PI/2, 0, .1),
       shapes: ['Sphere','Cylinder'],
-      pen: { isDown: false, color: 0x33aa55, size: 0.05},
+      pen: { isDown: true, color: 0x33aa55, size: 0.05},
     };
     this.timestep= base.timestep;
     this.book= Object.assign({}, base.book);
     this.building= [];
     this.loops= [];
+    this.queue= [];
     this.position= new Xyz(base.position);
     this.rotation= new Xyz(base.rotation);
     let bh= base.heading;
@@ -81,15 +82,17 @@ class Turtle {
 
   nu( arr ){ run( [arr[0]], this); }
 
-  isAlreadyRunning(){
+  get hasMore(){
     return this.queue?.length > 0;
   }
   
   async irun( t ){
     let expression;
-    this.queue= this.isAlreadyRunning() ? [...t, ...this.queue] : t;
+    this.queue= [...t, ...this.queue];
     pout('** '+this.queue);
-    while( expression= this.queue.shift() ){
+    while( this.hasMore ){
+      expression= this.queue.shift();
+      if( !expression ) continue;
      if( this.building.length == 0 ){
       let parts= expression.split(' ');
       let cmd= parts.shift();
