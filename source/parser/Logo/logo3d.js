@@ -44,9 +44,16 @@ function wait(ms){
   });
 }
 
+//let priority= 1; //5; //adjust with ap
+function log( msg, p ){
+  //if( p < priority ){
+    pout( msg );
+  //}
+}
+
 class Turtle {
   constructor(t){
-    pout('new turtle started');
+    log('new turtle started');
     let base= t? t:{
       timestep: 50,
       book: {},
@@ -69,7 +76,8 @@ class Turtle {
     this.pen= Object.assign({}, base.pen);
     this.latest= {};
     Object.keys(this.book).forEach( c=>{
-      pout('importing '+c);
+      log('importing '+c);
+      log( this.book[c] );
       this[c]= ()=>{
         this.irun( [...this.book[ c ] ]);
       };
@@ -89,7 +97,7 @@ class Turtle {
   async irun( t ){
     let expression;
     this.queue= [...t, ...this.queue];
-    pout('** '+this.queue);
+    log('** '+this.queue);
     while( this.hasMore ){
       expression= this.queue.shift();
       if( !expression ) continue;
@@ -124,20 +132,20 @@ class Turtle {
     this.building.unshift( name );
     let project= [];
     this.book[name]= project;
-    pout( name );
+    log( name );
   }
 
   repeat( arr ){
     this.building.unshift('loop');
     this.loops.unshift([]);
-    pout('repeat:layer '+this.loops.length);
+    log('repeat:layer '+this.loops.length);
   }
   loop( s ){
     let [,n,...q]= s.split(' ');
     n= Number.parseInt( n );
     let code= this.loops.shift().join('\n')+'\n';
     code= code.repeat( n );
-    pout('loop '+n+'\n'+code);
+    log('loop '+n+'\n'+code);
     this.building.shift();
     this.irun( code.split('\n') );
   }
@@ -147,7 +155,7 @@ class Turtle {
     this[ name ]= ()=>{
       this.irun( [...this.book[ name ] ]);
     };
-    pout( name + 'constructed' );
+    log( name + 'constructed' );
   }
 
   color( arr ){
@@ -160,7 +168,7 @@ class Turtle {
       while( color.length != 8 ){
         color+= opts[r()];
       }
-      pout( color );
+      log( color );
       arr[0]= color;
     }
     this.pen.color= Number.parseInt( arr[0], 16 );
@@ -256,7 +264,7 @@ class Heading { //rad rad mag
 }
 
 export async function run( t, o ){
-  pout('*'+t);
+  log('*'+t);
   let logo= new Turtle(o);
   logo.irun( t );
 }
