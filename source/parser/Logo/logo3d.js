@@ -105,7 +105,7 @@ class Turtle {
       let parts= expression.split(' ');
       let cmd= parts.shift();
       await wait( this.timestep );
-      this[cmd]( parts );
+      await this[cmd]( parts );
      } else {
        let project= this.building[0];
        let first= expression.split(' ')[0];
