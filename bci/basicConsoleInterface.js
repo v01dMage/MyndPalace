@@ -123,24 +123,37 @@ nu grass
 loop 34
 `);
   makeLoadableButton( 'logoTest', `//Logo noopts
-color 0x3355ff
-construct a b
-pd
-mv 0 1 -.1
-mv 0 1 -.3
-animate y_wave 1.5 0.5 1800
-mv -.2 1 -.5
-mv .2 1 -.5
+ts 150 
+color random
+construct hoop
+color random 
+lt 90
+repeat
+xt 15
+fd 2
+loop 24
+rt 90
 end
-color 0xffcc55
-a_b
-color 0xcc33dd
-pd
-mv 1 1 -.1
-mv 1 1 -.3
-animate y_wave 1.5 0.5 300
-mv .8 1 -.5
-mv 1.2 1 -.5
+repeat
+repeat
+repeat
+fd 1
+loop 5
+fd 2
+rt 15
+hoop
+fd 2
+hoop 
+rt 15
+fd 2
+rt 15
+loop 8
+lt 180
+loop 2
+xt 90
+color 0xffbb33
+fd 1
+animate y_wave 3 2 2000
 `);
 }
 
