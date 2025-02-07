@@ -66,7 +66,7 @@ class Turtle {
     this.timestep= base.timestep;
     this.book= Object.assign({}, base.book);
     this.building= [];
-    this.loops= [];
+    this.loops= [[]];
     this.queue= [];
     this.position= new Xyz(base.position);
     this.rotation= new Xyz(base.rotation);
