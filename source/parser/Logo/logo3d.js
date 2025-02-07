@@ -115,7 +115,8 @@ class Turtle {
          } else if( first == 'loop' ){
            this.loop( expression );
          } else {
-           this.loops[0]= this.loops[0].push( expression );
+           this.loops[0].push( expression );
+           log('+ '+ expression);
          }
        } else {
          if( first == 'end' ){ this.end();}
