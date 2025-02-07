@@ -157,6 +157,7 @@ class Turtle {
       this.irun( [...this.book[ name ] ]);
     };
     log( name + 'constructed' );
+    log( this.book[ name ] );
   }
 
   color( arr ){
