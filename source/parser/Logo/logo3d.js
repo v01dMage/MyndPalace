@@ -66,7 +66,7 @@ class Turtle {
     this.timestep= base.timestep;
     this.book= Object.assign({}, base.book);
     this.building= [];
-    this.loops= [[]];
+    this.loops= [];
     this.queue= [];
     this.position= new Xyz(base.position);
     this.rotation= new Xyz(base.rotation);
@@ -79,7 +79,7 @@ class Turtle {
       log('importing '+c);
       log( this.book[c] );
       this[c]= ()=>{
-        this.irun( [...this.book[ c ] ]);
+        this.irun( this.book[ c ] );
       };
     });
   }
@@ -105,6 +105,7 @@ class Turtle {
       let parts= expression.split(' ');
       let cmd= parts.shift();
       await wait( this.timestep );
+       log( cmd +" : "+ parts );
       await this[cmd]( parts );
      } else {
        let project= this.building[0];
