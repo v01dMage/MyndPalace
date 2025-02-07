@@ -25,7 +25,11 @@ let repaint= (canvas)=>{
   bg.colorSpace = THREE.SRGBColorSpace;
   avatar.self.scene.background= bg;
 }
-repaint( paintStarfield(2000,2000,1000) );
+avatar.repaintStars= (dx,dy,stars)=>{
+repaint( paintStarfield(dx,dy,stars) );
+
+}
+avatar.repaintStars( 2000, 2000, 1000 );
 
 //have fun
 
