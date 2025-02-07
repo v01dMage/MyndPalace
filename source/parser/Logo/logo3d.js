@@ -101,12 +101,12 @@ class Turtle {
     while( this.hasMore ){
       expression= this.queue.shift();
       if( !expression ) continue;
-     if( this.building.length == 0 ){
-      let parts= expression.split(' ');
-      let cmd= parts.shift();
-      await wait( this.timestep );
-       log( cmd +" : "+ parts );
-      await this[cmd]( parts );
+      if( this.building.length == 0 ){
+        let parts= expression.split(' ');
+        let cmd= parts.shift();
+        log( cmd +" : "+ parts );
+        this[cmd]( parts );
+        await wait( this.timestep ); 
      } else {
        let project= this.building[0];
        let first= expression.split(' ')[0];
