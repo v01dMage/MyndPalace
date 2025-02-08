@@ -26,10 +26,7 @@ let repaint= (canvas)=>{
   avatar.self.scenes[0].background= bg;
   avatar.self.scene= avatar.self.scenes[0];
 }
-avatar.repaintStars= (dx,dy,stars)=>{
-  repaint( paintStarfield(dx,dy,stars) );
-}
-avatar.repaintStars( 2000, 2000, 1000 );
+repaint( paintStarfield( 2000, 1000, 333) );
 
 //have fun
 
