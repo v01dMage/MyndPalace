@@ -27,8 +27,8 @@ function repaint(canvas){
   avatar.self.scene= avatar.self.scenes[0];
 }
 repaint( paintStarfield( 2000, 1000, 333) );
-avatar.repaint= repaint;
-avatar.paintStarfield= paintStarfield;
+avatar.self.repaint= repaint;
+avatar.self.paintStarfield= paintStarfield;
 //have fun
 
 export { avatar };
