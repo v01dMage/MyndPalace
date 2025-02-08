@@ -17,7 +17,7 @@ if(localStorage.autoRun){
   xrConsole.cantrips.cast('hello');
 }
 
-let repaint= (canvas)=>{
+function repaint(canvas){
   let THREE= avatar.js3;
   let bg= new THREE.Texture( canvas );
   bg.needsUpdate= true;
@@ -27,7 +27,8 @@ let repaint= (canvas)=>{
   avatar.self.scene= avatar.self.scenes[0];
 }
 repaint( paintStarfield( 2000, 1000, 333) );
-
+avatar.repaint= repaint;
+avatar.paintStarfield= paintStarfield;
 //have fun
 
 export { avatar };
