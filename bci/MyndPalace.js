@@ -23,11 +23,11 @@ let repaint= (canvas)=>{
   bg.needsUpdate= true;
   bg.mapping = THREE.EquirectangularReflectionMapping;
   bg.colorSpace = THREE.SRGBColorSpace;
-  avatar.self.scene.background= bg;
+  avatar.self.scenes[0].background= bg;
+  avatar.self.scene= avatar.self.scenes[0];
 }
 avatar.repaintStars= (dx,dy,stars)=>{
-repaint( paintStarfield(dx,dy,stars) );
-
+  repaint( paintStarfield(dx,dy,stars) );
 }
 avatar.repaintStars( 2000, 2000, 1000 );
 
