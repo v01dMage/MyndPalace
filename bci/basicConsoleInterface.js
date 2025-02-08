@@ -155,6 +155,12 @@ color 0xffbb33
 fd 1
 animate y_wave 3 2 2000
 `);
+  makeLoadableButton('wip_clearScene',`let bas= bci.avatar.self;
+bas.scene= new bci.avatar.js3.Scene();
+bas.scenes[0]= bas.scene;
+bas.repaint( bas.paintStarfield(1000,500,3333) );
+return 'done*'
+  `);
 }
 
 const basicButtons= {
