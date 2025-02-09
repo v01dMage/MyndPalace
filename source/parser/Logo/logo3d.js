@@ -226,7 +226,7 @@ class Turtle {
     this.position.x+= x *d;
     this.position.z+= z *d;
     this.position.y+= y *d;
-    this.latest= Capsule( start, this.position, this.pen.size/10.0, this.pen.color);
+    this.latest= Capsule( start, this.position, this.pen.size, this.pen.color);
   }
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
@@ -244,6 +244,9 @@ class Turtle {
   }
   lt( arr ){
     this.yt( arr.map( n=>-1*n ) );
+  }
+  sz( arr ){
+    this.pen.size= Number.parseFloat( arr[0] );
   }
 
   animate( arr ){
