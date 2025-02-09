@@ -38,6 +38,24 @@ function Sphere( pos, size, c ){
       return o;
 }
 
+function Capsule( a, b, r, c ){
+  let d= Math.sqrt(
+    (b.x-a.x)**2 +
+    (b.y-a.y)**2 +
+    (b.z-a.z)**2
+  );
+  let capsule= new THREE.CapsuleGeometry( d, r, 3, 5);
+  let o= new THREE.Mesh(
+    capsule, new THREE.MeshBasicMaterial(
+      { color: c }
+    )
+  );
+  //adjust position 
+  o.position.set( b.x, b.y, b.z );
+  avatar.self.scene.add( o );
+  return o;
+}
+
 function wait(ms){
   return new Promise( (resolve)=>{
     setTimeout( resolve, ms );
@@ -199,6 +217,7 @@ class Turtle {
     this.pen.isDown= false;
   }
   fd( arr ){
+    let start= Object.assign({},this.position);
     let d= arr.map( Number.parseFloat ).shift();
     d*= this.heading.m;
     let [z,x]= rad2coords( this.heading.xz );
@@ -207,7 +226,7 @@ class Turtle {
     this.position.x+= x *d;
     this.position.z+= z *d;
     this.position.y+= y *d;
-    this.sphere(); //enum 1 after testing 
+    this.latest= Capsule( start, this.position, this.pen.size, this.pen.color);
   }
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
