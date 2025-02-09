@@ -44,7 +44,7 @@ function Capsule( a, b, r, c ){
     (b.y-a.y)**2 +
     (b.z-a.z)**2
   );
-  let capsule= new THREE.CapsuleGeometry( d, r, 3, 5);
+  let capsule= new THREE.CapsuleGeometry( r, d, 3, 5);
   let o= new THREE.Mesh(
     capsule, new THREE.MeshBasicMaterial(
       { color: c }
