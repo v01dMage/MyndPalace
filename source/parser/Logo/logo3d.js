@@ -38,7 +38,7 @@ function Sphere( pos, size, c ){
       return o;
 }
 
-function Capsule( a, b, r, c ){
+function Capsule( a, b, h, r, c ){
   let d= Math.sqrt(
     (b.x-a.x)**2 +
     (b.y-a.y)**2 +
@@ -50,7 +50,7 @@ function Capsule( a, b, r, c ){
       { color: c }
     )
   );
-  //adjust position 
+  o.rotateX(h.yd); o.rotateY(h.xz);
   o.position.set( b.x, b.y, b.z );
   avatar.self.scene.add( o );
   return o;
@@ -196,8 +196,11 @@ class Turtle {
   }
   
 
-  sphere( arr ){
+  sphere(){
     this.latest= Sphere( this.position, this.pen.size, this.pen.color );
+  }
+  capsule( p1 ){
+    this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color);
   }
 
   mv( arr ){
@@ -226,7 +229,7 @@ class Turtle {
     this.position.x+= x *d;
     this.position.z+= z *d;
     this.position.y+= y *d;
-    this.latest= Capsule( start, this.position, this.pen.size, this.pen.color);
+    if( this.pen.isDown ) this.capsule( start );
   }
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
