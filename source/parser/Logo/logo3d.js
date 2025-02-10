@@ -261,10 +261,10 @@ class Turtle {
 
   rotate( arr ){
     let axis= arr.shift();
-    pout( axis );
+    log( axis );
     let [rads, ms]= arr.map( Number.Float );
     let fn= this.latest['rotate'+axis];
-    pout(fn);
+    log(fn);
     return (o)=>{
       fn(rads*o.deltaTime/ms)
     };
