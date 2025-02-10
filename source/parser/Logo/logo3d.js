@@ -256,6 +256,7 @@ class Turtle {
   animate( arr ){
     let method= arr.shift();
     let upfn= this[ method ](arr);
+    log( upfn );
     avatar.addToUpdate( upfn );
   }
 
@@ -264,10 +265,10 @@ class Turtle {
     log( axis );
     let [rads, ms]= arr.map( Number.parseFloat );
     log(rads+',  '+ms)
-    let fn= this.latest[axis];
+    let rotateFn= this.latest[axis];
     log(fn);
     return (o)=>{
-      fn(rads*ms*o.deltaTime)
+      rotateFn( rads/ms* o.deltaTime )
     };
   }
 
