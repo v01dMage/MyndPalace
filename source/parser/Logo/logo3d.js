@@ -51,7 +51,7 @@ function Capsule( a, b, h, r, c ){
     )
   );
   let hp= Math.PI/2;
-  o.rotation.set( 0, h.yd, hp+h.xz);
+  //o.rotate
   o.position.set( b.x, b.y, b.z );
   avatar.self.scene.add( o );
   return o;
@@ -257,6 +257,15 @@ class Turtle {
     let method= arr.shift();
     let upfn= this[ method ](arr);
     avatar.addToUpdate( upfn );
+  }
+
+  rotate( arr ){
+    let axis= arr.shift();
+    let [rads, ms]= arr.map( Number.Float );
+    let fn= this.latest['rotate'+axis];
+    return (o)=>{
+      fn(rads*o.deltaTime/ms)
+    };
   }
 
   y_wave( arr ){
