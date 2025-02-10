@@ -51,7 +51,7 @@ function Capsule( a, b, h, r, c ){
     )
   );
   let hp= Math.PI/2;
-  o.rotation.set( hp+h.yd, -h.xz, 0);
+  o.rotation.set( hp+h.yd, 0, h.xz);
   o.position.set( b.x, b.y, b.z );
   avatar.self.scene.add( o );
   return o;
