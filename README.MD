@@ -1,3 +1,3 @@
 https://v01dMage.github.io/MyndPalace
 
-Thank you for every {instance} of ∆ttention 🦁. They are noticed and appreciated.
+work in progress - vr ide, universal transpiler, personal scripting environment 
