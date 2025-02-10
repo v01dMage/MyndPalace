@@ -45,6 +45,8 @@ function Capsule( a, b, h, r, c ){
     (b.z-a.z)**2
   );
   let capsule= new THREE.CapsuleGeometry( r, d, 3, 5);
+  capsule.rotateX( h.yd );
+  capsule.rotateY( h.xz );
   let o= new THREE.Mesh(
     capsule, new THREE.MeshBasicMaterial(
       { color: c }
@@ -268,7 +270,7 @@ class Turtle {
     let rotateFn= this.latest[axis];
     log(rotateFn);
     return (o)=>{
-      rotateFn( rads/ms* o.deltaTime )
+      rotateFn( this, rads/ms* o.deltaTime )
     };
   }
 
