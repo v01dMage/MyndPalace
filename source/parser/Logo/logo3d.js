@@ -50,7 +50,7 @@ function Capsule( a, b, h, r, c ){
       { color: c }
     )
   );
-  let hp= Mayh.PI/2;
+  let hp= Math.PI/2;
   o.rotateX(h.yd); o.rotateZ(hp+h.xz);
   o.position.set( b.x, b.y, b.z );
   avatar.self.scene.add( o );
