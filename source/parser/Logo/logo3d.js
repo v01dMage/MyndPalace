@@ -266,7 +266,7 @@ class Turtle {
     let [rads, ms]= arr.map( Number.parseFloat );
     log(rads+',  '+ms)
     let rotateFn= this.latest[axis];
-    log(fn);
+    log(rotateFn);
     return (o)=>{
       rotateFn( rads/ms* o.deltaTime )
     };
