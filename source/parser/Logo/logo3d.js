@@ -262,7 +262,7 @@ class Turtle {
   rotate( arr ){
     let axis= 'rotate'+arr.shift();
     log( axis );
-    let [rads, ms]= arr.map( Number.Float );
+    let [rads, ms]= arr.map( Number.parseFloat );
     log(rads+',  '+ms)
     let fn= this.latest[axis];
     log(fn);
