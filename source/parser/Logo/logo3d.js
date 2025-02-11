@@ -46,8 +46,8 @@ function Capsule( a, b, h, r, c ){
   );
   let hp= Math.PI/2;
   let capsule= new THREE.CapsuleGeometry( r, d, 3, 5);
-  capsule.rotateX( -hp+ h.yd );
-  capsule.rotateY( hp-h.xz );
+  capsule.rotateX( hp- h.yd );
+  capsule.rotateY( hp- h.xz );
   let o= new THREE.Mesh(
     capsule, new THREE.MeshBasicMaterial(
       { color: c }
