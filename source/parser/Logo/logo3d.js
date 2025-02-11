@@ -44,15 +44,16 @@ function Capsule( a, b, h, r, c ){
     (b.y-a.y)**2 +
     (b.z-a.z)**2
   );
+  let hp= Math.PI/2;
   let capsule= new THREE.CapsuleGeometry( r, d, 3, 5);
-  capsule.rotateX( h.yd );
+  capsule.rotateX( -hp+ h.yd );
   capsule.rotateY( h.xz );
   let o= new THREE.Mesh(
     capsule, new THREE.MeshBasicMaterial(
       { color: c }
     )
   );
-  let hp= Math.PI/2;
+  
   //o.rotate
   o.position.set( b.x, b.y, b.z );
   avatar.self.scene.add( o );
