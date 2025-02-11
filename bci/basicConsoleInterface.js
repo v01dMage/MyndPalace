@@ -161,6 +161,10 @@ bas.scenes[0]= bas.scene;
 bas.repaint( bas.paintStarfield(1000,500,3333) );
 return 'done*'
   `);
+  makeRunnableButton('discQuaternion',dq);
+}
+function dq(){
+  pout( bci.avatar.self.disc.quaternion.toArray() );
 }
 
 const basicButtons= {
