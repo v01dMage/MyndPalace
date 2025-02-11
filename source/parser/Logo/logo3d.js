@@ -270,7 +270,7 @@ class Turtle {
     let rotateFn= this.latest[axis];
     log(rotateFn);
     return (o)=>{
-      rotateFn.call( this, rads/ms* o.deltaTime )
+      rotateFn.call( this.latest, rads/ms* o.deltaTime )
     };
   }
 
