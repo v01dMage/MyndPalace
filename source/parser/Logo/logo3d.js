@@ -110,6 +110,11 @@ class Turtle {
         { color: 0x33ff44, wireframe: true }
       )
     );
+    this.turtle.position.set(
+      this.position.x,
+      this.position.y,
+      this.position.z
+    );
     avatar.self.scene.add( this.turtle );
   }
 
@@ -242,7 +247,11 @@ class Turtle {
     this.position.z+= z *d;
     this.position.y+= y *d;
     if( this.pen.isDown ) this.capsule( start );
-    this.turtle.position.set(x,y,z);
+    this.turtle.position.set(
+      this.position.x,
+      this.position.y,
+      this.position.z
+    );
   }
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
