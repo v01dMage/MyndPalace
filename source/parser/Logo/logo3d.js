@@ -105,7 +105,7 @@ class Turtle {
       };
     });
     this.turtle= new THREE.Mesh(
-      new THREE.SphereGeometry( 3 ),
+      new THREE.SphereGeometry( 0.5 ),
       new THREE.MeshBasicMaterial(
         { color: 0x33ff44, wireframe: true }
       )
@@ -222,6 +222,7 @@ class Turtle {
     if( this.pen.isDown ){
       this.sphere();
     }
+    this.turtle.position.set(x,y,z);
   }
 
   pd(){ 
@@ -241,6 +242,7 @@ class Turtle {
     this.position.z+= z *d;
     this.position.y+= y *d;
     if( this.pen.isDown ) this.capsule( start );
+    this.turtle.position.set(x,y,z);
   }
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
