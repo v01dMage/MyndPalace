@@ -104,6 +104,13 @@ class Turtle {
         this.irun( this.book[ c ] );
       };
     });
+    this.turtle= new THREE.Mesh(
+      new THREE.SphereGeometry( 3 ),
+      new THREE.MeshBasicMaterial(
+        { color: 0x33ff44, wireframe: true }
+      );
+    );
+    avatar.self.scene.add( this.turtle );
   }
 
   ts( arr ){
