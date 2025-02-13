@@ -161,6 +161,7 @@ class Turtle {
        }
      }
     }
+    this.turtle.visible= false;
   }
 
   construct( arr ){
