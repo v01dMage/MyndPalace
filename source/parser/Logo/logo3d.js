@@ -38,7 +38,7 @@ function Sphere( pos, size, c ){
       return o;
 }
 
-function Capsule( a, b, h, r, c ){
+function Capsule( a, b, h, r, c, t ){
   let d= Math.sqrt(
     (b.x-a.x)**2 +
     (b.y-a.y)**2 +
@@ -46,15 +46,14 @@ function Capsule( a, b, h, r, c ){
   );
   let hp= Math.PI/2;
   let capsule= new THREE.CapsuleGeometry( r, d, 3, 5);
-  capsule.rotateX( hp- h.yd );
-  capsule.rotateY( hp- h.xz );
+  //capsule.rotateX( hp- h.yd );
+  //capsule.rotateY( hp- h.xz );
   let o= new THREE.Mesh(
     capsule, new THREE.MeshBasicMaterial(
       { color: c }
     )
   );
-  //o.rotateX( hp- h.yd );
-  //o.rotateY( hp- h.xz );
+  o.quaternion.copy( t.quaternion );
   o.position.set( b.x, b.y, b.z );
   avatar.self.scene.add( o );
   return o;
@@ -217,7 +216,7 @@ class Turtle {
     this.latest= Sphere( this.position, this.pen.size, this.pen.color );
   }
   capsule( p1 ){
-    this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color);
+    this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle);
   }
 
   mv( arr ){
@@ -260,10 +259,12 @@ class Turtle {
   xt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.yd+= deg2rad( d );
+    this.turtle.rotateX( deg2rad( d ));
   }
   yt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.xz+= deg2rad( d );
+    this.turtle.rotateY( deg2rad( d ));
   }
   rt( arr ){
     this.yt( arr );
