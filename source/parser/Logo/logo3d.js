@@ -83,6 +83,7 @@ class Turtle {
       heading: new Heading( -Math.PI/2, 0, .1),
       shapes: ['Sphere','Cylinder'],
       pen: { isDown: true, color: 0x33aa55, size: 0.05},
+      quaternion: new THREE.Quaternion( 0,0,1,1 ),
     };
     this.timestep= base.timestep;
     this.book= Object.assign({}, base.book);
@@ -103,6 +104,8 @@ class Turtle {
         this.irun( this.book[ c ] );
       };
     });
+    this.quaternion= new THREE.Quaternion();
+    this.quaternion.copy( base.quaternion );
     this.turtle= new THREE.Mesh(
       new THREE.SphereGeometry( 0.2 ),
       new THREE.MeshBasicMaterial(
@@ -115,7 +118,7 @@ class Turtle {
       this.position.z
     );
     this.turtle.quaternion.copy(
-      new THREE.Quaternion( 0,0,1,1 );
+      this.quaternion
     );
     avatar.self.scene.add( this.turtle );
   }
@@ -264,12 +267,14 @@ class Turtle {
     this.heading.yd+= deg2rad( d );
     let v= new THREE.Vector3( 1,0,0);
     this.turtle.rotateOnWorldAxis( v, deg2rad( d ));
+    this.quaternion.copy( this.turtle.quaternion );
   }
   yt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.xz+= deg2rad( d );
     let v= new THREE.Vector3( 0,1,0);
     this.turtle.rotateOnWorldAxis( v, deg2rad( d ));
+    this.quaternion.copy( this.turtle.quaternion );
   }
   rt( arr ){
     this.yt( arr );
