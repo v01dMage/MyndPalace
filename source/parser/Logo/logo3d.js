@@ -259,12 +259,14 @@ class Turtle {
   xt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.yd+= deg2rad( d );
-    this.turtle.rotateX( deg2rad( d ));
+    let v= new THREE.Vector3( 1,0,0);
+    this.turtle.rotateOnWorldAxis( v, deg2rad( d ));
   }
   yt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.xz+= deg2rad( d );
-    this.turtle.rotateY( deg2rad( d ));
+    let v= new THREE.Vector3( 0,1,0);
+    this.turtle.rotateOnWorldAxis( v, deg2rad( d ));
   }
   rt( arr ){
     this.yt( arr );
