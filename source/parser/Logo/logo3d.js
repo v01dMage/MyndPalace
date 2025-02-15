@@ -114,6 +114,9 @@ class Turtle {
       this.position.y,
       this.position.z
     );
+    this.turtle.quaternion.copy(
+      new THREE.Quaternion( 0,0,1,1 );
+    );
     avatar.self.scene.add( this.turtle );
   }
 
