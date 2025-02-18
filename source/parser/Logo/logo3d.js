@@ -46,7 +46,7 @@ function Capsule( a, b, h, r, c, t ){
   );
   let hp= Math.PI/2;
   let capsule= new THREE.CapsuleGeometry( r, d, 3, 5);
-  capsule.translateY( d/2 );
+  capsule.translate( 0, d/2 ,0 );
   //capsule.rotateX( hp- h.yd );
   //capsule.rotateY( hp- h.xz );
   let o= new THREE.Mesh(
