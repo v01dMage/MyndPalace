@@ -49,7 +49,7 @@ function Capsule( a, b, h, r, c, t ){
   //capsule.applyQuaternion( t.quaternion )
   capsule.rotateX( hp- h.yd );
   capsule.rotateY( hp- h.xz );
-  capsule.translate( 0, d/2 ,0 );
+  //capsule.translate( 0, d/2 ,0 );
   let o= new THREE.Mesh(
     capsule, new THREE.MeshBasicMaterial(
       { color: c }
