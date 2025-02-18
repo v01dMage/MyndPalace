@@ -268,14 +268,14 @@ class Turtle {
     let d= arr.map(Number.parseFloat).shift();
     this.heading.yd+= deg2rad( d );
     let v= new THREE.Vector3( 1,0,0).normalize();
-    this.turtle.rotateOnAxis( v, deg2rad( d ));
+    this.turtle.rotateX( deg2rad( d ));
     this.quaternion.copy( this.turtle.quaternion );
   }
   yt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.xz+= deg2rad( d );
     let v= new THREE.Vector3( 0,1,0).normalize();
-    this.turtle.rotateOnAxis( v, deg2rad( d ));
+    this.turtle.rotateY( deg2rad( d ));
     this.quaternion.copy( this.turtle.quaternion );
   }
   rt( arr ){
