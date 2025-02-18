@@ -48,14 +48,14 @@ function Capsule( a, b, h, r, c, t ){
   let capsule= new THREE.CapsuleGeometry( r, d, 3, 5);
   capsule.translate( 0, d/2 ,0 );
   //capsule.applyQuaternion( t.quaternion )
-  //capsule.rotateX( hp- h.yd );
-  //capsule.rotateY( hp- h.xz );
+  capsule.rotateX( hp- h.yd );
+  capsule.rotateY( hp- h.xz );
   let o= new THREE.Mesh(
     capsule, new THREE.MeshBasicMaterial(
       { color: c }
     )
   );
-  o.applyQuaternion( t.quaternion );
+  //o.applyQuaternion( t.quaternion );
   o.position.set( b.x, b.y, b.z );
   avatar.self.scene.add( o );
   return o;
