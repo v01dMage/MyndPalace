@@ -103,8 +103,8 @@ class Turtle {
     Object.keys(this.book).forEach( c=>{
       log('importing '+c);
       log( this.book[c] );
-      this[c]= ()=>{
-        this.irun( this.book[ c ] );
+      this[c]= async ()=>{
+        this.queue= [ ...this.book[ c ], ...this.queue];
       };
     });
     this.quaternion= new THREE.Quaternion();
