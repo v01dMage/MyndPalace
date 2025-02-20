@@ -56,7 +56,7 @@ function Capsule( a, b, h, r, c, t ){
     )
   );
   //o.applyQuaternion( t.quaternion );
-  o.position.set( b.x, b.y, b.z );
+  o.position.set( a.x, a.y, a.z );
   avatar.self.scene.add( o );
   return o;
 }
