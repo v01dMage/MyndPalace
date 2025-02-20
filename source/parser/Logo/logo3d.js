@@ -126,11 +126,11 @@ class Turtle {
     avatar.self.scene.add( this.turtle );
   }
 
-  ts( arr ){
+  async ts( arr ){
     this.timestep= Number.parseInt( arr[0] );
   }
 
-  nu( arr ){ run( [arr[0]], this); }
+  async nu( arr ){ run( [arr[0]], this); }
 
   get hasMore(){
     return this.queue?.length > 0;
@@ -173,7 +173,7 @@ class Turtle {
     this.turtle.visible= false;
   }
 
-  construct( arr ){
+  async construct( arr ){
     let name= arr.join('_');
     this.building.unshift( name );
     let project= [];
@@ -181,12 +181,12 @@ class Turtle {
     log( name );
   }
 
-  repeat( arr ){
+  async repeat( arr ){
     this.building.unshift('loop');
     this.loops.unshift([]);
     log('repeat:layer '+this.loops.length);
   }
-  loop( s ){
+  async loop( s ){
     let [,n,...q]= s.split(' ');
     n= Number.parseInt( n );
     let code= this.loops.shift().join('\n')+'\n';
@@ -196,9 +196,9 @@ class Turtle {
     this.irun( code.split('\n') );
   }
 
-  end( arr ){
+  async end( arr ){
     let name= this.building.shift();
-    this[ name ]= ()=>{
+    this[ name ]= async ()=>{
       this.irun( [...this.book[ name ] ]);
     };
     log( name + 'constructed' );
@@ -242,10 +242,10 @@ class Turtle {
     this.turtle.position.set(x,y,z);
   }
 
-  pd(){ 
+  async pd(){ 
     this.pen.isDown= true;
   }
-  pu(){
+  async pu(){
     this.pen.isDown= false;
   }
   async fd( arr ){
@@ -266,7 +266,7 @@ class Turtle {
     );
     if( this.pen.isDown ) this.capsule( start );
   }
-  bk( arr ){
+  async bk( arr ){
     return this.fd( arr.map( n=>-1*n ) );
   }
   async xt( arr ){
@@ -284,17 +284,17 @@ class Turtle {
     this.turtle.rotateY( deg2rad( d ));
     this.quaternion.copy( this.turtle.quaternion );
   }
-  rt( arr ){
+  async rt( arr ){
     return this.yt( arr );
   }
-  lt( arr ){
+  async lt( arr ){
     return this.yt( arr.map( n=>-1*n ) );
   }
-  sz( arr ){
+  async sz( arr ){
     this.pen.size= Number.parseFloat( arr[0] );
   }
 
-  animate( arr ){
+  async animate( arr ){
     let method= arr.shift();
     let upfn= this[ method ](arr);
     log( upfn );
