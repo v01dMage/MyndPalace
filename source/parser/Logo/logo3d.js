@@ -199,6 +199,7 @@ class Turtle {
   async end( arr ){
     let name= this.building.shift();
     this[ name ]= async ()=>{
+      await wait( this.timestep );
       this.irun( [...this.book[ name ] ]);
     };
     log( name + 'constructed' );
