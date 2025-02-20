@@ -142,7 +142,6 @@ class Turtle {
     log('** '+this.queue);
     await wait( this.timestep );
     while( this.hasMore ){
-      await wait( this.timestep );
       expression= this.queue.shift();
       if( !expression ) continue;
       if( this.building.length == 0 ){
@@ -193,6 +192,7 @@ class Turtle {
     code= code.repeat( n );
     log('loop '+n+'\n'+code);
     this.building.shift();
+    await wait( this.timestep );
     this.irun( code.split('\n') );
   }
 
@@ -271,6 +271,7 @@ class Turtle {
     return this.fd( arr.map( n=>-1*n ) );
   }
   async xt( arr ){
+    await wait( this.timestep );
     let d= arr.map(Number.parseFloat).shift();
     this.heading.yd+= deg2rad( d );
     let v= new THREE.Vector3( 1,0,0).normalize();
