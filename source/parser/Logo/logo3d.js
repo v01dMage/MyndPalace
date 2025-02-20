@@ -254,12 +254,12 @@ class Turtle {
     this.position.x+= x *d;
     this.position.z+= z *d;
     this.position.y+= y *d;
-    if( this.pen.isDown ) this.capsule( start );
     this.turtle.position.set(
       this.position.x,
       this.position.y,
       this.position.z
     );
+    if( this.pen.isDown ) this.capsule( start );
   }
   bk( arr ){
     this.fd( arr.map( n=>-1*n ) );
