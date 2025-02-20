@@ -149,7 +149,7 @@ class Turtle {
         let parts= expression.split(' ');
         let cmd= parts.shift();
         log( cmd +" : "+ parts );
-        this[cmd]( parts ); 
+        await this[cmd]( parts ); 
      } else {
        let project= this.building[0];
        let first= expression.split(' ')[0];
@@ -205,7 +205,8 @@ class Turtle {
     log( this.book[ name ] );
   }
 
-  color( arr ){
+  async color( arr ){
+    await wait( this.timestep );
     if( arr[0] == 'random' ){
       let opts= "0123456789abcdef";
       let r= ()=>{
@@ -229,7 +230,8 @@ class Turtle {
     this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle);
   }
 
-  mv( arr ){
+  async mv( arr ){
+    await wait( this.timestep );
     let [x,y,z]= arr.map( Number.parseFloat );
     this.position.x= x;
     this.position.y= y;
@@ -246,7 +248,8 @@ class Turtle {
   pu(){
     this.pen.isDown= false;
   }
-  fd( arr ){
+  async fd( arr ){
+    await wait( this.timestep );
     let start= Object.assign({},this.position);
     let d= arr.map( Number.parseFloat ).shift();
     d*= this.heading.m;
@@ -264,16 +267,17 @@ class Turtle {
     if( this.pen.isDown ) this.capsule( start );
   }
   bk( arr ){
-    this.fd( arr.map( n=>-1*n ) );
+    return this.fd( arr.map( n=>-1*n ) );
   }
-  xt( arr ){
+  async xt( arr ){
     let d= arr.map(Number.parseFloat).shift();
     this.heading.yd+= deg2rad( d );
     let v= new THREE.Vector3( 1,0,0).normalize();
     this.turtle.rotateX( deg2rad( d ));
     this.quaternion.copy( this.turtle.quaternion );
   }
-  yt( arr ){
+  async yt( arr ){
+    await wait( this.timestep );
     let d= arr.map(Number.parseFloat).shift();
     this.heading.xz+= deg2rad( d );
     let v= new THREE.Vector3( 0,1,0).normalize();
@@ -281,10 +285,10 @@ class Turtle {
     this.quaternion.copy( this.turtle.quaternion );
   }
   rt( arr ){
-    this.yt( arr );
+    return this.yt( arr );
   }
   lt( arr ){
-    this.yt( arr.map( n=>-1*n ) );
+    return this.yt( arr.map( n=>-1*n ) );
   }
   sz( arr ){
     this.pen.size= Number.parseFloat( arr[0] );
