@@ -140,6 +140,7 @@ class Turtle {
     let expression;
     this.queue= [...t, ...this.queue];
     log('** '+this.queue);
+    await wait( this.timestep );
     while( this.hasMore ){
       await wait( this.timestep );
       expression= this.queue.shift();
