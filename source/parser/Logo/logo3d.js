@@ -141,14 +141,14 @@ class Turtle {
     this.queue= [...t, ...this.queue];
     log('** '+this.queue);
     while( this.hasMore ){
+      await wait( this.timestep );
       expression= this.queue.shift();
       if( !expression ) continue;
       if( this.building.length == 0 ){
         let parts= expression.split(' ');
         let cmd= parts.shift();
         log( cmd +" : "+ parts );
-        this[cmd]( parts );
-        await wait( this.timestep ); 
+        this[cmd]( parts ); 
      } else {
        let project= this.building[0];
        let first= expression.split(' ')[0];
