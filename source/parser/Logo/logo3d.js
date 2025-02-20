@@ -138,9 +138,8 @@ class Turtle {
   
   async irun( t ){
     let expression;
-    this.queue= [...t, ...this.queue];
+    this.queue= t;
     log('** '+this.queue);
-    await wait( this.timestep );
     while( this.hasMore ){
       expression= this.queue.shift();
       if( !expression ) continue;
@@ -192,22 +191,19 @@ class Turtle {
     code= code.repeat( n );
     log('loop '+n+'\n'+code);
     this.building.shift();
-    await wait( this.timestep );
-    this.irun( code.split('\n') );
+    this.queue= [...code.split('\n'),...this.queue];
   }
 
   async end( arr ){
     let name= this.building.shift();
     this[ name ]= async ()=>{
-      await wait( this.timestep );
-      this.irun( [...this.book[ name ] ]);
+      this.queue= [...this.book[ name ], ...this.queue ];
     };
     log( name + 'constructed' );
     log( this.book[ name ] );
   }
 
   async color( arr ){
-    await wait( this.timestep );
     if( arr[0] == 'random' ){
       let opts= "0123456789abcdef";
       let r= ()=>{
