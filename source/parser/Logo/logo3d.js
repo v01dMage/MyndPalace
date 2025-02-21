@@ -110,7 +110,7 @@ class Turtle {
     this.quaternion= new THREE.Quaternion();
     this.quaternion.copy( base.quaternion );
     this.turtle= new THREE.Mesh(
-      new THREE.CapsuleGeometry( 0.02, 0.02, 3, 5 ),
+      new THREE.CapsuleGeometry( 0.06, 0.02, 3, 5 ),
       new THREE.MeshBasicMaterial(
         { color: 0x33ff44, wireframe: true }
       )
