@@ -26,10 +26,10 @@ function rad2coords( r ){
 
 const rc= 2*Math.PI;
 
-function Sphere( pos, size, c ){
+function Sphere( pos, size, c, mat ){
   let o= new THREE.Mesh(
           new THREE.SphereGeometry( size ),
-          new THREE.MeshBasicMaterial(
+          new THREE[mat](
             {color: c }
         )
       );
@@ -38,7 +38,7 @@ function Sphere( pos, size, c ){
       return o;
 }
 
-function Capsule( a, b, h, r, c, t ){
+function Capsule( a, b, h, r, c, t, mat ){
   let d= Math.sqrt(
     (b.x-a.x)**2 +
     (b.y-a.y)**2 +
@@ -52,7 +52,7 @@ function Capsule( a, b, h, r, c, t ){
   capsule.rotateY( hp- h.xz );
   //capsule.translate( 0, d/2 ,0 );
   let o= new THREE.Mesh(
-    capsule, new THREE.MeshBasicMaterial(
+    capsule, new THREE[mat](
       { color: c }
     )
   );
@@ -86,7 +86,7 @@ class Turtle {
       heading: new Heading( -Math.PI/2, 0, .1),
       shapes: ['Sphere','Cylinder'],
       pen: { isDown: true, color: 0x33aa55, size: 0.05},
-      quaternion: new THREE.Quaternion( 0,0,1,1 ),
+      quaternion: new THREE.Quaternion( 0,0,0,1 ),
     };
     this.timestep= base.timestep;
     this.book= Object.assign({}, base.book);
@@ -98,6 +98,7 @@ class Turtle {
     let bh= base.heading;
     this.heading= new Heading( bh.xz, bh.yd, bh.m );
     this.shapes= base.shapes;
+    this.material= "MeshBasicMaterial";
     this.pen= Object.assign({}, base.pen);
     this.latest= {};
     Object.keys(this.book).forEach( c=>{
@@ -221,10 +222,10 @@ class Turtle {
   
 
   sphere(){
-    this.latest= Sphere( this.position, this.pen.size, this.pen.color );
+    this.latest= Sphere( this.position, this.pen.size, this.pen.color, this.material );
   }
   capsule( p1 ){
-    this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle);
+    this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle, this.material );
   }
 
   async light( arr ){
@@ -303,6 +304,9 @@ class Turtle {
   }
   async sz( arr ){
     this.pen.size= Number.parseFloat( arr[0] );
+  }
+  async material( arr ){
+    this.material= arr[0];
   }
 
   async animate( arr ){
