@@ -305,7 +305,7 @@ class Turtle {
   async sz( arr ){
     this.pen.size= Number.parseFloat( arr[0] );
   }
-  async material( arr ){
+  async mat( arr ){
     this.material= arr[0];
   }
 
