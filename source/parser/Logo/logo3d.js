@@ -227,9 +227,17 @@ class Turtle {
     this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle);
   }
 
-  light( arr ){
+  async light( arr ){
+    await wait( this.timestep/2 );
     // Drop a point light 
-    
+    let [ hex, ...n]= arr;
+    let color= Number.parseInt( hex, 16 );
+    let [ intensity, distance, decay ]= n.map( Number.parseFloat );
+    const l= new THREE.PointLight(
+      color, intensity, distance, decay
+    );
+    l.position.set( this.position.x, this.position.y, this.position.z );
+    avatar.self.scene.add( l );
   }
 
   async mv( arr ){
