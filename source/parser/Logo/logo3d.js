@@ -227,6 +227,11 @@ class Turtle {
     this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle);
   }
 
+  light( arr ){
+    // Drop a point light 
+    
+  }
+
   async mv( arr ){
     await wait( this.timestep );
     let [x,y,z]= arr.map( Number.parseFloat );
@@ -270,8 +275,8 @@ class Turtle {
     await wait( this.timestep );
     let d= arr.map(Number.parseFloat).shift();
     this.heading.yd+= deg2rad( d );
-    let v= new THREE.Vector3( 1,0,0).normalize();
-    this.turtle.rotateX( deg2rad( d ));
+    //let v= new THREE.Vector3( 1,0,0).normalize();
+    this.turtle.rotateX( -deg2rad( d ));
     this.quaternion.copy( this.turtle.quaternion );
   }
   async yt( arr ){
