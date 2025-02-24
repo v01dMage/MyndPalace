@@ -73,7 +73,7 @@ function init(){
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
   xr.enabled = true;
-  
+  renderer.shadowMap.enabled = true;
   //document.body.appendChild( renderer.domElement );
   let vrbtn= VRButton.createButton( renderer );
   document.body.appendChild( vrbtn );
