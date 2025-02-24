@@ -237,6 +237,7 @@ class Turtle {
     const l= new THREE.PointLight(
       color, intensity, distance, decay
     );
+    l.castShadow= true;
     l.position.set( this.position.x, this.position.y, this.position.z );
     avatar.self.scene.add( l );
   }
