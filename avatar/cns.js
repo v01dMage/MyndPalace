@@ -57,9 +57,10 @@ function init(){
                                
  // scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
-  const light = new THREE.DirectionalLight( 0xffffff, 3 );
-  light.position.set( 1, 1, 1 ).normalize();
-//  scene.add( light );
+  const light = new THREE.DirectionalLight( 0xffffff, 0.3 );
+  light.position.set( 1, 10, 1 ).normalize();
+  light.castShadow= true;
+  scene.add( light );
 
 
   raycasterLeft = new THREE.Raycaster();
@@ -160,7 +161,7 @@ function init(){
 
   voyd= new THREE.Scene();
   voyd.background = new THREE.Color( 0x77bb88 );
-  voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x400040, 3 ) );
+  voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x400040, .8 ) );
   scenes.push( voyd );
 }
 
