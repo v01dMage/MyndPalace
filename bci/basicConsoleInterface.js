@@ -97,30 +97,33 @@ async function importXR(){
   makeRunnableButton('psi', ()=>{ 
     bci.avatar.self.psi( webText().value );
   } );
-  makeLoadableButton( 'logo grass', `//Logo noopts
-pd
+  makeLoadableButton( 'logo grass', `///Logo noopts
+mat MeshStandardMaterial
 color random 
 ts 300
 construct grass
+mat MeshStandardMaterial
 color random
 pd
 xt 83
 fd 2
 ts 200
 repeat
-fd 1
+fd 6
 loop 5
+light 0x55ff77 40 1.9 2
 end
 color random 
 fd 1
 animate y_wave 1.5 0.5 300
+light 0xccff33 5 1.5 2
+animate y_wave 1.5 0.5 300
 color random 
 repeat
-fd 2
+fd 5
 nu grass
-rt 10
-nu grass
-loop 34
+rt 30
+loop 11
 `);
   makeLoadableButton( 'logoTest', `//Logo noopts
 ts 150 
