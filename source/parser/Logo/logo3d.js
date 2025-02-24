@@ -29,13 +29,12 @@ const rc= 2*Math.PI;
 function Sphere( pos, size, c, mat ){
   let o= new THREE.Mesh(
           new THREE.SphereGeometry( size ),
-          new THREE[mat](
-            {color: c }
-        )
-      );
-      o.position.set( pos.x, pos.y, pos.z );
-      avatar.self.scene.add( o );
-      return o;
+          new THREE[mat]( {color: c } )
+  );
+  o.recieveShadow= true;
+  o.position.set( pos.x, pos.y, pos.z );
+  avatar.self.scene.add( o );
+  return o;
 }
 
 function Capsule( a, b, h, r, c, t, mat ){
@@ -56,6 +55,7 @@ function Capsule( a, b, h, r, c, t, mat ){
       { color: c }
     )
   );
+  o.recieveShadow= true;
   //o.applyQuaternion( t.quaternion );
   o.position.set( a.x, a.y, a.z );
   avatar.self.scene.add( o );
@@ -240,6 +240,7 @@ class Turtle {
     l.castShadow= true;
     l.position.set( this.position.x, this.position.y, this.position.z );
     avatar.self.scene.add( l );
+    this.latest= l;
   }
 
   async mv( arr ){
