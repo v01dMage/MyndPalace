@@ -55,11 +55,11 @@ function init(){
   camera.position.set( 0, 1, 3 );
   self.camera= camera;
                                
-  scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
+ // scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
   const light = new THREE.DirectionalLight( 0xffffff, 3 );
   light.position.set( 1, 1, 1 ).normalize();
-  scene.add( light );
+//  scene.add( light );
 
 
   raycasterLeft = new THREE.Raycaster();
