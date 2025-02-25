@@ -97,7 +97,7 @@ class Turtle {
     this.rotation= new Xyz(base.rotation);
     let bh= base.heading;
     this.heading= new Heading( bh.xz, bh.yd, bh.m );
-    this.shapes= base.shapes;
+    this.shapes= Object.assign({},base.shapes);
     this.material= "MeshBasicMaterial";
     this.pen= Object.assign({}, base.pen);
     this.latest= {};
