@@ -84,7 +84,7 @@ class Turtle {
       position: new Xyz(),
       rotation: new Xyz(),
       heading: new Heading( -Math.PI/2, 0, .1),
-      shapes: ['sphere','capsule'], //mv,fd
+      shapes: { fd: 'capsule' , mv: 'sphere' }, 
       pen: { isDown: true, color: 0x33aa55, size: 0.05},
       quaternion: new THREE.Quaternion( 0,0,0,1 ),
     };
@@ -250,7 +250,7 @@ class Turtle {
     this.position.y= y;
     this.position.z= z;
     if( this.pen.isDown ){
-      this[this.shapes[0]]();
+      this[this.shapes.mv]( this.latest.position );
     }
     this.turtle.position.set(x,y,z);
   }
@@ -277,7 +277,7 @@ class Turtle {
       this.position.y,
       this.position.z
     );
-    if( this.pen.isDown ) this[this.shapes[1]]( start );
+    if( this.pen.isDown ) this[this.shapes.fd]( start );
   }
   async bk( arr ){
     return this.fd( arr.map( n=>-1*n ) );
@@ -309,6 +309,9 @@ class Turtle {
   }
   async mat( arr ){
     this.material= arr[0];
+  }
+  async setShape( arr ){
+    this.shapes[ arr[0] ]= arr[1]; 
   }
 
   async animate( arr ){
