@@ -97,7 +97,7 @@ async function importXR(){
   makeRunnableButton('psi', ()=>{ 
     bci.avatar.self.psi( webText().value );
   } );
-  makeLoadableButton( 'logo grass', `///Logo noopts
+  makeLoadableButton( 'logo grass', `//Logo noopts
 mat MeshStandardMaterial
 color random 
 ts 300
