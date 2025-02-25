@@ -125,6 +125,36 @@ nu grass
 rt 30
 loop 11
 `);
+  makeLoadableButton('logo art',`//Logo art
+construct arm
+mat MeshStandardMaterial
+lt 90
+repeat
+lt 6
+fd 3
+loop 12
+light 0xffffff 40 14
+repeat
+rt 9
+fd 3
+loop 12
+end
+setShape fd sphere
+ts 5000
+ts 167
+repeat
+mv 0 10 -5
+light 0xffffff 40 14
+color random
+repeat
+nu arm
+rt 30
+fd 7
+loop 12
+setShape fd capsule
+ts 66
+loop 2
+`);
   makeLoadableButton( 'logoTest', `//Logo noopts
 ts 150 
 color random
