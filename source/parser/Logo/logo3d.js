@@ -84,7 +84,7 @@ class Turtle {
       position: new Xyz(),
       rotation: new Xyz(),
       heading: new Heading( -Math.PI/2, 0, .1),
-      shapes: ['Sphere','Cylinder'],
+      shapes: ['sphere','capsule'], //mv,fd
       pen: { isDown: true, color: 0x33aa55, size: 0.05},
       quaternion: new THREE.Quaternion( 0,0,0,1 ),
     };
@@ -250,7 +250,7 @@ class Turtle {
     this.position.y= y;
     this.position.z= z;
     if( this.pen.isDown ){
-      this.sphere();
+      this[this.shapes[0]]();
     }
     this.turtle.position.set(x,y,z);
   }
@@ -277,7 +277,7 @@ class Turtle {
       this.position.y,
       this.position.z
     );
-    if( this.pen.isDown ) this.capsule( start );
+    if( this.pen.isDown ) this[this.shapes[1]]( start );
   }
   async bk( arr ){
     return this.fd( arr.map( n=>-1*n ) );
