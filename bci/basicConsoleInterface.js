@@ -195,9 +195,16 @@ bas.repaint( bas.paintStarfield(1000,500,3333) );
 return 'done*'
   `);
   makeRunnableButton('discQuaternion',dq);
+  makeRunnableButton('vrWrapPsi', wpsi);
 }
 function dq(){
   pout( bci.avatar.self.disc.quaternion.toArray() );
+}
+function wpsi(){
+  let base= webText().value;
+  let out= 'bci.avatar.self.psi(`'+ base +'`);';
+  webText().value= out;
+  return 'psi wrapped for vr';
 }
 
 const basicButtons= {
