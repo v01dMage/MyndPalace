@@ -40,7 +40,7 @@ function Sphere( pos, size, c, mat ){
 function Cube( t ){
   let s= t.pen.size;
   let o= new THREE.Mesh(
-    new BoxGeometry( s,s,s ),
+    new THREE.BoxGeometry( s,s,s ),
     new THREE[t.material]( {color: t.pen.color} )
   );
   o.recieveShadow= true;
