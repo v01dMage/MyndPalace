@@ -202,7 +202,7 @@ function dq(){
 }
 function wpsi(){
   let base= webText().value;
-  let out= 'bci.avatar.self.psi(`'+ base +'`);';
+  let out= 'avatar.self.psi(`'+ base +'`);';
   webText().value= out;
   return 'psi wrapped for vr';
 }
