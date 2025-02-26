@@ -37,6 +37,19 @@ function Sphere( pos, size, c, mat ){
   return o;
 }
 
+function Cube( t ){
+  let s= t.pen.size;
+  let o= new THREE.Mesh(
+    new BoxGeometry( s,s,s ),
+    new THREE[t.material]( {color: t.pen.color} )
+  );
+  o.recieveShadow= true;
+  let {x,y,z}= t.position;
+  o.position.set( x,y,z );
+  avatar.self.scene.add(o);
+  return o;
+}
+
 function Capsule( a, b, h, r, c, t, mat ){
   let d= Math.sqrt(
     (b.x-a.x)**2 +
@@ -223,6 +236,9 @@ class Turtle {
 
   sphere(){
     this.latest= Sphere( this.position, this.pen.size, this.pen.color, this.material );
+  }
+  cube(){
+    this.latest= Cube( this );
   }
   capsule( p1 ){
     this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle, this.material );
