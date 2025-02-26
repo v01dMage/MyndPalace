@@ -204,7 +204,7 @@ function wpsi(){
   let base= webText().value;
   let out= 'avatar.self.psi(`'+ base +'`);';
   webText().value= out;
-  return 'psi wrapped for vr';
+  pout( 'psi wrapped for vr' );
 }
 
 const basicButtons= {
