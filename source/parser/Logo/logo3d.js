@@ -16,7 +16,7 @@ import { pout } from 'bci';
 import { avatar } from 'mp';
 const THREE= avatar.js3;
 
-const cache= {Sphere:{}};
+const cache= {Sphere:{},Mats:{}};
 
 function deg2rad( d ){
   return d/360*(2*Math.PI);
@@ -29,11 +29,11 @@ function rad2coords( r ){
 const rc= 2*Math.PI;
 
 function Sphere( pos, size, c, mat ){
-  let o= new THREE.Mesh(
-          cache.Sphere['_'+size]? cache.Sphere['_'+size] :
-            cache.Sphere['_'+size]= new THREE.SphereGeometry( size ),
-          new THREE[mat]( {color: c } )
-  );
+  let geo= cache.Sphere['_'+size]? cache.Sphere['_'+size] :
+            cache.Sphere['_'+size]= new THREE.SphereGeometry( size );
+  let matC= cache.Mats['_'+c]? cache.Mats['_'+c] :
+            cache.Mats['_'+c]= new THREE[mat]( {color: c } );
+  let o= new THREE.Mesh( geo, matC );
   o.recieveShadow= true;
   o.position.set( pos.x, pos.y, pos.z );
   avatar.self.scene.add( o );
