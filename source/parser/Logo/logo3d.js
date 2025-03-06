@@ -16,6 +16,8 @@ import { pout } from 'bci';
 import { avatar } from 'mp';
 const THREE= avatar.js3;
 
+const cache= {Sphere:{}};
+
 function deg2rad( d ){
   return d/360*(2*Math.PI);
 }
@@ -28,7 +30,8 @@ const rc= 2*Math.PI;
 
 function Sphere( pos, size, c, mat ){
   let o= new THREE.Mesh(
-          new THREE.SphereGeometry( size ),
+          cache.Sphere['_'+size]? cache.Sphere['_'+size] :
+            cache.Sphere['_'+size]= new THREE.SphereGeometry( size ),
           new THREE[mat]( {color: c } )
   );
   o.recieveShadow= true;
