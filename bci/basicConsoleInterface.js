@@ -196,11 +196,9 @@ return 'done*'
   `);
   makeRunnableButton('discQuaternion',dq);
   makeRunnableButton('vrWrapPsi', wpsi);
-  makeLoadableButton('import tree', imptree);
+  makeLoadableButton('import tree', "import('../tests/logotree.js');");
 }
-function imptree(){
-    import('../tests/logotree.js');
-}
+
 function dq(){
   pout( bci.avatar.self.disc.quaternion.toArray() );
 }
