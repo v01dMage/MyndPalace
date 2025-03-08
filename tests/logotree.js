@@ -27,12 +27,11 @@ fd 7
 loop 10
 end
 construct tree
-rt 85
+rt 95
 color 0xd47e30
-setShape fd capsule
 repeat 
-fd 4
-loop 10
+fd 36
+loop 4
 end
 pu
 mv 0 -30 -30
