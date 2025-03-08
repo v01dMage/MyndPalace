@@ -1,3 +1,5 @@
+import * as avatar from 'xr/cns.js';
+
 avatar.self.psi(`//Logo noopts
 construct field
 setShape fd sphere
