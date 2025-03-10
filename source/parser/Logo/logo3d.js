@@ -93,7 +93,7 @@ function log( msg, p ){
 
 class Turtle {
   constructor(t){
-    log('new turtle started');
+    //log('new turtle started');
     let base= t? t:{
       timestep: 50,
       book: {},
@@ -118,8 +118,8 @@ class Turtle {
     this.pen= Object.assign({}, base.pen);
     this.latest= {};
     Object.keys(this.book).forEach( c=>{
-      log('importing '+c);
-      log( this.book[c] );
+      //log('importing '+c);
+      //log( this.book[c] );
       this[c]= async ()=>{
         this.queue= [ ...this.book[ c ], ...this.queue];
       };
@@ -156,14 +156,14 @@ class Turtle {
   async irun( t ){
     let expression;
     this.queue= t;
-    log('** '+this.queue);
+    //log('** '+this.queue);
     while( this.hasMore ){
       expression= this.queue.shift();
       if( !expression ) continue;
       if( this.building.length == 0 ){
         let parts= expression.split(' ');
         let cmd= parts.shift();
-        log( cmd +" : "+ parts );
+        //log( cmd +" : "+ parts );
         await this[cmd]( parts ); 
      } else {
        let project= this.building[0];
@@ -175,7 +175,7 @@ class Turtle {
            this.loop( expression );
          } else {
            this.loops[0].push( expression );
-           log('+ '+ expression);
+           //log('+ '+ expression);
          }
        } else {
          if( first == 'end' ){ this.end();}
@@ -193,20 +193,20 @@ class Turtle {
     this.building.unshift( name );
     let project= [];
     this.book[name]= project;
-    log( name );
+    //log( name );
   }
 
   async repeat( arr ){
     this.building.unshift('loop');
     this.loops.unshift([]);
-    log('repeat:layer '+this.loops.length);
+    //log('repeat:layer '+this.loops.length);
   }
   async loop( s ){
     let [,n,...q]= s.split(' ');
     n= Number.parseInt( n );
     let code= this.loops.shift().join('\n')+'\n';
     code= code.repeat( n );
-    log('loop '+n+'\n'+code);
+    //log('loop '+n+'\n'+code);
     this.building.shift();
     this.queue= [...code.split('\n'),...this.queue];
   }
@@ -216,8 +216,8 @@ class Turtle {
     this[ name ]= async ()=>{
       this.queue= [...this.book[ name ], ...this.queue ];
     };
-    log( name + 'constructed' );
-    log( this.book[ name ] );
+    //log( name + 'constructed' );
+    //log( this.book[ name ] );
   }
 
   async color( arr ){
@@ -230,7 +230,7 @@ class Turtle {
       while( color.length != 8 ){
         color+= opts[r()];
       }
-      log( color );
+      //log( color );
       arr[0]= color;
     }
     this.pen.color= Number.parseInt( arr[0], 16 );
@@ -336,17 +336,17 @@ class Turtle {
   async animate( arr ){
     let method= arr.shift();
     let upfn= this[ method ](arr);
-    log( upfn );
+    //log( upfn );
     avatar.addToUpdate( upfn );
   }
 
   rotate( arr ){
     let axis= 'rotate'+arr.shift();
-    log( axis );
+    //log( axis );
     let [rads, ms]= arr.map( Number.parseFloat );
-    log(rads+',  '+ms)
+    //log(rads+',  '+ms)
     let rotateFn= this.latest[axis];
-    log(rotateFn);
+    //log(rotateFn);
     let obj= this.latest;
     return (o)=>{
       obj[axis]( rads/ms* o.deltaTime );
@@ -387,7 +387,7 @@ class Heading { //rad rad mag
 }
 
 export async function run( t, o ){
-  log('*'+t);
+  //log('*'+t);
   let logo= new Turtle(o);
   logo.irun( t );
 }
