@@ -24,8 +24,8 @@ repeat
 xt 6
 fd 6
 loop 15
-bk 10
-fd 30
+bk 40
+fd 300
 end
 pu
 mv 0 -30 -30
