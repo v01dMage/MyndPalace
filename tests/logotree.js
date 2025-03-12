@@ -11,17 +11,21 @@ color 0x407050
 repeat
 xt 6
 fd 6
-loop 15
+loop 11
 end
-construct tree
+construct reed
 rt 95
-color 0xd47e30
+color random
 repeat 
 fd 36
 loop 4
+color 0xd47e30 
+repeat
 xt 6
 fd 6
 loop 15
+bk 10
+fd 30
 end
 pu
 mv 0 -30 -30
@@ -31,9 +35,7 @@ repeat
 fd 15
 nu field
 fd 15
-nu tree
+nu reed
 rt 10
-loop 35
-fd 15
-tree
+loop 36
 `);
