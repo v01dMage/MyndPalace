@@ -1,5 +1,6 @@
 import * as avatar from 'xr/cns.js';
 
+avatar.self.disc.position.set(0,-28,-40);
 avatar.self.psi(`//Logo noopts
 construct field
 setShape fd sphere
@@ -11,21 +12,21 @@ color 0x407050
 repeat
 xt 6
 fd 6
-loop 11
+loop 6
 end
 construct reed
 rt 95
 color random
 repeat 
-fd 36
+fd 30
 loop 4
 color 0xd47e30 
 repeat
 xt 6
-fd 6
+fd 5.5
 loop 15
-bk 40
-fd 300
+bk 60
+fd 150
 end
 pu
 mv 0 -30 -30
