@@ -2,8 +2,20 @@ import * as avatar from 'xr/cns.js';
 
 avatar.self.disc.position.set(0,-28,-40);
 avatar.self.psi(`//Logo noopts
-sz .15
+construct lightRing
+pd
+mv 0 -29 -35
+xt 10
+lt 60
+ts 300
+repeat 
+fd 130
+rt 90
+light 0xffff88 20 500 2
+loop 8
+end
 construct field
+mat MeshStandardMaterial 
 setShape fd sphere
 rt 90
 repeat
@@ -16,6 +28,7 @@ fd 6
 loop 6
 end
 construct reedG
+mat MeshStandardMaterial
 rt 95
 color random
 repeat 
@@ -36,6 +49,7 @@ fd 10
 loop 18
 end
 construct reedW
+mat MeshStandardMaterial 
 rt 95
 color random
 repeat 
@@ -55,6 +69,7 @@ xt 10
 fd 10
 loop 18
 end
+nu lightRing
 pu
 mv 0 -30 -30
 lt 90
