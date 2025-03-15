@@ -1,7 +1,7 @@
 import * as avatar from 'xr/cns.js';
 
 avatar.self.disc.position.set(0,-28,-40);
-avatar.self.psi(`/Logo noopts
+avatar.self.psi(`//Logo noopts
 construct lightRing
 pd
 mv 0 -29 -35
