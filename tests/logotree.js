@@ -1,7 +1,7 @@
 import * as avatar from 'xr/cns.js';
 
 avatar.self.disc.position.set(0,-28,-40);
-avatar.self.psi(`//Logo noopts
+avatar.self.psi(`/Logo noopts
 construct lightRing
 pd
 mv 0 -29 -35
@@ -46,7 +46,12 @@ sz .25
 repeat 
 xt 10 
 fd 10
-loop 18
+loop 9
+nu offshoot
+repeat 
+xt 10 
+fd 10
+loop 9
 blocks
 end
 construct reedW
@@ -68,8 +73,22 @@ sz .14
 repeat 
 xt 10 
 fd 10
-loop 18
+loop 9
+nu offshoot
+repeat 
+xt 10 
+fd 10
+loop 9
 blocks 
+end
+construct offshoot
+mat MeshStandardMaterial
+xt 30
+repeat 
+xt 10 
+fd 10
+loop 6
+blocks
 end
 construct blocks
 setShape fd cube
