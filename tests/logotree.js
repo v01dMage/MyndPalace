@@ -47,6 +47,7 @@ repeat
 xt 10 
 fd 10
 loop 18
+blocks
 end
 construct reedW
 mat MeshStandardMaterial 
@@ -68,6 +69,16 @@ repeat
 xt 10 
 fd 10
 loop 18
+blocks 
+end
+construct blocks
+setShape fd cube
+color 0xaa22dd
+xt 13
+repeat 
+fd 7
+rt 163
+loop 13
 end
 nu lightRing
 pu
