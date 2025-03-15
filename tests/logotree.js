@@ -5,14 +5,14 @@ avatar.self.psi(`//Logo noopts
 construct lightRing
 pd
 mv 0 -29 -35
-xt 10
+xt 5
 lt 60
 ts 300
 repeat 
 fd 130
-rt 90
+rt 83
 light 0xffff88 20 500 2
-loop 8
+loop 17
 end
 construct field
 mat MeshStandardMaterial 
