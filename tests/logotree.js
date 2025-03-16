@@ -1,7 +1,7 @@
 import * as avatar from 'xr/cns.js';
 import * as xrConsole from 'xr/console.js';
 
-let success= prompt();
+let success= localStorage.cheer || "hooray!";
 //avatar.self.disc.position.set(0,-28,-40);
 avatar.self.psi(`//Logo noopts
 construct lightRing
