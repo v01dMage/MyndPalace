@@ -102,7 +102,6 @@ fd 7
 rt 163
 loop 13
 end
-nu lightRing
 pu
 mv 0 -30 -30
 lt 90
@@ -136,5 +135,7 @@ fd 15
 nu reedW
 rt 10
 loop 6
+ts 3000
+nu lightRing
 `);
 xrConsole.ccout('test');
