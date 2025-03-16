@@ -3,16 +3,16 @@ import * as avatar from 'xr/cns.js';
 avatar.self.disc.position.set(0,-28,-40);
 avatar.self.psi(`//Logo noopts
 construct lightRing
-pd
-mv 0 -29 -35
-xt 5
+pu
+mv 0 -25 -33
+xt 10
 lt 60
 ts 300
 repeat 
-fd 130
-rt 83
-light 0xffff88 20 500 2
-loop 17
+fd 188
+rt 120
+light 0xffff88 150 500 2
+loop 5
 end
 construct field
 mat MeshStandardMaterial 
@@ -28,12 +28,13 @@ fd 6
 loop 6
 end
 construct reedG
-mat MeshStandardMaterial
+setShape fd capsule
 rt 95
 color random
 repeat 
 fd 30
 loop 4
+mat MeshStandardMaterial
 color 0xd47e30 
 repeat
 xt 6
@@ -55,12 +56,13 @@ loop 9
 blocks
 end
 construct reedW
-mat MeshStandardMaterial 
+setShape fd capsule 
 rt 95
 color random
 repeat 
 fd 30
 loop 4
+mat MeshStandardMaterial
 color 0xd47e30
 repeat
 xt 6
@@ -103,6 +105,7 @@ nu lightRing
 pu
 mv 0 -30 -30
 lt 90
+setShape fd sphere 
 pd
 repeat
 fd 15
