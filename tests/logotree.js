@@ -1,6 +1,8 @@
 import * as avatar from 'xr/cns.js';
+import * as xrConsole from 'xr/console.js';
 
-avatar.self.disc.position.set(0,-28,-40);
+let success= prompt();
+//avatar.self.disc.position.set(0,-28,-40);
 avatar.self.psi(`//Logo noopts
 construct lightRing
 pu
@@ -136,3 +138,5 @@ nu reedW
 rt 10
 loop 6
 `);
+xrConsole.ccout('test');
+return success;
