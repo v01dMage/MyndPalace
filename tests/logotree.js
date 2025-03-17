@@ -5,14 +5,14 @@ construct lightRing
 ts 3000
 pu
 mv 0 -25 -33
-xt 10
+xt 45
 lt 60
 ts 300
 repeat 
 fd 188
 rt 120
 light 0xeeffee 150 500 2
-loop 5
+loop 3
 end
 construct field
 ts 500
