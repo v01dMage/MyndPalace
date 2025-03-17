@@ -1,7 +1,5 @@
 import * as avatar from 'xr/cns.js';
-import * as xrConsole from 'xr/console.js';
 
-//avatar.self.disc.position.set(0,-28,-40);
 avatar.self.psi(`//Logo noopts
 construct lightRing
 pu
@@ -16,7 +14,6 @@ light 0xffff88 150 500 2
 loop 5
 end
 construct field
-mat MeshStandardMaterial 
 setShape fd sphere
 rt 90
 repeat
@@ -138,4 +135,3 @@ loop 6
 ts 3000
 nu lightRing
 `);
-xrConsole.ccout('test');
