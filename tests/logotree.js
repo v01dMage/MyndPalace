@@ -40,8 +40,8 @@ fd 5.5
 loop 15
 bk 60
 fd 150
-color 0xdabb13
-sz .25
+color 0xffd700
+sz .3
 repeat 
 xt 10 
 fd 10
@@ -69,7 +69,7 @@ loop 15
 bk 60
 fd 150
 color 0xffffff 
-sz .14
+sz .17
 repeat 
 xt 10 
 fd 10
