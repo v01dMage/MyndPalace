@@ -10,7 +10,7 @@ ts 300
 repeat 
 fd 188
 rt 120
-light 0xffff88 150 500 2
+light 0xeeffee 150 500 2
 loop 5
 end
 construct field
