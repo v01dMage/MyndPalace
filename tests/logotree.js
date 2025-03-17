@@ -2,6 +2,7 @@ import * as avatar from 'xr/cns.js';
 
 avatar.self.psi(`//Logo noopts
 construct lightRing
+ts 3000
 pu
 mv 0 -25 -33
 xt 10
@@ -14,6 +15,7 @@ light 0xeeffee 150 500 2
 loop 5
 end
 construct field
+ts 500
 setShape fd sphere
 rt 90
 repeat
@@ -26,6 +28,7 @@ fd 6
 loop 6
 end
 construct reedG
+ts 1000
 setShape fd capsule
 rt 95
 color random
@@ -34,6 +37,7 @@ fd 30
 loop 4
 mat MeshStandardMaterial
 color 0xd47e30 
+ts 2000
 repeat
 xt 6
 fd 5.5
@@ -41,6 +45,7 @@ loop 15
 bk 60
 fd 150
 color 0xffd700
+ts 750
 sz .3
 repeat 
 xt 10 
@@ -54,6 +59,7 @@ loop 9
 blocks
 end
 construct reedW
+ts 500
 setShape fd capsule 
 rt 95
 color random
@@ -62,6 +68,7 @@ fd 30
 loop 4
 mat MeshStandardMaterial
 color 0xd47e30
+ts 1500
 repeat
 xt 6
 fd 5.5
@@ -69,6 +76,7 @@ loop 15
 bk 60
 fd 150
 color 0xffffff 
+ts 420
 sz .17
 repeat 
 xt 10 
@@ -82,6 +90,7 @@ loop 9
 blocks 
 end
 construct offshoot
+ts 100
 mat MeshStandardMaterial
 xt 30
 repeat 
@@ -91,6 +100,7 @@ loop 6
 blocks
 end
 construct blocks
+ts 50
 setShape fd cube
 color 0xaa22dd
 xt 13
@@ -132,6 +142,5 @@ fd 15
 nu reedW
 rt 10
 loop 6
-ts 3000
 nu lightRing
 `);
