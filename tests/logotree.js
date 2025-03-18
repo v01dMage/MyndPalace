@@ -7,7 +7,6 @@ pu
 mv 0 -25 -33
 xt 45
 lt 60
-ts 300
 repeat 
 fd 188
 rt 120
@@ -15,7 +14,7 @@ light 0xeeffee 150 500 2
 loop 3
 end
 construct field
-ts 500
+ts 200
 setShape fd sphere
 rt 90
 repeat
@@ -59,7 +58,7 @@ loop 9
 blocks
 end
 construct reedW
-ts 500
+ts 750
 setShape fd capsule 
 rt 95
 color random
@@ -68,7 +67,7 @@ fd 30
 loop 4
 mat MeshStandardMaterial
 color 0xd47e30
-ts 1500
+ts 2000
 repeat
 xt 6
 fd 5.5
