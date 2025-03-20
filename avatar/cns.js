@@ -58,7 +58,7 @@ function init(){
  // scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
   const light = new THREE.DirectionalLight( 0xffffff, 0.3 );
-  light.position.set( 1, 10, 1 ).normalize();
+  light.position.set( -15, -15, -55 ).normalize();
   light.castShadow= true;
   scene.add( light );
 
