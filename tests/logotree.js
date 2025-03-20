@@ -1,18 +1,6 @@
 import * as avatar from 'xr/cns.js';
 
 avatar.self.psi(`//Logo noopts
-construct lightRing
-ts 3000
-pu
-mv 0 -25 -33
-xt 45
-lt 60
-repeat 
-fd 188
-rt 120
-light 0xeeffee 150 500 2
-loop 3
-end
 construct field
 ts 200
 setShape fd sphere
@@ -141,5 +129,4 @@ fd 15
 nu reedW
 rt 10
 loop 6
-nu lightRing
 `);
