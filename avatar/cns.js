@@ -151,14 +151,14 @@ function init(){
     
   self.disc= disc;
 
-
+/*
   let pointOfReference = new THREE.Mesh(
     new THREE.BoxGeometry(3,3,3),
     new THREE.MeshBasicMaterial( {color: 0xff4477 } )
   );
   pointOfReference.position.set(0,1,-15);
   scene.add( pointOfReference );
-
+*/
   voyd= new THREE.Scene();
   voyd.background = new THREE.Color( 0x77bb88 );
   voyd.add( new THREE.HemisphereLight( 0xcccccc, 0x400040, .8 ) );
