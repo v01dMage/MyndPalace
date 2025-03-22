@@ -246,7 +246,7 @@ function buildPointer( data ) {
 
     case 'gaze':
        geometry = new THREE.RingGeometry( 0.02, 0.04, 32 ).translate( 0, 0, - 1 );
-       material = new THREE.MeshBasicMaterial( { opacity: 0.5, transparent: true } );
+       material = new THREE.MeshBasicMaterial( { opacity: 0.2, transparent: true } );
       return new THREE.Mesh( geometry, material );
   }
 }
