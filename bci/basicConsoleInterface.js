@@ -196,7 +196,26 @@ return 'done*'
   `);
   makeRunnableButton('discQuaternion',dq);
   makeRunnableButton('vrWrapPsi', wpsi);
-  makeLoadableButton('import tree', "import('../tests/logotree.js');");
+  makeLoadableButton('import tree', `import('../tests/logotree.js');
+let gotoPlaces= function (tp){
+  tp.forEach( ([t,p])=>{
+    setTimeout( ()=>{
+      bci.avatar.self.disc.position.set(
+        p.x, p.y, p.z
+      );
+      bci.avatar.self.disc.rotation.y= p.h;
+    }, t*1000 );
+  } );
+};
+gotoPlaces([
+  [1, {x: 0, y: 0, z: 0, h: -1.7}],
+  [15, {x: 3, y: -25, z: -15, h: -1.6}],
+  [45, {x: 0, y: -25, z: -40, h: -1.7}],
+  [60, {x: -3, y: -25, z: -80, h: 1.8}],
+  [70, {x: -3, y: -5, z: -70, h: 1.9}],
+  [90, {x: -10, y: 10, z: -90, h: 2.2}],
+]);
+`);
 }
 
 function dq(){
