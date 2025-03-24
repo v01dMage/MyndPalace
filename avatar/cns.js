@@ -63,7 +63,7 @@ function init(){
   light.castShadow= true;
   scene.add( light );
 */
-  const light = new THREE.AmbientLight( 0x706040 );
+  const light = new THREE.AmbientLight( 0xddbb99 );
   scene.add( light );
 
   raycasterLeft = new THREE.Raycaster();
