@@ -3,9 +3,9 @@
 
 export const gamepad= { 
   leftXaxis: 0,
-  leftYaxis: 0.5,
+  leftYaxis: 0,  //like below for fd/bk
   leftAxisButton: false,
-  rightXaxis: 0.2,
+  rightXaxis: 0,  //add value for controllerless auto-rotate
   rightYaxis: 0,
   rightAxisButton: false,
   leftTrigger: 0,
