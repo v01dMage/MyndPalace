@@ -57,11 +57,14 @@ function init(){
                                
  // scene.add( new THREE.HemisphereLight( 0xa5a5a5, 0x898989, 3 ) );
 
+  /*
   const light = new THREE.DirectionalLight( 0xffffff, 0.9 );
   light.position.set( -15, -15, -55 ).normalize();
   light.castShadow= true;
   scene.add( light );
-
+*/
+  const light = new THREE.AmbientLight( 0x706040 );
+  scene.add( light );
 
   raycasterLeft = new THREE.Raycaster();
   self.raycasterLeft= raycasterLeft;
