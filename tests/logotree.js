@@ -24,7 +24,7 @@ fd 30
 loop 4
 mat MeshStandardMaterial
 color 0xd47e30 
-ts 2000
+ts 800
 repeat
 xt 6
 fd 5.5
@@ -55,7 +55,7 @@ fd 30
 loop 4
 mat MeshStandardMaterial
 color 0xd47e30
-ts 2000
+ts 900
 repeat
 xt 6
 fd 5.5
