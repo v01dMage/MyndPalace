@@ -216,6 +216,9 @@ gotoPlaces([
   [90, {x: -10, y: 10, z: -90, h: 2.2}],
 ]);
 `);
+  makeLoadableButton('shader tests',`import('../tests/shadertests.js');
+  bci.pout('loading <i>shadertests.js</i>')
+`);
 }
 
 function dq(){
