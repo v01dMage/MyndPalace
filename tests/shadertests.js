@@ -54,7 +54,7 @@ varying vec3 pos;
 uniform float elapsedTime;
 
 void main(){
-  if( pos.x < 0){
+  if( pos.x < 0.0 ){
     gl_FragColor= vec4(0.5, 1.0, 0.0, 1.0);
   } else {
     gl_FragColor= vec4(0.9, 1.0, 0.0, 1.0);
