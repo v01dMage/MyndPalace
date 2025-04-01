@@ -6,12 +6,13 @@ import { pout } from 'bci';
 const THREE= avatar.js3;
 
 const uniformsData= {
-  elapsedTime: {
+  now: {
     type: 'f',
     value: 0.0
   }
 };
 
+/*
 var lastTime= Date.now();
 
 let poll= ()=>{
@@ -19,13 +20,11 @@ let poll= ()=>{
   pout( uniformsData.elapsedTime.value );
   setTimeout(poll, 5000);
 };
-poll();
+//poll();  */
 
 avatar.addToRecon(
   (o)=>{
-    uniformsData.elapsedTime.value= 
-      o.now- lastTime;
-    lastTime= o.now;
+    uniformsData.now.value= o.now;
     return o;
   }
 );
@@ -35,14 +34,14 @@ const shader= new THREE.ShaderMaterial({
   wireframe: true,
   uniforms: uniformsData,
   vertexShader: `// basic Three vertex shader
-uniform float elapsedTime;
+uniform float now;
 varying vec3 pos;
 
 void main(){
   vec4 result;
   pos = position;
   
-  result= vec4(position.x, sin(elapsedTime/1000.0)+ position.y, position.z, 1.0);
+  result= vec4(position.x, sin(now/1000.0)+ position.y, position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
@@ -51,7 +50,7 @@ void main(){
 `,
   fragmentShader: `//basic fragment shader
 varying vec3 pos;
-uniform float elapsedTime;
+uniform float now;
 
 void main(){
   if( pos.x < 0.0 ){
