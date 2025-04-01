@@ -36,4 +36,10 @@ const mesh= new THREE.Mesh( testGeometry, shader );
 mesh.position.set( 0, 1.6, -10);
 avatar.self.scene.add(mesh);
 
+const mesh2= new THREE.Mesh( testGeometry, 
+  new THREE.MeshBasicMaterial({wireframe:true});
+);
+mesh2.position.set( 0, 0, -10);
+avatar.self.scene.add(mesh2);
+
 pout('shader code run.');
