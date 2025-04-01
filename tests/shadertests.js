@@ -50,7 +50,7 @@ uniform float now;
 
 void main(){
   if( pos.x < 0.0 ){
-    gl_FragColor= vec4(0.5, 1.0, 0.0, 1.0);
+    gl_FragColor= vec4(abs(sin(now/1000.0)), 1.0, 0.0, 1.0);
   } else {
     gl_FragColor= vec4(0.9, 1.0, 0.0, 1.0);
   }
