@@ -5,19 +5,36 @@ import { pout } from 'bci';
 
 const THREE= avatar.js3;
 
-const uniformsData= {};
+const uniformsData= {
+  lastTime: {
+    type: 'f',
+    value: Date.now()
+  },
+  elapsedTime: {
+    type: 'f',
+    value: 0.0
+  }
+};
+avatar.addToUpdate(
+  (o)=>{
+    uniformsData.elapsedTime.value= 
+      o.now- uniformsData.lastTime.value;
+    uniformsData.lastTime.value= o.now;
+    return o
+  }
+);
 
 const testGeometry= new THREE.BoxGeometry( 1,1,1, 4,4,4 );
 const shader= new THREE.ShaderMaterial({
   wireframe: true,
   uniforms: uniformsData,
   vertexShader: `// basic Three vertex shader
-//uniform float blahblah
+uniform float elapsedTime
 
 void main(){
   vec4 result;
   
-  result= vec4(position.x, position.y, position.z, 1.0);
+  result= vec4(position.x, sin(elapsedTime/1000)+ position.y, position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
@@ -25,7 +42,7 @@ void main(){
 }
 `,
   fragmentShader: `//basic fragment shader
-//uniform float blahblah 
+//uniform float kjhg
 void main(){
   gl_FragColor= vec4(0.5, 1.0, 0.0, 1.0);
 }
