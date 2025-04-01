@@ -11,7 +11,15 @@ const uniformsData= {
     value: 0.0
   }
 };
+
 var lastTime= Date.now();
+
+let poll= ()=>{
+  pout( lastTime );
+  pout( uniformsData.elapsedTime.value );
+  setTimeout(poll, 5000);
+};
+poll();
 
 avatar.addToRecon(
   (o)=>{
@@ -46,7 +54,11 @@ varying vec3 pos;
 uniform float elapsedTime;
 
 void main(){
-  gl_FragColor= vec4(0.5, 1.0, 0.0, 1.0);
+  if( pos.x < 0){
+    gl_FragColor= vec4(0.5, 1.0, 0.0, 1.0);
+  } else {
+    gl_FragColor= vec4(0.9, 1.0, 0.0, 1.0);
+  }
 }
 `,
 });
