@@ -32,5 +32,6 @@ void main(){
 });
 
 const mesh= new THREE.Mesh( testGeometry, shader );
-mesh.position.set( 0, 1.6, -1);
+mesh.position.set( 0, 1.6, -10);
 avatar.self.scenes[0].add(mesh);
+
