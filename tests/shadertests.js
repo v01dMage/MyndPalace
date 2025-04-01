@@ -6,21 +6,19 @@ import { pout } from 'bci';
 const THREE= avatar.js3;
 
 const uniformsData= {
-  lastTime: {
-    type: 'f',
-    value: Date.now()
-  },
   elapsedTime: {
     type: 'f',
     value: 0.0
   }
 };
-avatar.addToUpdate(
+var lastTime= Date.now();
+
+avatar.addToRecon(
   (o)=>{
     uniformsData.elapsedTime.value= 
-      o.now- uniformsData.lastTime.value;
-    uniformsData.lastTime.value= o.now;
-    return o
+      o.now- lastTime;
+    lastTime= o.now;
+    return o;
   }
 );
 
@@ -30,11 +28,13 @@ const shader= new THREE.ShaderMaterial({
   uniforms: uniformsData,
   vertexShader: `// basic Three vertex shader
 uniform float elapsedTime;
+varying vec3 pos;
 
 void main(){
   vec4 result;
+  pos = position;
   
-  result= vec4(position.x, sin(elapsedTime/1000)+ position.y, position.z, 1.0);
+  result= vec4(position.x, sin(elapsedTime)+ position.y, position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
@@ -42,7 +42,9 @@ void main(){
 }
 `,
   fragmentShader: `//basic fragment shader
-//uniform float kjhg
+varying vec3 pos;
+uniform float elapsedTime;
+
 void main(){
   gl_FragColor= vec4(0.5, 1.0, 0.0, 1.0);
 }
