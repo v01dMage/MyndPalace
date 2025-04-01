@@ -4,9 +4,33 @@ import * as xrConsole from 'xr/console.js';
 
 const THREE= avatar.js3;
 
-const uniforms= {};
+const uniformsData= {};
 
-const testGeometry= new THREE.BoxGeometry( 1,1,1 );
-const shader= new THREE.ShaderMaterial();
+const testGeometry= new THREE.BoxGeometry( 1,1,1, 4,4,4 );
+const shader= new THREE.ShaderMaterial({
+  wireframe: true,
+  uniforms: uniformsData,
+  vertexShader: `// basic Three vertex shader
+//uniform float blahblah
 
+void main(){
+  vec4 result;
+  
+  result= vec4(position.x, position.y, position.z, 1.0);
 
+  gl_Position = projectionMatrix 
+    * modelViewMatrix
+    * result;
+}
+`,
+  fragmentShader: `//basic fragment shader
+//uniform float blahblah 
+void main(){
+  gl_FragColor= vec4(.5, 1, 0);
+}
+`,
+});
+
+const mesh= new THREE.Mesh( testGeometry, shader );
+mesh.position.set( 0, 1.6, -1);
+avatar.self.scenes[0].add(mesh);
