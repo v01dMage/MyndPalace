@@ -29,7 +29,7 @@ const shader= new THREE.ShaderMaterial({
   wireframe: true,
   uniforms: uniformsData,
   vertexShader: `// basic Three vertex shader
-uniform float elapsedTime
+uniform float elapsedTime;
 
 void main(){
   vec4 result;
