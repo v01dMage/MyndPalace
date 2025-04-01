@@ -12,15 +12,11 @@ const uniformsData= {
   }
 };
 
-/*
-var lastTime= Date.now();
-
 let poll= ()=>{
-  pout( lastTime );
-  pout( uniformsData.elapsedTime.value );
+  pout( uniformsData.now.value );
   setTimeout(poll, 5000);
 };
-//poll();  */
+poll();  
 
 avatar.addToRecon(
   (o)=>{
