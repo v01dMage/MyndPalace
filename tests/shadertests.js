@@ -1,6 +1,7 @@
 // Load some buttons to play with shaders
-import * as avatar from 'xr/cns.js';
+import { avatar } from 'mp';
 import * as xrConsole from 'xr/console.js';
+import { pout } from 'bci';
 
 const THREE= avatar.js3;
 
@@ -33,5 +34,6 @@ void main(){
 
 const mesh= new THREE.Mesh( testGeometry, shader );
 mesh.position.set( 0, 1.6, -10);
-avatar.self.scenes[0].add(mesh);
+avatar.self.scene.add(mesh);
 
+pout('shader code run.');
