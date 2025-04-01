@@ -37,7 +37,7 @@ mesh.position.set( 0, 1.6, -10);
 avatar.self.scene.add(mesh);
 
 const mesh2= new THREE.Mesh( testGeometry, 
-  new THREE.MeshBasicMaterial({wireframe:true})
+  new THREE.MeshBasicMaterial({wireframe:true,color:0x00cc00})
 );
 mesh2.position.set( 0, 0, -10);
 avatar.self.scene.add(mesh2);
