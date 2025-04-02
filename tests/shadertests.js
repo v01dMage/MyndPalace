@@ -8,7 +8,7 @@ const THREE= avatar.js3;
 const uniformsData= {
   now: {
     type: 'f',
-    value: 0.0
+    value: Date.now()
   }
 };
 
@@ -18,9 +18,10 @@ let poll= ()=>{
 };
 poll();  
 
+let tStart= Date.now();
 avatar.addToRecon(
   (o)=>{
-    uniformsData.now.value= o.now/1000.0;
+    uniformsData.now.value= (o.now-tStart)/1000.0;
     return o;
   }
 );
