@@ -20,7 +20,7 @@ poll();
 
 avatar.addToRecon(
   (o)=>{
-    uniformsData.now.value= o.now;
+    uniformsData.now.value= o.now/1000.0;
     return o;
   }
 );
