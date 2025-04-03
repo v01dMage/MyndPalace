@@ -2,9 +2,10 @@
 import { avatar } from 'mp';
 import * as xrConsole from 'xr/console.js';
 import { pout } from 'bci';
+import { firstShader } from 'inv/shaders/basicShaders.js';
 
 const THREE= avatar.js3;
-
+/*
 const uniformsData= {
   now: {
     type: 'f',
@@ -25,8 +26,10 @@ avatar.addToRecon(
     return o;
   }
 );
+*/
 
 const testGeometry= new THREE.BoxGeometry( 1,1,1, 4,4,4 );
+/*
 const shader= new THREE.ShaderMaterial({
   wireframe: true,
   uniforms: uniformsData,
@@ -58,8 +61,9 @@ void main(){
 }
 `,
 });
+*/
 
-const mesh= new THREE.Mesh( testGeometry, shader );
+const mesh= new THREE.Mesh( testGeometry, firstShader );
 mesh.position.set( 0, 1.6, -10);
 avatar.self.scene.add(mesh);
 
@@ -69,4 +73,4 @@ const mesh2= new THREE.Mesh( testGeometry,
 mesh2.position.set( 0, 0, -10);
 avatar.self.scene.add(mesh2);
 
-pout('shader code run.');
+pout('shader imported and code run.');
