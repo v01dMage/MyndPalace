@@ -63,13 +63,10 @@ export const Cuboid= new THREE.ShaderMaterial({
   uniforms: uniformsData,
   vertexShader: `uniform float now;
 varying vec3 pos;
-//varying float scalar;
 
 void main(){
   vec4 result;
   pos = position;
-  //scalar= 0.5; 
-//sin(now)/2.0 +0.5;
 
   result= vec4(position.x* 0.5, position.y* 0.5 , position.z* 0.5, 1.0);
 
@@ -80,7 +77,6 @@ void main(){
 `,
   fragmentShader: `varying vec3 pos;
 uniform float now;
-//varying float scalar;
 
 void main(){
   if( pos.y < 0 ){
