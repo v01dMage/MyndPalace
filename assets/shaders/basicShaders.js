@@ -67,8 +67,8 @@ varying vec3 pos;
 void main(){
   vec4 result;
   pos = position;
-
-  result= vec4(position.x* 0.5, position.y* 0.5 , position.z* 0.5, 1.0);
+  
+  result= vec4(position.x, sin(now)/3.0+ position.y , position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
@@ -79,8 +79,8 @@ void main(){
 uniform float now;
 
 void main(){
-  if( pos.y < 0 ){
-    gl_FragColor= vec4( (1.0*0.5 +0.2, 0.7, 0.0, 1.0);
+  if( pos.x < 0.4 ){
+    gl_FragColor= vec4( (sin(now)/5.0)+0.5, 0.7, 0.0, 1.0);
   } else {
     gl_FragColor= vec4(0.8, 0.0, 1.0, 1.0);
   }
