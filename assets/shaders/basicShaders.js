@@ -63,10 +63,12 @@ export const Cuboid= new THREE.ShaderMaterial({
   uniforms: uniformsData,
   vertexShader: `uniform float now;
 varying vec3 pos;
+varying float magic;
 
 void main(){
   vec4 result;
   pos = position;
+  magic= 0.5;
   
   result= vec4(position.x, sin(now)/3.0+ position.y , position.z, 1.0);
 
@@ -77,9 +79,10 @@ void main(){
 `,
   fragmentShader: `varying vec3 pos;
 uniform float now;
+varying float magic;
 
 void main(){
-  if( pos.y < 0.0 ){
+  if( pos.z < 0.0 ){
     gl_FragColor= vec4( (sin(now)/5.0)+0.5, 0.7, 0.0, 1.0);
   } else {
     gl_FragColor= vec4(0.8, 0.0, 1.0, 1.0);
