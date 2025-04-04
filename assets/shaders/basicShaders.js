@@ -57,3 +57,33 @@ void main(){
 }
 `,
 });
+
+export const Cuboid= new THREE.ShaderMaterial({
+  wireframe: true,
+  uniforms: uniformsData,
+  vertexShader: `uniform float now;
+varying vec3 pos;
+
+void main(){
+  vec4 result;
+  pos = position;
+  
+  result= vec4(position.x, sin(now)/3.0+ position.y , position.z, 1.0);
+
+  gl_Position = projectionMatrix 
+    * modelViewMatrix
+    * result;
+}
+`,
+  fragmentShader: `varying vec3 pos;
+uniform float now;
+
+void main(){
+  if( pos.x < 0.5 ){
+    gl_FragColor= vec4( (sin(now)/5.0)+0.5, 0.7, 0.0, 1.0);
+  } else {
+    gl_FragColor= vec4(0.8, 0.0, 1.0, 1.0);
+  }
+}
+`,
+});
