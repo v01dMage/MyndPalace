@@ -68,7 +68,7 @@ varying float scalar;
 void main(){
   vec4 result;
   pos = position;
-  scalar= sin(now)/2.0 +0.5;
+  scalar= 0.5; //sin(now)/2.0 +0.5;
 
   result= vec4(position.x* scalar, position.y* scalar , position.z* scalar, 1.0);
 
