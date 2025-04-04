@@ -59,7 +59,7 @@ void main(){
 });
 
 export const Cuboid= new THREE.ShaderMaterial({
-  wireframe: true,
+  wireframe: false,
   uniforms: uniformsData,
   vertexShader: `uniform float now;
 varying vec3 pos;
