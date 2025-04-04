@@ -70,7 +70,7 @@ void main(){
   pos = position;
   magic= sin(now)/2.0 +0.5;
   
-  result= vec4(magic + position.x, position.y , position.z, 1.0);
+  result= vec4(magic * position.x, position.y , magic * position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
@@ -83,7 +83,7 @@ varying float magic;
 
 void main(){
   if( pos.z > 0.0 ){
-    gl_FragColor= vec4( magic, 0.7, 0.0, 1.0);
+    gl_FragColor= vec4( magic, 0.7, magic, 1.0);
   } else {
     gl_FragColor= vec4(0.8, 0.0, 1.0, 1.0);
   }
