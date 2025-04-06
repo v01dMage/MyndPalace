@@ -64,14 +64,16 @@ export const Cuboid= new THREE.ShaderMaterial({
   vertexShader: `uniform float now;
 varying vec3 pos;
 varying float magic;
+varying vec3 vNormal;
 
 void main(){
   vec4 result;
   pos = position;
   magic= sin(now)/2.0 +0.5;
   float s= magic * 0.2;
+  vNormal= normal;
   
-  result= vec4( s + position.x, sin(pos.z) + position.y , s + position.z, 1.0);
+  result= vec4( 2. * s + position.x, sin(pos.z*3.2) + position.y , s + position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
@@ -81,9 +83,10 @@ void main(){
   fragmentShader: `varying vec3 pos;
 uniform float now;
 varying float magic;
+varying vec3 vNormal;
 
 void main(){
-  gl_FragColor= vec4( pos.x/2.0 +0.5, pos.y/2.0 +0.5, pos.z/2.0 +0.5, 1.0);
+  gl_FragColor= vec4( vNormal, 1.0);
 }
 `,
 });
