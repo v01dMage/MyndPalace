@@ -69,9 +69,9 @@ void main(){
   vec4 result;
   pos = position;
   magic= sin(now)/2.0 +0.5;
-  float s= magic * 2.0;
+  float s= magic * 0.2;
   
-  result= vec4( s * position.x, sin(pos.z) + position.y , s * position.z, 1.0);
+  result= vec4( s + position.x, sin(pos.z) + position.y , s + position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
