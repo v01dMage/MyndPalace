@@ -73,7 +73,7 @@ void main(){
   float s= magic * 0.2;
   vNormal= normal;
   
-  result= vec4( 2. * s + position.x, sin(pos.z*3.2) + position.y , s + position.z, 1.0);
+  result= vec4( 0.5 * position.x, (0.3 + pos.z/10.0) * position.y , 0.4 * position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
