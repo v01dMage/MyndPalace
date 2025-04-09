@@ -9,13 +9,13 @@ const THREE= avatar.js3;
 const testGeometry= new THREE.BoxGeometry( 1,1,1, 4,4,4 );
 
 const mesh= new THREE.Mesh( testGeometry, Cuboid );
-mesh.position.set( 0, .4, -10);
+mesh.position.set( -1, .4, -10);
 avatar.self.scene.add(mesh);
 
 const mesh2= new THREE.Mesh( testGeometry, 
   new THREE.MeshBasicMaterial({wireframe:true,color:0x00cc00})
 );
-mesh2.position.set( 0, .4, -10);
+mesh2.position.set( -1, .4, -10);
 avatar.self.scene.add(mesh2);
 
 pout('shader imported and code run.');
