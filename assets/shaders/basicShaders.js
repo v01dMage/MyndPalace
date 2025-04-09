@@ -70,7 +70,7 @@ void main(){
   vec4 result;
   pos = position;
   magic= sin(now)/2.0 +0.5;
-  float s= magic * 0.45;
+  float s= magic * 2.4;
   vNormal= normal;
   
   result= vec4( 0.5 * position.x, s + position.y , 0.4 * position.z, 1.0);
