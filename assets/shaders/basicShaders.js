@@ -76,7 +76,7 @@ void main(){
   if( abs(pos.x) == 1. || abs(pos.y) == 1. || abs(poz.z) == 1. ){
     result= vec4( position, 1.0);
   } else {
-    result= vec4( s* position, 1.0);
+    result= vec4( position, 1.0);
   }
 
   gl_Position = projectionMatrix 
@@ -90,7 +90,7 @@ varying float magic;
 varying vec3 vNormal;
 
 void main(){
-  gl_FragColor= vec4( abs(normal), 1.0);
+  gl_FragColor= vec4( normal, 1.0);
 }
 `,
 });
