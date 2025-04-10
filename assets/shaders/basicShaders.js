@@ -76,7 +76,7 @@ void main(){
   if( abs(pos.x) == 0.5 ){
     result= vec4( position.x, position.y *1.2, position.z, 1.0);
   } else {
-    result= vec4( position, 1.0);
+    result= vec4( position.x, position.y, position.z, 1.0);
   }
 
   gl_Position = projectionMatrix 
