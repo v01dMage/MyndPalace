@@ -73,8 +73,8 @@ void main(){
   float s= magic * 2.4;
   vNormal= normal;
 
-  if( abs(pos.x) == 1. || abs(pos.y) == 1. || abs(poz.z) == 1. ){
-    result= vec4( position, 1.0);
+  if( abs(pos.x) == 0.5 ){
+    result= vec4( position.x, position.y *1.2, position.z, 1.0);
   } else {
     result= vec4( position, 1.0);
   }
