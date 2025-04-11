@@ -59,7 +59,7 @@ void main(){
 });
 
 export const Cuboid= new THREE.ShaderMaterial({
-  wireframe: false,
+  wireframe: true,
   uniforms: uniformsData,
   vertexShader: `uniform float now;
 varying vec3 pos;
@@ -73,11 +73,7 @@ void main(){
   float s= magic * 2.4;
   vNormal= normal;
 
-  //if( abs(pos.x) == 0.5 ){
-    result= vec4( position.x, position.y *1.2, position.z, 1.0);
-  //} else {
-  //  result= vec4( position.x, position.y, position.z, 1.0);
-  //}
+  result= vec4( position.x + s, position.y+ position.z *1.2, position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
