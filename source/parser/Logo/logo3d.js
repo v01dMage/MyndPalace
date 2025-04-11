@@ -14,6 +14,7 @@
 
 import { pout } from 'bci';
 import { avatar } from 'mp';
+import { Cuboid } from 'inv/shaders/basicShaders.js';
 const THREE= avatar.js3;
 
 const cache= {Sphere:{},Mats:{}};
