@@ -45,7 +45,8 @@ function Cube( t ){
   let s= t.pen.size;
   let o= new THREE.Mesh(
     new THREE.BoxGeometry( s,s,s ),
-    new THREE[t.material]( {color: t.pen.color} )
+   // new THREE[t.material]( {color: t.pen.color} )
+    Cuboid
   );
   o.recieveShadow= true;
   let {x,y,z}= t.position;
