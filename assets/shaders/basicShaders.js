@@ -87,10 +87,7 @@ varying vec3 vNormal;
 float g;
 
 void main(){
-  g= sin(now)*2.225- 1.225;
-  if( g < 0. ){
-    g= 0.;
-  }
+  g= clamp( sin(now*.37138429646), 0.0, 1.0);
   gl_FragColor= vec4( 0.77, g, 0.99 , 1.0);
 }
 `,
