@@ -92,3 +92,32 @@ void main(){
 }
 `,
 });
+
+export const Fern= new THREE.ShaderMaterial({
+  wireframe: false,
+  uniforms: uniformsData,
+  vertexShader: `uniform float now;
+varying vec3 pos;
+varying vec3 vNormal;
+
+void main(){
+  vec4 result;
+  pos = position;
+  vNormal= normal;
+
+  result= vec4( position.x + sin(now/4.)*.1, position.y, 0.1* position.z, 1.0);
+
+  gl_Position = projectionMatrix 
+    * modelViewMatrix
+    * result;
+}
+`,
+  fragmentShader: `varying vec3 pos;
+uniform float now;
+varying vec3 vNormal;
+
+void main(){
+  gl_FragColor= vec4( abs(vNormal), 1.0);
+}
+`,
+});
