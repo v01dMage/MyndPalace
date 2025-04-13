@@ -73,7 +73,7 @@ void main(){
   float s= magic * 2.4;
   vNormal= normal;
 
-  result= vec4( position.x + sin(now)/2., position.y+ position.z *cos(now), position.z, 1.0);
+  result= vec4( position.x + sin(now/4.)/4., position.y+ position.z *cos(now/2.), position.z, 1.0);
 
   gl_Position = projectionMatrix 
     * modelViewMatrix
@@ -87,7 +87,7 @@ varying vec3 vNormal;
 float g;
 
 void main(){
-  g= clamp( sin(now*.37138429646), 0.0, 1.0);
+  g= clamp( sin(now*5.37138429646), 0.0, 1.0);
   gl_FragColor= vec4( 0.77, g, 0.99 , 1.0);
 }
 `,
