@@ -14,7 +14,7 @@
 
 import { pout } from 'bci';
 import { avatar } from 'mp';
-import { Cuboid } from 'inv/shaders/basicShaders.js';
+import { Cuboid, Fern } from 'inv/shaders/basicShaders.js';
 const THREE= avatar.js3;
 
 const cache= {Sphere:{},Mats:{}};
@@ -69,11 +69,11 @@ function Capsule( a, b, h, r, c, t, mat ){
   capsule.rotateY( hp- h.xz );
   //capsule.translate( 0, d/2 ,0 );
   let o= new THREE.Mesh(
-    capsule, new THREE[mat](
+    capsule, Fern /* new THREE[mat](
       { color: c }
-    )
-  );
-  o.recieveShadow= true;
+    ) */
+  ); 
+  //o.recieveShadow= true;
   //o.applyQuaternion( t.quaternion );
   o.position.set( a.x, a.y, a.z );
   avatar.self.scene.add( o );
