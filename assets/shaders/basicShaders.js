@@ -84,9 +84,11 @@ void main(){
 uniform float now;
 varying float magic;
 varying vec3 vNormal;
+float g;
 
 void main(){
-  gl_FragColor= vec4( 0.77, magic, 0.99 , 1.0);
+  g= clamp( sin(now)*2.225-1.225, 0., 1. )
+  gl_FragColor= vec4( 0.77, g, 0.99 , 1.0);
 }
 `,
 });
