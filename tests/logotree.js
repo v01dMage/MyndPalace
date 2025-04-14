@@ -31,7 +31,7 @@ fd 5.5
 loop 15
 bk 60
 fd 150
-color 0xffd700
+setShape fd fern
 ts 750
 sz .3
 repeat 
@@ -78,7 +78,7 @@ blocks
 end
 construct offshoot
 ts 100
-mat MeshStandardMaterial
+setShape fd fern
 xt 30
 repeat 
 xt 10 
