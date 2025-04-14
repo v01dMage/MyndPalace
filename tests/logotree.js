@@ -62,6 +62,7 @@ fd 5.5
 loop 15
 bk 60
 fd 150
+mat MeshBasicMaterial
 color 0xf7941d
 ts 420
 sz .17
