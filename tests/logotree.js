@@ -53,8 +53,8 @@ color random
 repeat 
 fd 30
 loop 4
-mat MeshBasicMaterial
-color 0xf7941d
+mat MeshStandardMaterial
+color 0xd47e30
 ts 900
 repeat
 xt 6
@@ -62,7 +62,7 @@ fd 5.5
 loop 15
 bk 60
 fd 150
-color 0xffffff 
+color 0xf7941d
 ts 420
 sz .17
 repeat 
