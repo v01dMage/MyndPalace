@@ -68,12 +68,13 @@ function Capsule( a, b, h, r, c, t, mat ){
   capsule.rotateX( hp- h.yd );
   capsule.rotateY( hp- h.xz );
   //capsule.translate( 0, d/2 ,0 );
-  let o= new THREE.Mesh(
-    capsule, Fern /* new THREE[mat](
+  let m= typeof mat == 'object' ?
+    mat :
+    new THREE[mat](
       { color: c }
-    ) */
-  ); 
-  //o.recieveShadow= true;
+    );
+  let o= new THREE.Mesh( capsule, m ); 
+  o.recieveShadow= true;
   //o.applyQuaternion( t.quaternion );
   o.position.set( a.x, a.y, a.z );
   avatar.self.scene.add( o );
@@ -247,6 +248,9 @@ class Turtle {
   }
   capsule( p1 ){
     this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle, this.material );
+  }
+  fern( p1 ){
+    this.latest= Capsule(  p1, this.position, this.heading, this.pen.size, this.pen.color, this.turtle, Fern );
   }
 
   async light( arr ){
