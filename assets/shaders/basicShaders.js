@@ -121,7 +121,7 @@ float br;
 void main(){
   rb= .5* (abs(vNormal.x)*1. +abs(vNormal.z)*.7);
   br= .5* (abs(vNormal.x)*.7 +abs(vNormal.z)*1.);
-  gl_FragColor= vec4( rb, 0.4, br, 1.0);
+  gl_FragColor= vec4( rb, 0. , br, 1.0);
 }
 `,
 });
