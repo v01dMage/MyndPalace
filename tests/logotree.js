@@ -95,7 +95,7 @@ xt 13
 repeat 
 fd 7
 rt 163
-loop 13
+loop 5
 end
 pu
 mv 0 -30 -30
