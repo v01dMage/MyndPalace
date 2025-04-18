@@ -115,9 +115,11 @@ void main(){
   fragmentShader: `varying vec3 pos;
 uniform float now;
 varying vec3 vNormal;
+float rb;
 
 void main(){
-  gl_FragColor= vec4( abs(vNormal), 1.0);
+  rb= abs(vNormal.x)+ abs(vNormal.z);
+  gl_FragColor= vec4( rb, 0.2, rb, 1.0);
 }
 `,
 });
