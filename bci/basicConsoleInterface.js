@@ -123,7 +123,7 @@ setShape mv cube
 \`;
   for(let i= 0; i< n; i++){
     let [x,y,z]= halfway();
-    out+= \`mv ${x} ${y} ${z}
+    out+= \`mv \${x} \${y} \${z}
 \`;
   }
   return out;
