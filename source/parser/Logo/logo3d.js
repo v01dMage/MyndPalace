@@ -241,7 +241,7 @@ class Turtle {
   }
 
   async setWire( arr ){
-    this.wire= Boolean( arr[0] );
+    this.wire= arr[0] == 'true';
   }
 
   sphere(){
