@@ -116,10 +116,14 @@ async function importXR(){
     lastPoint= o;
     return o;
   };
-  let out= '//Logo noopts\\ncolor 0xffaa00\\nts 10\\nsetShape mv cube';
+  let out= \\\`//Logo noopts
+color 0xffaa00
+ts 10
+setShape mv cube\\\`;
   for(let i= 0; i< n; i++){
     let [x,y,z]= halfway();
-    out+= 'mv \${x} \${y} \${z}\\n';
+    out+= \\\`mv \${x} \${y} \${z}
+\\\`;
   }
   return out;
 }
