@@ -97,6 +97,40 @@ async function importXR(){
   makeRunnableButton('psi', ()=>{ 
     bci.avatar.self.psi( webText().value );
   } );
+  makeLoadableButton( 'sierpunkski', `function sierpunkski(d,n){
+  let hd= d/2;
+  let points= [ 
+    [0 , 0,  0], 
+    [d , 0,  0], 
+    [hd, 0,  d], 
+    [30, 3, 15] ];
+  let rand= function (){
+    return Math.floor(Math.random()*4);
+  };
+  let lastPoint= [hd,hd,hd];
+  let halfway= function(){
+    let r= points[rand()];
+    let o= [(r[0]+lastPoint[0])/2,
+      (r[1]+lastPoint[1])/2,
+      (r[2]+lastPoint[2])/2];
+    lastPoint= o;
+    return o;
+  };
+  let out= \`//Logo noopts
+color 0xffaa00
+ts 10
+setShape mv cube
+\`;
+  for(let i= 0; i< n; i++){
+    let [x,y,z]= halfway();
+    out+= \`mv ${x} ${y} ${z}
+\`;
+  }
+  return out;
+}
+
+bci.avatar.self.psi( sierpunkski(6, 6000));
+`);
   makeLoadableButton( 'logo grass', `//Logo noopts
 mat MeshStandardMaterial
 color random 
