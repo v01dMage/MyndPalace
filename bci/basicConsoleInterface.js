@@ -116,14 +116,15 @@ async function importXR(){
     lastPoint= o;
     return o;
   };
-  let out= \\\`//Logo noopts
+  let out= \`//Logo noopts
 color 0xffaa00
 ts 10
-setShape mv cube\\\`;
+setShape mv cube
+\`;
   for(let i= 0; i< n; i++){
     let [x,y,z]= halfway();
-    out+= \\\`mv \${x} \${y} \${z}
-\\\`;
+    out+= \`mv \${x} \${y} \${z}
+\`;
   }
   return out;
 }
