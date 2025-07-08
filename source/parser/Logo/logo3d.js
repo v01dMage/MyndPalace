@@ -240,8 +240,8 @@ class Turtle {
     this.pen.color= Number.parseInt( arr[0], 16 );
   }
 
-  async setWire( tf ){
-    this.wire= Boolean( tf );
+  async setWire( arr ){
+    this.wire= Boolean( arr[0] );
   }
 
   sphere(){
