@@ -29,11 +29,11 @@ function rad2coords( r ){
 
 const rc= 2*Math.PI;
 
-function Sphere( pos, size, c, mat ){
+function Sphere( pos, size, c, mat, wire ){
   let geo= cache.Sphere['_'+size]? cache.Sphere['_'+size] :
             cache.Sphere['_'+size]= new THREE.SphereGeometry( size );
   let matC= cache.Mats['_'+c]? cache.Mats['_'+c] :
-            cache.Mats['_'+c]= new THREE[mat]( {color: c } );
+            cache.Mats['_'+c]= new THREE[mat]( {color: c, wireframe: wire} );
   let o= new THREE.Mesh( geo, matC );
   o.recieveShadow= true;
   o.position.set( pos.x, pos.y, pos.z );
@@ -118,6 +118,7 @@ class Turtle {
     this.heading= new Heading( bh.xz, bh.yd, bh.m );
     this.shapes= Object.assign({},base.shapes);
     this.material= "MeshBasicMaterial";
+    this.wire= false;
     this.pen= Object.assign({}, base.pen);
     this.latest= {};
     Object.keys(this.book).forEach( c=>{
@@ -238,10 +239,13 @@ class Turtle {
     }
     this.pen.color= Number.parseInt( arr[0], 16 );
   }
-  
+
+  async setWire( tf ){
+    this.wire= Boolean( tf );
+  }
 
   sphere(){
-    this.latest= Sphere( this.position, this.pen.size, this.pen.color, this.material );
+    this.latest= Sphere( this.position, this.pen.size, this.pen.color, this.material, this.wire );
   }
   cube(){
     this.latest= Cube( this );
