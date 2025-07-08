@@ -103,7 +103,7 @@ async function importXR(){
     [-hd , 0,  1], 
     [hd , 0,  1], 
     [0, 0, 1+ d], 
-    [0, d, 1] ];
+    [0, d, 1+hd] ];
   let rand= function (){
     return Math.floor(Math.random()* points.length);
   };
@@ -119,7 +119,7 @@ async function importXR(){
   let out= \`//Logo noopts
 color 0xffaa00
 ts 10
-setShape mv cube
+setWire true
 \`;
   for(let i= 0; i< n; i++){
     let [x,y,z]= halfway();
