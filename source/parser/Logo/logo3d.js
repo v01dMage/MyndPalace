@@ -33,7 +33,7 @@ function Sphere( pos, size, c, mat, wire ){
   let geo= cache.Sphere['_'+size]? cache.Sphere['_'+size] :
             cache.Sphere['_'+size]= new THREE.SphereGeometry( size );
   let matC= cache.Mats['_'+c]? cache.Mats['_'+c] :
-            cache.Mats['_'+c]= new THREE[mat]( {color: c, wireframe: wire} );
+            cache.Mats['_'+c]= new THREE[mat]( {color: c, wireframe: true} );
   let o= new THREE.Mesh( geo, matC );
   o.recieveShadow= true;
   o.position.set( pos.x, pos.y, pos.z );
