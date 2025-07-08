@@ -100,12 +100,12 @@ async function importXR(){
   makeLoadableButton( 'sierpunkski', `function sierpunkski(d,n){
   let hd= d/2;
   let points= [ 
-    [0 , 0,  0], 
-    [d , 0,  0], 
-    [hd, 0,  d], 
-    [30, 3, 15] ];
+    [-hd , 0,  1], 
+    [hd , 0,  1], 
+    [0, 0, 1+ d], 
+    [0, d, 1] ];
   let rand= function (){
-    return Math.floor(Math.random()*4);
+    return Math.floor(Math.random()* points.length);
   };
   let lastPoint= [hd,hd,hd];
   let halfway= function(){
@@ -116,15 +116,10 @@ async function importXR(){
     lastPoint= o;
     return o;
   };
-  let out= \`//Logo noopts
-color 0xffaa00
-ts 10
-setShape mv cube
-\`;
+  let out= '//Logo noopts\\ncolor 0xffaa00\\nts 10\\nsetShape mv cube';
   for(let i= 0; i< n; i++){
     let [x,y,z]= halfway();
-    out+= \`mv \${x} \${y} \${z}
-\`;
+    out+= 'mv \${x} \${y} \${z}\\n';
   }
   return out;
 }
