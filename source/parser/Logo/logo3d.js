@@ -35,7 +35,7 @@ function Sphere( pos, size, c, mat, wire ){
   let matC= cache.Mats['_'+c]? cache.Mats['_'+c] :
             cache.Mats['_'+c]= new THREE[mat]( {color: c, wireframe: true} );
   let o= new THREE.Mesh( geo, matC );
-  o.recieveShadow= true;
+  //o.recieveShadow= true;
   o.position.set( pos.x, pos.y, pos.z );
   avatar.self.scene.add( o );
   return o;
